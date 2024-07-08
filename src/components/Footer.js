@@ -16,7 +16,7 @@ const Footer = () => {
           <img
             src={lgicon}
             alt="MindGarden Icon"
-            style={{ width: "3em", height: "4em", marginRight: '0.5em' }}
+            style={{ width: "3em", height: "auto", marginRight: '0.5em' }}
           />
           <img
             src={logo}

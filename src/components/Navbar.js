@@ -20,13 +20,12 @@ const Navbar = () => {
             href="/"
             target="_blank"
             rel="noopener noreferrer"
+            style={{ display: 'flex', alignItems: 'center', padding: '0.5rem' }}
           >
-            <span className="icon" style={{ display: 'flex', alignItems: 'center' }}>
-              <img src={lgicon} alt="MindGarden" />
-            </span>
+            <img src={lgicon} alt="MindGarden" style={{ width: '40px', height: 'auto', marginRight: '10px' }} />
           </a>
-          <Link to="/" className="navbar-item" title="Logo" style={{ padding: '0.5rem 1rem' }}>
-            <img src={logo} alt="MindGarden" style={{ width: '90px', marginLeft: '0.5rem' }} />
+          <Link to="/" className="navbar-item" title="Logo" style={{ padding: '0.5rem 1rem', display: 'flex', alignItems: 'center' }}>
+            <img src={logo} alt="MindGarden" style={{ width: '120px', height: 'auto' }} />
           </Link>
           {/* Hamburger menu */}
           <button
@@ -41,9 +40,7 @@ const Navbar = () => {
         </div>
         <ul
           id="navMenu"
-          className={`navbar-start has-text-centered navbar-menu ${
-            isActive && "is-active"
-          }`}
+          className={`navbar-start has-text-centered navbar-menu ${isActive && "is-active"}`}
         >
           <li className="navbar-item" style={{ padding: '0px' }}>
             <Link className="navbar-item" to="/about">
