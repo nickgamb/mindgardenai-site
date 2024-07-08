@@ -7,8 +7,9 @@ subheading: Revolutionize mental health support and personal development
 mainpitch:
   title: MindGarden
   description: >
-  To foster mental well-being, emotional resilience, and personal growth through
-  timely, empathetic, and informed interactions, innovative features, and a supportive community.
+  To foster mental well-being, emotional resilience, and personal growth
+  through timely, empathetic, and informed interactions, innovative features,
+  and a supportive community.
 description: >-
   MindGarden aims to provide people with tools that truly understand them
   so that they can better understand themselves.
