@@ -21,10 +21,10 @@ intro:
       text: Explore how we utilize EEG data to gain insights into brain activity and
         mental states, helping to pave the way for innovative mental health
         solutions.
-    - image: /img/ultracortex.jpg
+    - image: /img/home-mental-health-metrics-1-.png
       text: Discover our work in developing brain-computer interfaces that offer new
         avenues for mental health monitoring and intervention.
-    - image: /img/tutorials.png
+    - image: /img/home-mental-health-metrics.png
       text: Learn how our AI algorithms analyze biometric data to provide personalized
         mental health support and recommendations.
     - image: /img/calm.jpg
