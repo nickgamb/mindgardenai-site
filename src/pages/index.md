@@ -21,13 +21,13 @@ intro:
       text: Explore how we utilize EEG data to gain insights into brain activity and
         mental states, helping to pave the way for innovative mental health
         solutions.
-    - image: /img/home-mental-health-metrics-1-.png
-      text: Discover our work in developing brain-computer interfaces that offer new
-        avenues for mental health monitoring and intervention.
     - image: /img/home-mental-health-metrics.png
       text: Learn how our AI algorithms analyze biometric data to provide personalized
         mental health support and recommendations.
-    - image: /img/calm.jpg
+    - image: /img/ultracortex.jpg
+      text: Discover our work in developing brain-computer interfaces that offer new
+        avenues for mental health monitoring and intervention.
+    - image: /img/mindgardennologo.png
       text: Join our community to stay updated on the latest research, share your
         experiences, and connect with others passionate about neurotech and
         mental health.
