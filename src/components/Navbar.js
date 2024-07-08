@@ -14,10 +14,10 @@ const Navbar = () => {
       aria-label="main-navigation"
     >
       <div className="container">
-        <div className="navbar-brand">
-        <span className="icon">
+        <div className="navbar-brand has-text-centered">
+          <span className="icon">
                 <img src={lgicon} alt="MindGarden" />
-              </span>
+          </span>
           <Link to="/" className="navbar-item" title="Logo">
             <img src={logo} alt="MindGarden" style={{ width: "100px" }} />
           </Link>
