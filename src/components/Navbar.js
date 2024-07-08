@@ -26,7 +26,7 @@ const Navbar = () => {
             </span>
           </a>
           <Link to="/" className="navbar-item" title="Logo">
-            <img src={logo} alt="MindGarden" style={{ width: "100px" }} />
+            <img src={logo} alt="MindGarden" style={{ width: "90px" }} />
           </Link>
           {/* Hamburger menu */}
           <button
