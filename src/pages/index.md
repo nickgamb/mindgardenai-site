@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Elevate Your Mind with MindGarden AI
-image: /img/home-jumbotron.jpg
+image: /img/eeg_data_banner.jpg
 heading: " Elevate Your Mind with MindGarden AI"
 subheading: Innovating Mental Health with Advanced Neurotechnology
 mainpitch:
