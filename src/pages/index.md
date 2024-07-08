@@ -1,19 +1,21 @@
 ---
 templateKey: index-page
-title: Plan and tend your mind just as you would your own garden.
+title: Great coffee with a conscience
 image: /img/home-jumbotron.jpg
-heading: Plan and tend your mind just as you would your own garden.
-subheading: Revolutionize mental health support and personal development
+heading: Great coffee with a conscience
+subheading: Support sustainable farming while enjoying a cup
 mainpitch:
-  title: MindGarden
+  title: Why Kaldi
   description: >
-  To foster mental well-being, emotional resilience, and personal growth
-  through timely, empathetic, and informed interactions, innovative features,
-  and a supportive community.
+    Kaldi is the coffee store for everyone who believes that great coffee
+    shouldn't just taste good, it should do good too. We source all of our beans
+    directly from small scale sustainable farmers and make sure part of the
+    profits are reinvested in their communities.
 description: >-
-  MindGarden aims to provide people with tools that truly understand them
-  so that they can better understand themselves.
-  Plan and tend your mind just as you would your own garden.
+  Kaldi is the ultimate spot for coffee lovers who want to learn about their
+  java’s origin and support the farmers that grew it. We take coffee production,
+  roasting and brewing seriously and we’re glad to pass that knowledge to
+  anyone.
 intro:
   blurbs:
     - image: /img/coffee.png
