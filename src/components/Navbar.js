@@ -14,19 +14,19 @@ const Navbar = () => {
       aria-label="main-navigation"
     >
       <div className="container">
-        <div className="navbar-brand">
+        <div className="navbar-brand" style={{ display: 'flex', alignItems: 'center' }}>
           <a
             className="navbar-item"
             href="/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="icon">
+            <span className="icon" style={{ display: 'flex', alignItems: 'center' }}>
               <img src={lgicon} alt="MindGarden" />
             </span>
           </a>
-          <Link to="/" className="navbar-item" title="Logo">
-            <img src={logo} alt="MindGarden" style={{ width: "90px" }} />
+          <Link to="/" className="navbar-item" title="Logo" style={{ padding: '0.5rem 1rem' }}>
+            <img src={logo} alt="MindGarden" style={{ width: '90px', marginLeft: '0.5rem' }} />
           </Link>
           {/* Hamburger menu */}
           <button
@@ -41,35 +41,31 @@ const Navbar = () => {
         </div>
         <ul
           id="navMenu"
-          className={` navbar-start has-text-centered navbar-menu ${
+          className={`navbar-start has-text-centered navbar-menu ${
             isActive && "is-active"
           }`}
         >
-          {/* TODO: inline override of padding is a result of refactoring
-                to a ul for accessibilty purposes, would like to see a css
-                re-write that makes this unneccesary.
-             */}
-          <li className="navbar-item" style={{ padding: "0px" }}>
+          <li className="navbar-item" style={{ padding: '0px' }}>
             <Link className="navbar-item" to="/about">
               About
             </Link>
           </li>
-          <li className="navbar-item" style={{ padding: "0px" }}>
+          <li className="navbar-item" style={{ padding: '0px' }}>
             <Link className="navbar-item" to="/products">
               Products
             </Link>
           </li>
-          <li className="navbar-item" style={{ padding: "0px" }}>
+          <li className="navbar-item" style={{ padding: '0px' }}>
             <Link className="navbar-item" to="/blog">
               Blog
             </Link>
           </li>
-          <li className="navbar-item" style={{ padding: "0px" }}>
+          <li className="navbar-item" style={{ padding: '0px' }}>
             <Link className="navbar-item" to="/contact">
               Contact
             </Link>
           </li>
-          <li className="navbar-item" style={{ padding: "0px" }}>
+          <li className="navbar-item" style={{ padding: '0px' }}>
             <Link className="navbar-item" to="/contact/examples">
               Form Examples
             </Link>
