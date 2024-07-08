@@ -16,12 +16,12 @@ const Footer = () => {
           <img
             src={lgicon}
             alt="MindGarden Icon"
-            style={{ width: "4em", height: "4em", marginRight: '0.5em' }}
+            style={{ width: "3em", height: "4em", marginRight: '0.5em' }}
           />
           <img
             src={logo}
             alt="MindGarden"
-            style={{ width: "14em", height: "10em" }}
+            style={{ width: "14em", height: "auto" }}
           />
         </div>
       </div>
