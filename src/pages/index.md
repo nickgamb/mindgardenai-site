@@ -17,7 +17,7 @@ description: MindGarden AI aims to revolutionize mental health care by
   neurotech research.
 intro:
   blurbs:
-    - image: /img/screenshot-2024-07-02-220256.png
+    - image: /img/ultracortex.jpg
       text: Explore how we utilize EEG data to gain insights into brain activity and
         mental states, helping to pave the way for innovative mental health
         solutions.
