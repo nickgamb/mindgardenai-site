@@ -11,11 +11,11 @@ const Footer = () => {
   return (
     <footer className="footer has-background-black has-text-white-ter">
       <div className="content has-text-centered">
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <img
             src={lgicon}
             alt="MindGarden Icon"
-            style={{ width: "2.5em", height: "auto", marginRight: '5px' }}
+            style={{ width: "2.5em", height: "auto", marginBottom: '0.5rem' }}
           />
           <span style={{ fontSize: '2rem', color: '#7035CC', fontWeight: 'bold', letterSpacing: '0.1em' }}>
             MINDGARDEN AI
