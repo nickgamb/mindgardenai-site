@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
 
-import logo from "../img/MindGarden.png";
 import lgicon from "../img/MindGarden_Icon.png";
 import facebook from "../img/social/facebook.svg";
 import instagram from "../img/social/instagram.svg";
@@ -16,13 +15,11 @@ const Footer = () => {
           <img
             src={lgicon}
             alt="MindGarden Icon"
-            style={{ width: "3em", height: "auto", marginRight: '5px' }}
+            style={{ width: "3em", height: "auto", marginRight: '10px' }}
           />
-          <img
-            src={logo}
-            alt="MindGarden"
-            style={{ width: "14em", height: "auto" }}
-          />
+          <span style={{ fontSize: '1.5rem', color: '#7035CC', fontWeight: 'bold', letterSpacing: '0.1em' }}>
+            MINDGARDEN AI
+          </span>
         </div>
       </div>
       <div className="content has-text-centered has-background-black has-text-white-ter">

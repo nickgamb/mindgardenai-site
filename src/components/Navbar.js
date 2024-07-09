@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import github from "../img/github-icon.svg";
-import logo from "../img/MindGarden.png";
 import lgicon from "../img/MindGarden_Icon.png";
 
 const Navbar = () => {
@@ -22,11 +21,11 @@ const Navbar = () => {
             rel="noopener noreferrer"
             style={{ display: 'flex', alignItems: 'center', padding: '0.5rem' }}
           >
-            <img src={lgicon} alt="MindGarden" style={{ width: '30px', height: 'auto', marginRight: '1px' }} />
+            <img src={lgicon} alt="MindGarden" style={{ width: '30px', height: 'auto', marginRight: '10px' }} />
+            <span style={{ fontSize: '1.5rem', color: '#7035CC', fontWeight: 'bold', letterSpacing: '0.1em' }}>
+              MINDGARDEN AI
+            </span>
           </a>
-          <Link to="/" className="navbar-item" title="Logo" style={{ padding: '0.5rem 1rem', display: 'flex', alignItems: 'center' }}>
-            <img src={logo} alt="MindGarden" style={{ width: '120px', height: 'auto' }} />
-          </Link>
           {/* Hamburger menu */}
           <button
             className={`navbar-burger burger ${isActive && "is-active"}`}
