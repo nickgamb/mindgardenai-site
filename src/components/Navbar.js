@@ -21,7 +21,7 @@ const Navbar = () => {
             rel="noopener noreferrer"
             style={{ display: 'flex', alignItems: 'center', padding: '0.5rem' }}
           >
-            <img src={lgicon} alt="MindGarden" style={{ width: '30px', height: 'auto', marginRight: '10px' }} />
+            <img src={lgicon} alt="MindGarden" style={{ width: '50px', height: 'auto', marginRight: '5px' }} />
             <span style={{ fontSize: '1.5rem', color: '#7035CC', fontWeight: 'bold', letterSpacing: '0.1em' }}>
               MINDGARDEN AI
             </span>

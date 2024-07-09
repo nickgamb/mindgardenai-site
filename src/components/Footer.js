@@ -2,10 +2,10 @@ import * as React from "react";
 import { Link } from "gatsby";
 
 import lgicon from "../img/MindGarden_Icon.png";
-import facebook from "../img/social/facebook.svg";
+import discord from "../img/social/discord.svg";
 import instagram from "../img/social/instagram.svg";
-import twitter from "../img/social/twitter.svg";
-import vimeo from "../img/social/vimeo.svg";
+import tiktok from "../img/social/tiktok.svg";
+import linkedin from "../img/social/linkedin.svg";
 
 const Footer = () => {
   return (
@@ -15,7 +15,7 @@ const Footer = () => {
           <img
             src={lgicon}
             alt="MindGarden Icon"
-            style={{ width: "3em", height: "auto", marginRight: '10px' }}
+            style={{ width: "5em", height: "auto", marginRight: '5px' }}
           />
           <span style={{ fontSize: '1.5rem', color: '#7035CC', fontWeight: 'bold', letterSpacing: '0.1em' }}>
             MINDGARDEN AI
@@ -78,18 +78,17 @@ const Footer = () => {
               </section>
             </div>
             <div className="column is-4 social">
-              <a title="facebook" href="https://facebook.com">
+              <a title="linkedin" href="https://www.linkedin.com/company/mindgarden-ai">
                 <img
-                  src={facebook}
-                  alt="Facebook"
+                  src={linkedin}
+                  alt="LinkedIn"
                   style={{ width: "1em", height: "1em" }}
                 />
               </a>
-              <a title="twitter" href="https://twitter.com">
+              <a title="Discord" href="https://discord.gg/WaxMJN7t">
                 <img
-                  className="fas fa-lg"
-                  src={twitter}
-                  alt="Twitter"
+                  src={discord}
+                  alt="Discord"
                   style={{ width: "1em", height: "1em" }}
                 />
               </a>
@@ -100,10 +99,10 @@ const Footer = () => {
                   style={{ width: "1em", height: "1em" }}
                 />
               </a>
-              <a title="vimeo" href="https://vimeo.com">
+              <a title="TikTok" href="https:/tiktok.com">
                 <img
-                  src={vimeo}
-                  alt="Vimeo"
+                  src={tiktok}
+                  alt="TikTok"
                   style={{ width: "1em", height: "1em" }}
                 />
               </a>
