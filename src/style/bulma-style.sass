@@ -7,20 +7,19 @@
 // WARNING: Sometimes it mistakenly removes needed styles. You can reduce your
 // risk of confusion and bugs by doing any custom styling in a separate file.
 
-@import ./variables.sass
+@import "./variables.sass"
 
-//Menu overrides
-$menu-item-color: $white-ter
-$menu-item-hover-color: $black !important
-$menu-item-hover-background-color: $black
+// Menu overrides
+$menu-item-color: $purple10
+$menu-item-hover-color: $purple70 !important
+$menu-item-hover-background-color: $purple70
 $menu-item-active-color: $purple10
 $menu-item-active-background-color: $purple70
 $menu-list-border-left: 1px solid $purple70
-$menu-label-color: $white-ter
+$menu-label-color: $purple10
 
 // Import bulma only after the variables have been customized.
 @import "~bulma"
-
 
 // responsiveness
 +tablet-only
