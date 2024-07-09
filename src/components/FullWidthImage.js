@@ -18,36 +18,32 @@ export default function FullWidthImage(props) {
         style={{
           display: "grid",
           alignItems: "center",
+          position: "relative",
         }}
       >
         {img?.url ? (
           <img
             src={img}
-            objectFit={"cover"}
-            objectPosition={imgPosition}
             style={{
               gridArea: "1/1",
-              // You can set a maximum height for the image, if you wish.
+              objectFit: "cover",
+              objectPosition: imgPosition,
               height: height,
               width: "100%",
             }}
-            // This is a presentational image, so the alt should be an empty string
             alt=""
           />
         ) : (
           <GatsbyImage
             image={img}
-            objectFit={"cover"}
-            objectPosition={imgPosition}
             style={{
               gridArea: "1/1",
-              // You can set a maximum height for the image, if you wish.
+              objectFit: "cover",
+              objectPosition: imgPosition,
               maxHeight: height,
+              width: "100%",
             }}
             layout="fullWidth"
-            // You can optionally force an aspect ratio for the generated image
-            aspectratio={3 / 1}
-            // This is a presentational image, so the alt should be an empty string
             alt=""
             formats={["auto", "webp", "avif"]}
           />
@@ -55,30 +51,24 @@ export default function FullWidthImage(props) {
         {(title || subheading) && (
           <div
             style={{
-              // By using the same grid area for both, they are stacked on top of each other
               gridArea: "1/1",
-              position: "relative",
-              // This centers the other elements inside the hero component
-              placeItems: "center",
-              display: "grid",
-              padding: "1rem",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
               textAlign: "center",
-              background: "rgba(0, 0, 0, 0.5)",
               color: "white",
-              width: "100%",
+              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+              padding: "1rem",
             }}
           >
             {title && (
               <h1
                 className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
                 style={{
-                  boxShadow:
-                    "#3d234d 0.5rem 0px 0px, #3d234d -0.5rem 0px 0px",
-                  backgroundColor: "#3d234d",
-                  color: "white",
-                  lineHeight: "1",
+                  backgroundColor: "#7035CC",
                   padding: "0.25em",
-                  margin: "0.5rem 0",
+                  marginBottom: "0.5rem",
                 }}
               >
                 {title}
@@ -88,13 +78,8 @@ export default function FullWidthImage(props) {
               <h3
                 className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
                 style={{
-                  boxShadow:
-                    "#3d234d 0.5rem 0px 0px, #3d234d -0.5rem 0px 0px",
-                  backgroundColor: "#3d234d",
-                  color: "white",
-                  lineHeight: "1",
+                  backgroundColor: "#7035CC",
                   padding: "0.25rem",
-                  marginTop: "0.5rem",
                 }}
               >
                 {subheading}
