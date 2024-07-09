@@ -36,7 +36,7 @@
   width: 100vw
   height: 400px
   background-size: cover
-  background-position: center // Changed from bottom to center
+  background-position: bottom
   display: flex
   justify-content: center
   align-items: center
@@ -127,18 +127,20 @@ footer.footer
     padding: 2rem 1rem !important
   .full-width-image
     height: 250px !important
-    background-size: contain !important // Adjust size to fit mobile screen
-    background-position: center !important
 
-.section
-  padding: 1.5rem 0 // Reduce padding for sections
-
-.section .column
-  margin-bottom: 1rem // Reduce the bottom margin for columns
-
-@media (max-width: 768px)
-  .section
-    padding: 1rem 0 // Further reduce padding for sections on mobile
-
-  .section .column
-    margin-bottom: 0.5rem // Further reduce the bottom margin for columns on mobile
+@media (max-width: 1024px)
+  .title
+    font-size: 2rem !important
+  .subtitle
+    font-size: 1.5rem !important
+  .btn
+    font-size: 1.2rem !important
+    padding: 10px 14px 8px !important
+  .content
+    padding: 1.5rem !important
+  .navbar-menu
+    font-size: 1.2rem !important
+  .hero .hero-body
+    padding: 2.5rem 1rem !important
+  .full-width-image
+    height: 300px !important
