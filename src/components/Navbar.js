@@ -22,7 +22,7 @@ const Navbar = () => {
             rel="noopener noreferrer"
             style={{ display: 'flex', alignItems: 'center', padding: '0.5rem' }}
           >
-            <img src={lgicon} alt="MindGarden" style={{ width: '35px', height: 'auto', marginRight: '5px' }} />
+            <img src={lgicon} alt="MindGarden" style={{ width: '30px', height: 'auto', marginRight: '1px' }} />
           </a>
           <Link to="/" className="navbar-item" title="Logo" style={{ padding: '0.5rem 1rem', display: 'flex', alignItems: 'center' }}>
             <img src={logo} alt="MindGarden" style={{ width: '120px', height: 'auto' }} />
