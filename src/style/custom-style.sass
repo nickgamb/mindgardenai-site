@@ -109,3 +109,26 @@ footer.footer
 .blog-list-item .featured-thumbnail
   flex-basis: 35%
   margin: 0 1.5em 0 0
+
+@media screen and (max-width: 1024px)
+  .full-width-image-container,
+  .full-width-image
+    height: auto
+  .navbar-brand .navbar-item.logo,
+  .navbar-item .icon,
+  .blog-list-item .featured-thumbnail
+    flex-basis: 100%
+    margin: 0
+  .content .taglist
+    flex-direction: column
+    li
+      padding: 0.5rem 0
+
+@media screen and (max-width: 768px)
+  .navbar-item .icon svg
+    width: 1rem
+    height: 1rem
+  .navbar-brand .navbar-item.logo
+    padding: 0 0.5rem
+  .btn
+    padding: 10px 14px 8px
