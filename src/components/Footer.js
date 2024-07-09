@@ -9,15 +9,15 @@ import linkedin from "../img/social/linkedin.svg";
 
 const Footer = () => {
   return (
-    <footer className="footer has-background-black has-text-white-ter">
+    <footer className="footer has-background-black has-text-white-ter" style={{ backgroundColor: '#4E248E' }}>
       <div className="content has-text-centered">
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <img
             src={lgicon}
             alt="MindGarden Icon"
-            style={{ width: "5em", height: "auto", marginRight: '5px' }}
+            style={{ width: "2.5em", height: "auto", marginRight: '5px' }}
           />
-          <span style={{ fontSize: '2rem', color: '#7035CC', fontWeight: 'bold', letterSpacing: '0.1em' }}>
+          <span style={{ fontSize: '2rem', color: '#EDE9FE', fontWeight: 'bold', letterSpacing: '0.1em' }}>
             MINDGARDEN AI
           </span>
         </div>
@@ -99,7 +99,7 @@ const Footer = () => {
                   style={{ width: "1em", height: "1em" }}
                 />
               </a>
-              <a title="TikTok" href="https:/tiktok.com">
+              <a title="TikTok" href="https://tiktok.com">
                 <img
                   src={tiktok}
                   alt="TikTok"
