@@ -8,86 +8,87 @@ export default function FullWidthImage(props) {
     img,
     title,
     subheading,
-    imgPosition = "top left",
+    imgPosition = "center",
   } = props;
 
   return (
-    <React.Fragment>
-      <div
-        className="full-width-image-container"
-        style={{
-          height: `${height}px`,
-        }}
-      >
-        {img?.url ? (
-          <img
-            src={img}
-            style={{
-              gridArea: "1/1",
-              objectFit: "cover",
-              objectPosition: imgPosition,
-              height: "100%",
-              width: "100%",
-            }}
-            alt=""
-          />
-        ) : (
-          <GatsbyImage
-            image={img}
-            style={{
-              gridArea: "1/1",
-              objectFit: "cover",
-              objectPosition: imgPosition,
-              height: "100%",
-              width: "100%",
-            }}
-            layout="fullWidth"
-            alt=""
-            formats={["auto", "webp", "avif"]}
-          />
-        )}
-        {(title || subheading) && (
-          <div
-            className="title-container"
-            style={{
-              gridArea: "1/1",
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              textAlign: "center",
-              color: "white",
-              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-              padding: "1rem",
-            }}
-          >
-            {title && (
-              <h1
-                className="has-text-weight-bold title"
-                style={{
-                  backgroundColor: "#7035CC",
-                  padding: "0.25em",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                {title}
-              </h1>
-            )}
-            {subheading && (
-              <h3
-                className="has-text-weight-bold subheading"
-                style={{
-                  backgroundColor: "#7035CC",
-                  padding: "0.25rem",
-                }}
-              >
-                {subheading}
-              </h3>
-            )}
-          </div>
-        )}
-      </div>
-    </React.Fragment>
+    <div
+      className="full-width-image-container"
+      style={{
+        display: "grid",
+        alignItems: "center",
+        overflow: "hidden",
+      }}
+    >
+      {img?.url ? (
+        <img
+          src={img}
+          style={{
+            gridArea: "1/1",
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            objectPosition: imgPosition,
+          }}
+          alt=""
+        />
+      ) : (
+        <GatsbyImage
+          image={img}
+          style={{
+            gridArea: "1/1",
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            objectPosition: imgPosition,
+          }}
+          alt=""
+          formats={["auto", "webp", "avif"]}
+        />
+      )}
+      {(title || subheading) && (
+        <div
+          style={{
+            gridArea: "1/1",
+            position: "relative",
+            display: "grid",
+            placeItems: "center",
+            textAlign: "center",
+          }}
+        >
+          {title && (
+            <h1
+              className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
+              style={{
+                boxShadow: "#7035CC 0.5rem 0px 0px, #7035CC -0.5rem 0px 0px",
+                backgroundColor: "#7035CC",
+                color: "white",
+                lineHeight: "1",
+                padding: "0.25em",
+                margin: "0",
+              }}
+            >
+              {title}
+            </h1>
+          )}
+          {subheading && (
+            <h3
+              className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
+              style={{
+                boxShadow: "#7035CC 0.5rem 0px 0px, #7035CC -0.5rem 0px 0px",
+                backgroundColor: "#7035CC",
+                color: "white",
+                lineHeight: "1",
+                padding: "0.25rem",
+                marginTop: "0.5rem",
+              }}
+            >
+              {subheading}
+            </h3>
+          )}
+        </div>
+      )}
+    </div>
   );
 }
 
