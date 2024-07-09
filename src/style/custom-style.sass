@@ -21,22 +21,20 @@
 // Helper Classes
 .full-width-image-container
   width: 100vw
-  height: 400px
+  height: 250px
   position: relative
-  left: 50%
-  right: 50%
-  margin: 2em -50vw
   background-size: cover
-  background-position: bottom
+  background-position: center
   display: flex
   justify-content: center
   align-items: center
+  overflow: hidden
 
 .full-width-image
   width: 100vw
-  height: 400px
+  height: 100%
   background-size: cover
-  background-position: bottom
+  background-position: center
   display: flex
   justify-content: center
   align-items: center
@@ -124,6 +122,13 @@ footer.footer
   flex-basis: 35%
   margin: 0 1.5em 0 0
 
+@media (min-width: 768px)
+  .full-width-image-container
+    height: 400px
+
+  .full-width-image
+    height: 100%
+
 // Responsive adjustments
 @media (max-width: 768px)
   .title
@@ -139,7 +144,7 @@ footer.footer
     font-size: 1rem !important
   .hero .hero-body
     padding: 2rem 1rem !important
-  .full-width-image-container,
   .full-width-image
     height: 250px !important
-    max-height: none !important
+  .full-width-image-container
+    height: 250px !important
