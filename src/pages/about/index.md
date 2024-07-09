@@ -1,19 +1,28 @@
 ---
 templateKey: 'about-page'
 path: /about
-title: About our values
+title: About MindGarden AI
 ---
-### Shade-grown coffee
-Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.
+### Our Vision
+At MindGarden AI, we are dedicated to revolutionizing mental health care through advanced neurotechnology and machine learning. Our mission is to provide accessible, personalized mental health solutions that cater to the unique needs of each individual.
 
-### Single origin
-Single-origin coffee is coffee grown within a single known geographic origin. Sometimes, this is a single farm or a specific collection of beans from a single country. The name of the coffee is then usually the place it was grown to whatever degree available.
+### Harnessing the Power of AI
+We leverage cutting-edge AI-driven algorithms to analyze data across multiple modalities, including EEG, facial emotion detection, physical biometrics, environmental data, and health ecosystem integration. By training detailed models of individual behavior over time, we offer deep insights, predictive analytics, and proactive mental health interventions, making personalized care accessible for everyone.
 
-### Sustainable farming
-Sustainable agriculture is farming in sustainable ways based on an understanding of ecosystem services, the study of relationships between organisms and their environment. What grows where and how it is grown are a matter of choice and careful consideration for nature and communities.
+### EEG Insights
+Our innovative approach utilizes EEG data to gain profound insights into brain activity and mental states. This enables us to develop highly personalized interventions and groundbreaking mental health solutions that cater to the specific needs of each user.
 
-### Direct sourcing
-Direct trade is a form of sourcing practiced by some coffee roasters. Advocates of direct trade practices promote direct communication and price negotiation between buyer and farmer, along with systems that encourage and incentivize quality.
+### Personalized Journaling
+Self-reported experiences through journals provide invaluable insights into an individual's conscious mind and perception of reality. Our platform enriches this data with sentiment analysis, detection of common themes, and entities, contributing to a comprehensive understanding of each user's mental state over time.
 
-### Reinvest profits
-We want to truly empower the communities that bring amazing coffee to you. That’s why we reinvest 20% of our profits into farms, local businesses and schools everywhere our coffee is grown. You can see the communities grow and learn more about coffee farming on our blog.
+### Brain-Computer Interfaces
+We are at the forefront of developing brain-computer interfaces, opening new paths for mental health monitoring and intervention solutions. These interfaces allow for real-time data collection and analysis, providing users with actionable insights and support.
+
+### Sustainable and Ethical Practices
+At MindGarden AI, we believe in sustainable and ethical practices. We are committed to ensuring that our technology is developed and used responsibly, with a focus on improving the well-being of our users and the broader community.
+
+### Community and Collaboration
+We value community and collaboration. By working closely with mental health professionals, researchers, and users, we continuously improve our platform to meet the evolving needs of the mental health community. Join our journey, gain insights from experts, and explore the latest in neurotech research through our blog and upcoming podcast.
+
+### Our Commitment
+We are dedicated to making a positive impact on mental health care. Our commitment to innovation, personalization, and ethical practices drives us to create solutions that empower individuals to take control of their mental health journey.
