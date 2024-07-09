@@ -18,20 +18,20 @@ const TemplateWrapper = ({ children }) => {
 
         <link
           rel="apple-touch-icon"
-          sizes="180x176"
+          sizes="180x170"
           href={`${withPrefix("/")}img/mindgardennologo.png`}
         />
         <link
           rel="icon"
           type="image/png"
           href={`${withPrefix("/")}img/mindgardennologo.png`}
-          sizes="32x28"
+          sizes="32x25"
         />
         <link
           rel="icon"
           type="image/png"
           href={`${withPrefix("/")}img/mindgardennologo.png`}
-          sizes="16x12"
+          sizes="16x10"
         />
 
         <link
