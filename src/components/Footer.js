@@ -17,7 +17,7 @@ const Footer = () => {
             alt="MindGarden Icon"
             style={{ width: "5em", height: "auto", marginRight: '5px' }}
           />
-          <span style={{ fontSize: '1.5rem', color: '#7035CC', fontWeight: 'bold', letterSpacing: '0.1em' }}>
+          <span style={{ fontSize: '2rem', color: '#7035CC', fontWeight: 'bold', letterSpacing: '0.1em' }}>
             MINDGARDEN AI
           </span>
         </div>
