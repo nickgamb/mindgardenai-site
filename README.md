@@ -77,7 +77,7 @@ import IndexPagePreview from "./preview-templates/IndexPagePreview";
 
 CMS.registerPreviewTemplate("index", IndexPagePreview);
 CMS.registerPreviewTemplate("about", AboutPagePreview);
-CMS.registerPreviewTemplate("products", ProductPagePreview);
+CMS.registerPreviewTemplate("podcast", PodcastPagePreview);
 CMS.registerPreviewTemplate("blog", BlogPostPreview);
 ```
 
