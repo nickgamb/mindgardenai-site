@@ -110,25 +110,20 @@ footer.footer
   flex-basis: 35%
   margin: 0 1.5em 0 0
 
-@media screen and (max-width: 1024px)
-  .full-width-image-container,
-  .full-width-image
-    height: auto
-  .navbar-brand .navbar-item.logo,
-  .navbar-item .icon,
-  .blog-list-item .featured-thumbnail
-    flex-basis: 100%
-    margin: 0
-  .content .taglist
-    flex-direction: column
-    li
-      padding: 0.5rem 0
-
-@media screen and (max-width: 768px)
-  .navbar-item .icon svg
-    width: 1rem
-    height: 1rem
-  .navbar-brand .navbar-item.logo
-    padding: 0 0.5rem
+// Responsive adjustments
+@media (max-width: 768px)
+  .title
+    font-size: 1.5rem !important
+  .subtitle
+    font-size: 1.2rem !important
   .btn
-    padding: 10px 14px 8px
+    font-size: 1rem !important
+    padding: 10px 14px 8px !important
+  .content
+    padding: 1rem !important
+  .navbar-menu
+    font-size: 1rem !important
+  .hero .hero-body
+    padding: 2rem 1rem !important
+  .full-width-image
+    height: 250px !important

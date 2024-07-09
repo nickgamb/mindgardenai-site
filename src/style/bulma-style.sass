@@ -1,6 +1,12 @@
 // This file imports and customizes the Bulma CSS framework.
 // https://bulma.io/documentation/customize/with-node-sass/
 
+// This file is processed by a Gatsby plugin called Purgecss, which removes unused
+// CSS to optimize the bundle. This behavior can be customized in gatsby-config.js.
+// https://www.gatsbyjs.com/plugins/gatsby-plugin-purgecss/
+// WARNING: Sometimes it mistakenly removes needed styles. You can reduce your
+// risk of confusion and bugs by doing any custom styling in a separate file.
+
 @import "./variables.sass"
 
 // Menu overrides
@@ -28,16 +34,19 @@ $menu-label-color: $purple10
     max-width: 70%
     margin: 0 0 1em
 
-@media screen and (max-width: 1024px)
-  .navbar-brand .navbar-item.logo,
-  .navbar-item .icon,
-  .blog-list-item .featured-thumbnail
-    flex-basis: 100%
-    margin: 0
-
-@media screen and (max-width: 768px)
-  .navbar-item .icon svg
-    width: 1rem
-    height: 1rem
-  .navbar-brand .navbar-item.logo
-    padding: 0 0.5rem
+@media (max-width: 768px)
+  .title
+    font-size: 1.5rem !important
+  .subtitle
+    font-size: 1.2rem !important
+  .btn
+    font-size: 1rem !important
+    padding: 10px 14px 8px !important
+  .content
+    padding: 1rem !important
+  .navbar-menu
+    font-size: 1rem !important
+  .hero .hero-body
+    padding: 2rem 1rem !important
+  .full-width-image
+    height: 250px !important
