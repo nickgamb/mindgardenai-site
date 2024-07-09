@@ -11,7 +11,6 @@ const Navbar = () => {
       className="navbar is-transparent"
       role="navigation"
       aria-label="main-navigation"
-      style={{ backgroundColor: '#2E1065' }}
     >
       <div className="container">
         <div className="navbar-brand" style={{ display: 'flex', alignItems: 'center' }}>
@@ -22,8 +21,8 @@ const Navbar = () => {
             rel="noopener noreferrer"
             style={{ display: 'flex', alignItems: 'center', padding: '0.5rem' }}
           >
-            <img src={lgicon} alt="MindGarden" style={{ width: '25px', height: 'auto', marginRight: '10px' }} />
-            <span style={{ fontSize: '1.2rem', color: '#EDE9FE', fontWeight: 'bold', letterSpacing: '0.1em' }}>
+            <img src={lgicon} alt="MindGarden" style={{ width: '25px', height: 'auto', marginRight: '5px' }} />
+            <span style={{ fontSize: '1.3rem', color: '#7035CC', fontWeight: 'bold', letterSpacing: '0.1em' }}>
               MINDGARDEN AI
             </span>
           </a>
