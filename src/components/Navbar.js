@@ -61,6 +61,18 @@ const Navbar = () => {
               Contact
             </Link>
           </li>
+          <li className="navbar-end has-text-centered">
+            <a
+              className="navbar-item"
+              href="https://github.com/nickgamb/mindgardenai-site"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="icon">
+                <img src={github} alt="Github" />
+              </span>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
