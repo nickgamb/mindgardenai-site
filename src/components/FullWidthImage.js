@@ -14,11 +14,9 @@ export default function FullWidthImage(props) {
   return (
     <React.Fragment>
       <div
-        className="margin-top-0"
+        className="full-width-image-container"
         style={{
-          display: "grid",
-          alignItems: "center",
-          position: "relative",
+          height: `${height}px`,
         }}
       >
         {img?.url ? (
@@ -28,7 +26,7 @@ export default function FullWidthImage(props) {
               gridArea: "1/1",
               objectFit: "cover",
               objectPosition: imgPosition,
-              height: height,
+              height: "100%",
               width: "100%",
             }}
             alt=""
@@ -40,7 +38,7 @@ export default function FullWidthImage(props) {
               gridArea: "1/1",
               objectFit: "cover",
               objectPosition: imgPosition,
-              maxHeight: height,
+              height: "100%",
               width: "100%",
             }}
             layout="fullWidth"
@@ -50,6 +48,7 @@ export default function FullWidthImage(props) {
         )}
         {(title || subheading) && (
           <div
+            className="title-container"
             style={{
               gridArea: "1/1",
               position: "absolute",
@@ -64,7 +63,7 @@ export default function FullWidthImage(props) {
           >
             {title && (
               <h1
-                className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
+                className="has-text-weight-bold title"
                 style={{
                   backgroundColor: "#7035CC",
                   padding: "0.25em",
@@ -76,7 +75,7 @@ export default function FullWidthImage(props) {
             )}
             {subheading && (
               <h3
-                className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
+                className="has-text-weight-bold subheading"
                 style={{
                   backgroundColor: "#7035CC",
                   padding: "0.25rem",
