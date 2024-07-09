@@ -1,54 +1,70 @@
 ---
 templateKey: index-page
-title: Elevate Your Mind with MindGarden AI
+title: Transform Your Mental Health Journey with MindGarden AI
 image: /img/MindGarden_Banner.png
-heading: " Elevate Your Mind with MindGarden AI"
-subheading: Innovating Mental Health with Advanced Neurotechnology
+heading: Enhance Your Mental Health with MindGarden AI
+subheading: Driving Mental Wellness Innovation with Neurotechnology and AI
 mainpitch:
   title: Why MindGarden AI?
-  description: "MindGarden AI is at the forefront of mental health innovation,
-    blending advanced neurotechnology with AI to foster personal growth and
-    well-being. "
-description: MindGarden AI aims to revolutionize mental health care by
-  integrating the latest advancements in neurotechnology and AI. We are
-  dedicated to understanding the complexities of the human brain and using that
-  knowledge to create effective, personalized mental health solutions. Our blog
-  and podcast will share our journey, insights from experts, and the latest in
-  neurotech research.
+  description: MindGarden AI combines advanced neurotechnology with machine
+    learning to support personal growth and well-being. Our mission is to create
+    accessible, effective mental health solutions for everyone.
+description: At MindGarden AI, we're leveraging the power of neurotechnology and
+  machine learning to transform mental health care. We're committed to
+  understanding the human brain's intricacies and using this knowledge to
+  develop accessible, personalized cognitive health solutions. Join our blog and
+  podcast (soon) to follow our journey, gain insights from experts, and explore
+  the latest in neurotech research.
 intro:
   blurbs:
-    - image: /img/eeg_android.jpg
-      text: Explore how we utilize EEG data to gain insights into brain activity and
-        mental states, helping to pave the way for innovative mental health
-        solutions.
     - image: /img/home-mental-health-metrics.png
-      text: Learn how our AI algorithms analyze biometric data to provide personalized
-        mental health support and recommendations.
+      text: AI-driven algorithms are used analyze data across multiple modalities. By
+        training detailed models of individual behavior over time, we provide
+        deep insights, predictive analytics, and proactive mental health
+        interventions, making personalized care accessible for everyone.
+    - image: /img/eeg_android.jpg
+      text: Leveraging EEG data, we unlock profound insights into brain activity and
+        mental states. This empowers the creation of innovative mental health
+        solutions and highly personalized interventions.
+    - image: /img/journal.png
+      text: Self-reported experiences through journals provide invaluable insights
+        into an individual's conscious mind and perception of reality. This
+        data, enriched with sentiment analysis and detection of recurring themes
+        and entities, enhances our detailed behavioral models over time.
     - image: /img/ultracortex.jpg
-      text: Discover our work in developing brain-computer interfaces that offer new
-        avenues for mental health monitoring and intervention.
-    - image: /img/mindgardennologo.png
-      text: Join our community to stay updated on the latest research, share your
-        experiences, and connect with others passionate about neurotech and
-        mental health.
-  heading: "Pioneering EEG Technology: "
-  description: Explore how we utilize EEG data to gain insights into brain
-    activity and mental states, helping to pave the way for innovative mental
-    health solutions.
+      text: Brain-computer interfaces pave the way for groundbreaking advancements in
+        mental health monitoring and intervention, offering novel solutions to
+        enhance mental well-being.
+  heading: Enhance Your Mental Health with MindGarden AI
+  description: At MindGarden AI, we're leveraging the power of neurotechnology and
+    machine learning to transform mental health care. We're committed to
+    understanding the human brain's intricacies and using this knowledge to
+    develop accessible, personalized cognitive health solutions. Join our blog
+    and podcast (soon) to follow our journey, gain insights from experts, and
+    explore the latest in neurotech research.
 main:
-  heading: Great coffee with no compromises
-  description: >
-    We hold our coffee to the highest standards from the shrub to the cup.
-    That’s why we’re meticulous and transparent about each step of the coffee’s
-    journey. We personally visit each farm to make sure the conditions are
-    optimal for the plants, farmers and the local environment.
+  heading: Enhance Your Mental Health with MindGarden AI
+  description: At MindGarden AI, we're leveraging the power of neurotechnology and
+    machine learning to transform mental health care. We're committed to
+    understanding the human brain's intricacies and using this knowledge to
+    develop accessible, personalized cognitive health solutions. Join our blog
+    and podcast (soon) to follow our journey, gain insights from experts, and
+    explore the latest in neurotech research.
   image1:
-    alt: A close-up of a paper filter filled with ground coffee
-    image: /img/products-grid3.jpg
+    alt: AI-driven algorithms are used analyze data across multiple modalities. By
+      training detailed models of individual behavior over time, we provide deep
+      insights, predictive analytics, and proactive mental health interventions,
+      making personalized care accessible for everyone.
+    image: /img/home-mental-health-metrics.png
   image2:
-    alt: A green cup of a coffee on a wooden table
-    image: /img/products-grid2.jpg
+    alt: Leveraging EEG data, we unlock profound insights into brain activity and
+      mental states. This empowers the creation of innovative mental health
+      solutions and highly personalized interventions.
+    image: /img/eeg_android.jpg
   image3:
-    alt: Coffee beans
-    image: /img/products-grid1.jpg
+    alt: Self-reported experiences through journals provide invaluable insights into
+      an individual's conscious mind and perception of reality. This data,
+      enriched with sentiment analysis and detection of recurring themes and
+      entities, enhances our detailed behavioral models over time.
+    image: /img/journal.png
 ---
