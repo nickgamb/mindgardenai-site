@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby + Netlify CMS Starter",
+    title: "MindGarden AI",
     description:
-      "This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.",
+      "MindGarden AI combines advanced neurotechnology with machine learning to support personal growth and well-being.",
+    siteUrl: "https://mindgardenai.netlify.app",
+    image: "/img/mindgardennologo.png", // Path to your site image
   },
   plugins: [
     "gatsby-plugin-react-helmet",
