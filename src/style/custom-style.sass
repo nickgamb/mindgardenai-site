@@ -136,6 +136,24 @@ footer.footer
   .full-width-image
     height: 100%
 
+  // Adjustments for non-mobile view
+  .section
+    padding-top: 2rem !important
+    padding-bottom: 2rem !important
+    padding-left: 1.5rem !important
+    padding-right: 1.5rem !important // Reduce padding on the sides
+
+  .section .has-text-weight-semibold.is-size-2
+    font-size: 2.5rem !important
+    margin-top: 1rem !important
+    line-height: 1.2 !important
+
+  .columns
+    margin-bottom: 2rem !important // Reduce margin between columns
+
+  .column
+    padding: 1rem !important // Reduce padding within columns
+
 // Responsive adjustments
 @media (max-width: 768px)
   .title
@@ -156,7 +174,7 @@ footer.footer
   .full-width-image-container
     height: 250px !important
 
-  // Additional adjustments
+  // Additional adjustments for mobile view
   .section
     padding-top: 1rem !important
     padding-bottom: 1rem !important
