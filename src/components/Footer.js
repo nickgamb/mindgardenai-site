@@ -10,7 +10,7 @@ import linkedin from "../img/social/linkedin.svg";
 const Footer = () => {
   return (
     <footer className="footer has-background-black has-text-white-ter">
-      <div className="content has-text-centered">
+      <div className="footer-logo-section has-text-centered">
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <img
             src={lgicon}
