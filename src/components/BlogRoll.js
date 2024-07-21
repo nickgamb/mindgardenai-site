@@ -3,27 +3,27 @@ import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
 
+
 const BlogRollTemplate = (props) => {
-  const { edges: posts } = props.data.allMarkdownRemark
+  
+  const { edges: posts } = props.data.allMarkdownRemark;
 
   return (
     <div className="columns is-multiline">
       {posts &&
         posts.map(({ node: post }) => (
-          <div className="is-parent column is-6" key={post.id}>
-            <article className={`blog-list-item tile is-child ${post.frontmatter.featuredpost ? 'is-featured' : ''}`}>
-              <header>
-                {post?.frontmatter?.featuredimage && (
-                  <div className="featured-thumbnail">
-                    <PreviewCompatibleImage
-                      imageInfo={{
-                        image: post.frontmatter.featuredimage,
-                        alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                      }}
-                    />
-                  </div>
-                )}
-              </header>
+          <div className="column is-6" key={post.id}>
+            <article className={`blog-list-item ${post.frontmatter.featuredpost ? 'is-featured' : ''}`}>
+              {post?.frontmatter?.featuredimage && (
+                <div className="featured-thumbnail">
+                  <PreviewCompatibleImage
+                    imageInfo={{
+                      image: post.frontmatter.featuredimage,
+                      alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                    }}
+                  />
+                </div>
+              )}
               <div className="post-meta">
                 <Link className="post-title" to={post.fields.slug}>
                   {post.frontmatter.title}
@@ -48,6 +48,7 @@ BlogRoll.propTypes = {
     }),
   }),
 }
+
 
 export default function BlogRoll() {
   return (
@@ -77,6 +78,7 @@ export default function BlogRoll() {
                         quality: 100
                         layout: CONSTRAINED
                       )
+
                     }
                   }
                 }
