@@ -42,8 +42,8 @@ const Navbar = () => {
           className={`navbar-start has-text-centered navbar-menu ${isActive && "is-active"}`}
         >
           <li className="navbar-item" style={{ padding: '0px' }}>
-            <Link className="navbar-item" to="/about">
-              About
+            <Link className="navbar-item" to="/blog">
+              Blog
             </Link>
           </li>
           <li className="navbar-item" style={{ padding: '0px' }}>
@@ -52,8 +52,8 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="navbar-item" style={{ padding: '0px' }}>
-            <Link className="navbar-item" to="/blog">
-              Blog
+            <Link className="navbar-item" to="/about">
+              About
             </Link>
           </li>
           <li className="navbar-item" style={{ padding: '0px' }}>
