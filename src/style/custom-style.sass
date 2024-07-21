@@ -97,26 +97,105 @@ body
 
 // Blog
 .blog-list-item
+  display: flex
+  flex-direction: column
+  height: 100%
   background-color: $purple10
-  margin-bottom: 1rem
-  border-radius: 0.25rem
+  border-radius: 8px
   overflow: hidden
-  transition: transform 0.3s ease
+  transition: transform 0.3s ease, box-shadow 0.3s ease
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
   &:hover
     transform: translateY(-5px)
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15)
   &.is-featured
-    background-color: $purple30
+    background-color: $purple20
 
-.blog-list-item header
-  display: flex
-  margin-bottom: 1em
+  .featured-thumbnail
+    height: 200px
+    overflow: hidden
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      transition: transform 0.3s ease
+    &:hover img
+      transform: scale(1.05)
+
+  .post-meta
+    padding: 1rem
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+
+  .post-title
+    font-size: 1.25rem
+    font-weight: 600
+    color: $purple80
+    margin-bottom: 0.5rem
+    &:hover
+      color: $primary
+
+  .post-date
+    font-size: 0.875rem
+    color: $dark-gray
+    margin-bottom: 1rem
+
+  .post-excerpt
+    font-size: 1rem
+    color: $body-color
+    margin-bottom: 1rem
+
+  .keep-reading-link
+    align-self: flex-start
+    margin-top: auto
+    font-size: 0.875rem
+    font-weight: 600
+    color: $primary
+    text-decoration: none
+    transition: color 0.3s ease
+    &:hover
+      color: darken($primary, 10%)
+    &::after
+      content: " →"
+
+.columns.is-multiline
+  margin-top: -1rem
+  margin-bottom: -1rem
+
+.column.is-6
+  padding: 1rem
+
+@media screen and (max-width: 768px)
+  .blog-list-item
+    .featured-thumbnail
+      height: 150px
+
+  .column.is-6
+    width: 100%
+
+.section-title
+  font-size: 2.5rem
+  font-weight: 700
   color: $purple80
+  margin-bottom: 2rem
+  text-align: center
 
-.blog-list-item .featured-thumbnail
-  flex-basis: 35%
-  margin: 0 0.5em 0 0
-  @media (max-width: 768px)
-    flex-basis: 50%
+.read-more-button
+  display: block
+  width: 200px
+  margin: 2rem auto 0
+  padding: 0.75rem 1.5rem
+  font-size: 1rem
+  font-weight: 600
+  text-align: center
+  color: #ffffff
+  background-color: $primary
+  border-radius: 4px
+  text-decoration: none
+  transition: background-color 0.3s ease
+  &:hover
+    background-color: darken($primary, 10%)
 
 // Footer
 footer.footer
