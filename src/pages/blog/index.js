@@ -1,5 +1,4 @@
 import * as React from "react";
-
 import Layout from "../../components/Layout";
 import BlogRoll from "../../components/BlogRoll";
 
@@ -11,6 +10,9 @@ export default class BlogIndexPage extends React.Component {
           className="full-width-image-container margin-top-0"
           style={{
             backgroundImage: `url('/img/blog-index.jpg')`,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
           }}
         >
           <h1
@@ -20,6 +22,7 @@ export default class BlogIndexPage extends React.Component {
               backgroundColor: "#7035CC",
               color: "white",
               padding: "1rem",
+              textAlign: "center"
             }}
           >
             Latest Blogs
