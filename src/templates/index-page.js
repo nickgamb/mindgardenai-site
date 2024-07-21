@@ -56,22 +56,22 @@ export const IndexPageTemplate = ({
                     <h3 className="has-text-weight-semibold is-size-2">
                       Latest Blogs
                     </h3>
+                  <section className="section">
+                    <div className="container">
+                      <div className="content">
+                        <BlogRoll />
+                          <div className="column is-12 has-text-centered">
+                            <Link className="btn" to="/blog">
+                              Read more
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
                   </div>
                 </div>
               </div>
             </div>
-            <section className="section">
-              <div className="container">
-                <div className="content">
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </section>
           </div>
         </div>
       </section>
