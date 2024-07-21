@@ -52,7 +52,7 @@ export const IndexPageTemplate = ({
                       </Link>
                     </div>
                   </div>
-                  <div className="column is-12">
+                  <div className="columns">
                     <h3 className="has-text-weight-semibold is-size-2">
                       Latest Blogs
                     </h3>
