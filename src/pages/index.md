@@ -5,10 +5,14 @@ image: /img/MindGarden_Banner.png
 heading: Enhance Your Mental Health with MindGarden AI
 subheading: Driving Mental Wellness Innovation with Neurotechnology and AI
 mainpitch:
-  title: Why MindGarden AI?
-  description: MindGarden AI combines advanced neurotechnology with machine
-    learning to support personal growth and well-being. Our mission is to create
-    accessible, effective mental health solutions for everyone.
+  title: Coming Soon!
+  description: >-
+    MindGarden AI combines advanced neurotechnology with machine learning to
+    support personal growth and well-being. Our mission is to create accessible,
+    effective mental health solutions for everyone. 
+
+
+    Follow us on social media and check back regularly for new blogs and podcast episodes!
 description: At MindGarden AI, we're leveraging the power of neurotechnology and
   machine learning to transform mental health care. We're committed to
   understanding the human brain's intricacies and using this knowledge to
