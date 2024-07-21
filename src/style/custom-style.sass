@@ -1,76 +1,160 @@
 @import "./variables.sass"
 
-.navbar .navbar-menu
-  box-shadow: none !important
+// Base styles
+body
+  background-color: $black
+  color: $purple10
+  font-family: 'Roboto', sans-serif
 
-.content .taglist
-  list-style: none
-  margin-bottom: 0
-  margin-left: 0
-  margin-right: 1.5rem
-  margin-top: 1.5rem
-  display: flex
-  flex-wrap: wrap
-  justify-content: left
-  align-items: center
-  li
-    padding: 0 2rem 1rem 0
-    margin-bottom: 1.5rem
-    margin-top: 0
-
-// Helper Classes
-.full-width-image-container
-  width: 100vw
-  height: 250px
-  position: relative
-  background-size: cover
-  background-position: center
-  display: flex
-  align-items: center
-  overflow: hidden
-
-.full-width-image
-  width: 100vw
-  height: 100%
-  background-size: cover
-  background-position: center
-  display: flex
-  align-items: center
-
-.title-container
-  @media (max-width: 768px)
-    padding: 0.5rem !important
+// Typography
+.title, .subtitle
+  color: $purple20
+  font-weight: 700
 
 .title
-  font-size: 1.5rem !important
+  font-size: 1.5rem
   @media (min-width: 769px)
-    font-size: 1.5rem !important
+    font-size: 2rem
 
-.subheading
-  font-size: 1rem !important
+.subtitle
+  font-size: 1rem
   @media (min-width: 769px)
-    font-size: 1.5rem !important
+    font-size: 1.5rem
 
+.section-title
+  font-size: 2rem
+  margin-top: 0.5rem
+  @media (min-width: 769px)
+    font-size: 2.5rem
+    margin-top: 1rem
+
+// Layout
+.section
+  padding: 1rem 0.5rem
+  @media (min-width: 768px)
+    padding: 2rem 1.5rem
+
+.columns
+  margin-bottom: 1rem
+  @media (min-width: 768px)
+    margin-bottom: 2rem
+
+.column
+  padding: 0.5rem
+  @media (min-width: 768px)
+    padding: 1rem
+
+// Navigation
+.navbar
+  background-color: $purple100
+
+.navbar-menu
+  box-shadow: none !important
+  font-size: 1rem
+
+.navbar-item
+  color: $purple30
+  &:hover, &:focus
+    background-color: $purple90
+    color: $purple10
+
+.navbar-brand .navbar-item.logo
+  padding: 0 1rem
+
+// Buttons
 .btn
   display: inline-block
-  padding: 12px 16px 10px
-  font-size: 18px
+  padding: 10px 14px
   font-size: 1rem
   line-height: 1.25
   background-color: $primary
-  border-radius: .25rem
+  border-radius: 0.25rem
+  color: #ffffff
   text-decoration: none
   font-weight: 700
-  color: #ffffff
   text-align: center
-  -webkit-box-shadow: inset 0 0 0 2px $primary
-  box-shadow: inset 0 0 0 2px $primary
-  -webkit-transition: all .15s ease
-  transition: all .15s ease
+  transition: all 0.15s ease
+  &:hover, &:focus
+    background-color: lighten($primary, 10%)
 
+// Images
+.full-width-image-container, .full-width-image
+  width: 100vw
+  background-size: cover
+  background-position: center
+  display: flex
+  justify-content: center
+  align-items: center
+  overflow: hidden
+
+.full-width-image-container
+  height: 250px
+  position: relative
+  @media (min-width: 768px)
+    height: 400px
+
+.full-width-image
+  height: 250px
+  @media (min-width: 768px)
+    height: 400px
+
+// Blog
+.blog-list-item
+  background-color: $purple90
+  margin-bottom: 1rem
+  border-radius: 0.25rem
+  overflow: hidden
+  transition: transform 0.3s ease
+  &:hover
+    transform: translateY(-5px)
+  &.is-featured
+    background-color: $purple80
+
+.blog-list-item header
+  display: flex
+  margin-bottom: 1em
+  color: $purple30
+
+.blog-list-item .featured-thumbnail
+  flex-basis: 35%
+  margin: 0 0.5em 0 0
+  @media (max-width: 768px)
+    flex-basis: 50%
+
+// Footer
+footer.footer
+  background-color: $purple100
+  color: $purple30
+  padding: 3rem 0
+
+.menu-label
+  font-size: 1em
+  text-align: left
+
+.menu-list
+  list-style: none
+  text-align: left
+
+.social
+  padding: 2em
+  a
+    padding: 0.5em
+    border-radius: 1em
+    background-color: $purple80
+    margin: 0.5em
+    width: 1em
+    height: 1em
+    vertical-align: middle
+    display: inline-block
+    transition: background-color 0.3s ease
+    &:hover
+      background-color: $primary
+
+// Helper classes
 .margin-top-0
   margin-top: 0 !important
 
+// Icons
 .navbar-item .icon
   color: $primary
 
@@ -79,107 +163,28 @@
   height: 1.5rem
   fill: currentColor
 
-.navbar-brand .navbar-item.logo
-  padding: 0 1rem
-
-footer.footer
-  padding: 3rem 0rem 0rem
-  background-color: $black
-  color: $purple10
-
-.menu-label
-  font-size: 1em !important
-  text-align: left
-
-.menu-list
-  list-style: none !important
-  text-align: left
-
-.social
-  padding: 2em
-
-.social a
-  padding: .5em .5em .3em .5em
-  border-radius: 1em
-  background-color: $white-ter
-  margin: .5em
-  width: 1em
-  height: 1em
-  vertical-align: middle
-  display: inline
-
-.blog-list-item.is-featured
-  background-color: $purple30
-
-.blog-list-item header
-  display: flex
-  margin-bottom: 1em
-  color: $purple70
-
-.blog-list-item .featured-thumbnail
-  flex-basis: 35%
-  margin: 0 0.5em 0 0
-
-.section-title
-  margin-top: 0.5rem !important // Reduce the gap
-  font-size: 2rem !important // Adjust font size
-
-.section p
-  font-size: 1rem !important // Ensure paragraph text is larger on mobile view
-
-@media (min-width: 768px)
-  .full-width-image-container
-    height: 400px
-
-  .full-width-image
-    height: 100%
-
-  // Adjustments for non-mobile view
-  .section
-    padding-top: 2rem !important
-    padding-bottom: 2rem !important
-    padding-left: 1.5rem !important
-    padding-right: 1.5rem !important // Reduce padding on the sides
-
-  .section .has-text-weight-semibold.is-size-2
-    font-size: 2.5rem !important
-    margin-top: 1rem !important
-    line-height: 1.2 !important
-
-  .columns
-    margin-bottom: 2rem !important // Reduce margin between columns
-
-  .column
-    padding: 1rem !important // Reduce padding within columns
+// Content
+.content
+  .taglist
+    list-style: none
+    margin: 1.5rem 0 0 0
+    display: flex
+    flex-wrap: wrap
+    justify-content: left
+    align-items: center
+    li
+      padding: 0 2rem 1rem 0
+      margin-bottom: 1.5rem
 
 // Responsive adjustments
 @media (max-width: 768px)
-  .title
-    font-size: 1.5rem !important
-  .subtitle
-    font-size: 1.2rem !important
-  .btn
-    font-size: 1rem !important
-    padding: 10px 14px 8px !important
-  .content
-    padding: 1rem !important
-  .navbar-menu
-    font-size: 1rem !important
   .hero .hero-body
-    padding: 2rem 1rem !important
-  .full-width-image
-    height: 250px !important
-  .full-width-image-container
-    height: 250px !important
+    padding: 2rem 1rem
 
-  // Additional adjustments for mobile view
-  .section
-    padding-top: 1rem !important
-    padding-bottom: 1rem !important
-    padding-left: 0.5rem !important
-    padding-right: 0.5rem !important // Reduce padding on the sides
+  .content
+    padding: 1rem
 
   .section .has-text-weight-semibold.is-size-2
-    font-size: 2rem !important
-    margin-top: 0.5rem !important
-    line-height: 1.2 !important
+    font-size: 2rem
+    margin-top: 0.5rem
+    line-height: 1.2
