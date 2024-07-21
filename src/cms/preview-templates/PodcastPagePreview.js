@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { PodcastPageTemplate } from '../../templates/podcast-page'
 
-const PodcastPageTemplate = ({ entry, widgetFor }) => (
+const PodcastPagePreview = ({ entry, widgetFor }) => (
   <PodcastPageTemplate
     title={entry.getIn(['data', 'title'])}
     content={widgetFor('body')}
