@@ -33,9 +33,9 @@ const Footer = () => {
                       Home
                     </Link>
                   </li>
-                  <li>
-                    <Link className="navbar-item" to="/about">
-                      About
+                   <li>
+                    <Link className="navbar-item" to="/blog">
+                      Blog
                     </Link>
                   </li>
                   <li>
@@ -59,11 +59,11 @@ const Footer = () => {
             <div className="column is-4">
               <section>
                 <ul className="menu-list">
-                  <li>
-                    <Link className="navbar-item" to="/blog">
-                      Latest Stories
-                    </Link>
-                  </li>
+                 <li>
+                   <Link className="navbar-item" to="/about">
+                    About
+                   </Link>
+                 </li>
                   <li>
                     <Link className="navbar-item" to="/contact">
                       Contact
