@@ -30,7 +30,7 @@
     "react-helmet": "^6.0.0",
     "sass": "^1.43.2",
     "uuid": "^8.0.0",
-    "@thumbtack/thumbprint-react": "^14.18.2"
+    "@thumbtack/thumbprint-scss": "^4.0.3"
   },
   "keywords": [
     "gatsby"
