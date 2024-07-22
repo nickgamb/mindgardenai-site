@@ -10,6 +10,7 @@ const FeatureGrid = ({ gridItems }) => (
           <div className="feature-item">
             <div className="has-text-centered">
             <h3 className="has-text-weight-semibold is-size-2 section-title">{item.title}</h3>
+            <HorizontalRule color="#2E1065"/>
               <div
                 style={{
                   width: "240px",
