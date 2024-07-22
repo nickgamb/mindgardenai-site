@@ -28,8 +28,8 @@ export const IndexPageTemplate = ({
             <div className="columns">
               <div className="content">
                 <div className="content">
-                  <div className="tile">
-                  <h3 className="has-text-weight-semibold is-size-2 section-title">{mainpitch.title}</h3>
+                  <div className="feature-section">
+                    <h3 className="has-text-weight-semibold is-size-2 section-title">{mainpitch.title}</h3>
                   </div>
                   <div className="tile">
                     <p className="section-description">{mainpitch.description}</p>
