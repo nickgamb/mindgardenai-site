@@ -294,9 +294,16 @@ body
     padding: 0.5rem !important
 
 //Features Styles
-.feature-section
-  padding: 2rem 0
+// Styles for the outer wrapper (large mat)
+.feature-section-wrapper
+  background-color: $purple10
+  padding: 3rem 1.5rem
+  margin: 2rem 0
+  border-radius: 1rem
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
 
+// Styles for the inner section
+.feature-section
   .section-title
     color: $purple80
     margin-bottom: 1rem
@@ -322,25 +329,33 @@ body
     &:hover
       background-color: darken($primary, 10%)
 
-// Adjust the Features component styles if necessary
+// Styles for the feature grid
 .feature-grid
   margin-top: 2rem
   margin-bottom: 2rem
 
-.feature-item
-  background-color: $purple10
+// Styles for the individual feature item wrappers (small mats)
+.feature-item-wrapper
+  background-color: lighten($purple10, 5%)
   border-radius: 0.5rem
-  padding: 2rem
+  padding: 1rem
   height: 100%
-  display: flex
-  flex-direction: column
-  align-items: center
   transition: transform 0.3s ease, box-shadow 0.3s ease
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
 
   &:hover
     transform: translateY(-5px)
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15)
+
+// Styles for the feature items themselves
+.feature-item
+  background-color: white
+  border-radius: 0.5rem
+  padding: 1.5rem
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
 
   .has-text-centered
     margin-bottom: 1rem
@@ -349,10 +364,3 @@ body
     text-align: center
     color: $body-color
     margin-top: 1rem
-
-// Ensure the Features grid looks good
-.features
-  display: grid
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
-  gap: 1rem
-  margin-bottom: 2rem
