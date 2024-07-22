@@ -42,7 +42,7 @@ const BlogRollTemplate = (props) => {
                   >
                     {post.frontmatter.title}
                   </Link>
-                  <span> &bull; </span>
+                  <span> </span>
                   <span className="subtitle is-size-5 is-block">
                     {post.frontmatter.date}
                   </span>
