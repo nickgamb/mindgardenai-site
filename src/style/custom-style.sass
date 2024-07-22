@@ -144,11 +144,11 @@ body
       margin-bottom: 0.5rem
     
     a
-      color: $purple10
-      transition: color 0.3s ease
-      
+      color: $purple50
+      transition: background-color 0.3s ease
+
       &:hover
-        color: lighten(#7035CC, 10%)
+        background-color: lighten($purple50, 10%)
 
   .navbar-item
     color: $purple10
@@ -188,12 +188,12 @@ body
     justify-content: center
     width: 2em
     height: 2em
-    background-color: #7035CC
+    background-color: $purple50
     border-radius: 50%
     transition: background-color 0.3s ease
 
     &:hover
-      background-color: lighten(#7035CC, 10%)
+      background-color: lighten($purple50, 10%)
 
   img
     width: 1em
