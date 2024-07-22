@@ -12,12 +12,6 @@ mainpitch:
 
 
     Join us on this new and exciting journey! Follow on social media and check back regularly for new blogs and podcast episodes.
-description: At MindGarden AI, we're leveraging the power of neurotechnology and
-  machine learning to transform mental health care. We're committed to
-  understanding the human brain's intricacies and using this knowledge to
-  develop accessible, personalized cognitive health solutions. Join our blog and
-  podcast (soon) to follow our journey, gain insights from experts, and explore
-  the latest in neurotech research.
 intro:
   blurbs:
     - image: /img/home-mental-health-metrics.png
