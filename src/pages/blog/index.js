@@ -15,18 +15,19 @@ export default class BlogIndexPage extends React.Component {
             alignItems: "center"
           }}
         >
-          <h1
-            className="has-text-weight-bold is-size-1"
-            style={{
-              boxShadow: "0.5rem 0 0 #7035CC, -0.5rem 0 0 #7035CC",
-              backgroundColor: "#7035CC",
-              color: "white",
-              padding: "1rem",
-              textAlign: "center"
-            }}
-          >
-            Latest Blogs
-          </h1>
+           <h1
+              className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
+              style={{
+                boxShadow: "#7035cc1a 0.5rem -5px 0px",
+                backgroundColor: "#7035cc9c",
+                color: "white",
+                lineHeight: "1",
+                padding: "0.25em",
+                margin: "0",
+              }}
+            >
+              Latest Blogs
+            </h1>
         </div>
         <section className="section">
           <div className="container">
