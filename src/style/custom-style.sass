@@ -132,35 +132,77 @@ body
   margin: 0 0.5em 0 0
   @media (max-width: 768px)
 
-// Footer
-footer.footer
-  background-color: $black
-  color: $purple10
+//footer
+.footer
+  padding-bottom: 3rem
 
 .footer-logo-section
-  background-color: $black
   padding: 2rem 0
 
-.menu-label
-  font-size: 1em !important
-  text-align: left
+.footer-brand
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin-bottom: 1rem
 
-.menu-list
-  list-style: none !important
+.footer-logo
+  width: 2.5em
+  height: auto
+  margin-bottom: 0.5rem
 
-.social
-  padding: 2em
+.footer-title
+  font-size: 2rem
+  color: #7035CC
+  font-weight: bold
+  letter-spacing: 0.1em
+
+.social-icons
+  display: flex
+  justify-content: center
+  align-items: center
+  gap: 1rem
+  margin-top: 1rem
+
   a
-    padding: 0.5em 0.5em 0.3em
-    border-radius: 1em
-    background-color: $purple30
-    margin: 0.5em
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    width: 2em
+    height: 2em
+    background-color: #7035CC
+    border-radius: 50%
+    transition: background-color 0.3s ease
+
+    &:hover
+      background-color: lighten(#7035CC, 10%)
+
+  img
     width: 1em
     height: 1em
-    vertical-align: middle
-    transition: background-color 0.3s ease
+
+.footer-links
+  padding-top: 2rem
+
+  .menu-list
+    li
+      text-align: center
+      
+      @media screen and (min-width: 769px)
+        text-align: left
+
+  .navbar-item
+    color: $purple10
     &:hover
-      background-color: $primary
+      color: white
+
+@media screen and (max-width: 768px)
+  .columns.is-multiline
+    display: flex
+    flex-direction: column
+
+  .column.is-one-third-tablet
+    width: 100%
+    margin-bottom: 1rem
 
 // Helper classes
 .margin-top-0
