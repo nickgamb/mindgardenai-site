@@ -36,7 +36,7 @@ body
 
 // Typography
 .title, .subtitle
-  color: $purple80
+  color: $purple50
 
 .title
   font-size: 1.5rem !important
@@ -83,10 +83,10 @@ body
   .navbar-menu
     box-shadow: none !important
   .navbar-item
-    color: $purple80
+    color: $purple50
+    transition: background-color 0.3s ease
     &:hover, &:focus
-      background-color: $purple10
-      color: $purple90
+      background-color: lighten($purple50, 20%)
   .navbar-start 
     justify-content: end
   .navbar-item img
@@ -136,7 +136,7 @@ body
 
 // Blog
 .blog-list-item
-  background-color: $purple10
+  background-color: $purple20
   margin-bottom: 1rem
   border-radius: 0.25rem
   overflow: hidden
@@ -151,7 +151,7 @@ body
 .blog-list-item header
   display: flex
   margin-bottom: 1em
-  color: $purple80
+  color: $purple50
 
 .blog-list-item .featured-thumbnail
   margin: 0 0.5em 0 0
@@ -189,9 +189,10 @@ body
         background-color: lighten($purple50, 20%)
 
   .navbar-item
-    color: $purple10
+    color: $purple50
+    transition: background-color 0.3s ease
     &:hover
-      color: white
+      background-color: lighten($purple50, 20%)
 
 .footer-logo-section
   padding: 2rem 0
