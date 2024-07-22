@@ -7,6 +7,7 @@ const FeatureGrid = ({ gridItems }) => (
     {gridItems.map((item) => (
       <div key={item.text} className="column is-6">
         <div className="feature-item-wrapper">
+          <h3 className="has-text-weight-semibold is-size-2 section-title">{item.title}</h3>
           <div className="feature-item">
             <div className="has-text-centered">
               <div
