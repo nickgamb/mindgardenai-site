@@ -292,3 +292,55 @@ body
 .title-container
   @media (max-width: 768px)
     padding: 0.5rem !important
+
+//Features Styles
+.feature-section
+  background-color: $purple10
+  margin-bottom: 2rem
+  border-radius: 0.5rem
+  overflow: hidden
+  transition: transform 0.3s ease, box-shadow 0.3s ease
+  padding: 2rem
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
+
+  .section-title
+    color: $purple80
+    margin-bottom: 1rem
+
+  p
+    color: $body-color
+    margin-bottom: 2rem
+
+  .btn
+    display: inline-block
+    background-color: $primary
+    color: white
+    padding: 0.5rem 1rem
+    border-radius: 0.25rem
+    text-decoration: none
+    transition: background-color 0.3s ease
+
+    &:hover
+      background-color: darken($primary, 10%)
+
+// Adjust the Features component styles if necessary
+.feature-item
+  background-color: white
+  border-radius: 0.25rem
+  padding: 1rem
+  margin-bottom: 1rem
+  transition: transform 0.3s ease
+
+  &:hover
+    transform: translateY(-3px)
+
+// Ensure the Features grid looks good
+.features
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+  gap: 1rem
+  margin-bottom: 2rem

@@ -35,20 +35,22 @@ export const IndexPageTemplate = ({
                     <p>{mainpitch.description}</p>
                   </div>
                 </div>
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2 section-title">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
+                <div className="feature-section">
+                  <div className="columns">
+                    <div className="column is-12">
+                      <h3 className="has-text-weight-semibold is-size-2 section-title">
+                        {heading}
+                      </h3>
+                      <p>{description}</p>
+                    </div>
                   </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/about">
-                      About MindGarden AI
-                    </Link>
+                  <Features gridItems={intro.blurbs} />
+                  <div className="columns">
+                    <div className="column is-12 has-text-centered">
+                      <Link className="btn" to="/about">
+                        About MindGarden AI
+                      </Link>
+                    </div>
                   </div>
                 </div>
                 <div className="columns">
