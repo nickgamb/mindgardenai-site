@@ -30,7 +30,7 @@ export const IndexPageTemplate = ({
                 <div className="content">
                   <div className="feature-section">
                     <h3 className="has-text-weight-semibold is-size-2 section-title-lg">{mainpitch.title}</h3>
-                    <p className="section-description-left">{mainpitch.description}</p>
+                    <p className="section-description-blk">{mainpitch.description}</p>
                   </div>
                 </div>
                 <div className="feature-section-wrapper">
