@@ -76,6 +76,7 @@ collections:
                     fields:
                       [
                         { label: Image, name: image, widget: image },
+                        { label: Title, name: title, widget: text },
                         { label: Text, name: text, widget: text },
                       ],
                   },
