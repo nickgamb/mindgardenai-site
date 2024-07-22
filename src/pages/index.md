@@ -27,12 +27,12 @@ intro:
         deep insights, predictive analytics, and proactive mental health
         interventions, making personalized care accessible for everyone.
     - image: /img/eeg_android.jpg
-    title: Brainwave Scanning
+      title: Brainwave Scanning
       text: Leveraging EEG data, we unlock profound insights into brain activity and
         mental states. This empowers the creation of innovative mental health
         solutions and highly personalized interventions.
     - image: /img/journal.png
-    title: Intelligent Journaling
+      title: Intelligent Journaling
       text: Self-reported experiences through journals provide invaluable insights
         into an individual's conscious mind and perception of reality. This
         data, enriched with sentiment analysis and detection of recurring themes
