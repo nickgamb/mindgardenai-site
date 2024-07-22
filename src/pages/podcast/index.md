@@ -1,8 +1,8 @@
 ---
 templateKey: podcast-page
 path: /podcast
-title: MindOverMalware Podcast
+title: Mind Over Malware Podcast
 ---
 ### Coming Soon!
 
-At MindGarden AI, we are dedicated to revolutionizing mental health care through advanced neurotechnology and machine learning. Our mission is to provide accessible, personalized mental health solutions that cater to the unique needs of each individual.
+We are excited to bring you new episodes of Mind Over Malware - our upcomming podcast is a fusion of mental health, neurotech, AI, cybersecurity and more. Check back in for new episodes soon and reach out if you are interested in joining us as a guest! 
