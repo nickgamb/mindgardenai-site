@@ -48,7 +48,7 @@ const BlogRollTemplate = (props) => {
                   </span>
                 </p>
               </header>
-              <HorizontalRule color="#2E1065"/>
+              <hr class="tp-rule" color="#2E1065"/>
               <p>
                 {post.excerpt}
                 <br />
