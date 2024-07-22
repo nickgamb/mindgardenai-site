@@ -60,8 +60,8 @@ export default function FullWidthImage(props) {
             <h1
               className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
               style={{
-                boxShadow: "#7035CC 0.5rem 0px 0px, #7035CC -0.5rem 0px 0px",
-                backgroundColor: "#7035CC",
+                boxShadow: "#7035cc1a 0.5rem -5px 0px",
+                backgroundColor: "#7035cc9c",
                 color: "white",
                 lineHeight: "1",
                 padding: "0.25em",
@@ -75,8 +75,8 @@ export default function FullWidthImage(props) {
             <h3
               className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
               style={{
-                boxShadow: "#7035CC 0.5rem 0px 0px, #7035CC -0.5rem 0px 0px",
-                backgroundColor: "#7035CC",
+                boxShadow: "#7035cc1a 0.5rem -5px 0px",
+                backgroundColor: "#7035cc9c",
                 color: "white",
                 lineHeight: "1",
                 padding: "0.25rem",
