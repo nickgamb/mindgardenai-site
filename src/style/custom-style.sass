@@ -132,9 +132,28 @@ body
   margin: 0 0.5em 0 0
   @media (max-width: 768px)
 
-//footer
+// Footer styles
 .footer
   padding-bottom: 3rem
+
+  .menu-list
+    list-style-type: none
+    padding-left: 0
+    
+    li
+      margin-bottom: 0.5rem
+    
+    a
+      color: $purple10
+      transition: color 0.3s ease
+      
+      &:hover
+        color: lighten(#7035CC, 10%)
+
+  .navbar-item
+    color: $purple10
+    &:hover
+      color: white
 
 .footer-logo-section
   padding: 2rem 0
@@ -182,42 +201,19 @@ body
 
 .footer-links
   padding-top: 2rem
-    .menu-list
+
+  .menu-list
     li
       text-align: center
 
       @media screen and (min-width: 769px)
         text-align: left
-        
-  @media screen and (max-width: 768px)
-    .footer-links
-      .column
-        margin-bottom: 1rem
-
-.footer
-  .menu-list
-    list-style-type: none  // Remove bullet points
-    padding-left: 0  // Remove default padding
-    
-    li
-      margin-bottom: 0.5rem  // Add some spacing between items
-    
-    a
-      color: $purple10  // Use your light purple color variable
-      transition: color 0.3s ease
-      
-      &:hover
-        color: lighten(#7035CC, 10%)  // Lighter purple on hover, matching social icons
-      
-      @media screen and (min-width: 769px)
-        text-align: left
-
-  .navbar-item
-    color: $purple10
-    &:hover
-      color: white
 
 @media screen and (max-width: 768px)
+  .footer-links
+    .column
+      margin-bottom: 1rem
+
   .columns.is-multiline
     display: flex
     flex-direction: column
