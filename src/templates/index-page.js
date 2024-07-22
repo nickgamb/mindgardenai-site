@@ -51,16 +51,18 @@ export const IndexPageTemplate = ({
                     </div>
                   </div>
                 </div>
-                <div className="columns">
-                  <section className="section">
-                    <h2 className="section-title">Latest Blogs</h2>
-                    <BlogRoll />
-                    <div className="column is-12 has-text-centered">
-                      <Link className="btn" to="/blog">
-                        Read more
-                      </Link>
-                    </div>
-                  </section>
+                <div className="feature-section-wrapper">
+                  <div className="columns">
+                    <section className="section">
+                      <h2 className="section-title">Latest Blogs</h2>
+                      <BlogRoll />
+                      <div className="column is-12 has-text-centered">
+                        <Link className="btn" to="/blog">
+                          Read more
+                        </Link>
+                      </div>
+                    </section>
+                  </div>
                 </div>
               </div>
             </div>
