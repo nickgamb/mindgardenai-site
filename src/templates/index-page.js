@@ -55,7 +55,7 @@ export const IndexPageTemplate = ({
                   <section className="section">
                     <h2 className="section-title">Latest Blogs</h2>
                     <BlogRoll />
-                    <Link className="read-more-button" to="/blog">
+                    <Link className="btn" to="/blog">
                       Read more
                     </Link>
                   </section>
