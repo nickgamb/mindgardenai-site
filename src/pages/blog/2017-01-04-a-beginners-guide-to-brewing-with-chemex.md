@@ -6,14 +6,14 @@ date: 2024-07-21T02:09:16.138Z
 description: Everything you need to know to start collecting EEG signals using a
   Raspberry Pi with a PiEEG hat and BrainFlow.
 featuredpost: false
-featuredimage: /img/MindGarden.png
+featuredimage: /img/img_0595.jpeg
 tags:
   - brainflow
   - pieeg
   - eeg
   - python
 ---
-![Brainwaves](/img/eeg_data_banner.jpg)
+![Brainwaves](/img/img_0358.jpeg)
 
 Todo: add words
 
