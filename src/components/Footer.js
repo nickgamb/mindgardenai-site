@@ -36,10 +36,10 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="footer-links has-background-black has-text-white-ter">
-        <div className="container">
-          <div className="columns is-multiline">
-            <div className="column is-one-third-tablet is-full-mobile">
+      <div className="content has-text-centered has-background-black has-text-white-ter">
+        <div className="container has-background-black has-text-white-ter">
+          <div style={{ maxWidth: "100vw" }} className="columns">
+            <div className="column is-4">
               <section className="menu">
                 <ul className="menu-list">
                   <li><Link to="/" className="navbar-item">Home</Link></li>
