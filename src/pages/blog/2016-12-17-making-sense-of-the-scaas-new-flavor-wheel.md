@@ -7,8 +7,12 @@ description: An introduction to everything you need to know to build your own
 featuredpost: false
 featuredimage: /img/img_0505.jpeg
 tags:
-  - flavor
-  - tasting
+  - bci
+  - untracortex
+  - pieeg
+  - brainflow
+  - eeg
+  - python
 ---
 ![Untracortex](/img/img_0505.jpeg)
 
