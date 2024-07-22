@@ -20,7 +20,7 @@ const Footer = () => {
           <span style={{ fontSize: '2rem', color: '#7035CC', fontWeight: 'bold', letterSpacing: '0.1em' }}>
             MINDGARDEN AI
           </span>
-          <div className="column is-4 social">
+          <div className="column social">
               <a title="linkedin" href="https://www.linkedin.com/company/mindgarden-ai">
                 <img
                   src={linkedin}
