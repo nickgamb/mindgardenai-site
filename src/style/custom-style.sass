@@ -144,23 +144,23 @@ body
   transition: transform 0.3s ease
   @include card(2)  // Apply depth level 2
 
-  .title
-    &.is-featured
-      color: $purple10
-
-  .subtitle
-    &.is-featured
-      color: purple20
-
   &:hover
     transform: translateY(-5px)
   &.is-featured
-    background-color: $purple30
+    background-color: $purple50
 
 .blog-list-item header
   display: flex
   margin-bottom: 1em
   color: $purple50
+
+  .title
+  &.is-featured
+    color: $purple10
+
+.subtitle
+  &.is-featured
+    color: purple20
 
 .blog-list-item .featured-thumbnail
   margin: 0 1em 0 0
