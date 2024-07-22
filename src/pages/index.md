@@ -43,20 +43,20 @@ intro:
         mental health monitoring and intervention, offering novel solutions to
         enhance mental well-being.
   heading: Enhance Your Mental Health with MindGarden AI
-  description: At MindGarden AI, we're leveraging the power of neurotechnology and
-    machine learning to transform mental health care. We're committed to
-    understanding the human brain's intricacies and using this knowledge to
-    develop accessible, personalized cognitive health solutions. Join our blog
-    and podcast (soon) to follow our journey, gain insights from experts, and
-    explore the latest in neurotech research.
+  description: We're leveraging the power of neurotechnology and machine learning
+    to transform mental health care. We're committed to understanding the human
+    brain's intricacies and using this knowledge to develop accessible,
+    personalized cognitive health solutions. Join our blog and podcast (soon) to
+    follow our journey, gain insights from experts, and explore the latest in
+    neurotech research.
 main:
   heading: Enhance Your Mental Health with MindGarden AI
-  description: At MindGarden AI, we're leveraging the power of neurotechnology and
-    machine learning to transform mental health care. We're committed to
-    understanding the human brain's intricacies and using this knowledge to
-    develop accessible, personalized cognitive health solutions. Join our blog
-    and podcast (soon) to follow our journey, gain insights from experts, and
-    explore the latest in neurotech research.
+  description: We're leveraging the power of neurotechnology and machine learning
+    to transform mental health care. We're committed to understanding the human
+    brain's intricacies and using this knowledge to develop accessible,
+    personalized cognitive health solutions. Join our blog and podcast (soon) to
+    follow our journey, gain insights from experts, and explore the latest in
+    neurotech research.
   image1:
     alt: AI-driven algorithms are used analyze data across multiple modalities. By
       training detailed models of individual behavior over time, we provide deep
