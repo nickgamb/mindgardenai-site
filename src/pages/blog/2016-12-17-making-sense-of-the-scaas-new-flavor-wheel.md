@@ -8,11 +8,8 @@ featuredpost: false
 featuredimage: /img/img_0505.jpeg
 tags:
   - bci
-  - untracortex
-  - pieeg
-  - brainflow
-  - eeg
-  - python
+  - ultracortex
+  - thinkpulse
 ---
 ![Untracortex](/img/img_0505.jpeg)
 
