@@ -11,90 +11,54 @@ const Footer = () => {
   return (
     <footer className="footer has-background-black has-text-white-ter">
       <div className="footer-logo-section has-text-centered">
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className="footer-brand">
           <img
             src={lgicon}
             alt="MindGarden Icon"
-            style={{ width: "2.5em", height: "auto", marginBottom: '0.5rem' }}
+            className="footer-logo"
           />
-          <span style={{ fontSize: '2rem', color: '#7035CC', fontWeight: 'bold', letterSpacing: '0.1em' }}>
+          <span className="footer-title">
             MINDGARDEN AI
           </span>
-          <div className="column social">
-              <a title="linkedin" href="https://www.linkedin.com/company/mindgarden-ai">
-                <img
-                  src={linkedin}
-                  alt="LinkedIn"
-                  style={{ width: "1em", height: "1em" }}
-                />
-              </a>
-              <a title="Discord" href="https://discord.gg/WaxMJN7t">
-                <img
-                  src={discord}
-                  alt="Discord"
-                  style={{ width: "1em", height: "1em" }}
-                />
-              </a>
-              <a title="instagram" href="https://instagram.com">
-                <img
-                  src={instagram}
-                  alt="Instagram"
-                  style={{ width: "1em", height: "1em" }}
-                />
-              </a>
-              <a title="TikTok" href="https://tiktok.com">
-                <img
-                  src={tiktok}
-                  alt="TikTok"
-                  style={{ width: "1em", height: "1em" }}
-                />
-              </a>
-            </div>
+        </div>
+        <div className="social-icons">
+          <a title="linkedin" href="https://www.linkedin.com/company/mindgarden-ai">
+            <img src={linkedin} alt="LinkedIn" />
+          </a>
+          <a title="Discord" href="https://discord.gg/WaxMJN7t">
+            <img src={discord} alt="Discord" />
+          </a>
+          <a title="instagram" href="https://instagram.com">
+            <img src={instagram} alt="Instagram" />
+          </a>
+          <a title="TikTok" href="https://tiktok.com">
+            <img src={tiktok} alt="TikTok" />
+          </a>
         </div>
       </div>
-      <div className="content has-text-centered has-background-black has-text-white-ter">
-        <div className="container has-background-black has-text-white-ter">
-          <div style={{ maxWidth: "100vw" }} className="columns">
-            <div className="column is-4">
+      <div className="footer-links has-background-black has-text-white-ter">
+        <div className="container">
+          <div className="columns is-multiline">
+            <div className="column is-one-third-tablet is-full-mobile">
               <section className="menu">
                 <ul className="menu-list">
-                  <li>
-                    <Link to="/" className="navbar-item">
-                      Home
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="navbar-item" to="/about">
-                      About
-                    </Link>
-                 </li>
+                  <li><Link to="/" className="navbar-item">Home</Link></li>
+                  <li><Link to="/about" className="navbar-item">About</Link></li>
                 </ul>
               </section>
             </div>
-            <div className="column is-4">
-              <section>
+            <div className="column is-one-third-tablet is-full-mobile">
+              <section className="menu">
                 <ul className="menu-list">
-                  <li>
-                    <Link className="navbar-item" to="/blog">
-                      Blog
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="navbar-item" to="/podcast">
-                      Podcast
-                    </Link>
-                  </li>
+                  <li><Link to="/blog" className="navbar-item">Blog</Link></li>
+                  <li><Link to="/podcast" className="navbar-item">Podcast</Link></li>
                 </ul>
               </section>
             </div>
-            <div className="column is-4">
-              <section>
+            <div className="column is-one-third-tablet is-full-mobile">
+              <section className="menu">
                 <ul className="menu-list">
-                  <li>
-                    <Link className="navbar-item" to="/contact">
-                      Contact
-                    </Link>
-                  </li>
+                  <li><Link to="/contact" className="navbar-item">Contact</Link></li>
                 </ul>
               </section>
             </div>
