@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: Featured blog post. Good to keep it at 2 lines but not more
+title: Featured blog post. Good to keep it at 2 lines
 date: 2017-01-04T15:04:10.000Z
 description: We’re proud to announce that we’ll be offering a small batch of
   Jamaica Blue Mountain coffee beans in our store next week.
