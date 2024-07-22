@@ -13,7 +13,7 @@ export const PodcastPageTemplate = ({ title, content, contentComponent }) => {
       <div className="container">
           <div className="content">
             <div className="feature-section">
-              <h3 className="has-text-weight-semibold is-size-2 section-title-lg">{mainpitch.title}</h3>
+              <h3 className="has-text-weight-semibold is-size-2 section-title-lg">{title}</h3>
               <PageContent className="section-description-blk" content={content} />
             </div>
           </div>
