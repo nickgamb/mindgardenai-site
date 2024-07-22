@@ -295,25 +295,20 @@ body
 
 //Features Styles
 .feature-section
-  background-color: $purple10
-  margin-bottom: 2rem
-  border-radius: 0.5rem
-  overflow: hidden
-  transition: transform 0.3s ease, box-shadow 0.3s ease
-  padding: 2rem
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
-
-  &:hover
-    transform: translateY(-5px)
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
+  padding: 2rem 0
 
   .section-title
     color: $purple80
     margin-bottom: 1rem
+    text-align: center
 
-  p
+  .section-description
     color: $body-color
     margin-bottom: 2rem
+    text-align: center
+    max-width: 800px
+    margin-left: auto
+    margin-right: auto
 
   .btn
     display: inline-block
@@ -328,15 +323,32 @@ body
       background-color: darken($primary, 10%)
 
 // Adjust the Features component styles if necessary
+.feature-grid
+  margin-top: 2rem
+  margin-bottom: 2rem
+
 .feature-item
-  background-color: white
-  border-radius: 0.25rem
-  padding: 1rem
-  margin-bottom: 1rem
-  transition: transform 0.3s ease
+  background-color: $purple10
+  border-radius: 0.5rem
+  padding: 2rem
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  transition: transform 0.3s ease, box-shadow 0.3s ease
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
 
   &:hover
-    transform: translateY(-3px)
+    transform: translateY(-5px)
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
+
+  .has-text-centered
+    margin-bottom: 1rem
+
+  .feature-text
+    text-align: center
+    color: $body-color
+    margin-top: 1rem
 
 // Ensure the Features grid looks good
 .features

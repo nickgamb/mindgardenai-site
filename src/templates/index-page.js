@@ -36,17 +36,13 @@ export const IndexPageTemplate = ({
                   </div>
                 </div>
                 <div className="feature-section">
-                  <div className="columns">
-                    <div className="column is-12">
-                      <h3 className="has-text-weight-semibold is-size-2 section-title">
-                        {heading}
-                      </h3>
-                      <p>{description}</p>
-                    </div>
-                  </div>
-                  <Features gridItems={intro.blurbs} />
-                  <div className="columns">
-                    <div className="column is-12 has-text-centered">
+                  <div className="container">
+                    <h3 className="has-text-weight-semibold is-size-2 section-title">
+                      {heading}
+                    </h3>
+                    <p className="section-description">{description}</p>
+                    <Features gridItems={intro.blurbs} />
+                    <div className="has-text-centered">
                       <Link className="btn" to="/about">
                         About MindGarden AI
                       </Link>
