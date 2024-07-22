@@ -148,6 +148,8 @@ body
     transform: translateY(-5px)
   &.is-featured
     background-color: $purple50
+    .has-text-primary
+      color: $purple10 !important
 
 .blog-list-item header
   display: flex
@@ -159,10 +161,7 @@ body
   @media (max-width: 768px)
 
 .has-text-primary
-  color: $purple50
-
-  &.is-featured
-  color: $purple10
+  color: $purple50 !important
 
 // Footer styles
 .footer
