@@ -54,7 +54,7 @@ export const IndexPageTemplate = ({
                 <div className="feature-section-wrapper">
                   <div className="columns">
                     <section className="section">
-                      <h2 className="section-title">Latest Blogs</h2>
+                    <h3 className="has-text-weight-semibold is-size-2 section-title">Latest Blogs</h3>
                       <BlogRoll />
                       <div className="column is-12 has-text-centered">
                         <Link className="btn" to="/blog">
