@@ -10,44 +10,56 @@ import linkedin from "../img/social/linkedin.svg";
 const Footer = () => {
   return (
     <footer className="footer has-background-black has-text-white-ter">
-      <div className="container">
-        <div className="footer-logo-section">
-          <div className="footer-brand">
-            <img src={lgicon} alt="MindGarden Icon" className="footer-logo" />
-            <span className="footer-title">MINDGARDEN AI</span>
-          </div>
-          <div className="social-icons">
-            <a title="linkedin" href="https://www.linkedin.com/company/mindgarden-ai">
-              <img src={linkedin} alt="LinkedIn" />
-            </a>
-            <a title="Discord" href="https://discord.gg/WaxMJN7t">
-              <img src={discord} alt="Discord" />
-            </a>
-            <a title="instagram" href="https://instagram.com">
-              <img src={instagram} alt="Instagram" />
-            </a>
-            <a title="TikTok" href="https://tiktok.com">
-              <img src={tiktok} alt="TikTok" />
-            </a>
-          </div>
+      <div className="footer-logo-section has-text-centered">
+        <div className="footer-brand">
+          <img
+            src={lgicon}
+            alt="MindGarden Icon"
+            className="footer-logo"
+          />
+          <span className="footer-title">
+            MINDGARDEN AI
+          </span>
         </div>
-        <div className="footer-links">
-          <div className="footer-column">
-            <ul className="menu-list">
-              <li><Link to="/" className="navbar-item">Home</Link></li>
-              <li><Link to="/about" className="navbar-item">About</Link></li>
-            </ul>
-          </div>
-          <div className="footer-column">
-            <ul className="menu-list">
-              <li><Link to="/blog" className="navbar-item">Blog</Link></li>
-              <li><Link to="/podcast" className="navbar-item">Podcast</Link></li>
-            </ul>
-          </div>
-          <div className="footer-column">
-            <ul className="menu-list">
-              <li><Link to="/contact" className="navbar-item">Contact</Link></li>
-            </ul>
+        <div className="social-icons">
+          <a title="linkedin" href="https://www.linkedin.com/company/mindgarden-ai">
+            <img src={linkedin} alt="LinkedIn" />
+          </a>
+          <a title="Discord" href="https://discord.gg/WaxMJN7t">
+            <img src={discord} alt="Discord" />
+          </a>
+          <a title="instagram" href="https://instagram.com">
+            <img src={instagram} alt="Instagram" />
+          </a>
+          <a title="TikTok" href="https://tiktok.com">
+            <img src={tiktok} alt="TikTok" />
+          </a>
+        </div>
+      </div>
+      <div className="content has-text-centered has-background-black has-text-white-ter">
+        <div className="container has-background-black has-text-white-ter">
+          <div style={{ maxWidth: "100vw" }} className="columns">
+              <section className="menu">
+                <ul className="menu-list">
+                  <li><Link to="/" className="navbar-item">Home</Link></li>
+                  <li><Link to="/about" className="navbar-item">About</Link></li>
+                </ul>
+              </section>
+            <div className="column is-one-third-tablet is-full-mobile">
+              <section className="menu">
+                <ul className="menu-list">
+                  <li><Link to="/blog" className="navbar-item">Blog</Link></li>
+                  <li><Link to="/podcast" className="navbar-item">Podcast</Link></li>
+                </ul>
+              </section>
+            </div>
+            <div className="column is-one-third-tablet is-full-mobile">
+              <section className="menu">
+                <ul className="menu-list">
+                  <li><Link to="/contact" className="navbar-item">Contact</Link></li>
+                </ul>
+              </section>
+            </div>
           </div>
         </div>
       </div>
