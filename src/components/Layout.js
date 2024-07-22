@@ -43,7 +43,7 @@ const TemplateWrapper = ({ children }) => {
 
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
         
-        <meta name="theme-color" content="#fff" />
+        <meta name="theme-color" content="#161616" />
 
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title} />
