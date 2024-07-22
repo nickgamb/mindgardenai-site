@@ -63,7 +63,18 @@ const Footer = () => {
                       Home
                     </Link>
                   </li>
-                   <li>
+                  <li>
+                    <Link className="navbar-item" to="/about">
+                      About
+                    </Link>
+                 </li>
+                </ul>
+              </section>
+            </div>
+            <div className="column is-4">
+              <section>
+                <ul className="menu-list">
+                  <li>
                     <Link className="navbar-item" to="/blog">
                       Blog
                     </Link>
@@ -79,11 +90,6 @@ const Footer = () => {
             <div className="column is-4">
               <section>
                 <ul className="menu-list">
-                 <li>
-                   <Link className="navbar-item" to="/about">
-                    About
-                   </Link>
-                 </li>
                   <li>
                     <Link className="navbar-item" to="/contact">
                       Contact
