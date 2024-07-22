@@ -7,8 +7,10 @@ description: Everything you need to k own to start collecting EEG signals using
 featuredpost: false
 featuredimage: /img/img_0505.jpeg
 tags:
-  - brewing
-  - chemex
+  - brainflow
+  - pieeg
+  - eeg
+  - python
 ---
 ![chemex](/img/img_0505.jpeg)
 
