@@ -29,13 +29,13 @@ export default class BlogIndexPage extends React.Component {
               Latest Blogs
             </h1>
         </div>
-        <div className="feature-section-wrapper">
-          <div className="feature-section">
-            <section className="container">
-              <h3 className="has-text-weight-semibold is-size-2 section-title">Latest Blogs</h3>
-              <p className="section-description">Stay up to date on the latest news, research and technologies from MindGarden AI.</p>
-              <BlogRoll />
-            </section>
+        <div className="container">
+          <div className="feature-section-wrapper">
+            <div className="feature-section">
+              <section className="container">
+                <BlogRoll />
+              </section>
+            </div>
           </div>
         </div>
       </Layout>
