@@ -45,6 +45,9 @@ body
 
 .subtitle
   font-size: 1rem !important
+    &.is-featured
+      color: purple20
+
   @media (min-width: 769px)
     font-size: 1rem !important
 
@@ -153,14 +156,6 @@ body
   display: flex
   margin-bottom: 1em
   color: $purple50
-
-  .title
-    &.is-featured
-      color: $purple10
-
-  .subtitle
-    &.is-featured
-      color: purple20
 
 .blog-list-item .featured-thumbnail
   margin: 0 1em 0 0
@@ -323,6 +318,9 @@ body
 .section p
   font-size: 1rem !important
   max-width: 75%
+
+  &.is-featured
+      color: $purple10
 
 .title-container
   @media (max-width: 768px)
