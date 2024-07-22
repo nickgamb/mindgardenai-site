@@ -20,33 +20,3 @@ $menu-label-color: $purple50
 
 // Import bulma only after the variables have been customized.
 @import "~bulma"
-
-// responsiveness
-+tablet-only
-  .blog-list-item .featured-thumbnail
-    flex-basis: 50%
-
-+mobile
-  .blog-list-item header
-    display: block
-  .blog-list-item .featured-thumbnail
-    text-align: center
-    max-width: 70%
-    margin: 0 0 1em
-
-@media (max-width: 768px)
-  .title
-    font-size: 1.5rem !important
-  .subtitle
-    font-size: 1.2rem !important
-  .btn
-    font-size: 1rem !important
-    padding: 10px 14px 8px !important
-  .content
-    padding: 1rem !important
-  .navbar-menu
-    font-size: 1rem !important
-  .hero .hero-body
-    padding: 2rem 1rem !important
-  .full-width-image
-    height: 250px !important
