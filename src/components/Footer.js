@@ -21,6 +21,36 @@ const Footer = () => {
             MINDGARDEN AI
           </span>
         </div>
+        <div className="column is-4 social">
+          <a title="linkedin" href="https://www.linkedin.com/company/mindgarden-ai">
+            <img
+              src={linkedin}
+              alt="LinkedIn"
+              style={{ width: "1em", height: "1em" }}
+            />
+          </a>
+          <a title="Discord" href="https://discord.gg/WaxMJN7t">
+            <img
+              src={discord}
+              alt="Discord"
+              style={{ width: "1em", height: "1em" }}
+            />
+          </a>
+          <a title="instagram" href="https://instagram.com">
+            <img
+              src={instagram}
+              alt="Instagram"
+              style={{ width: "1em", height: "1em" }}
+            />
+          </a>
+          <a title="TikTok" href="https://tiktok.com">
+            <img
+              src={tiktok}
+              alt="TikTok"
+              style={{ width: "1em", height: "1em" }}
+            />
+          </a>
+        </div>
       </div>
       <div className="content has-text-centered has-background-black has-text-white-ter">
         <div className="container has-background-black has-text-white-ter">
@@ -43,16 +73,6 @@ const Footer = () => {
                       Podcast
                     </Link>
                   </li>
-                  <li>
-                    <a
-                      className="navbar-item"
-                      href="/admin/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Admin
-                    </a>
-                  </li>
                 </ul>
               </section>
             </div>
@@ -71,36 +91,6 @@ const Footer = () => {
                   </li>
                 </ul>
               </section>
-            </div>
-            <div className="column is-4 social">
-              <a title="linkedin" href="https://www.linkedin.com/company/mindgarden-ai">
-                <img
-                  src={linkedin}
-                  alt="LinkedIn"
-                  style={{ width: "1em", height: "1em" }}
-                />
-              </a>
-              <a title="Discord" href="https://discord.gg/WaxMJN7t">
-                <img
-                  src={discord}
-                  alt="Discord"
-                  style={{ width: "1em", height: "1em" }}
-                />
-              </a>
-              <a title="instagram" href="https://instagram.com">
-                <img
-                  src={instagram}
-                  alt="Instagram"
-                  style={{ width: "1em", height: "1em" }}
-                />
-              </a>
-              <a title="TikTok" href="https://tiktok.com">
-                <img
-                  src={tiktok}
-                  alt="TikTok"
-                  style={{ width: "1em", height: "1em" }}
-                />
-              </a>
             </div>
           </div>
         </div>
