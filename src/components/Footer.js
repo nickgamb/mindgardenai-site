@@ -20,36 +20,36 @@ const Footer = () => {
           <span style={{ fontSize: '2rem', color: '#7035CC', fontWeight: 'bold', letterSpacing: '0.1em' }}>
             MINDGARDEN AI
           </span>
-        </div>
-        <div className="column is-4 social">
-          <a title="linkedin" href="https://www.linkedin.com/company/mindgarden-ai">
-            <img
-              src={linkedin}
-              alt="LinkedIn"
-              style={{ width: "1em", height: "1em" }}
-            />
-          </a>
-          <a title="Discord" href="https://discord.gg/WaxMJN7t">
-            <img
-              src={discord}
-              alt="Discord"
-              style={{ width: "1em", height: "1em" }}
-            />
-          </a>
-          <a title="instagram" href="https://instagram.com">
-            <img
-              src={instagram}
-              alt="Instagram"
-              style={{ width: "1em", height: "1em" }}
-            />
-          </a>
-          <a title="TikTok" href="https://tiktok.com">
-            <img
-              src={tiktok}
-              alt="TikTok"
-              style={{ width: "1em", height: "1em" }}
-            />
-          </a>
+          <div className="column is-4 social">
+              <a title="linkedin" href="https://www.linkedin.com/company/mindgarden-ai">
+                <img
+                  src={linkedin}
+                  alt="LinkedIn"
+                  style={{ width: "1em", height: "1em" }}
+                />
+              </a>
+              <a title="Discord" href="https://discord.gg/WaxMJN7t">
+                <img
+                  src={discord}
+                  alt="Discord"
+                  style={{ width: "1em", height: "1em" }}
+                />
+              </a>
+              <a title="instagram" href="https://instagram.com">
+                <img
+                  src={instagram}
+                  alt="Instagram"
+                  style={{ width: "1em", height: "1em" }}
+                />
+              </a>
+              <a title="TikTok" href="https://tiktok.com">
+                <img
+                  src={tiktok}
+                  alt="TikTok"
+                  style={{ width: "1em", height: "1em" }}
+                />
+              </a>
+            </div>
         </div>
       </div>
       <div className="content has-text-centered has-background-black has-text-white-ter">
