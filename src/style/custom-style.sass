@@ -136,6 +136,7 @@ body
 .footer
   padding-bottom: 3rem
   text-align: center
+  background-color: $black
 
   .container
     display: flex
@@ -143,8 +144,6 @@ body
     align-items: center
 
     @media screen and (min-width: 769px)
-      flex-direction: column
-      justify-content: space-around
       align-items: stretch
 
   .menu-list
@@ -215,6 +214,7 @@ body
 
 .footer-links
   padding-top: 2rem
+  width: 100%
 
   .menu-list
     li
@@ -223,32 +223,32 @@ body
       @media screen and (min-width: 769px)
         text-align: left
 
-  .columns
-    @media screen and (min-width: 769px)
-      display: flex
-      justify-content: space-between
+.footer-columns
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-around
+
+  @media screen and (max-width: 768px)
+    flex-direction: column
 
 .footer-column
+  flex: 1
+  min-width: 200px
   margin-bottom: 1rem
 
   @media screen and (min-width: 769px)
     margin-bottom: 0
-    flex: 1
-    max-width: 200px
+    text-align: left
+
+  @media screen and (max-width: 768px)
+    width: 100%
+    text-align: center
 
 @media screen and (max-width: 768px)
-  .footer-links
-    .column
-      margin-bottom: 1rem
-
   .columns.is-multiline
     display: flex
     flex-direction: column
-
-  .column.is-one-third-tablet
-    width: 100%
-    margin-bottom: 1rem
-
+    
 // Helper classes
 .margin-top-0
   margin-top: 0 !important

@@ -38,8 +38,8 @@ const Footer = () => {
       </div>
       <div className="footer-links has-background-black has-text-white-ter">
         <div className="container">
-          <div className="columns is-mobile is-multiline">
-            <div className="column is-one-third-tablet is-half-mobile">
+          <div className="footer-columns">
+            <div className="footer-column">
               <section className="menu">
                 <ul className="menu-list">
                   <li><Link to="/" className="navbar-item">Home</Link></li>
@@ -47,7 +47,7 @@ const Footer = () => {
                 </ul>
               </section>
             </div>
-            <div className="column is-one-third-tablet is-half-mobile">
+            <div className="footer-column">
               <section className="menu">
                 <ul className="menu-list">
                   <li><Link to="/blog" className="navbar-item">Blog</Link></li>
@@ -55,7 +55,7 @@ const Footer = () => {
                 </ul>
               </section>
             </div>
-            <div className="column is-one-third-tablet is-full-mobile">
+            <div className="footer-column">
               <section className="menu">
                 <ul className="menu-list">
                   <li><Link to="/contact" className="navbar-item">Contact</Link></li>
