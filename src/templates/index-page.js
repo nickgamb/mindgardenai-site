@@ -40,6 +40,7 @@ export const IndexPageTemplate = ({
                         {heading}
                       </h3>
                       <p className="section-description">{description}</p>
+                      <HorizontalRule color="#2E1065"/>
                       <Features gridItems={intro.blurbs} />
                       <div className="has-text-centered">
                         <Link className="btn" to="/about">
