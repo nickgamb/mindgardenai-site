@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: "Brainwaves as a factor: How to authenticate with Auth0 using only your mind"
+title: "Brainwaves as a Factor: How to login to Auth0 using your mind"
 date: 2024-07-22T02:23:40.455Z
 description: There are few things more resistant to phishing than a machine
   learning model trained on an individual’s brain scans. Let’s build one! Learn
