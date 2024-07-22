@@ -182,10 +182,32 @@ body
 
 .footer-links
   padding-top: 2rem
-
-  .menu-list
+    .menu-list
     li
       text-align: center
+
+      @media screen and (min-width: 769px)
+        text-align: left
+        
+  @media screen and (max-width: 768px)
+    .footer-links
+      .column
+        margin-bottom: 1rem
+
+.footer
+  .menu-list
+    list-style-type: none  // Remove bullet points
+    padding-left: 0  // Remove default padding
+    
+    li
+      margin-bottom: 0.5rem  // Add some spacing between items
+    
+    a
+      color: $purple10  // Use your light purple color variable
+      transition: color 0.3s ease
+      
+      &:hover
+        color: lighten(#7035CC, 10%)  // Lighter purple on hover, matching social icons
       
       @media screen and (min-width: 769px)
         text-align: left
