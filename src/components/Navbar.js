@@ -17,7 +17,6 @@ const Navbar = () => {
           <a
             className="navbar-item"
             href="/"
-            target="_blank"
             rel="noopener noreferrer"
             style={{ display: 'flex', alignItems: 'center', padding: '0.5rem' }}
           >
