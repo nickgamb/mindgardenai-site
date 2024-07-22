@@ -11,17 +11,13 @@ export const PodcastPageTemplate = ({ title, content, contentComponent }) => {
   return (
     <section className="section section--gradient">
       <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h2>
-              <PageContent className="content" content={content} />
+          <div className="content">
+            <div className="feature-section">
+              <h3 className="has-text-weight-semibold is-size-2 section-title-lg">{mainpitch.title}</h3>
+              <PageContent className="section-description-blk" content={content} />
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 };
