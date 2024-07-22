@@ -36,16 +36,18 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="content has-text-centered has-background-black has-text-white-ter">
-        <div className="container has-background-black has-text-white-ter">
-          <div style={{ maxWidth: "100vw" }} className="columns">
+      <div className="footer-links has-background-black has-text-white-ter">
+        <div className="container">
+          <div className="columns is-mobile is-multiline">
+            <div className="column is-one-third-tablet is-half-mobile">
               <section className="menu">
                 <ul className="menu-list">
                   <li><Link to="/" className="navbar-item">Home</Link></li>
                   <li><Link to="/about" className="navbar-item">About</Link></li>
                 </ul>
               </section>
-            <div className="column is-one-third-tablet is-full-mobile">
+            </div>
+            <div className="column is-one-third-tablet is-half-mobile">
               <section className="menu">
                 <ul className="menu-list">
                   <li><Link to="/blog" className="navbar-item">Blog</Link></li>
