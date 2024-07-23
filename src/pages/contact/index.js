@@ -1,6 +1,8 @@
 import * as React from "react";
 import { navigate } from "gatsby-link";
 import Layout from "../../components/Layout";
+import { Recaptcha } from 'react-recaptcha-google';
+import { graphql, useStaticQuery } from 'gatsby'
 
 function encode(data) {
   return Object.keys(data)
@@ -8,10 +10,29 @@ function encode(data) {
     .join("&");
 }
 
+const data = useStaticQuery(graphql`
+  query SiteRecaptchaKey {
+    site {
+      siteMetadata {
+        siteRecaptchaKey
+      }
+    }
+  }
+`)
+
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isValidated: false };
+    this.recaptchaRef = React.createRef();
+  }
+
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.onloadCallback = () => {
+        console.log("reCAPTCHA has loaded");
+      };
+    }
   }
 
   handleChange = (e) => {
@@ -20,17 +41,23 @@ export default class Index extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.target;
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": form.getAttribute("name"),
-        ...this.state,
-      }),
-    })
-      .then(() => navigate(form.getAttribute("action")))
-      .catch((error) => alert(error));
+    this.recaptchaRef.current.execute();
+  };
+
+  onRecaptchaVerify = (recaptchaToken) => {
+    const form = document.querySelector('form[name="contact"]');
+    this.setState({ "g-recaptcha-response": recaptchaToken }, () => {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": form.getAttribute("name"),
+          ...this.state,
+        }),
+      })
+        .then(() => navigate(form.getAttribute("action")))
+        .catch((error) => alert(error));
+    });
   };
 
   render() {
@@ -45,6 +72,7 @@ export default class Index extends React.Component {
                 method="post"
                 action="/contact/thanks/"
                 data-netlify="true"
+                data-netlify-recaptcha="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={this.handleSubmit}
               >
@@ -52,7 +80,7 @@ export default class Index extends React.Component {
                 <input type="hidden" name="form-name" value="contact" />
                 <div hidden>
                   <label>
-                    Don’t fill this out:{" "}
+                    Don't fill this out:{" "}
                     <input name="bot-field" onChange={this.handleChange} />
                   </label>
                 </div>
@@ -100,6 +128,12 @@ export default class Index extends React.Component {
                     />
                   </div>
                 </div>
+                <Recaptcha
+                  ref={this.recaptchaRef}
+                  sitekey={data.site.siteMetadata.siteRecaptchaKey}
+                  size="invisible"
+                  verifyCallback={this.onRecaptchaVerify}
+                />
                 <div className="field">
                   <button className="btn" type="submit">
                     Send

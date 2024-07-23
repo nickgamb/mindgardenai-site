@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: "MindGarden AI",
@@ -5,6 +9,7 @@ module.exports = {
       "MindGarden AI combines advanced neurotechnology with machine learning to support personal growth and well-being.",
     siteUrl: "https://mindgardenai.netlify.app",
     image: "/img/mindgardennologo.png", // Path to your site image
+    siteRecaptchaKey: process.env.SITE_RECAPTCHA_KEY,
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -60,6 +65,22 @@ module.exports = {
             options: {
               destinationDir: "static",
             },
+          },
+          {
+            resolve: `gatsby-plugin-netlify`,
+            options: {
+              headers: {
+                "/*": [
+                  "Strict-Transport-Security: max-age=63072000",
+                ],
+              },
+              mergeLinkHeaders: true,
+              mergeCachingHeaders: true,
+            },
+          },
+          {
+            resolve: `gatsby-plugin-create-client-paths`,
+            options: { prefixes: [`/contact/*`] },
           },
         ],
       },
