@@ -12,12 +12,13 @@ mainpitch:
 
 
     Join us on this new and exciting journey! Follow on social media and check back regularly for new blogs and podcast episodes.
+description: " "
 intro:
   blurbs:
     - image: /img/home-mental-health-metrics.png
       title: Multimodal Analysis
-      text: AI-driven algorithms are used analyze data across multiple modalities. By
-        training detailed models of individual behavior over time, we provide
+      text: AI-driven algorithms are used to analyze data across multiple modalities.
+        By training detailed models of individual behavior over time, we provide
         deep insights, predictive analytics, and proactive mental health
         interventions, making personalized care accessible for everyone.
     - image: /img/eeg_android.jpg
@@ -33,9 +34,9 @@ intro:
         and entities, enhances our detailed behavioral models over time.
     - image: /img/ultracortex.jpg
       title: BCI Development
-      text: Brain-computer interfaces (BCI) pave the way for groundbreaking advancements in
-        mental health monitoring and intervention, offering novel solutions to
-        enhance mental well-being.
+      text: Brain-computer interfaces (BCI) pave the way for groundbreaking
+        advancements in mental health monitoring and intervention, offering
+        novel solutions to enhance mental well-being.
   heading: Enhance Your Mental Health with MindGarden AI
   description: We're leveraging the power of neurotechnology and machine learning
     to transform mental health care. We're committed to understanding the human
