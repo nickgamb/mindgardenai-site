@@ -41,6 +41,8 @@ export const IndexPageTemplate = ({
                       </h3>
                       <p className="section-description">{description}</p>
                       <hr class="tp-rule" color="#2E1065"/>
+                      <p className="section-description">Tools and resources to help inform, educate, and empower.</p>
+                      <br />
                       <Features gridItems={intro.blurbs} />
                       <div className="has-text-centered">
                         <Link className="btn" to="/about">

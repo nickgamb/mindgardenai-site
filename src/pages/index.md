@@ -33,7 +33,7 @@ intro:
         data, enriched with sentiment analysis and detection of recurring themes
         and entities, enhances our detailed behavioral models over time.
     - image: /img/ultracortex.jpg
-      title: BCI Development
+      title: BCI Integration
       text: Brain-computer interfaces (BCI) pave the way for groundbreaking
         advancements in mental health monitoring and intervention, offering
         novel solutions to enhance mental well-being.
