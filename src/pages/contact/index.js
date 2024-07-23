@@ -46,7 +46,10 @@ export default class Index extends React.Component {
               project_id: process.env.GATSBY_GOOGLE_CLOUD_PROJECT_ID,
               site_key: process.env.GATSBY_RECAPTCHA_SITE_KEY,
               token,
-              action: 'submit'
+              action: 'submit',
+              name: this.state.name,
+              email: this.state.email,
+              message: this.state.message
             }),
           });
 

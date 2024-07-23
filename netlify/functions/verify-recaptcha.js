@@ -1,5 +1,8 @@
 const { RecaptchaEnterpriseServiceClient } = require('@google-cloud/recaptcha-enterprise');
 const { GoogleAuth } = require('google-auth-library');
+const sgMail = require('@sendgrid/mail');
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 async function createAssessment({
   projectID,
@@ -54,7 +57,7 @@ exports.handler = async (event) => {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
 
-  const { token, action } = JSON.parse(event.body);
+  const { token, action, name, email, message } = JSON.parse(event.body);
 
   if (!token || !action) {
     return { statusCode: 400, body: "Missing token or action" };
@@ -68,22 +71,33 @@ exports.handler = async (event) => {
       recaptchaAction: action,
     });
 
-    if (score !== null) {
+    if (score !== null && score >= 0.5) {
+      // Send email using SendGrid
+      const msg = {
+        to: 'admin@mindgardenai.com', 
+        from: 'admin@mindgardenai.com', 
+        subject: 'New Contact Form Submission',
+        text: `You have a new contact form submission from ${name} (${email}): ${message}`,
+        html: `<strong>You have a new contact form submission from ${name} (${email}):</strong><p>${message}</p>`,
+      };
+
+      await sgMail.send(msg);
+
       return { 
         statusCode: 200, 
-        body: JSON.stringify({ success: true, score: score }) 
+        body: JSON.stringify({ success: true, message: "Email sent successfully!" }) 
       };
     } else {
       return { 
         statusCode: 200, 
-        body: JSON.stringify({ success: false, message: "Invalid reCAPTCHA token or action mismatch" }) 
+        body: JSON.stringify({ success: false, message: "Invalid reCAPTCHA token or low score" }) 
       };
     }
   } catch (error) {
     console.error('Error:', error);
     return { 
-      statusCode: 500, 
-      body: JSON.stringify({ success: false, message: "Error verifying reCAPTCHA" }) 
+        statusCode: 500, 
+        body: JSON.stringify({ success: false, message: "Error processing the request" }) 
     };
   }
 };
