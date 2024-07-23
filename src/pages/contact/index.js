@@ -1,7 +1,7 @@
 import * as React from "react";
 import { navigate } from "gatsby-link";
 import Layout from "../../components/Layout";
-import { Recaptcha } from 'react-recaptcha-google';
+import { Recaptcha } from 'react-google-recaptcha';
 import { graphql, useStaticQuery } from 'gatsby'
 
 function encode(data) {
