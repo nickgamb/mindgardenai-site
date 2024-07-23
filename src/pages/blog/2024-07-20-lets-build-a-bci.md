@@ -7,7 +7,9 @@ featuredpost: false
 featuredimage: /img/img_0505.jpeg
 tags:
   - bci
+  - openbci
   - ultracortex
+  - conscious_labs
   - thinkpulse
 ---
 ![Untracortex](/img/img_0505.jpeg)
