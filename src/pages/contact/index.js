@@ -1,7 +1,6 @@
 import * as React from "react";
 import { navigate } from "gatsby-link";
 import Layout from "../../components/Layout";
-import { Recaptcha } from 'react-google-recaptcha';
 import { graphql, StaticQuery } from 'gatsby';
 
 function encode(data) {
@@ -13,15 +12,16 @@ function encode(data) {
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isValidated: false };
+    this.state = { isValidated: false, recaptchaLoaded: false };
     this.recaptchaRef = React.createRef();
   }
 
   componentDidMount() {
     if (typeof window !== 'undefined') {
-      window.onloadCallback = () => {
-        console.log("reCAPTCHA has loaded");
-      };
+      import('react-google-recaptcha').then(({ default: ReCAPTCHA }) => {
+        this.ReCAPTCHA = ReCAPTCHA;
+        this.setState({ recaptchaLoaded: true });
+      });
     }
   }
 
@@ -31,26 +31,33 @@ export default class Index extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.recaptchaRef.current.execute();
+    if (this.recaptchaRef.current) {
+      this.recaptchaRef.current.execute();
+    }
   };
 
   onRecaptchaVerify = (recaptchaToken) => {
     this.setState({ "g-recaptcha-response": recaptchaToken }, () => {
-      const form = document.querySelector('form[name="contact"]');
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": form.getAttribute("name"),
-          ...this.state,
-        }),
-      })
-        .then(() => navigate(form.getAttribute("action")))
-        .catch((error) => alert(error));
+      this.submitForm();
     });
   };
 
+  submitForm = () => {
+    const form = document.querySelector('form[name="contact"]');
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...this.state,
+      }),
+    })
+      .then(() => navigate(form.getAttribute("action")))
+      .catch((error) => alert(error));
+  };
+
   render() {
+    const { recaptchaLoaded } = this.state;
     return (
       <Layout>
         <section className="section" style={{ minHeight: "calc(100vh - 52px - 10rem)" }}>
@@ -129,12 +136,14 @@ export default class Index extends React.Component {
                         />
                       </div>
                     </div>
-                    <Recaptcha
-                      ref={this.recaptchaRef}
-                      sitekey={data.site.siteMetadata.siteRecaptchaKey}
-                      size="invisible"
-                      verifyCallback={this.onRecaptchaVerify}
-                    />
+                    {recaptchaLoaded && this.ReCAPTCHA && (
+                      <this.ReCAPTCHA
+                        ref={this.recaptchaRef}
+                        sitekey={data.site.siteMetadata.siteRecaptchaKey}
+                        size="invisible"
+                        onChange={this.onRecaptchaVerify}
+                      />
+                    )}
                     <div className="field">
                       <button className="btn" type="submit">
                         Send
