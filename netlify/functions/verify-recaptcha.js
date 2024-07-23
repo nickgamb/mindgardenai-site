@@ -59,7 +59,7 @@ exports.handler = async (event) => {
 
   const sendGridKey = process.env.SENDGRID_API_KEY;
 
-  if (!token || !action || sendGridKey) {
+  if (!token || !action || !sendGridKey) {
     return { statusCode: 400, body: "Missing token or action" };
   }
 
