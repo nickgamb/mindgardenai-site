@@ -36,7 +36,7 @@ export default class Index extends React.Component {
   render() {
     return (
       <Layout>
-        <section className="section">
+        <section className="section" style={{ minHeight: "calc(100vh - 52px - 10rem)" }}>
           <div className="container">
             <div className="content">
               <h1>Contact</h1>
