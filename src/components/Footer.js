@@ -25,7 +25,7 @@ const Footer = () => {
           <a title="linkedin" href="https://www.linkedin.com/company/mindgarden-ai">
             <img src={linkedin} alt="LinkedIn" />
           </a>
-          <a title="Discord" href="https://discord.gg/WaxMJN7t">
+          <a title="Discord" href="https://discord.gg/mYd5YbJsWu">
             <img src={discord} alt="Discord" />
           </a>
           <a title="instagram" href="https://instagram.com">
