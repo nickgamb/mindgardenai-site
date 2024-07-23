@@ -17,11 +17,13 @@ export default class Index extends React.Component {
   }
 
   componentDidMount() {
+    console.log("Component mounted");
     if (typeof window !== 'undefined') {
       import('react-google-recaptcha').then(({ default: ReCAPTCHA }) => {
+        console.log("ReCAPTCHA loaded");
         this.ReCAPTCHA = ReCAPTCHA;
         this.setState({ recaptchaLoaded: true });
-      });
+      }).catch(err => console.error("Error loading ReCAPTCHA:", err));
     }
   }
 
@@ -31,12 +33,17 @@ export default class Index extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log("Form submitted");
     if (this.recaptchaRef.current) {
+      console.log("Executing reCAPTCHA");
       this.recaptchaRef.current.execute();
+    } else {
+      console.log("reCAPTCHA ref not available");
     }
   };
 
   onRecaptchaVerify = (recaptchaToken) => {
+    console.log("reCAPTCHA verified:", recaptchaToken);
     this.setState({ "g-recaptcha-response": recaptchaToken }, () => {
       this.submitForm();
     });
@@ -136,13 +143,15 @@ export default class Index extends React.Component {
                         />
                       </div>
                     </div>
-                    {recaptchaLoaded && this.ReCAPTCHA && (
+                    {recaptchaLoaded && this.ReCAPTCHA ? (
                       <this.ReCAPTCHA
                         ref={this.recaptchaRef}
                         sitekey={data.site.siteMetadata.siteRecaptchaKey}
-                        size="invisible"
+                        size="normal"
                         onChange={this.onRecaptchaVerify}
                       />
+                    ) : (
+                      <p>Loading reCAPTCHA...</p>
                     )}
                     <div className="field">
                       <button className="btn" type="submit">
