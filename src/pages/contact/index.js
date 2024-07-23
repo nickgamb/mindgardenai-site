@@ -37,12 +37,14 @@ export default class Index extends React.Component {
     if (this.state.recaptchaLoaded && window.grecaptcha && window.grecaptcha.enterprise) {
       window.grecaptcha.enterprise.ready(async () => {
         try {
-          const token = await window.grecaptcha.enterprise.execute(process.env.RECAPTCHA_SITE_KEY, { action: 'submit' });
+          const site_key = process.env.RECAPTCHA_SITE_KEY
+          const project_id = process.env.GOOGLE_CLOUD_PROJECT_ID
+          const token = await window.grecaptcha.enterprise.execute(site_key, { action: 'submit' });
           
           const response = await fetch("/.netlify/functions/verify-recaptcha", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ token, action: 'submit' }),
+            body: JSON.stringify({project_id, site_key, token, action: 'submit' }),
           });
 
           const result = await response.json();
