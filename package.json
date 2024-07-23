@@ -32,6 +32,7 @@
     "uuid": "^8.0.0",
     "@thumbtack/thumbprint-scss": "^4.0.3",
     "react-google-recaptcha": "^3.1.0",
+    "@google-cloud/recaptcha-enterprise": "^5.10.0",
     "dotenv": "^16.4.5"
   },
   "keywords": [

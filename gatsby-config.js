@@ -9,7 +9,7 @@ module.exports = {
       "MindGarden AI combines advanced neurotechnology with machine learning to support personal growth and well-being.",
     siteUrl: "https://mindgardenai.netlify.app",
     image: "/img/mindgardennologo.png", // Path to your site image
-    siteRecaptchaKey: process.env.SITE_RECAPTCHA_KEY,
+    recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
   },
   plugins: [
     "gatsby-plugin-react-helmet",
