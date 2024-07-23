@@ -2,8 +2,6 @@ const { RecaptchaEnterpriseServiceClient } = require('@google-cloud/recaptcha-en
 const { GoogleAuth } = require('google-auth-library');
 const sgMail = require('@sendgrid/mail');
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
 async function createAssessment({
   projectID,
   recaptchaKey,
@@ -59,7 +57,9 @@ exports.handler = async (event) => {
 
   const { token, action, name, email, message } = JSON.parse(event.body);
 
-  if (!token || !action) {
+  const sendGridKey = process.env.SENDGRID_API_KEY;
+
+  if (!token || !action || sendGridKey) {
     return { statusCode: 400, body: "Missing token or action" };
   }
 
@@ -70,6 +70,8 @@ exports.handler = async (event) => {
       token: token,
       recaptchaAction: action,
     });
+
+    sgMail.setApiKey(sendGridKey);
 
     if (score !== null && score >= 0.5) {
       // Send email using SendGrid
