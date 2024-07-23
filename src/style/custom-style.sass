@@ -180,11 +180,20 @@ body
 .has-text-primary
   color: $purple50 !important
 
+.site-wrapper
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+
+.site-content
+  flex: 1 0 auto
+
 // Footer styles
 .footer
   padding-bottom: 3rem
   text-align: center
   background-color: $black
+  flex-shrink: 0
 
   .container
     display: flex

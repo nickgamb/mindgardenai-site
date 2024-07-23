@@ -9,7 +9,7 @@ export const PodcastPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content;
 
   return (
-    <section className="section section--gradient">
+    <section className="section section--gradient" style={{ minHeight: "calc(100vh - 52px - 10rem)" }}>
       <div className="container">
         <div className="columns">
           <div className="column is-10 is-offset-1">
