@@ -12,6 +12,8 @@ export default class Index extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isValidated: false, recaptchaLoaded: false, name: '', email: '', message: '' };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -19,7 +21,10 @@ export default class Index extends React.Component {
     script.src = `https://www.google.com/recaptcha/enterprise.js?render=${process.env.GATSBY_RECAPTCHA_SITE_KEY}`;
     script.async = true;
     script.defer = true;
-    script.onload = () => this.setState({ recaptchaLoaded: true });
+    script.onload = () => {
+      this.setState({ recaptchaLoaded: true });
+      window.onSubmit = this.handleSubmit;  // Define onSubmit globally
+    };
     document.head.appendChild(script);
   }
 
@@ -27,14 +32,14 @@ export default class Index extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = async (e) => {
-    e.preventDefault();
+  handleSubmit = async (token) => {
+    //const form = document.getElementById("contact-form");
     const form = e.target;
     if (this.state.recaptchaLoaded && window.grecaptcha && window.grecaptcha.enterprise) {
       window.grecaptcha.enterprise.ready(async () => {
         try {
           const token = await window.grecaptcha.enterprise.execute(process.env.GATSBY_RECAPTCHA_SITE_KEY, { action: 'submit' });
-          
+
           const response = await fetch("/.netlify/functions/verify-recaptcha", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -82,6 +87,7 @@ export default class Index extends React.Component {
             <div className="content">
               <h1>Contact</h1>
               <form
+                id="contact-form"
                 name="contact"
                 method="post"
                 action="/contact/thanks/"
