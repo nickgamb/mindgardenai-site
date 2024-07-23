@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: A beginners’ guide to EEG data with PiEEG & BrainFlow
+title: A Beginners’ Guide to EEG Data with PiEEG & BrainFlow
 date: 2024-07-21T02:09:16.138Z
 description: This blog is an introduction into the acquisition of EEG data using
   PiEEG and BrainFlow.
