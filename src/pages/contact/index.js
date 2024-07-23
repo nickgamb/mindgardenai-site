@@ -34,7 +34,6 @@ export default class Index extends React.Component {
 
   handleSubmit = async (token) => {
     const form = document.getElementById("contact-form");
-    //const form = e.target;
     if (this.state.recaptchaLoaded && window.grecaptcha && window.grecaptcha.enterprise) {
       window.grecaptcha.enterprise.ready(async () => {
         try {

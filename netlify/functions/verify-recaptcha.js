@@ -6,6 +6,10 @@ async function createAssessment({
   token,
   recaptchaAction,
 }) {
+  if (!projectID || !recaptchaKey || !token) {
+    throw new Error('Missing required parameters for reCAPTCHA assessment');
+  }
+
   const client = new RecaptchaEnterpriseServiceClient();
   const projectPath = client.projectPath(projectID);
 
@@ -52,8 +56,8 @@ exports.handler = async (event) => {
 
   try {
     const score = await createAssessment({
-      projectID: process.env.GOOGLE_CLOUD_PROJECT_ID,
-      recaptchaKey: process.env.RECAPTCHA_SITE_KEY,
+      projectID: process.env.GATSBY_GOOGLE_CLOUD_PROJECT_ID,
+      recaptchaKey: process.env.GATSBY_RECAPTCHA_SITE_KEY,
       token: token,
       recaptchaAction: action,
     });
