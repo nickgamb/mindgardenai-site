@@ -8,6 +8,10 @@ function encode(data) {
     .join("&");
 }
 
+function onSubmit(token) {
+  document.getElementById("contact").submit();
+}
+
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -137,8 +141,11 @@ export default class Index extends React.Component {
                   </div>
                 </div>
                 <div className="field">
-                  <button className="button is-link" type="submit">
-                    Send
+                <button class="g-recaptcha"
+                      data-sitekey="6LdMzRYqAAAAAK5vIL_Ta4u0xN8uRJMYRaLoyqwD"
+                      data-callback='onSubmit'
+                      data-action='submit'>
+                    Submit
                   </button>
                 </div>
               </form>
