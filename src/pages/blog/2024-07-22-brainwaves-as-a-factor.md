@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: "Brainwaves as a Factor: Authentication using your mind"
+title: "Brainwaves as a Factor: Passwordless Login Using Your Mind"
 date: 2024-07-22T02:23:40.455Z
 description: There are few things more resistant to phishing than a machine
   learning model trained on an individual’s brain scans. Let’s build one! Learn
