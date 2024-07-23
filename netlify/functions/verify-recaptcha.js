@@ -1,4 +1,4 @@
-const {RecaptchaEnterpriseServiceClient} = require('@google-cloud/recaptcha-enterprise');
+const { RecaptchaEnterpriseServiceClient } = require('@google-cloud/recaptcha-enterprise');
 
 async function createAssessment({
   projectID,
@@ -9,7 +9,7 @@ async function createAssessment({
   const client = new RecaptchaEnterpriseServiceClient();
   const projectPath = client.projectPath(projectID);
 
-  const request = ({
+  const request = {
     assessment: {
       event: {
         token: token,
@@ -17,9 +17,9 @@ async function createAssessment({
       },
     },
     parent: projectPath,
-  });
+  };
 
-  const [ response ] = await client.createAssessment(request);
+  const [response] = await client.createAssessment(request);
 
   if (!response.tokenProperties.valid) {
     console.log(`The CreateAssessment call failed because the token was: ${response.tokenProperties.invalidReason}`);

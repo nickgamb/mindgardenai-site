@@ -8,19 +8,15 @@ function encode(data) {
     .join("&");
 }
 
-function onSubmit(token) {
-  document.getElementById("contact").submit();
-}
-
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isValidated: false, recaptchaLoaded: false };
+    this.state = { isValidated: false, recaptchaLoaded: false, name: '', email: '', message: '' };
   }
 
   componentDidMount() {
     const script = document.createElement('script');
-    script.src = `https://www.google.com/recaptcha/enterprise.js?render=${process.env.RECAPTCHA_SITE_KEY}`;
+    script.src = `https://www.google.com/recaptcha/enterprise.js?render=${process.env.GATSBY_RECAPTCHA_SITE_KEY}`;
     script.async = true;
     script.defer = true;
     script.onload = () => this.setState({ recaptchaLoaded: true });
@@ -31,20 +27,23 @@ export default class Index extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     if (this.state.recaptchaLoaded && window.grecaptcha && window.grecaptcha.enterprise) {
       window.grecaptcha.enterprise.ready(async () => {
         try {
-          const site_key = process.env.RECAPTCHA_SITE_KEY
-          const project_id = process.env.GOOGLE_CLOUD_PROJECT_ID
-          const token = await window.grecaptcha.enterprise.execute(site_key, { action: 'submit' });
+          const token = await window.grecaptcha.enterprise.execute(process.env.GATSBY_RECAPTCHA_SITE_KEY, { action: 'submit' });
           
           const response = await fetch("/.netlify/functions/verify-recaptcha", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({project_id, site_key, token, action: 'submit' }),
+            body: JSON.stringify({
+              project_id: process.env.GATSBY_GOOGLE_CLOUD_PROJECT_ID,
+              site_key: process.env.GATSBY_RECAPTCHA_SITE_KEY,
+              token,
+              action: 'submit'
+            }),
           });
 
           const result = await response.json();
@@ -88,8 +87,7 @@ export default class Index extends React.Component {
                 action="/contact/thanks/"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
-                //onSubmit={this.handleSubmit}
-                onSubmit={this.onSubmit(token)}
+                onSubmit={this.handleSubmit}
               >
                 {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
                 <input type="hidden" name="form-name" value="contact" />
@@ -144,10 +142,10 @@ export default class Index extends React.Component {
                   </div>
                 </div>
                 <div className="field">
-                <button class="g-recaptcha"
-                      data-sitekey="6LdMzRYqAAAAAK5vIL_Ta4u0xN8uRJMYRaLoyqwD"
-                      data-callback='onSubmit'
-                      data-action='submit'>
+                  <button className="g-recaptcha"
+                    data-sitekey={process.env.GATSBY_RECAPTCHA_SITE_KEY}
+                    data-callback='onSubmit'
+                    data-action='submit'>
                     Submit
                   </button>
                 </div>
