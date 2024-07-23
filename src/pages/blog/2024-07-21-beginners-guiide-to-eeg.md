@@ -9,6 +9,7 @@ featuredimage: /img/img_0595.jpeg
 tags:
   - brainflow
   - pieeg
+  - openbci
   - eeg
   - python
 ---
