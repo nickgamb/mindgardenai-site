@@ -16,4 +16,4 @@ tags:
 
 ## Coming Soon!
 
-This blog is scheduled to be released: Summer 2024
+This blog will arrive Summer 2024.
