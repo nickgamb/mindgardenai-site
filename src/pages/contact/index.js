@@ -57,16 +57,8 @@ export default class Index extends React.Component {
 
           if (result.success) {
             // reCAPTCHA verification successful, proceed with form submission
-            fetch("/", {
-              method: "POST",
-              headers: { "Content-Type": "application/x-www-form-urlencoded" },
-              body: encode({
-                "form-name": form.getAttribute("name"),
-                ...this.state,
-              }),
-            })
-              .then(() => navigate(form.getAttribute("action")))
-              .catch((error) => alert(error));
+            // reCAPTCHA verification successful, proceed with form submission
+            navigate(form.getAttribute("action"));
           } else {
             alert("reCAPTCHA verification failed. Please try again.");
           }
@@ -150,7 +142,7 @@ export default class Index extends React.Component {
                   </div>
                 </div>
                 <div className="field">
-                  <button className="g-recaptcha"
+                  <button className="btn g-recaptcha"
                     data-sitekey={process.env.GATSBY_RECAPTCHA_SITE_KEY}
                     data-callback='onSubmit'
                     data-action='submit'>
