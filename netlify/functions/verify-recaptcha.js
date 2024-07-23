@@ -1,4 +1,5 @@
 const { RecaptchaEnterpriseServiceClient } = require('@google-cloud/recaptcha-enterprise');
+const { GoogleAuth } = require('google-auth-library');
 
 async function createAssessment({
   projectID,
@@ -10,7 +11,12 @@ async function createAssessment({
     throw new Error('Missing required parameters for reCAPTCHA assessment');
   }
 
-  const client = new RecaptchaEnterpriseServiceClient();
+  const auth = new GoogleAuth({
+    credentials: JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS),
+    scopes: ['https://www.googleapis.com/auth/cloud-platform'],
+  });
+
+  const client = new RecaptchaEnterpriseServiceClient({ auth });
   const projectPath = client.projectPath(projectID);
 
   const request = {
