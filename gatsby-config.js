@@ -74,8 +74,6 @@ module.exports = {
                   "Strict-Transport-Security: max-age=63072000",
                 ],
               },
-              mergeLinkHeaders: true,
-              mergeCachingHeaders: true,
             },
           },
         ],
