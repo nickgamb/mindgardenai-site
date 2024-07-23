@@ -1,10 +1,10 @@
 const {RecaptchaEnterpriseServiceClient} = require('@google-cloud/recaptcha-enterprise');
 
 async function createAssessment({
-  projectID,
-  recaptchaKey,
-  token,
-  recaptchaAction,
+  projectID = "mindgarden-ai-1721752819435",
+  recaptchaKey = "6LdMzRYqAAAAAK5vIL_Ta4u0xN8uRJMYRaLoyqwD",
+  token = "action-token",
+  recaptchaAction = "action-name",
 }) {
   const client = new RecaptchaEnterpriseServiceClient();
   const projectPath = client.projectPath(projectID);
