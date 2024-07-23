@@ -16,6 +16,6 @@ tags:
 ---
 ![](/img/eeg_data_banner.jpg)
 
-## Comming Soon!
+## Coming Soon!
 
 This blog will arrive Summer 2024.
