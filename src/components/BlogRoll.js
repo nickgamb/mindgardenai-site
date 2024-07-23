@@ -37,7 +37,7 @@ const BlogRollTemplate = (props) => {
                 ) }
                 <p className="post-meta">
                   <Link
-                    className="title has-text-primary is-size-4"
+                    className="title has-text-primary is-underlined is-size-4"
                     to={post.fields.slug}
                   >
                     {post.frontmatter.title}
@@ -48,7 +48,7 @@ const BlogRollTemplate = (props) => {
                   </span>
                 </p>
               </header>
-              <hr class="tp-rule" color="#2E1065"/>
+              <hr class="tp-rule"/>
               <p>
                 {post.excerpt}
                 <br />
