@@ -8,10 +8,11 @@ description: There are few things more resistant to phishing than a machine
 featuredpost: true
 featuredimage: /img/screenshot-2024-07-19-095720.png
 tags:
-  - jamaica
-  - green beans
-  - flavor
-  - tasting
+  - brainflow
+  - pieeg
+  - auth0
+  - authentication
+  - openbci
 ---
 ![](/img/eeg_data_banner.jpg)
 
