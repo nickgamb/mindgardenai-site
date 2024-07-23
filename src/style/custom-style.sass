@@ -121,7 +121,7 @@ body
   transition: all 0.15s ease
   &:hover, &:focus
     background-color: darken($primary, 10%)
-    @include card(2)  // Apply depth level 2
+    @include card(1)  // Apply depth level 1
 
 // Images
 .full-width-image-container, .full-width-image
@@ -143,14 +143,69 @@ body
   @media (min-width: 768px)
     height: 400px
 
-// Blog
+//Blog Styles
+
+// Styles for the outer wrapper (large mat)
+.blog-section-wrapper
+  background-color: $purple_light_gray
+  padding: 2rem 1.5rem
+  margin: 2rem 0
+  border-radius: 1rem
+  @include card(1)  // Apply depth level 1
+
+// Styles for the inner section
+.blog-section
+  .section-title
+    color: $purple50
+    border-radius: 0.5rem
+    margin-top: 0.5rem
+    margin-bottom: 2rem
+    text-align: center
+    font-size: 2rem
+
+  .section-title-lg
+    color: $purple50
+    border-radius: 0.5rem
+    margin-top: 0.5rem
+    margin-bottom: 2rem
+    text-align: center
+    font-size: 2.5rem
+
+  .section-description
+    color: white
+    margin-bottom: 2rem !important
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+    font-size: 1.5rem
+
+  .section-description-blk
+    color: $purple100
+    margin-bottom: 4rem !important
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+    font-size: 2rem
+ 
+  .btn
+    display: inline-block
+    background-color: $primary
+    color: white
+    padding: 0.5rem 1rem
+    border-radius: 0.25rem
+    text-decoration: none
+    transition: background-color 0.3s ease
+
+    &:hover
+      background-color: darken($primary, 10%)
+
 .blog-list-item
   background-color: $purple30
   margin-bottom: 1rem
   border-radius: 0.25rem
   overflow: hidden
   transition: transform 0.3s ease
-  @include card(2)  // Apply depth level 2
+  @include card(1)  // Apply depth level 1
 
   &:hover
     transform: translateY(-5px)
@@ -355,7 +410,7 @@ body
   padding: 2rem 1.5rem
   margin: 2rem 0
   border-radius: 1rem
-  @include card(2)  // Apply depth level 2
+  @include card(1)  // Apply depth level 1
 
 // Styles for the inner section
 .feature-section
@@ -413,11 +468,11 @@ body
   border-radius: 0.5rem
   height: 100%
   transition: transform 0.3s ease, box-shadow 0.3s ease
-  @include card(2)  // Apply depth level 2
+  @include card(1)  // Apply depth level 1
                 
   &:hover
     transform: translateY(-5px)
-    @include card(2)  // Apply depth level 2
+    @include card(1)  // Apply depth level 1
                 
 
 // Styles for the feature items themselves
@@ -437,3 +492,7 @@ body
     text-align: center
     color: $purple100
     margin-top: 1rem
+
+// Styles for images that use Gatsby image wrapper
+.gatsby-image-wrapper
+  border-radius: 0.5rem

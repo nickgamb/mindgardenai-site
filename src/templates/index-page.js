@@ -36,11 +36,9 @@ export const IndexPageTemplate = ({
                 <div className="feature-section-wrapper">
                   <div className="feature-section">
                     <div className="container">
-                      <h3 className="has-text-weight-semibold is-size-2 section-title">
+                      <h3 className="has-text-weight-semibold is-size-2 is-underlined section-title">
                         {heading}
                       </h3>
-                      <p className="section-description">{description}</p>
-                      <hr class="tp-rule" color="#2E1065"/>
                       <p className="section-description">Tools and resources to help inform, educate, and empower.</p>
                       <br />
                       <Features gridItems={intro.blurbs} />
@@ -52,11 +50,10 @@ export const IndexPageTemplate = ({
                     </div>
                   </div>
                 </div>
-                <div className="feature-section-wrapper">
-                  <div className="feature-section">
+                <div className="blog-section-wrapper">
+                  <div className="blog-section">
                     <section className="container">
-                      <h3 className="has-text-weight-semibold is-size-2 section-title">Latest Blogs</h3>
-                      <hr class="tp-rule" color="#2E1065"/>
+                      <h3 className="has-text-weight-semibold is-size-2 is-underlined section-title">Latest Blogs</h3>
                       <p className="section-description">Stay up to date on the latest news, research and technologies from MindGarden AI.</p>
                       <br />
                       <BlogRoll />
