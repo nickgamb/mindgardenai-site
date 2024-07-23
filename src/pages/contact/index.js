@@ -11,7 +11,7 @@ function encode(data) {
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isValidated: false };
+    this.state = { isValidated: false, recaptchaLoaded: false };
   }
 
   componentDidMount() {
@@ -19,6 +19,7 @@ export default class Index extends React.Component {
     script.src = `https://www.google.com/recaptcha/enterprise.js?render=${process.env.RECAPTCHA_SITE_KEY}`;
     script.async = true;
     script.defer = true;
+    script.onload = () => this.setState({ recaptchaLoaded: true });
     document.head.appendChild(script);
   }
 
@@ -29,43 +30,49 @@ export default class Index extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    window.grecaptcha.enterprise.ready(async () => {
-      const token = await window.grecaptcha.enterprise.execute(process.env.RECAPTCHA_SITE_KEY, { action: 'submit' });
-      
-      try {
-        const response = await fetch("/.netlify/functions/verify-recaptcha", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ token, action: 'submit' }),
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
-          // reCAPTCHA verification successful, proceed with form submission
-          fetch("/", {
+    if (this.state.recaptchaLoaded && window.grecaptcha && window.grecaptcha.enterprise) {
+      window.grecaptcha.enterprise.ready(async () => {
+        try {
+          const token = await window.grecaptcha.enterprise.execute(process.env.RECAPTCHA_SITE_KEY, { action: 'submit' });
+          
+          const response = await fetch("/.netlify/functions/verify-recaptcha", {
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({
-              "form-name": form.getAttribute("name"),
-              ...this.state,
-            }),
-          })
-            .then(() => navigate(form.getAttribute("action")))
-            .catch((error) => alert(error));
-        } else {
-          alert("reCAPTCHA verification failed. Please try again.");
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token, action: 'submit' }),
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            // reCAPTCHA verification successful, proceed with form submission
+            fetch("/", {
+              method: "POST",
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: encode({
+                "form-name": form.getAttribute("name"),
+                ...this.state,
+              }),
+            })
+              .then(() => navigate(form.getAttribute("action")))
+              .catch((error) => alert(error));
+          } else {
+            alert("reCAPTCHA verification failed. Please try again.");
+          }
+        } catch (error) {
+          console.error('reCAPTCHA error:', error);
+          alert("An error occurred with reCAPTCHA. Please try again.");
         }
-      } catch (error) {
-        alert("An error occurred. Please try again.");
-      }
-    });
+      });
+    } else {
+      console.error('reCAPTCHA not loaded');
+      alert("reCAPTCHA is not loaded. Please refresh the page and try again.");
+    }
   };
 
   render() {
     return (
       <Layout>
-        <section className="section">
+        <section className="section" style={{ minHeight: "calc(100vh - 52px - 10rem)" }}>
           <div className="container">
             <div className="content">
               <h1>Contact</h1>
