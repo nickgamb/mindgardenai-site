@@ -44,6 +44,8 @@ const TemplateWrapper = ({ children }) => {
 
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
         
+        <meta name="google-adsense-account" content="ca-pub-5509488659978116" />
+        
         <meta name="theme-color" content="#161616" />
 
         <meta property="og:type" content="business.business" />
@@ -53,7 +55,6 @@ const TemplateWrapper = ({ children }) => {
           property="og:image"
           content={`${withPrefix("/")}img/MindGarden.png`}
         />
-        <meta name="google-adsense-account" content="ca-pub-5509488659978116">
       </Helmet>
       <Navbar />
       <main className="site-content">{children}</main>
