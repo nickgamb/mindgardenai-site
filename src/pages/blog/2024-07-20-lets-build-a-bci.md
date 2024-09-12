@@ -24,11 +24,12 @@ Now, you might think this technology requires expensive equipment and lab access
 
 **What You'll Need:**
 
-* **3D printer** (or purchase printed from OpenBCI)
+* **3D printer**
 * [PLA filament](https://amzn.to/3ZnhifL)
 * [UltraCortex STA files](https://github.com/openbci-archive/Docs/tree/master/assets/MarkIV/STL_Directory)
 * [Raspberry Pi (4 or 5)](https://amzn.to/3MGxMIz)
 * [PiEEG (8 or 16 channels)](https://pieeg.com/)
+* [Conscious Labs ThinkPulse Electrodes](https://shop.openbci.com/products/thinkpulse-active-electrode-kit?variant=37113738985630)
 * [PiSugar2 Pro Battery](https://amzn.to/3XGNppy)
 * [Raspberry Pi case (with hat support)](https://amzn.to/3Zogmrr)
 * [Power Distribution Board](https://amzn.to/3zjPjTI)
@@ -89,7 +90,7 @@ The *right* build components will always be a bit subjective. For EEG signal acq
 
 <br>
 
-The **OpenBCI UltraCortex** headset frame is modular and 3D-printable, allowing us to easily modify or replace parts as needed. Its open-source design ensures that we can customize it to our specific application—whether we’re focusing on research or personal experimentation.
+The [OpenBCI UltraCortex](https://github.com/openbci-archive/Docs/tree/master/assets/MarkIV/STL_Directory) headset frame is modular and 3D-printable, allowing us to easily modify or replace parts as needed. Its open-source design ensures that we can customize it to our specific application—whether we’re focusing on research or personal experimentation.
 
 <br>
 
@@ -99,7 +100,7 @@ The **OpenBCI UltraCortex** headset frame is modular and 3D-printable, allowing 
 
 <br>
 
-**Conscious Labs ThinkPulse** electrodes are  **Active**, **Dry**, electrodes, which means they are powered and don’t require conductive gel. These electrodes provide reliable signal quality without the mess.
+[Conscious Labs ThinkPulse Electrodes](https://shop.openbci.com/products/thinkpulse-active-electrode-kit?variant=37113738985630) are  **Active**, **Dry**, electrodes, which means they are powered and don’t require conductive gel. These electrodes provide reliable signal quality without the mess.
 
 > **Note:** Dry electrodes can be slightly more prone to noise compared to wet electrodes. Make sure the scalp has proper contact for accurate readings.
 
