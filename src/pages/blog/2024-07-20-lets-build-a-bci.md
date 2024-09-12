@@ -25,13 +25,13 @@ Now, you might think this technology requires expensive equipment and lab access
 **What You'll Need:**
 
 * **3D printer** (or purchase printed from OpenBCI)
-* [PLA filament]()
+* [PLA filament](https://amzn.to/3ZnhifL)
 * [UltraCortex STA files](https://github.com/openbci-archive/Docs/tree/master/assets/MarkIV/STL_Directory)
-* [Raspberry Pi (4 or 5)]()
+* [Raspberry Pi (4 or 5)](https://amzn.to/3MGxMIz)
 * [PiEEG (8 or 16 channels)](https://pieeg.com/)
-* [PiSugar2 Pro Battery]()
-* [Raspberry Pi case (with hat support)]()
-* [Power Distribution Board]()
+* [PiSugar2 Pro Battery](https://amzn.to/3XGNppy)
+* [Raspberry Pi case (with hat support)](https://amzn.to/3Zogmrr)
+* [Power Distribution Board](https://amzn.to/3zjPjTI)
 
 > **Tip:** Ensure you have a steady supply of patience, as building BCIs requires attention to detail and troubleshooting along the way.
 
