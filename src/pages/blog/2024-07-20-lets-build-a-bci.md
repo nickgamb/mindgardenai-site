@@ -257,6 +257,8 @@ Once assembled, install the Raspberry Pi and PiEEG into a Pi case that is tall e
 
 - - -
 
+<br>
+
 #### 8. Electrode installation & Wire Management:
 
 Finish the assembly by screwing the electrode screws into their appropriate mounts and cleanly tie the wires down to the UltraCortex frame.
@@ -265,11 +267,19 @@ Finish the assembly by screwing the electrode screws into their appropriate moun
 
 <br>
 
-Once assembled, the BCI is complete and ready for testing.
+Connect the electrode signal jumper cable to the electrode pins on the PiEEG. Connect a jumper wire from GPIO pin 1 (+) and GPIO pin (5) to the power distribution boards power inputs and connect the red and black jumper cables to the power distribution boards power outputs. Finally, connect the electrode power wires to their corresponding pins on the red and black jumpers. 
 
 <br>
 
 ![Untracortex](/img/img_0595.jpg)
+
+<br>
+
+Once assembled, the BCI is complete and ready for testing.
+
+- - - 
+
+<br>
 
 ### Conclusion: The Road Ahead
 
