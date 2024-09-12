@@ -29,8 +29,9 @@ Now, you might think this technology requires expensive equipment and lab access
 * [UltraCortex STA files](https://github.com/openbci-archive/Docs/tree/master/assets/MarkIV/STL_Directory)
 * [Raspberry Pi (4 or 5)]()
 * [PiEEG (8 or 16 channels)](https://pieeg.com/)
-* [PiSugar Battery]()
+* [PiSugar2 Pro Battery]()
 * [Raspberry Pi case (with hat support)]()
+* [Power Distribution Board]()
 
 > **Tip:** Ensure you have a steady supply of patience, as building BCIs requires attention to detail and troubleshooting along the way.
 
@@ -195,7 +196,7 @@ A **Power Distribution Board** is used to distribute power from the Raspberry Pi
 
 <br>
 
-A custom red and black jumper was created to easily connect each electrode while the power distribution board is hidden cleanly out of sight. 
+Custom red and black jumpers were created to easily connect each electrode while the power distribution board is hidden cleanly out of sight. 
 
 <br>
 
@@ -246,7 +247,7 @@ To fit the desired aesthetic of our build, we chose to incorporate some custom c
 
 ![Untracortex](/img/img_0305.jpg)
 
-The PiEEG Hat connects directly to the Raspberry Pi’s GPIO pins to convert brain signals into usable data. Carefully align the PiEEG Hat on the Raspberry Pi, ensuring each pin is properly connected. This is crucial for smooth communication between the electrodes and the processor.
+The PiEEG connects directly to the Raspberry Pi’s GPIO pins and is used to convert brain signals into usable data. Carefully align the PiEEG on the Raspberry Pi, ensuring each pin is securely connected. This is crucial for smooth communication between the electrodes and the processor.
 
 The Raspberry Pi can be powered via USB-C. To reduce noise in the EEG signal, and to add mobility to the BCI, a battery should be used. 
 
