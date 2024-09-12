@@ -275,7 +275,7 @@ Connect the electrode signal jumper cable to the electrode pins on the PiEEG. Co
 
 <br>
 
-Once assembled, the BCI is complete and ready for testing.
+Carefully position the wires and power distribution board into the Pi case and assemble. Feed the jumper wires out of the case and neatly organize with zip ties. Once assembled, the BCI is complete and ready for testing.
 
 - - - 
 
@@ -284,3 +284,8 @@ Once assembled, the BCI is complete and ready for testing.
 ### Conclusion: The Road Ahead
 
 Building your own BCI is an exciting and educational journey that merges neuroscience with technology. Through this process, we gained valuable insights into how brainwaves can be captured, processed, and used for a variety of applications. Whether it's for cognitive enhancement or health monitoring, this project serves as a gateway to the future of brain-computer interaction.
+
+**Next Steps:** Our next blog will focus on software as we develop a basic client application to record and visualize the EEG data from our BCI. **Check back soon!**
+
+- - - 
+
