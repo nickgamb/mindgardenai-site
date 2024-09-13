@@ -33,6 +33,10 @@ Now, you might think this technology requires expensive equipment and lab access
 * [PiSugar2 Pro Battery](https://amzn.to/3XGNppy)
 * [Raspberry Pi case (with hat support)](https://amzn.to/3Zogmrr)
 * [Power Distribution Board](https://amzn.to/3zjPjTI)
+* [Braided Cable Sleeve](https://amzn.to/3XFAUun)
+* [Pre-Crimped Jumper Cable](https://amzn.to/3XF9a9i)
+* [Dupont Wire Crimping Kit](https://amzn.to/47olYnM)
+* [Heat Shrink Tubing](https://amzn.to/3B68xgg)
 
 > **Tip:** Ensure you have a steady supply of patience, as building BCIs requires attention to detail and troubleshooting along the way.
 
