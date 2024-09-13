@@ -268,7 +268,7 @@ Finish the assembly by screwing the electrode screws into their appropriate moun
 
 <br>
 
-Connect the electrode signal jumper cable to the electrode pins on the PiEEG. Connect a jumper wire from GPIO pin 1 (+) and GPIO pin (5) to the power distribution boards power inputs and connect the red and black jumper cables to the power distribution boards power outputs. Finally, connect the electrode power wires to their corresponding pins on the red and black jumpers. 
+Connect the electrode signal jumper cable to the electrode pins on the PiEEG. Connect a jumper wire from GPIO pin 1 (+) and GPIO pin 5 (-) to the power distribution boards power inputs and connect the red and black jumper cables to the power distribution boards power outputs. Finally, connect the electrode power wires to their corresponding pins on the red and black jumpers. 
 
 <br>
 
