@@ -45,12 +45,12 @@ Now, you might think this technology requires expensive equipment and lab access
 <br>
 
 ## Getting Started: Capturing Brainwave Data in Real-Time
+
 Before setting out to build a BCI, it is crucial to understand our brainwave acquisition strategy. Our build will need to be non-invasive and functional within a range of environments. It will need to record a users brain signals in real time and translate the signal into something that a computer can read. To accomplish this, our BCI will leverage a technology called **Electroencephalography (EEG)**.  
 
 <br>  
 
 > **Tip:** **Electroencephalography (EEG)** was invented by Hans Berger in 1924 and has been used in clinical and research settings ever since. Berger was the first to record brainwaves, coining the term "electroencephalogram" to describe the electrical activity he observed in the human brain. His pioneering work laid the foundation for modern neuroscience and the development of brain-computer interfaces.
-
 
 ### What is EEG and Why is it the Most Common Tool in Modern BCIs?
 
@@ -81,9 +81,11 @@ For our BCI build, we will focus primarily on alpha, beta, and gamma waves due t
 > **Pro Tip:** While EEG provides excellent temporal resolution (timing of brain activity), keep in mind its spatial resolution (where activity happens in the brain) is limited. This is why correct **electrode placement** is critical!
 
 - - -
+
 <br>
 
 ### Choosing the Right Build Components:
+
 The *right* build components will always be a bit subjective. For EEG signal acquisition and processing, our BCI will need to contain a series of electrodes and a central processor to read brainwaves. The electrodes will need to be held in place securely on a users physical body. **This guide has been built around the following components:**  
 
 <br>
@@ -230,6 +232,7 @@ When painting, make sure to shake the can well before and during use. Try to con
 <br>
 
 > **Note:** The **Electrode Screws** and **Screw Mounts** should receive minimal paint to avoid interfering with their function. 
+
 - - -
 
 #### 6.Electrode Assembly & Custom Sleeves:
@@ -270,14 +273,65 @@ Finish the assembly by screwing the electrode screws into their appropriate moun
 
 **Optimizing Positioning for Accurate Data Collection:**
 
-Electrode placement is a crucial factor in ensuring that the EEG system captures meaningful brainwave data. For this build, we will adhere to the 10-20 system, a standard electrode placement system widely used in EEG studies. This system positions electrodes in relation to landmarks on the skull, ensuring even coverage of brain regions while focusing on key areas for EEG signal acquisition.
+**Electrode placement** is crucial to ensure that the EEG system captures meaningful brainwave data. For this build, we adhere to the **10-20 system**, a standard electrode placement method widely used in EEG studies. The name “10-20” comes from the distances between adjacent electrodes being 10% or 20% of the total front-to-back or right-to-left distance of the skull. This method positions electrodes relative to key landmarks on the skull, including the **nasion** (the point between the forehead and the nose) and the **inion** (the bump on the back of the skull).
 
-This method was chosen because it is optimized for covering areas associated with various cognitive functions, such as the frontal and parietal lobes. This allowed us to capture brainwave activity that corresponds to attention, relaxation, and focus, depending on the regions targeted by the electrodes.
-* **Frontal region** *(Fz, Fp1, Fp2)*: Electrodes placed here are ideal for capturing brainwave patterns associated with cognitive processes, decision-making, and focus.
-* **Parietal region *(Pz, P3, P4)*: These areas are more involved in sensory processing and motor functions, which are essential for applications involving movement or sensory feedback.
-* **Occipital region** *(Oz)*: The occipital area, located at the back of the head, is primarily associated with visual processing, which can be useful in BCIs designed for visual attention tasks or neurofeedback related to visual stimuli.
+![Untracortex](/img/img_0496_1.png)
 
-By ensuring proper contact between the ThinkPulse electrodes and the scalp, we minimized impedance and noise, resulting in cleaner, more reliable EEG data. The modular nature of the UltraCortex also allowed us to adjust the electrode positions easily, refining their placement to suit different experimental conditions or personal preferences.
+<br>
+
+The 10-20 system is designed to cover important regions of the brain and to ensure **symmetry** in electrode placement for even coverage of brain activity. Depending on the specific cognitive function or brain region you want to target, electrode placement can be adjusted accordingly.
+
+- **Nasion**: Reference point above the nose, between the eyes.
+- **Inion**: Reference point at the base of the skull, at the back.
+- **Cz**: Central point at the top of the skull.
+
+This method is optimized for covering regions associated with various **cognitive functions**, such as decision-making, sensory processing, motor control, and visual tasks. Here’s how the 10-20 system helps us cover the main regions of the brain with electrodes:
+
+---
+
+**Frontal Region (Fp1, Fp2, F7, F8, F3, F4, Fz)**
+
+- **Electrodes**: Fp1, Fp2, F3, F4, F7, F8, Fz
+- **Brain Functions**: The frontal region is associated with cognitive functions like **decision-making**, **problem-solving**, **planning**, and **focus**. Electrodes placed in this area are ideal for capturing **executive function** and **attention** patterns.
+
+The Fp1 and Fp2 electrodes, positioned over the prefrontal cortex, are key for monitoring **decision-making** and **cognitive processing**, while the Fz and surrounding frontal electrodes capture more general **focus** and **alertness** signals.
+
+---
+
+**Central and Parietal Region (C3, C4, Cz, Pz, P3, P4)**
+
+- **Electrodes**: C3, C4, Cz, Pz, P3, P4
+- **Brain Functions**: The central and parietal areas are involved in **sensory processing** and **motor functions**. These electrodes are critical for applications involving **movement**, **tactile feedback**, and **body coordination**.
+
+- **Cz**: The central point of the brain, used for **motor control**.
+- **C3/C4**: Located over the **motor cortex**, useful for BCI tasks involving movement intention or motor imagery (e.g., controlling a robotic arm or cursor).
+- **Pz/P3/P4**: Parietal electrodes are responsible for processing sensory input, including **touch**, **pain**, and **spatial awareness**.
+
+---
+
+**Temporal Region (T3, T4, T5, T6)**
+
+- **Electrodes**: T3, T4, T5, T6
+- **Brain Functions**: The temporal region is responsible for **auditory processing** and **memory**. Placing electrodes here helps capture brainwave patterns related to **sound perception** and **language processing**.
+
+The T3 and T4 electrodes on the left and right sides of the head target the **auditory cortex**, while T5 and T6 capture brain activity associated with **memory encoding** and **retrieval**.
+
+---
+
+**Occipital Region (O1, O2)**
+
+- **Electrodes**: O1, O2
+- **Brain Functions**: The occipital region, located at the back of the head, is primarily involved in **visual processing**. Placing electrodes here allows for the capture of brain activity related to **visual stimuli** and **attention to visual tasks**.
+
+These electrodes are especially useful for **neurofeedback** related to visual tasks or applications where visual attention is key, such as BCI systems used in gaming or visual meditation.
+
+---
+
+<br>
+
+The modular nature of the UltraCortex allows you to adjust the electrode positions easily, refining their placement to suit different experimental conditions or personal preferences. Once the electrodes have been positioned and secured, finish organizing the wires towards the back of the BCI. 
+
+<br>
 
 ![Untracortex](/img/img_0493.jpg)
 
@@ -293,7 +347,7 @@ Connect the electrode signal jumper cable to the electrode pins on the PiEEG. Co
 
 Carefully position the wires and power distribution board into the Pi case and assemble. Feed the jumper wires out of the case and neatly organize with zip ties. Once assembled, the BCI is complete and ready for testing.
 
-- - - 
+- - -
 
 <br>
 
@@ -303,5 +357,4 @@ Building your own BCI is an exciting and educational journey that merges neurosc
 
 **Next Steps:** Our next blog will focus on software as we develop a basic client application to record and visualize the EEG data from our BCI. **Check back soon!**
 
-- - - 
-
+- - -
