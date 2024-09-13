@@ -273,9 +273,9 @@ Finish the assembly by screwing the electrode screws into their appropriate moun
 Electrode placement is a crucial factor in ensuring that the EEG system captures meaningful brainwave data. For this build, we will adhere to the 10-20 system, a standard electrode placement system widely used in EEG studies. This system positions electrodes in relation to landmarks on the skull, ensuring even coverage of brain regions while focusing on key areas for EEG signal acquisition.
 
 This method was chosen because it is optimized for covering areas associated with various cognitive functions, such as the frontal and parietal lobes. This allowed us to capture brainwave activity that corresponds to attention, relaxation, and focus, depending on the regions targeted by the electrodes.
-* Frontal region (Fz, Fp1, Fp2): Electrodes placed here are ideal for capturing brainwave patterns associated with cognitive processes, decision-making, and focus.
-* Parietal region (Pz, P3, P4): These areas are more involved in sensory processing and motor functions, which are essential for applications involving movement or sensory feedback.
-* Occipital region (Oz): The occipital area, located at the back of the head, is primarily associated with visual processing, which can be useful in BCIs designed for visual attention tasks or neurofeedback related to visual stimuli.
+* **Frontal region** *(Fz, Fp1, Fp2)*: Electrodes placed here are ideal for capturing brainwave patterns associated with cognitive processes, decision-making, and focus.
+* **Parietal region *(Pz, P3, P4)*: These areas are more involved in sensory processing and motor functions, which are essential for applications involving movement or sensory feedback.
+* **Occipital region** *(Oz)*: The occipital area, located at the back of the head, is primarily associated with visual processing, which can be useful in BCIs designed for visual attention tasks or neurofeedback related to visual stimuli.
 
 By ensuring proper contact between the ThinkPulse electrodes and the scalp, we minimized impedance and noise, resulting in cleaner, more reliable EEG data. The modular nature of the UltraCortex also allowed us to adjust the electrode positions easily, refining their placement to suit different experimental conditions or personal preferences.
 
