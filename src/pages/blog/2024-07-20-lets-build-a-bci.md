@@ -128,7 +128,7 @@ The first step in our BCI build is to print the **UltraCortex** frame and necess
 
 #### 1. Material Selection:
 
-For this build, we used ** ANYCUBIC PLA filament 1.75mm**, which is strong yet lightweight—ideal for wearable devices like BCIs. PLA is also beginner-friendly for 3D printing, but other materials like PETG can be considered for more strength.
+For this build, we used **ANYCUBIC PLA filament 1.75mm**, which is strong yet lightweight—ideal for wearable devices like BCIs. PLA is also beginner-friendly for 3D printing, but other materials like PETG can be considered for more strength.
 
 > **Tip:** When selecting filament, ensure it has a good balance between strength and flexibility, especially for wearable tech.
 
