@@ -28,11 +28,11 @@ const Footer = () => {
           <a title="Discord" href="https://discord.gg/mYd5YbJsWu">
             <img src={discord} alt="Discord" />
           </a>
-          <a title="instagram" href="https://instagram.com">
-            <img src={instagram} alt="Instagram" />
+          <a title="Pinterest" href="https://pin.it/7Imd3QjtY">
+            <img src={pinterest} alt="Pinterest" />
           </a>
-          <a title="TikTok" href="https://tiktok.com">
-            <img src={tiktok} alt="TikTok" />
+          <a title="X" href="https://x.com/MindGardenAI">
+            <img src={x} alt="X" />
           </a>
         </div>
       </div>
