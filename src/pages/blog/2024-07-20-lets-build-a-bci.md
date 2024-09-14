@@ -2,8 +2,7 @@
 templateKey: blog-post
 title: "Hacking the Mind: A Step-by-Step Guide to Building a BCI"
 date: 2024-09-11T19:09:37.340Z
-description: "[wip] Everything you need to know to build your own Brain Computer
-  Interface! "
+description: "Everything you need to know to build your own Brain-Computer Interface at home."
 featuredpost: true
 featuredimage: /img/img_0505.jpeg
 tags:
@@ -14,347 +13,231 @@ tags:
   - thinkpulse
   - pieeg
 ---
-![Untracortex](/img/img_0505.jpeg)
 
-### From Science Fiction to Reality:
+![UltraCortex Headset](/img/img_0505.jpeg)
 
-The concept of controlling machines directly with your brain once belonged to the realm of science fiction. But today, **Brain-Computer Interfaces (BCIs)** are transforming how we interact with technology. BCIs bridge the gap between neurological activity and digital systems, enabling direct communication between the brain and external devices.
+## From Science Fiction to Reality
 
-Now, you might think this technology requires expensive equipment and lab access, but you can build your own BCI at home! In this blog, we’ll walk you through building a custom BCI using the **OpenBCI UltraCortex**  headset frame, a **PiEEG** board, **Conscious Labs ThinkPulse Electrodes**, and a **Raspberry Pi**.
+Controlling machines with our minds was once the stuff of science fiction. Today, **Brain-Computer Interfaces (BCIs)** are transforming that fantasy into reality, bridging the gap between neurological activity and digital systems. BCIs enable direct communication between the brain and external devices, opening up new possibilities in technology and human interaction.
 
-**What You'll Need:**
+You might think this technology requires expensive equipment and specialized labs. Surprisingly, you can build your own BCI at home! In this guide, we'll walk you through constructing a custom BCI using the **OpenBCI UltraCortex** headset frame, a **PiEEG** board, **Conscious Labs ThinkPulse Electrodes**, and a **Raspberry Pi**.
 
-* **3D printer**
-* [PLA filament](https://amzn.to/3ZnhifL)
-* [UltraCortex STA files](https://github.com/openbci-archive/Docs/tree/master/assets/MarkIV/STL_Directory)
-* [Raspberry Pi (4 or 5)](https://amzn.to/3MGxMIz)
-* [PiEEG (8 or 16 channels)](https://pieeg.com/)
-* [Conscious Labs ThinkPulse Electrodes](https://shop.openbci.com/products/thinkpulse-active-electrode-kit?variant=37113738985630)
-* [PiSugar2 Pro Battery](https://amzn.to/3XGNppy)
-* [Raspberry Pi case (with hat support)](https://amzn.to/3Zogmrr)
-* [Power Distribution Board](https://amzn.to/3zjPjTI)
-* [Braided Cable Sleeve](https://amzn.to/3XFAUun)
-* [Pre-Crimped Jumper Cable](https://amzn.to/3XF9a9i)
-* [Dupont Wire Crimping Kit](https://amzn.to/47olYnM)
-* [Heat Shrink Tubing](https://amzn.to/3B68xgg)
+### What You'll Need:
 
-> **Tip:** Ensure you have a steady supply of patience, as building BCIs requires attention to detail and troubleshooting along the way.
+- **3D Printer**: For printing the UltraCortex headset frame.
+- [PLA Filament](https://amzn.to/3ZnhifL): Material for 3D printing.
+- [UltraCortex STL Files](https://github.com/openbci-archive/Docs/tree/master/assets/MarkIV/STL_Directory): 3D models for the headset.
+- [Raspberry Pi (4 or 5)](https://amzn.to/3MGxMIz): The main processor.
+- [PiEEG (8 or 16 channels)](https://pieeg.com/): EEG acquisition board.
+- [Conscious Labs ThinkPulse Electrodes](https://shop.openbci.com/products/thinkpulse-active-electrode-kit?variant=37113738985630): Active dry electrodes.
+- [PiSugar2 Pro Battery](https://amzn.to/3XGNppy): Portable power solution.
+- [Raspberry Pi Case (with HAT support)](https://amzn.to/3Zogmrr): Enclosure for the Raspberry Pi and PiEEG.
+- [Power Distribution Board](https://amzn.to/3zjPjTI): For distributing power to electrodes.
+- [Braided Cable Sleeve](https://amzn.to/3XFAUun): Organizes and protects wiring.
+- [Pre-Crimped Jumper Cables](https://amzn.to/3XF9a9i): For connecting components.
+- [Dupont Wire Crimping Kit](https://amzn.to/47olYnM): For creating custom cables.
+- [Heat Shrink Tubing](https://amzn.to/3B68xgg): Insulates and protects connections.
 
-- - -
+> **Tip:** Ensure you have a steady supply of patience—building BCIs requires attention to detail and troubleshooting along the way.
 
-<br>
+---
 
-## Getting Started: Capturing Brainwave Data in Real-Time
+## Getting Started: Capturing Brainwave Data in Real Time
 
-Before setting out to build a BCI, it is crucial to understand our brainwave acquisition strategy. Our build will need to be non-invasive and functional within a range of environments. It will need to record a users brain signals in real time and translate the signal into something that a computer can read. To accomplish this, our BCI will leverage a technology called **Electroencephalography (EEG)**.  
+Before diving into the construction of your BCI, it's essential to understand how we'll acquire brainwave data. Our goal is to build a non-invasive system that functions reliably in various environments. It needs to record a user's brain signals in real time and translate them into data a computer can interpret. To achieve this, we'll leverage a technology called **Electroencephalography (EEG)**.
 
-<br>  
+> **Did You Know?** **Electroencephalography (EEG)** was invented by Hans Berger in 1924. He was the first to record brainwaves, coining the term "electroencephalogram" to describe the electrical activity he observed in the human brain. His pioneering work laid the foundation for modern neuroscience and the development of BCIs.
 
-> **Tip:** **Electroencephalography (EEG)** was invented by Hans Berger in 1924 and has been used in clinical and research settings ever since. Berger was the first to record brainwaves, coining the term "electroencephalogram" to describe the electrical activity he observed in the human brain. His pioneering work laid the foundation for modern neuroscience and the development of brain-computer interfaces.
+### What Is EEG and Why Is It Essential for Modern BCIs?
 
-### What is EEG and Why is it the Most Common Tool in Modern BCIs?
+**Electroencephalography (EEG)** is a technique for recording the electrical activity generated by neurons in the brain. It's the most widely used tool in BCIs because it offers a non-invasive method to monitor brain function. EEG signals are captured through electrodes placed on the scalp, detecting tiny voltage fluctuations resulting from neuronal firing. The real-time recording capability of EEG makes it invaluable for BCIs, providing immediate feedback on brain activity.
 
-**Electroencephalography (EEG)** is a method of recording electrical activity generated by neurons in the brain. It’s the most widely used tool in BCIs because it provides a non-invasive way to monitor brain function. EEG signals are captured through electrodes placed on the scalp, which detect the voltage fluctuations that result from neuronal firing. What makes EEG so useful for BCIs is the ability to record brain activity in real time, providing immediate feedback on the brain's state.
+![EEG Signal Plot](/img/experiments_plot.png)
 
-<br>
+In clinical and research settings, EEG is commonly used to study brain disorders such as epilepsy, sleep disturbances, and stroke recovery. For BCIs, EEG is favored because it allows direct monitoring of brain activity without surgical intervention, making it accessible to a wide range of users. While EEG has limited spatial resolution—meaning it can't precisely pinpoint where neural activity originates—it excels in temporal resolution, capturing rapid changes in brain activity. This is crucial for BCIs that require immediate brainwave data to interact with external devices in real time.
 
-![Untracortex](/img/experiments_plot.png)
+### The Science of Brainwaves: Decoding Alpha, Beta, and Gamma Waves
 
-<br>
+EEG captures a spectrum of brainwave frequencies, each linked to different mental states and cognitive functions. These brainwaves are classified into five primary frequency bands:
 
-EEG is commonly used in clinical and research settings, particularly in neurology and cognitive science, to study brain disorders such as epilepsy, sleep disorders, and stroke recovery. For BCIs, EEG is favored because it allows direct monitoring of brain activity without surgery, making it accessible to a broad range of users. Though EEG’s spatial resolution (its ability to pinpoint where in the brain signals are coming from) is limited, its temporal resolution (its ability to track when signals occur) is excellent. This is crucial for BCIs that require immediate brainwave data for interaction with external devices.
+- **Delta Waves** *(0.5–4 Hz)*: Slow waves associated with deep, restorative sleep and unconscious processes.
+- **Theta Waves** *(4–8 Hz)*: Linked to creativity, intuition, and deep relaxation; often observed during light sleep or meditation.
+- **Alpha Waves** *(8–13 Hz)*: Indicative of a calm and relaxed state, usually when the eyes are closed and the mind is at ease but alert.
+- **Beta Waves** *(13–30 Hz)*: Present when the brain is engaged in active thinking, problem-solving, and focused mental activity.
+- **Gamma Waves** *(30–100 Hz)*: The fastest brainwaves, associated with high-level information processing, learning, and integrating sensory inputs.
 
-<br>
+For our BCI build, we'll concentrate on alpha, beta, and gamma waves due to their relevance in cognitive tasks, focus, and relaxation states. These brainwaves are particularly useful for applications involving attention management, cognitive load assessment, and neurofeedback systems.
 
-### The Science of Brainwaves: Alpha, Beta, Gamma Waves Explained
+> **Pro Tip:** While EEG excels at capturing the timing of brain activity (temporal resolution), it has limitations in pinpointing the exact location (spatial resolution). This makes precise **electrode placement** crucial for obtaining accurate and meaningful data.
 
-EEG captures a variety of brainwave frequencies, each associated with different mental states or cognitive processes. These brainwaves are typically classified into five frequency bands, each of which reflects different aspects of brain activity:
+---
 
-* **Delta Waves** *(0.5 – 4 Hz)*: Associated with deep sleep and restorative processes, delta waves are slow brainwaves observed when the body is in a state of rest.
-* **Theta Waves** *(4 – 8 Hz):* Commonly linked to creativity, relaxation, and meditative states. Theta waves are often seen during light sleep or deep meditation.
-* **Alpha Waves** *(8 – 13 Hz)*: These brainwaves indicate a calm and relaxed state, typically when the eyes are closed and the mind is at ease. Alpha waves are dominant when the brain is idle or in a resting state but still alert.
-* **Beta Waves** *(13 – 30 Hz)*: High-frequency beta waves are seen when the brain is engaged in active thinking, problem-solving, or concentration. They are linked to alertness and cognitive tasks.
-* **Gamma Waves** *(30 – 100 Hz)*: The fastest of the brainwave frequencies, gamma waves are associated with high-level information processing, such as during learning or when integrating multiple sensory inputs.
+### Choosing the Right Components for Your BCI Build
 
-For our BCI build, we will focus primarily on alpha, beta, and gamma waves due to their relevance in cognitive tasks and relaxation states. These brainwaves are particularly useful when working on applications that involve focus, cognitive load management, or neurofeedback systems.
+Selecting appropriate components is critical for building an effective BCI. We'll need electrodes to capture brain signals and a central processor to read and interpret them. The electrodes must be securely positioned on the user's scalp to ensure reliable data collection. **This guide focuses on the following key components:**
 
-> **Pro Tip:** While EEG provides excellent temporal resolution (timing of brain activity), keep in mind its spatial resolution (where activity happens in the brain) is limited. This is why correct **electrode placement** is critical!
+#### The UltraCortex Frame
 
-- - -
+![UltraCortex Frame](/img/img_0275.jpg)
 
-<br>
+The [OpenBCI UltraCortex](https://github.com/openbci-archive/Docs/tree/master/assets/MarkIV/STL_Directory) headset frame is a modular, 3D-printable design that allows for easy customization. Its open-source nature means you can modify or replace parts to suit your specific needs, whether for research or personal projects. The frame is designed to hold the electrodes in precise positions, ensuring optimal contact with the scalp.
 
-### Choosing the Right Build Components:
+#### ThinkPulse Electrodes
 
-The *right* build components will always be a bit subjective. For EEG signal acquisition and processing, our BCI will need to contain a series of electrodes and a central processor to read brainwaves. The electrodes will need to be held in place securely on a users physical body. **This guide has been built around the following components:**  
+![ThinkPulse Electrodes](/img/img_0472.jpg)
 
-<br>
+[Conscious Labs ThinkPulse Electrodes](https://shop.openbci.com/products/thinkpulse-active-electrode-kit?variant=37113738985630) are **active dry electrodes**, meaning they are powered and do not require conductive gel. These electrodes offer reliable signal quality without the inconvenience associated with traditional wet electrodes. They are user-friendly and ideal for home BCI projects.
 
-#### The UltraCortex Frame:
+> **Note:** Dry electrodes may be more susceptible to noise compared to wet electrodes. Ensure proper contact with the scalp to achieve accurate readings.
 
-![Untracortex](/img/img_0275.jpg)
+#### PiEEG Board
 
-<br>
+![PiEEG Board](/img/pieeg-16_3.jpg)
 
-The [OpenBCI UltraCortex](https://github.com/openbci-archive/Docs/tree/master/assets/MarkIV/STL_Directory) headset frame is modular and 3D-printable, allowing us to easily modify or replace parts as needed. Its open-source design ensures that we can customize it to our specific application—whether we’re focusing on research or personal experimentation.
+The [PiEEG](https://pieeg.com/) is an EEG data acquisition board designed to interface directly with the Raspberry Pi's GPIO pins. This seamless integration allows the Raspberry Pi to read the low-voltage signals from the EEG electrodes and process them in real time. The PiEEG supports multiple channels, enabling data collection from several electrodes simultaneously.
 
-<br>
+> **Alternative Option:** An OpenBCI Cyton board can be used instead of the PiEEG. For more details, visit the [OpenBCI Store](https://shop.openbci.com/collections/frontpage/products/cyton-biosensing-board-8-channel).
 
-#### ThinkPulse Electrodes:
+---
 
-![Untracortex](/img/img_0472.jpg)
+## Build Walkthrough: 3D Printing & Assembly
 
-<br>
+The first step in our BCI build is to print the **UltraCortex** frame and necessary parts. Using a 3D printer like the **AnyCubic Kobra**, we can produce custom parts, allowing complete control over the fit and design of the headset. If you don't have a 3D printer or prefer not to print the frame yourself, you can purchase a completed print from the OpenBCI store.
 
-[Conscious Labs ThinkPulse Electrodes](https://shop.openbci.com/products/thinkpulse-active-electrode-kit?variant=37113738985630) are  **Active**, **Dry**, electrodes, which means they are powered and don’t require conductive gel. These electrodes provide reliable signal quality without the mess.
+![3D Printing UltraCortex](/img/img_0159.jpg)
 
-> **Note:** Dry electrodes can be slightly more prone to noise compared to wet electrodes. Make sure the scalp has proper contact for accurate readings.
+### 1. Material Selection
 
-<br>
+We used **ANYCUBIC PLA filament 1.75mm**, which is strong yet lightweight—ideal for wearable devices. PLA is beginner-friendly for 3D printing, but materials like PETG can be considered for added strength.
 
-#### PiEEG:
+> **Tip:** Choose a filament with a good balance between strength and flexibility, especially for wearable tech.
 
-![Untracortex](/img/pieeg-16_3.jpg)
+### 2. Printing the Frame
 
-<br>
+Download the **Front** and **Back** .STL files from the [OpenBCI GitHub repository](https://github.com/OpenBCI/Ultracortex/tree/master/Mark_IV/MarkIV-FINAL/STL_Directory). Select *small*, *medium*, or *large* based on your head circumference:
 
-[PiEEG](https://pieeg.com/) is specifically designed for EEG data acquisition and interfaces directly with a Raspberry Pi’s GPIO pins. This allows the Raspberry Pi to read the low-voltage signals from the EEG electrodes and process them in real-time.
+- **Small**: 42–50 cm
+- **Medium**: 48–58 cm
+- **Large**: 58–65 cm
 
-> **Note:** An OpenBCI Cyton board can be used instead of a PiEEG. Please visit the [OpenBCI Store](https://shop.openbci.com/collections/frontpage/products/cyton-biosensing-board-8-channel) for details. 
+> **Note:** The UltraCortex can also be printed in one piece if your printer supports the size.
 
-- - -
+Print settings vary by printer. The minimum build area needed to print the frame in halves is **130 mm x 210 mm**. This print requires support structures. Due to the model's complexity, a slower print speed (50%) is recommended.
 
-### Build Walkthrough: 3D Printing & Assembly
+![Printed Frame Front](/img/img_0174.jpg)
 
-The first step in our BCI build is to print the **UltraCortex** frame and necessary parts. Using a 3D printer like the **AnyCubic Kobra**, we can produce custom parts for the UltraCortex, allowing complete control over the fit and design of the headset. If you do not have a 3D printer, or would rather not print the frame, you can purchase a completed print from the OpenBCI store.
+![Printed Frame Back](/img/img_0189.jpg)
 
-![Untracortex](/img/img_0159.jpg)
+![Assembled Frame](/img/img_0272.jpg)
 
-<br>
+> **Time-Saving Tip:** Printing the UltraCortex can take 48 hours or more. While you wait, proceed to the next steps to prepare for assembly.
 
-#### 1. Material Selection:
+### 3. Printing Electrode Screws and Mounts
 
-For this build, we used **ANYCUBIC PLA filament 1.75mm**, which is strong yet lightweight—ideal for wearable devices like BCIs. PLA is also beginner-friendly for 3D printing, but other materials like PETG can be considered for more strength.
+After printing the frame, download and print the [Electrode Screws (Octabolt)](https://github.com/OpenBCI/Ultracortex/blob/master/Mark_IV/M4_Hardware_09_Octabolt.STL) and [Screw Mounts (Eholder)](https://github.com/OpenBCI/Ultracortex/blob/master/Mark_IV/M4_Hardware_09_Eholder.STL). These small parts require precise printing and are crucial for maintaining proper contact with the scalp.
 
-> **Tip:** When selecting filament, ensure it has a good balance between strength and flexibility, especially for wearable tech.
+> **Note:** Remove any support material carefully and sand the finished prints with fine-grit sandpaper for a smooth finish.
 
-<br>
+![Electrode Screws and Mounts](/img/img_0282.jpg)
 
-#### 2. Printing the Frame:
+---
 
-Head over to the [OpenBCI GitHub](https://github.com/OpenBCI/Ultracortex/tree/master/Mark_IV/MarkIV-FINAL/STL_Directory) and download the **Front** and **Back** .STL files. Make sure you choose either *small*, *medium*, or *large*, depending on your desired fit. 
+### 4. Creating Custom Jumpers and Power Distribution
 
-> **Head circumference:** small = 42-50cm, medium = 48-58cm, large = 58-65cm
+To simplify connections and maintain modularity, we created **custom color-coded jumper wires** to extend the PiEEG board pins out of its enclosure. Color-coding each wire corresponding to a specific electrode makes troubleshooting and identification easier. We'll use the same color scheme in our software for visualizing brainwave signals.
 
-<br>
+![Custom Jumper Wires](/img/img_0559.jpg)
 
-The **UltraCortex** can also be printed in one stage, instead of two, if your printer can support the size and complexity of the print.
+A **Power Distribution Board** distributes power from the Raspberry Pi's GPIO pins (GPIO 1 for positive and GPIO 5 for negative) to each electrode.
 
-Print settings will vary widely from printer to printer. The absolute minimum build area needed to print the frame in halves is *130 mm by 210 mm square*. This print does require support. Because of the detail in the UltraCortex model, a slower print speed (50%) is suggested.
-<br>
+![Power Distribution Board](/img/img_0590.jpg)
 
-![Untracortex](/img/img_0174.jpg)
+Custom red and black jumper wires connect each electrode to the power distribution board, which is neatly concealed.
 
-<br>
+![Wiring Setup](/img/img_0594.jpg)
 
-![Untracortex](/img/img_0189.jpg)
+---
 
-<br>
+### 5. Assembling and Finishing the UltraCortex Frame
 
-![Untracortex](/img/img_0272.jpg)
+Once the frame and parts are printed, carefully remove all support material and sand the surfaces with fine-grit sandpaper to prepare for painting.
 
-<br>
+- **Assembly**: Align the front and back pieces of the frame and secure them with super glue. Allow the glue to dry thoroughly.
+- **Mounting Screw Holders**: Insert the **Electrode Screw Mounts** into the frame at desired electrode positions and secure with super glue.
 
-> **Note:** Depending on your 3D printer, it can take 48 hours or more to print the UltraCortex. While you wait, move on to step 4 and prepare your assembly strategy. 
+> **Note:** A final sanding may be needed after the glue sets to ensure a smooth finish.
 
-<br>
+Choose a quality spray paint that fits your desired aesthetic. Move the frame and small parts to a well-ventilated area prepared for painting. Apply multiple thin coats, allowing each to dry before the next.
 
-#### 3. Printing the Electrode Screw & Screw Mounts:
+![Painting the Frame](/img/img_0337.jpg)
 
-With the front and back of the **UltraCortex** frame printed, download and print the [Electrode Screws](https://github.com/OpenBCI/Ultracortex/blob/master/Mark_IV/M4_Hardware_09_Octabolt.STL) and [Screw Mounts](https://github.com/OpenBCI/Ultracortex/blob/master/Mark_IV/M4_Hardware_09_Eholder.STL), which are used to secure the ThinkPulse electrodes to the frame (OpenBCI referrs to these as the **Octabolt** and **Eholder**). These small parts need precise printing to function well and are crucial to maintain proper contact with the scalp.
+> **Painting Tip:** Minimize paint on the **Electrode Screws** and **Screw Mounts** to avoid interfering with their function.
 
-> **Note:** Depending on your 3D printer, finished prints may have a lot of support that needs to be removed. Carefully remove support and sand the finished prints with a fine grit sandpaper while waiting for the next print to finish.  
+---
 
-<br>
+### 6. Electrode Assembly and Custom Sleeves
 
-![Untracortex](/img/img_0282.jpg)
+The ThinkPulse Electrodes are inserted into the 3D-printed **Electrode Screws** with small springs (not included but easily sourced). The assembled electrode and screw are then inserted into the UltraCortex frame during final assembly.
 
-<br>
+To enhance the aesthetic, we used **braided cable sleeves** to cover the electrode wires. This not only improves appearance but also organizes the cables. Heat shrink tubing secures the ends.
 
-- - -
+> **Note:** After cutting the cable sleeve, quickly melt the ends with a lighter to prevent fraying during assembly.
 
-#### 4. Custom Jumpers & Electrode Power Distribution:
+![Assembled Electrodes with Sleeves](/img/img_0468.jpg)
 
-Modularity was a key factor in choosing the UltraCortex frame as an initial platform for our BCI, so we want to ensure we maintain modularity in our design approach. To simplify the effort of connecting electrodes to our PiEEG, while also maintaining modular design, **custom color-coded jumpers** can be created to extend the PiEEG board pins out of its enclosure. 
+---
 
-We made it easy to remember by color-coding each jumper wire to a specific electrode, allowing us to easily troubleshoot and identify connections. When we start writing code to visualize the brainwave signals, we will use the same color scheme. 
+### 7. Installing the PiEEG Board
 
-<br>
+![PiEEG Installation](/img/img_0305.jpg)
 
-![Untracortex](/img/img_0559.jpg)
+Attach the PiEEG directly to the Raspberry Pi's GPIO pins, ensuring each pin is securely connected. This setup allows the Raspberry Pi to read and process EEG signals in real time.
 
-<br>
+For mobility and reduced signal noise, use a battery like the **PiSugar2 Pro** instead of USB power. Install the Raspberry Pi and PiEEG into a case that supports a HAT. Secure the case to the UltraCortex frame using screws or zip ties.
 
-A **Power Distribution Board** is used to distribute power from the Raspberry Pi's GPIO pins (GPIO 1 (+) and 5 (-)) to each electrode. 
+> **Power Tip:** The PiSugar2 Pro conveniently attaches to the bottom of the Raspberry Pi, providing a compact power solution.
 
-<br>
+---
 
-![Untracortex](/img/img_0590.jpg)
+### 8. Electrode Installation and Wire Management
 
-<br>
+Finish the assembly by screwing the electrode assemblies into their mounts and organizing the wires neatly along the frame.
 
-Custom red and black jumpers were created to easily connect each electrode while the power distribution board is hidden cleanly out of sight. 
+#### Optimizing Electrode Positioning for Accurate Data Collection
 
-<br>
+**Electrode placement** is crucial for capturing meaningful EEG data. We'll use the **10-20 system**, a standard method that positions electrodes relative to key landmarks on the skull, ensuring symmetry and coverage of important brain regions.
 
-![Untracortex](/img/img_0594.jpg)
+![10-20 Electrode Placement](/img/img_0496_1.png)
 
-<br>
+Key landmarks:
 
-- - -
-
-#### 5. UltraCortex Assembly & Finish
-
-Once the UltraCortex frame and related parts have printed, make sure to carefully remove all support and sand the surface of the frame with fine grit sandpaper to prepare for painting. 
-
-To assemble the fame match up the front and back - securing them with super glue. Once the glue has dried, insert the **Electrode Screw Mounts** into the frame at the positions where electrode placement is desired - securing again with super glue. 
-
-> **Note:** A final sanding with fine grit sandpaper may be needed after glue has set to ensure a clean finish. 
-
-Choose a quality spray paint that fits your desired aesthetic. Move the frame and electrode screws + mounts to a safe, ventilated, space with a surface that has been prepared for painting. Have fun and be creative.    
-
-When painting, make sure to shake the can well before and during use. Try to continuously move side to side as you paint and avoid drips by painting multiple thin coats - letting them dry in between each coat. 
-
-<br>
-
-![Untracortex](/img/img_0337.jpg)
-
-<br>
-
-> **Note:** The **Electrode Screws** and **Screw Mounts** should receive minimal paint to avoid interfering with their function. 
-
-- - -
-
-#### 6.Electrode Assembly & Custom Sleeves:
-
-The Conscious Labs ThinkPulse Electrodes are inserted into the 3D printed **UltraCortex Electrode Screw** with a small spring. The springs are not included with the electrodes but can be easily found at most hardware stores or online. The assembled electrode and screw will be inserted into the UltraCortex frame during final assembly.  
-
-To fit the desired aesthetic of our build, we chose to incorporate some custom cable sleeves to spice up the electrode cables boring grey cable jacket. Spools of cable sleeving can be easily found on Amazon along with heat shrink wrap for the ends.  
-
-> **Note:** The cable sleeving will quickly fray after cutting it. Have a lighter on hand to melt the end of the sleeve after cutting keep the sleeve intact while you assemble.  
-
-<br>
-
-![Untracortex](/img/img_0468.jpg)
-
-<br>
-
-- - -
-
-#### 7. PiEEG Installation:
-
-![Untracortex](/img/img_0305.jpg)
-
-The PiEEG connects directly to the Raspberry Pi’s GPIO pins and is used to convert brain signals into usable data. Carefully align the PiEEG on the Raspberry Pi, ensuring each pin is securely connected. This is crucial for smooth communication between the electrodes and the processor.
-
-The Raspberry Pi can be powered via USB-C. To reduce noise in the EEG signal, and to add mobility to the BCI, a battery should be used. 
-
-> **Tip:** The PiSugar2 Pro is a compact solution that conveniently attaches to the bottom of the Raspberry Pi. 
-
-Once assembled, install the Raspberry Pi and PiEEG into a Pi case that is tall enough to support a hat. The case can be attached onto the UltraCortex frame using screws installed into the bottom of the case or zip ties. 
-
-- - -
-
-<br>
-
-#### 8. Electrode installation & Wire Management:
-
-Finish the assembly by screwing the electrode screws into their appropriate mounts and cleanly tie the wires down to the UltraCortex frame.
-
-**Optimizing Positioning for Accurate Data Collection:**
-
-**Electrode placement** is crucial to ensure that the EEG system captures meaningful brainwave data. For this build, we adhere to the **10-20 system**, a standard electrode placement method widely used in EEG studies. The name “10-20” comes from the distances between adjacent electrodes being 10% or 20% of the total front-to-back or right-to-left distance of the skull. This method positions electrodes relative to key landmarks on the skull, including the **nasion** (the point between the forehead and the nose) and the **inion** (the bump on the back of the skull).
-
-![Untracortex](/img/img_0496_1.png)
-
-<br>
-
-The 10-20 system is designed to cover important regions of the brain and to ensure **symmetry** in electrode placement for even coverage of brain activity. Depending on the specific cognitive function or brain region you want to target, electrode placement can be adjusted accordingly.
-
-- **Nasion**: Reference point above the nose, between the eyes.
-- **Inion**: Reference point at the base of the skull, at the back.
+- **Nasion**: The point between the forehead and the nose.
+- **Inion**: The bump on the back of the skull.
 - **Cz**: Central point at the top of the skull.
 
-This method is optimized for covering regions associated with various **cognitive functions**, such as decision-making, sensory processing, motor control, and visual tasks. Here’s how the 10-20 system helps us cover the main regions of the brain with electrodes:
+The 10-20 system covers regions associated with various cognitive functions:
+
+- **Frontal Region (Fp1, Fp2, F3, F4, F7, F8, Fz)**: Decision-making, problem-solving, planning, and focus.
+- **Central and Parietal Region (C3, C4, Cz, Pz, P3, P4)**: Sensory processing and motor functions.
+- **Temporal Region (T3, T4, T5, T6)**: Auditory processing and memory.
+- **Occipital Region (O1, O2)**: Visual processing.
+
+The modular UltraCortex frame allows easy adjustment of electrode positions to suit different applications.
+
+Organize the wires towards the back of the BCI, connecting the signal jumper cables to the corresponding pins on the PiEEG. Use GPIO pin 1 (+) and GPIO pin 5 (-) to power the electrodes via the power distribution board. Neatly position the wires and power distribution board into the Pi case.
+
+![Final Assembly](/img/img_0493.jpg)
+
+![Wiring Close-Up](/img/img_0595.jpg)
+
+Once assembled, your BCI is complete and ready for testing.
 
 ---
 
-**Frontal Region (Fp1, Fp2, F7, F8, F3, F4, Fz)**
+## Conclusion: The Road Ahead
 
-- **Electrodes**: Fp1, Fp2, F3, F4, F7, F8, Fz
-- **Brain Functions**: The frontal region is associated with cognitive functions like **decision-making**, **problem-solving**, **planning**, and **focus**. Electrodes placed in this area are ideal for capturing **executive function** and **attention** patterns.
+Building your own BCI is an exciting journey that merges neuroscience with technology. Through this process, you've gained insights into how brainwaves can be captured, processed, and used for various applications. Whether for cognitive enhancement, research, or health monitoring, this project is a gateway to the future of brain-computer interaction.
 
-The Fp1 and Fp2 electrodes, positioned over the prefrontal cortex, are key for monitoring **decision-making** and **cognitive processing**, while the Fz and surrounding frontal electrodes capture more general **focus** and **alertness** signals.
-
----
-
-**Central and Parietal Region (C3, C4, Cz, Pz, P3, P4)**
-
-- **Electrodes**: C3, C4, Cz, Pz, P3, P4
-- **Brain Functions**: The central and parietal areas are involved in **sensory processing** and **motor functions**. These electrodes are critical for applications involving **movement**, **tactile feedback**, and **body coordination**.
-
-- **Cz**: The central point of the brain, used for **motor control**.
-- **C3/C4**: Located over the **motor cortex**, useful for BCI tasks involving movement intention or motor imagery (e.g., controlling a robotic arm or cursor).
-- **Pz/P3/P4**: Parietal electrodes are responsible for processing sensory input, including **touch**, **pain**, and **spatial awareness**.
+**Next Steps:** Stay tuned for our next blog, where we'll develop a basic client application to record and visualize EEG data from our BCI.
 
 ---
-
-**Temporal Region (T3, T4, T5, T6)**
-
-- **Electrodes**: T3, T4, T5, T6
-- **Brain Functions**: The temporal region is responsible for **auditory processing** and **memory**. Placing electrodes here helps capture brainwave patterns related to **sound perception** and **language processing**.
-
-The T3 and T4 electrodes on the left and right sides of the head target the **auditory cortex**, while T5 and T6 capture brain activity associated with **memory encoding** and **retrieval**.
-
----
-
-**Occipital Region (O1, O2)**
-
-- **Electrodes**: O1, O2
-- **Brain Functions**: The occipital region, located at the back of the head, is primarily involved in **visual processing**. Placing electrodes here allows for the capture of brain activity related to **visual stimuli** and **attention to visual tasks**.
-
-These electrodes are especially useful for **neurofeedback** related to visual tasks or applications where visual attention is key, such as BCI systems used in gaming or visual meditation.
-
----
-
-<br>
-
-The modular nature of the UltraCortex allows you to adjust the electrode positions easily, refining their placement to suit different experimental conditions or personal preferences. Once the electrodes have been positioned and secured, finish organizing the wires towards the back of the BCI. 
-
-<br>
-
-![Untracortex](/img/img_0493.jpg)
-
-<br>
-
-Connect the electrode signal jumper cable to the electrode pins on the PiEEG. Connect a jumper wire from GPIO pin 1 (+) and GPIO pin 5 (-) to the power distribution boards power inputs and connect the red and black jumper cables to the power distribution boards power outputs. Finally, connect the electrode power wires to their corresponding pins on the red and black jumpers. 
-
-<br>
-
-![Untracortex](/img/img_0595.jpg)
-
-<br>
-
-Carefully position the wires and power distribution board into the Pi case and assemble. Feed the jumper wires out of the case and neatly organize with zip ties. Once assembled, the BCI is complete and ready for testing.
-
-- - -
-
-<br>
-
-### Conclusion: The Road Ahead
-
-Building your own BCI is an exciting and educational journey that merges neuroscience with technology. Through this process, we gained valuable insights into how brainwaves can be captured, processed, and used for a variety of applications. Whether it's for cognitive enhancement or health monitoring, this project serves as a gateway to the future of brain-computer interaction.
-
-**Next Steps:** Our next blog will focus on software as we develop a basic client application to record and visualize the EEG data from our BCI. **Check back soon!**
-
-- - -
