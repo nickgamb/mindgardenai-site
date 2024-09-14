@@ -14,19 +14,19 @@ tags:
   - pieeg
 ---
 
-![UltraCortex Headset](/img/img_0505.jpeg)
+![Ultracortex Headset](/img/img_0505.jpeg)
 
 ## From Science Fiction to Reality
 
 Controlling machines with our minds was once the stuff of science fiction. Today, **Brain-Computer Interfaces (BCIs)** are transforming that fantasy into reality, bridging the gap between neurological activity and digital systems. BCIs enable direct communication between the brain and external devices, opening up new possibilities in technology and human interaction.
 
-You might think this technology requires expensive equipment and specialized labs. Surprisingly, you can build your own BCI at home! In this guide, we'll walk you through constructing a custom BCI using the **OpenBCI UltraCortex** headset frame, a **PiEEG** board, **Conscious Labs ThinkPulse Electrodes**, and a **Raspberry Pi**.
+You might think this technology requires expensive equipment and specialized labs. Surprisingly, you can build your own BCI at home! In this guide, we'll walk you through constructing a custom BCI using the **OpenBCI Ultracortex** headset frame, a **PiEEG** board, **Conscious Labs ThinkPulse Electrodes**, and a **Raspberry Pi**.
 
 ### What You'll Need:
 
-- **3D Printer**: For printing the UltraCortex headset frame.
+- **3D Printer**: For printing the Ultracortex headset frame.
 - [PLA Filament](https://amzn.to/3ZnhifL): Material for 3D printing.
-- [UltraCortex STL Files](https://github.com/openbci-archive/Docs/tree/master/assets/MarkIV/STL_Directory): 3D models for the headset.
+- [Ultracortex STL Files](https://github.com/openbci-archive/Docs/tree/master/assets/MarkIV/STL_Directory): 3D models for the headset.
 - [Raspberry Pi (4 or 5)](https://amzn.to/3MGxMIz): The main processor.
 - [PiEEG (8 or 16 channels)](https://pieeg.com/): EEG acquisition board.
 - [Conscious Labs ThinkPulse Electrodes](https://shop.openbci.com/products/thinkpulse-active-electrode-kit?variant=37113738985630): Active dry electrodes.
@@ -76,11 +76,11 @@ For our BCI build, we'll concentrate on alpha, beta, and gamma waves due to thei
 
 Selecting appropriate components is critical for building an effective BCI. We'll need electrodes to capture brain signals and a central processor to read and interpret them. The electrodes must be securely positioned on the user's scalp to ensure reliable data collection. **This guide focuses on the following key components:**
 
-#### The UltraCortex Frame
+#### The Ultracortex Frame
 
-![UltraCortex Frame](/img/img_0275.jpg)
+![Ultracortex Frame](/img/img_0275.jpg)
 
-The [OpenBCI UltraCortex](https://github.com/openbci-archive/Docs/tree/master/assets/MarkIV/STL_Directory) headset frame is a modular, 3D-printable design that allows for easy customization. Its open-source nature means you can modify or replace parts to suit your specific needs, whether for research or personal projects. The frame is designed to hold the electrodes in precise positions, ensuring optimal contact with the scalp.
+The [OpenBCI Ultracortex](https://github.com/openbci-archive/Docs/tree/master/assets/MarkIV/STL_Directory) headset frame is a modular, 3D-printable design that allows for easy customization. Its open-source nature means you can modify or replace parts to suit your specific needs, whether for research or personal projects. The frame is designed to hold the electrodes in precise positions, ensuring optimal contact with the scalp.
 
 #### ThinkPulse Electrodes
 
@@ -102,9 +102,9 @@ The [PiEEG](https://pieeg.com/) is an EEG data acquisition board designed to int
 
 ## Build Walkthrough: 3D Printing & Assembly
 
-The first step in our BCI build is to print the **UltraCortex** frame and necessary parts. Using a 3D printer like the **AnyCubic Kobra**, we can produce custom parts, allowing complete control over the fit and design of the headset. If you don't have a 3D printer or prefer not to print the frame yourself, you can purchase a completed print from the OpenBCI store.
+The first step in our BCI build is to print the **Ultracortex** frame and necessary parts. Using a 3D printer like the **AnyCubic Kobra**, we can produce custom parts, allowing complete control over the fit and design of the headset. If you don't have a 3D printer or prefer not to print the frame yourself, you can purchase a completed print from the OpenBCI store.
 
-![3D Printing UltraCortex](/img/img_0159.jpg)
+![3D Printing Ultracortex](/img/img_0159.jpg)
 
 ### 1. Material Selection
 
@@ -120,7 +120,7 @@ Download the **Front** and **Back** .STL files from the [OpenBCI GitHub reposito
 - **Medium**: 48–58 cm
 - **Large**: 58–65 cm
 
-> **Note:** The UltraCortex can also be printed in one piece if your printer supports the size.
+> **Note:** The Ultracortex can also be printed in one piece if your printer supports the size.
 
 Print settings vary by printer. The minimum build area needed to print the frame in halves is **130 mm x 210 mm**. This print requires support structures. Due to the model's complexity, a slower print speed (50%) is recommended.
 
@@ -130,7 +130,7 @@ Print settings vary by printer. The minimum build area needed to print the frame
 
 ![Assembled Frame](/img/img_0272.jpg)
 
-> **Time-Saving Tip:** Printing the UltraCortex can take 48 hours or more. While you wait, proceed to the next steps to prepare for assembly.
+> **Time-Saving Tip:** Printing the Ultracortex can take 48 hours or more. While you wait, proceed to the next steps to prepare for assembly.
 
 ### 3. Printing Electrode Screws and Mounts
 
@@ -158,7 +158,7 @@ Custom red and black jumper wires connect each electrode to the power distributi
 
 ---
 
-### 5. Assembling and Finishing the UltraCortex Frame
+### 5. Assembling and Finishing the Ultracortex Frame
 
 Once the frame and parts are printed, carefully remove all support material and sand the surfaces with fine-grit sandpaper to prepare for painting.
 
@@ -177,7 +177,7 @@ Choose a quality spray paint that fits your desired aesthetic. Move the frame an
 
 ### 6. Electrode Assembly and Custom Sleeves
 
-The ThinkPulse Electrodes are inserted into the 3D-printed **Electrode Screws** with small springs (not included but easily sourced). The assembled electrode and screw are then inserted into the UltraCortex frame during final assembly.
+The ThinkPulse Electrodes are inserted into the 3D-printed **Electrode Screws** with small springs (not included but easily sourced). The assembled electrode and screw are then inserted into the Ultracortex frame during final assembly.
 
 To enhance the aesthetic, we used **braided cable sleeves** to cover the electrode wires. This not only improves appearance but also organizes the cables. Heat shrink tubing secures the ends.
 
@@ -193,7 +193,7 @@ To enhance the aesthetic, we used **braided cable sleeves** to cover the electro
 
 Attach the PiEEG directly to the Raspberry Pi's GPIO pins, ensuring each pin is securely connected. This setup allows the Raspberry Pi to read and process EEG signals in real time.
 
-For mobility and reduced signal noise, use a battery like the **PiSugar2 Pro** instead of USB power. Install the Raspberry Pi and PiEEG into a case that supports a HAT. Secure the case to the UltraCortex frame using screws or zip ties.
+For mobility and reduced signal noise, use a battery like the **PiSugar2 Pro** instead of USB power. Install the Raspberry Pi and PiEEG into a case that supports a HAT. Secure the case to the Ultracortex frame using screws or zip ties.
 
 > **Power Tip:** The PiSugar2 Pro conveniently attaches to the bottom of the Raspberry Pi, providing a compact power solution.
 
@@ -222,7 +222,7 @@ The 10-20 system covers regions associated with various cognitive functions:
 - **Temporal Region (T3, T4, T5, T6)**: Auditory processing and memory.
 - **Occipital Region (O1, O2)**: Visual processing.
 
-The modular UltraCortex frame allows easy adjustment of electrode positions to suit different applications.
+The modular Ultracortex frame allows easy adjustment of electrode positions to suit different applications.
 
 Organize the wires towards the back of the BCI, connecting the signal jumper cables to the corresponding pins on the PiEEG. Use GPIO pin 1 (+) and GPIO pin 5 (-) to power the electrodes via the power distribution board. Neatly position the wires and power distribution board into the Pi case.
 
