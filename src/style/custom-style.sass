@@ -56,31 +56,6 @@ body
     font-size: 1.5rem !important
     margin-top: 1rem !important
     line-height: 1.2 !important
-
-  // Blockquote Styles
-  blockquote
-    background-color: $purple10
-    padding: 1rem 1.5rem
-    margin: 1.5rem 0
-    border-left: 4px solid $purple50
-    border-radius: 0.5rem
-    position: relative
-    @include card(1)  // Apply depth level 1
-
-    p
-      color: $purple100
-      font-size: 1rem
-      margin: 0
-
-      strong
-        color: $purple70
-        font-weight: bold
-
-  // Responsive adjustments for blockquotes
-  @media (max-width: 768px)
-    blockquote
-      padding: 0.75rem 1rem
-      margin: 1rem 0
   
 // Layout
 .section
@@ -167,6 +142,31 @@ body
   height: 250px
   @media (min-width: 768px)
     height: 400px
+
+// Blockquote Styles
+blockquote
+  background-color: $purple10
+  padding: 1rem 1.5rem
+  margin: 1.5rem 0
+  border-left: 4px solid $purple50
+  border-radius: 0.5rem
+  position: relative
+  @include card(1)  // Apply depth level 1
+
+  p
+    color: $purple100
+    font-size: 1rem
+    margin: 0
+
+    strong
+      color: $purple70
+      font-weight: bold
+
+// Responsive adjustments for blockquotes
+@media (max-width: 768px)
+  blockquote
+    padding: 0.75rem 1rem
+    margin: 1rem 0
 
 //Blog Styles
 
