@@ -3,8 +3,8 @@ import { Link } from "gatsby";
 
 import lgicon from "../img/MindGarden_Icon.png";
 import discord from "../img/social/discord.svg";
-import instagram from "../img/social/instagram.svg";
-import tiktok from "../img/social/tiktok.svg";
+import pinterest from "../img/social/pinterest.svg";
+import x from "../img/social/x.svg";
 import linkedin from "../img/social/linkedin.svg";
 
 const Footer = () => {
