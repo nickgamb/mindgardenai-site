@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 import lgicon from "../img/MindGarden_Icon.png";
 import discord from "../img/social/discord.svg";
 import pinterest from "../img/social/pinterest.svg";
-import x from "../img/social/x.svg";
+import tiktok from "../img/social/tiktok.svg";
 import linkedin from "../img/social/linkedin.svg";
 
 const Footer = () => {
@@ -22,7 +22,7 @@ const Footer = () => {
           </span>
         </div>
         <div className="social-icons">
-          <a title="linkedin" href="https://www.linkedin.com/company/mindgarden-ai">
+          <a title="Linkedin" href="https://www.linkedin.com/company/mindgarden-ai">
             <img src={linkedin} alt="LinkedIn" />
           </a>
           <a title="Discord" href="https://discord.gg/mYd5YbJsWu">
@@ -31,8 +31,8 @@ const Footer = () => {
           <a title="Pinterest" href="https://pin.it/7Imd3QjtY">
             <img src={pinterest} alt="Pinterest" />
           </a>
-          <a title="X" href="https://x.com/MindGardenAI">
-            <img src={x} alt="X" />
+          <a title="Tiktok" href="https://tiktok.com">
+            <img src={tiktok} alt="tiktok" />
           </a>
         </div>
       </div>
