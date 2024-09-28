@@ -430,8 +430,6 @@ def update_settings():
 
 ### Managing Calibration and Signal Integrity
 
-</br>
-
 Calibration routines establish a reliable baseline for the EEG data, reducing noise and ensuring accurate readings. Create a dedicated function to collect and average data over a few seconds to establish calibration values.
 
 </br>
@@ -491,8 +489,6 @@ if baseline_correction_enabled:  # Assume this variable is set based on the chec
 </br>
 
 ### Exporting EEG Data for Offline Analysis
-
-</br>
 
 Implement the data export functionality in `app.py` to allow users to save their EEG recordings for further analysis. This is crucial for researchers who want to dive deeper into the sessions and compare multiple recordings.
 
