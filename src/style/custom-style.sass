@@ -522,133 +522,43 @@ blockquote
 .gatsby-image-wrapper
   border-radius: 0.5rem
 
-  // Code Block Styles
+// Code Block Styles with Dark Background
 
 // Wrapper for code blocks (pre elements)
 pre
-  background-color: $purple10
+  background-color: $purple100
   padding: 1rem 1.5rem
   margin: 1.5rem 0
   border-radius: 0.5rem
-  overflow: auto
+  overflow-x: auto
   position: relative
   @include card(1)  // Apply depth level 1
 
   code
     background: none
-    color: inherit
+    color: $purple10
     font-family: 'Courier New', Courier, monospace
     font-size: 0.95rem
     line-height: 1.5
+    display: block
+    white-space: pre
+    word-wrap: normal
 
 // Inline code (code elements not inside pre)
 p code,
 li code,
 blockquote code
-  background-color: $purple10
+  background-color: $purple100
   padding: 0.2rem 0.4rem
   border-radius: 0.3rem
   font-family: 'Courier New', Courier, monospace
   font-size: 0.95rem
-  color: $purple100
+  color: $purple10
+  white-space: nowrap
 
-// Syntax Highlighting Styles for Prism.js or Highlight.js
-code[class*="language-"]
-  .token.comment,
-  .token.prolog,
-  .token.doctype,
-  .token.cdata
-    color: $purple50
-
-  .token.punctuation
-    color: $purple70
-
-  .token.property,
-  .token.tag,
-  .token.constant,
-  .token.symbol,
-  .token.deleted
-    color: $purple80
-
-  .token.boolean,
-  .token.number
-    color: $purple90
-
-  .token.selector,
-  .token.attr-name,
-  .token.string,
-  .token.char,
-  .token.builtin,
-  .token.inserted
-    color: $purple70
-
-  .token.operator,
-  .token.entity,
-  .token.url,
-  .language-css .token.string,
-  .style .token.string
-    color: $purple100
-
-  .token.atrule,
-  .token.attr-value,
-  .token.keyword
-    color: $purple90
-
-  .token.function,
-  .token.class-name
-    color: $purple80
-
-  .token.regex,
-  .token.important,
-  .token.variable
-    color: $purple60
-
-  .token.important,
-  .token.bold
-    font-weight: bold
-
-  .token.italic
-    font-style: italic
-
-  .token.entity
-    cursor: help
-
-// Line Numbers (if using a plugin for line numbers)
-pre.line-numbers
-  position: relative
-  padding-left: 3.8em
-
-  .line-numbers-rows
-    position: absolute
-    pointer-events: none
-    top: 0
-    font-size: 100%
-    left: 0
-    width: 3em
-    letter-spacing: -1px
-    border-right: 1px solid $purple30
-    user-select: none
-
-    > span
-      display: block
-      counter-increment: linenumber
-      padding: 0 0.5em
-      color: $purple50
-      text-align: right
-
-// Scrollbars for code blocks (Webkit browsers)
-pre::-webkit-scrollbar
-  width: 12px
-  height: 12px
-
-pre::-webkit-scrollbar-track
-  background: $purple10
-  border-radius: 0.5rem
-
-pre::-webkit-scrollbar-thumb
-  background-color: $purple50
-  border-radius: 0.5rem
-  border: 3px solid $purple10
+// General code styling
+code
+  color: $purple10
 
 // Responsive adjustments for code blocks
 @media (max-width: 768px)
