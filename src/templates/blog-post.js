@@ -5,25 +5,7 @@ import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  var copyButtons = document.querySelectorAll('.copy-button');
-  copyButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
-      var codeBlock = this.previousElementSibling;
-      if (codeBlock) {
-        var text = codeBlock.innerText;
-        navigator.clipboard.writeText(text).then(function() {
-          button.textContent = 'Copied!';
-          setTimeout(function() {
-            button.textContent = 'Copy';
-          }, 2000);
-        });
-      }
-    });
-  });
-});
+import React, { useEffect } from "react";
 
 // eslint-disable-next-line
 export const BlogPostTemplate = ({
