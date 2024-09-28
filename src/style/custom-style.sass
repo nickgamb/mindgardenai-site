@@ -577,8 +577,14 @@ code
   color: $code-text-color
 
 // Scrollbars for code blocks (Webkit browsers)
-pre::-webkit-scrollbar
+
+// Vertical scrollbar
+pre::-webkit-scrollbar:vertical
   width: 8px
+
+// Horizontal scrollbar
+pre::-webkit-scrollbar:horizontal
+  height: 8px
 
 pre::-webkit-scrollbar-track
   background: $code-bg-color
