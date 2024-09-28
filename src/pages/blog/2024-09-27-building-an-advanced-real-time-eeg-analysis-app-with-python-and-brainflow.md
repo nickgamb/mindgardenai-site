@@ -923,14 +923,12 @@ With both the backend and front-end components set up, it’s time to run the co
 
 - - -
 
-
+<br />
 
 ## Conclusion
 
 Congratulations! You’ve successfully built a real-time EEG analysis app using Flask, BrainFlow, and PiEEG. This project showcases the power of open-source tools and hardware in creating complex biosignal applications.
 
 With a fully functioning system, you can now explore advanced use cases like neurofeedback, brain-computer interaction, or integrating machine learning models for cognitive state classification.
-
-</br>
 
 - - -
