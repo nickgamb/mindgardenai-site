@@ -522,22 +522,33 @@ blockquote
 .gatsby-image-wrapper
   border-radius: 0.5rem
 
-// Code Block Styles with Dark Background
+// Code Block Styles with Modern Grey Look
+
+// Define code block colors (you can add these to your variables.sass if you like)
+$code-bg-color: #2d2d2d       // Dark grey background for code blocks
+$code-text-color: #f8f8f2     // Off-white text color
+$code-border-color: #444444   // Border color for code blocks and scrollbars
+$code-comment-color: #75715e  // Color for comments
+$code-keyword-color: #66d9ef  // Color for keywords
+$code-string-color: #a6e22e   // Color for strings
+$code-function-color: #fd971f // Color for functions
+$code-variable-color: #f92672 // Color for variables
 
 // Wrapper for code blocks (pre elements)
 pre
-  background-color: $purple100
+  background-color: $code-bg-color
   padding: 1rem 1.5rem
   margin: 1.5rem 0
   border-radius: 0.5rem
   overflow-x: auto
   position: relative
   @include card(1)  // Apply depth level 1
+  border: 1px solid $code-border-color
 
   code
     background: none
-    color: $purple10
-    font-family: 'Courier New', Courier, monospace
+    color: $code-text-color
+    font-family: 'Fira Code', 'Courier New', Courier, monospace
     font-size: 0.95rem
     line-height: 1.5
     display: block
@@ -548,17 +559,53 @@ pre
 p code,
 li code,
 blockquote code
-  background-color: $purple100
+  background-color: $code-bg-color
   padding: 0.2rem 0.4rem
   border-radius: 0.3rem
-  font-family: 'Courier New', Courier, monospace
+  font-family: 'Fira Code', 'Courier New', Courier, monospace
   font-size: 0.95rem
-  color: $purple10
+  color: $code-text-color
   white-space: nowrap
+
+  &:hover
+    background-color: lighten($code-bg-color, 5%)
 
 // General code styling
 code
-  color: $purple10
+  color: $code-text-color
+
+// Scrollbars for code blocks (Webkit browsers)
+pre::-webkit-scrollbar
+  width: 8px
+
+pre::-webkit-scrollbar-track
+  background: $code-bg-color
+  border-radius: 0.5rem
+
+pre::-webkit-scrollbar-thumb
+  background-color: $code-border-color
+  border-radius: 0.5rem
+  border: 2px solid $code-bg-color
+
+// Copy to Clipboard Button
+pre
+  position: relative
+
+  .copy-button
+    position: absolute
+    top: 0.5rem
+    right: 0.5rem
+    background-color: transparent
+    border: none
+    color: $code-text-color
+    font-size: 0.8rem
+    cursor: pointer
+    border-radius: 0.3rem
+    opacity: 0.7
+    transition: opacity 0.2s ease
+
+    &:hover
+      opacity: 1
 
 // Responsive adjustments for code blocks
 @media (max-width: 768px)
@@ -566,3 +613,54 @@ code
     padding: 0.75rem 1rem
     margin: 1rem 0
     font-size: 0.9rem
+
+// Optional Line Numbers Styling (if line numbers are added)
+pre.line-numbers
+  counter-reset: linenumber
+  position: relative
+  padding-left: 3.5em
+
+  code
+    position: relative
+
+  code:before
+    counter-increment: linenumber
+    content: counter(linenumber)
+    position: absolute
+    left: -3em
+    width: 2.5em
+    text-align: right
+    color: $code-border-color
+
+// Syntax Highlighting Simulated with CSS Classes
+// If you can add classes manually or via preprocessing, you can simulate syntax highlighting
+// For example, wrap keywords in <span class="keyword">, strings in <span class="string">, etc.
+
+code .keyword
+  color: $code-keyword-color
+
+code .string
+  color: $code-string-color
+
+code .function
+  color: $code-function-color
+
+code .comment
+  color: $code-comment-color
+  font-style: italic
+
+code .variable
+  color: $code-variable-color
+
+// Hover effects for inline code
+p code:hover,
+li code:hover,
+blockquote code:hover
+  background-color: lighten($code-bg-color, 5%)
+
+// Font import for 'Fira Code' (Optional)
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap')
+
+// Adjust font-family to include 'Fira Code'
+code, pre code
+  font-family: 'Fira Code', 'Courier New', Courier, monospace
