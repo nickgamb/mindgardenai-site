@@ -420,6 +420,10 @@ def update_settings():
 
 ### Managing Calibration and Signal Integrity
 
+![](/img/calibrate_popup.png)
+
+</br>
+
 Calibration routines establish a reliable baseline for the EEG data, reducing noise and ensuring accurate readings. Create a dedicated function to collect and average data over a few seconds to establish calibration values.
 
 </br>
