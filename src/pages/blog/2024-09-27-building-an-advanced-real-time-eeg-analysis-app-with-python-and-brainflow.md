@@ -32,6 +32,7 @@ By the end of this blog you will learn how to bring together hardware, signal pr
 
 * [Brain-Computer Interface](/blog/2024-09-11-lets-build-a-bci/): Built to acquire EEG signals.
 * [VSCode](https://code.visualstudio.com/): IDE used in this blog. 
+* [Finished Project](https://github.com/nickgamb/mindgardenai-site/tree/main/src/tutorials/pieeg_server): You can find completed project files in the **tutorials** repo on GitHub.
 
 - - -
 
