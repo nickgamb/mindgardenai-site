@@ -30,10 +30,6 @@ By the end of this blog you will learn how to bring together hardware, signal pr
 > **Tip:** This blog is a continuation of our **Step-by-Step Guide to Building a BCI**. If you have not built your own BCI yet - go check out [Hacking the Mind: A Step-by-Step Guide to Building a BCI](/blog/2024-09-11-lets-build-a-bci/).
 
 
-- - -
-
-<br />
-
 ### What You'll Need:
 
 - [Brain-Computer Interface](/blog/2024-09-11-lets-build-a-bci/): Built to acquire EEG signals.
