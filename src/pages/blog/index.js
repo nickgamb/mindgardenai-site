@@ -1,6 +1,7 @@
 import * as React from "react";
 import Layout from "../../components/Layout";
 import BlogRoll from "../../components/BlogRoll";
+import { Link, graphql } from "gatsby";
 
 export default class BlogIndexPage extends React.Component {
   render() {
