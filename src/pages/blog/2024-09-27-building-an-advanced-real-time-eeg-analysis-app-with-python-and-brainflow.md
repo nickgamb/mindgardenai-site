@@ -20,7 +20,7 @@ tags:
 ---
 ![EEG Stream](/img/eeg_data_banner.jpg)
 
-## Introduction: Unleashing the Power of Brain-Computer Interfaces
+## Unleashing the Power of Brain-Computer Interfaces
 
 Welcome back everyone! Today we’re diving deeper into the world of brain-computer interfaces (BCIs), exploring how to build a fully functional, real-time EEG (Electroencephalography) analysis and visualization app using **Flask**, **BrainFlow**, and **PiEEG**.
 
