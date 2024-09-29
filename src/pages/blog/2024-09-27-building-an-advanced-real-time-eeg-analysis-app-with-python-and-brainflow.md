@@ -38,7 +38,7 @@ By the end of this blog you will learn how to bring together hardware, signal pr
 
 ## Part 1: Preparing the Raspberry Pi and Installing Dependencies
 
-Before we get to the fun part, we need to set up our development environment. We’ll be using a Raspberry Pi  as the brain of the operation, with a PiEEG board capturing the EEG signals. 
+Before we get to the fun part, we need to set up our development environment. We’ll be using a Raspberry Pi  as the brain of the operation, with a [PiEEG](pieeg.com) board capturing the EEG signals. 
 
 ### Setting Up the Raspberry Pi
 
@@ -73,7 +73,7 @@ From the Raspberry Pi desktop, or via SSH, access the terminal and run the follo
 
 ### Installing BrainFlow for EEG Data Acquisition
 
-BrainFlow provides a simple yet powerful interface for capturing EEG data. With BrainFlow, you don’t have to worry about low-level SPI or GPIO configuration—that’s all handled under the hood.
+[BrainFlow](https://brainflow.org) provides a simple yet powerful interface for capturing EEG data. With BrainFlow, you don’t have to worry about low-level SPI or GPIO configuration—that’s all handled under the hood.
 
 <br />
 
