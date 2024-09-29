@@ -1,6 +1,6 @@
 #MindGarden EEG Server & Client App
 
-This is the MindGarden EEG Server & Client App. This Python Flask application runs on the MindGarden EEG Headset and acts as a primary research platform and interface for the MindGarden EEG Headset. 
+This is the MindGarden EEG Server & Client Example App. Check out the [MindGarden Blog](https://mindgardenai.com/blog/2024-09-27-building-an-advanced-real-time-eeg-analysis-app-with-python-and-brainflow/)
 
 ## Screenshots
 <!-- screenshots start -->
