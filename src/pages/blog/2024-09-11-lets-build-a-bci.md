@@ -238,6 +238,6 @@ Once assembled, your BCI is complete and ready for testing.
 
 Building your own BCI is an exciting journey that merges neuroscience with technology. Through this process, you've gained insights into how brainwaves can be captured, processed, and used for various applications. Whether for cognitive enhancement, research, or health monitoring, this project is a gateway to the future of brain-computer interaction.
 
-**Next Steps:** Stay tuned for our next blog, where we'll develop a basic client application to record and visualize EEG data from our BCI.
+**Next Steps:** Now that you have a working BCI, its time to build an [Advanced Real-Time EEG Analysis App with Flask and BrainFlow](/blog/2024-09-27-building-an-advanced-real-time-eeg-analysis-app-with-python-and-brainflow/).
 
 ---
