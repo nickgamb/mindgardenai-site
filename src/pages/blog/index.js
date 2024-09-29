@@ -37,6 +37,8 @@ export default class BlogIndexPage extends React.Component {
               <hr class="tp-rule"/>
               <br />
               <BlogRoll />
+              <br />
+              <hr class="tp-rule"/>
             </section>
           </div>
         </div>
