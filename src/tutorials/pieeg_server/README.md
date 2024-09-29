@@ -1,6 +1,6 @@
 #MindGarden EEG Server & Client App
 
-This is the MindGarden EEG Server & Client Example App. Check out the [MindGarden Blog](https://mindgardenai.com/blog/2024-09-27-building-an-advanced-real-time-eeg-analysis-app-with-python-and-brainflow/)
+This is the MindGarden EEG Server & Client Example App. Check out the [MindGarden Blog](https://mindgardenai.com/blog/2024-09-27-building-an-advanced-real-time-eeg-analysis-app-with-python-and-brainflow/) for a detailed guide.
 
 ## Screenshots
 <!-- screenshots start -->
