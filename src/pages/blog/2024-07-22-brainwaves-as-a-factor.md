@@ -18,4 +18,4 @@ tags:
 
 ## Coming Soon!
 
-This blog will arrive Summer 2024.
+This blog will arrive Fall 2024.
