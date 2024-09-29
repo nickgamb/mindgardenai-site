@@ -187,7 +187,7 @@ params.serial_port = '/dev/spidev0.0'
 
 # Initialize the variables
 enabled_channels = 8  # Default to 8 channels enabled
-ref_enabled = True  # Default to REF enableds
+ref_enabled = True  # Default to REF enabled
 biasout_enabled = True  # Default to BIASOUT enabled
 fs = 250  # Sampling frequency
 bandpass_enabled = False
