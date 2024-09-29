@@ -22,7 +22,7 @@ tags:
 
 ## Introduction: Unleashing the Power of Brain-Computer Interfaces
 
-Welcome back everyone! In this guide, we’re diving deeper into the world of brain-computer interfaces (BCIs), exploring how to build a fully functional, real-time EEG (Electroencephalography) analysis and visualization app using **Flask**, **BrainFlow**, and **PiEEG**.
+Welcome back everyone! Today we’re diving deeper into the world of brain-computer interfaces (BCIs), exploring how to build a fully functional, real-time EEG (Electroencephalography) analysis and visualization app using **Flask**, **BrainFlow**, and **PiEEG**.
 
 By the end of this blog you will learn how to bring together hardware, signal processing, and real-time data visualization. This isn’t just a simple “hook it up and watch the graph move” project. We’re implementing advanced features like **baseline correction**, **bandpass filtering**, and **real-time streaming** to give you a robust, interactive tool for analyzing your own brain activity.
 
