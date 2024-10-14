@@ -760,7 +760,7 @@ code, pre code
   margin: 0 auto
 
 .hero-title
-  color: $purple10
+  color: $purple10 !important // Force override
   font-size: 3rem
   font-weight: 700
   line-height: 1.2
@@ -770,7 +770,7 @@ code, pre code
     font-size: 2rem
 
 .hero-subtitle
-  color: $purple10
+  color: $purple10 !important // Force override
   font-size: 1.5rem
   font-weight: 300
   line-height: 1.4
@@ -834,3 +834,23 @@ code, pre code
   p
     font-size: 1rem
     color: $purple60
+
+.feature-item
+  margin-bottom: 2rem
+
+.feature-image
+  width: 100%
+  max-width: 500px
+  height: auto
+  margin-bottom: 1rem
+  border-radius: 8px
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+
+.feature-title
+  font-size: 1.5rem
+  font-weight: 600
+  margin-bottom: 0.5rem
+
+.feature-description
+  font-size: 1rem
+  color: $purple30

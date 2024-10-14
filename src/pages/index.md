@@ -7,43 +7,33 @@ subheading: Streamline your entire research pipeline while we handle the complex
 mainpitch:
   title: Coming Soon
   description: >-
-    At MindGarden, we're creating a comprehensive cloud-native solution for BCI
-    research. Our mission is to empower researchers with accessible, effective
-    tools for advancing mental and cognitive health solutions.
+    At MindGarden, we're building a powerful cloud-native platform designed to transform BCI research. Our goal is to equip researchers with intuitive, cutting-edge tools that drive mental and cognitive health innovations.
 
-    Join us on this exciting journey! Follow us on social media and check back regularly for updates, new blogs, and podcast episodes.
+    Be part of this exciting evolution! Follow us on social media and stay tuned for updates, insightful blogs, and new podcast episodes.
 features:
-  - title: Seamlessly Collaborate
-    description: Connect effortlessly with remote teams and participants worldwide,
-      breaking down geographical barriers in research.
+  - title: Seamless Collaboration
+    description: Effortlessly connect with remote teams and participants worldwide, removing geographical limitations and fostering global research partnerships.
     icon: /img/screenshot-2024-10-13-at-3.36.42 pm.png
-  - title: Design Study Loops
-    description: "Use the MindGarden AI Study Designer to visually create complex
-      study experiences for your participants. "
+  - title: Visual Study Design
+    description: "With the MindGarden AI Study Designer, you can visually craft complex study experiences tailored to your participants."
     icon: /img/screenshot-2024-10-13-at-3.36.51 pm.png
   - title: Connect BCI Devices
-    description: Connect to a wide range of suppoeted BCI Sensors and Devices.
+    description: Easily integrate with a wide range of supported BCI sensors and devices.
     icon: /img/screenshot-2024-10-13-at-9.43.54 am.png
-  - title: Srream Live EEG Data
-    description: Stream live sensor data from various devices - like PiEEG or
-      OpenBCI - at once, enabling live multi-modal analysis and monitoring.
+  - title: Stream Live EEG Data
+    description: Stream real-time data from multiple devices – such as PiEEG or OpenBCI – enabling simultaneous multi-modal analysis and monitoring.
     icon: /img/experiments_plot.png
   - title: Design & Manage Data Flow
-    description: "Connect or deploy secure, enterprise grade, data solutions in
-      minutes and visually design the flow of data using the MindGarden AI Study
-      Designer. "
+    description: "Quickly set up secure, enterprise-grade data solutions and use the MindGarden AI Study Designer to visually map your data flows."
     icon: /img/screenshot-2024-10-13-at-3.45.44 pm.png
-  - title: Secure by Design
-    description: Built with security at its core, following Zero Trust
-      methodologies. MindGarden AI enforces Least Privilege through RBAC and
-      adheres to industry standards OAuth and OIDC.
+  - title: Security First
+    description: Built with security at its core, following Zero Trust principles. MindGarden AI ensures Least Privilege access with RBAC and complies with leading standards like OAuth and OIDC.
     icon: /img/screenshot-2024-10-12-at-11.30.24 pm.png
 callToAction:
   title: Ready to Transform Your BCI Research?
-  description: Experience the future of streamlined, collaborative, and powerful
-    BCI research with MindGarden AI.
+  description: Discover a new era of streamlined, collaborative, and cutting-edge BCI research with MindGarden AI.
   buttonText: Learn More
   buttonLink: /about
 ---
 
-MindGarden AI Research Platform is your all-in-one solution for BCI research. We manage the technical complexities, allowing you to focus on groundbreaking science. From data collection to analysis, experiment design to participant management, we've got you covered. Conduct your research with unprecedented ease and efficiency.
+MindGarden AI Research Platform is your comprehensive solution for BCI research. We take care of the technical challenges so you can concentrate on advancing scientific discovery. From data collection to analysis, experiment design to participant management, MindGarden AI streamlines every step, making research faster and more efficient.
