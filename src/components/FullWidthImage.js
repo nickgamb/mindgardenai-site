@@ -52,8 +52,16 @@ export default function FullWidthImage(props) {
             }}
           >
             <div className="hero-content">
-              {title && <h1 className="hero-title">{title}</h1>}
-              {subheading && <h3 className="hero-subtitle">{subheading}</h3>}
+              {title && (
+                <h1 className="hero-title">
+                  {title}
+                </h1>
+              )}
+              {subheading && (
+                <h3 className="hero-subtitle">
+                  {subheading}
+                </h3>
+              )}
             </div>
           </div>
         )}

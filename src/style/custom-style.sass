@@ -753,19 +753,49 @@ code, pre code
 
 .hero-content
   text-align: center
-  color: $purple10
   padding: 2rem
-  background-color: rgba($purple90, 0.7)
+  background-color: rgba($purple90, 0.8)
   border-radius: 12px
+  max-width: 90%
+  margin: 0 auto
 
 .hero-title
+  color: $purple10
   font-size: 3rem
   font-weight: 700
+  line-height: 1.2
   margin-bottom: 1rem
 
+  @media (max-width: 768px)
+    font-size: 2rem
+
 .hero-subtitle
+  color: $purple10
   font-size: 1.5rem
-  font-weight: 400
+  font-weight: 300
+  line-height: 1.4
+
+  @media (max-width: 768px)
+    font-size: 1.25rem
+
+// Section description styles
+.section-description-blk
+  color: $purple10
+  margin-bottom: 4rem !important
+  text-align: center
+  margin-left: auto
+  margin-right: auto
+  font-size: 2.25rem
+  font-weight: 300
+  background-color: rgba($purple90, 0.8)
+  padding: 2rem
+  border-radius: 12px
+  max-width: 90%
+  line-height: 1.4
+
+  @media (max-width: 768px)
+    font-size: 1.5rem
+    padding: 1.5rem
 
 .section-description
   font-size: 1.25rem
