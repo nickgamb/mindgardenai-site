@@ -123,7 +123,7 @@ h5, h6
   line-height: 1.25
   background-color: $primary
   border-radius: 8px
-  color: $black
+  color: $purple100
   text-decoration: none
   font-weight: 500
   text-align: center
@@ -132,6 +132,7 @@ h5, h6
   &:hover, &:focus
     background-color: darken($primary, 10%)
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+    color: $purple10
 
 // Images
 .full-width-image-container, .full-width-image
@@ -241,6 +242,7 @@ blockquote
   overflow: hidden
   transition: transform 0.3s ease, box-shadow 0.3s ease
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+  color: $purple10
 
   &:hover
     transform: translateY(-5px)
@@ -282,6 +284,7 @@ blockquote
   text-align: center
   background-color: $black
   flex-shrink: 0
+  color: $purple10
 
   .container
     display: flex
@@ -307,6 +310,7 @@ blockquote
 
       &:hover
         background-color: lighten($black, 10%)
+        color: $purple10
 
   .navbar-item
     color: $purple10
@@ -520,13 +524,14 @@ blockquote
   display: flex
   flex-direction: column
   align-items: center
+  color: $purple10
 
   .has-text-centered
     margin-bottom: 1rem
 
   .feature-text
     text-align: center
-    color: $purple100
+    color: $purple10
     margin-top: 1rem
 
 // Styles for images that use Gatsby image wrapper
