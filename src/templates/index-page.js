@@ -47,6 +47,8 @@ export const IndexPageTemplate = ({
                   
                   <div className="columns">
                     <div className="column is-12 has-text-centered">
+                      <h3 className="title">{callToAction.title}</h3>
+                      <p className="subtitle">{callToAction.description}</p>
                       <Link className="btn" to={callToAction.buttonLink}>
                         {callToAction.buttonText}
                       </Link>
