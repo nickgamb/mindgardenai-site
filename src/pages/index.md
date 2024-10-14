@@ -21,7 +21,7 @@ features:
     description: Easily integrate with a wide range of supported BCI sensors and devices.
     icon: /img/screenshot-2024-10-13-at-9.43.54 am.png
   - title: Stream Live EEG Data
-    description: Stream real-time data from multiple devices – such as PiEEG or OpenBCI – enabling simultaneous multi-modal analysis and monitoring.
+    description: Stream live data from multiple devices – such as PiEEG or OpenBCI – enabling simultaneous multi-modal analysis and monitoring.
     icon: /img/experiments_plot.png
   - title: Design & Manage Data Flow
     description: "Quickly set up secure, enterprise-grade data solutions and use the MindGarden AI Study Designer to visually map your data flows."
