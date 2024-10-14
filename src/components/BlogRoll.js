@@ -39,7 +39,6 @@ const BlogRollTemplate = (props) => {
                   <Link
                     className="title has-text-primary is-underlined is-size-4"
                     to={post.fields.slug}
-                    key={post.fields.slug}
                   >
                     {post.frontmatter.title}
                   </Link>
