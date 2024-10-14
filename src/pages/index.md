@@ -1,72 +1,53 @@
 ---
 templateKey: index-page
-title: Transform Your Mental Health Journey with MindGarden AI
+title: "Introducing MindGarden AI: Your Cloud-Native BCI Research Platform"
 image: /img/MindGarden_Banner.png
-heading: Enhance Your Mental Health with MindGarden AI
-subheading: Driving Mental Wellness Innovation with Neurotechnology and AI
+heading: End to End BCI Research Pipline In The Cloud
+subheading: "Let us handle the complexity so that you can focus on the science. "
 mainpitch:
   title: Coming Soon!
   description: >-
-    At MindGarden, our mission is to create accessible, effective mental health
-    solutions for everyone. 
+    At MindGarden, our mission is to create accessible, effective mental and
+    cognitive health solutions for everyone. 
 
 
-    Join us on this new and exciting journey! Follow on social media and check back regularly for new blogs and podcast episodes.
-description: " "
+    Join us on this new and exciting journey! Follow on social media and check back regularly for updates, new blogs and podcast episodes.
+description: "The MindGarden AI Research Platform is your cloud-native solution
+  for streamlining every aspect of your hashtag#BCI research pipeline. We manage
+  the technical complexities, allowing you to focus on the science that truly
+  matters. Effortlessly collaborate with remote teams and participants
+  worldwide, stream live sensor data from devices like PiEEG or OpenBCI, and
+  securely store it for in-depth analysis. From data processing and ML model
+  training to running experiments and compensating participants, MindGarden AI
+  empowers you to conduct groundbreaking research with ease. "
 intro:
-  blurbs:
-    - image: /img/home-mental-health-metrics.png
-      title: Multimodal Analysis
-      text: AI-driven algorithms are used to analyze data across multiple modalities.
-        By training detailed models of individual behavior over time, we provide
-        deep insights, predictive analytics, and proactive mental health
-        interventions, making personalized care accessible for everyone.
-    - image: /img/eeg_android.jpg
-      title: Brainwave Scanning
-      text: Leveraging EEG data, we unlock profound insights into brain activity and
-        mental states. This empowers the creation of innovative mental health
-        solutions and highly personalized interventions.
-    - image: /img/journal.png
-      title: Intelligent Journaling
-      text: Self-reported experiences through journals provide invaluable insights
-        into an individual's conscious mind and perception of reality. This
-        data, enriched with sentiment analysis and detection of recurring themes
-        and entities, enhances our detailed behavioral models over time.
-    - image: /img/ultracortex.jpg
-      title: BCI Integration
-      text: Brain-computer interfaces (BCI) pave the way for groundbreaking
-        advancements in mental health monitoring and intervention, offering
-        novel solutions to enhance mental well-being.
-  heading: Enhance Your Mental Health with MindGarden AI
-  description: We're leveraging the power of neurotechnology and machine learning
-    to transform mental health care. We're committed to understanding the human
-    brain's intricacies and using this knowledge to develop accessible,
-    personalized cognitive health solutions. Join our blog and podcast (soon) to
-    follow our journey, gain insights from experts, and explore the latest in
-    neurotech research.
+  blurbs: []
+  heading: End to End BCI Research Pipline In The Cloud
+  description: The MindGarden AI Research Platform is your cloud-native solution
+    for streamlining every aspect of your hashtag#BCI research pipeline. We
+    manage the technical complexities, allowing you to focus on the science that
+    truly matters. Effortlessly collaborate with remote teams and participants
+    worldwide, stream live sensor data from devices like PiEEG or OpenBCI, and
+    securely store it for in-depth analysis. From data processing and ML model
+    training to running experiments and compensating participants, MindGarden AI
+    empowers you to conduct groundbreaking research with ease.
 main:
-  heading: Enhance Your Mental Health with MindGarden AI
-  description: We're leveraging the power of neurotechnology and machine learning
-    to transform mental health care. We're committed to understanding the human
-    brain's intricacies and using this knowledge to develop accessible,
-    personalized cognitive health solutions. Join our blog and podcast (soon) to
-    follow our journey, gain insights from experts, and explore the latest in
-    neurotech research.
+  heading: End to End BCI Research Pipline In The Cloud
+  description: The MindGarden AI Research Platform is your cloud-native solution
+    for streamlining every aspect of your hashtag#BCI research pipeline. We
+    manage the technical complexities, allowing you to focus on the science that
+    truly matters. Effortlessly collaborate with remote teams and participants
+    worldwide, stream live sensor data from devices like PiEEG or OpenBCI, and
+    securely store it for in-depth analysis. From data processing and ML model
+    training to running experiments and compensating participants, MindGarden AI
+    empowers you to conduct groundbreaking research with ease.
   image1:
-    alt: AI-driven algorithms are used analyze data across multiple modalities. By
-      training detailed models of individual behavior over time, we provide deep
-      insights, predictive analytics, and proactive mental health interventions,
-      making personalized care accessible for everyone.
-    image: /img/home-mental-health-metrics.png
+    alt: remove
+    image: /img/MindGarden.png
   image2:
-    alt: Leveraging EEG data, we unlock profound insights into brain activity and
-      mental states. This empowers the creation of innovative mental health
-      solutions and highly personalized interventions.
-    image: /img/eeg_android.jpg
+    alt: remove
+    image: /img/MindGarden.png
   image3:
-    alt: Self-reported experiences through journals provide invaluable insights into
-      an individual's conscious mind and perception of reality. This data,
-      enriched with sentiment analysis and detection of recurring themes and
-      entities, enhances our detailed behavioral models over time.
-    image: /img/journal.png
+    alt: remove
+    image: /img/MindGarden.png
 ---
