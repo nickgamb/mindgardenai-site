@@ -1,13 +1,27 @@
 @import "./variables.sass"
 
 // Mixins
+@function top-shadow($depth)
+  $primary-offset: nth((1.5px, 3px, 10px, 14px, 19px), $depth)
+  $blur: nth((1.5px, 3px, 10px, 14px, 19px), $depth) * 4
+  $color: rgba($purple10, nth((0.12, 0.16, 0.19, 0.25, 0.30), $depth))
+
+  @return 0 $primary-offset $blur $color
+
+@function bottom-shadow($depth)
+  $primary-offset: nth((1.5px, 3px, 6px, 10px, 15px), $depth)
+  $blur: nth((1px, 3px, 3px, 5px, 6px), $depth) * 4
+  $color: rgba($purple10, nth((0.24, 0.23, 0.23, 0.22, 0.22), $depth))
+
+  @return 0 $primary-offset $blur $color
+
 @mixin card($depth)
   @if $depth < 1
     box-shadow: none
   @else if $depth > 5
     @warn "Invalid $depth `#{$depth}` for mixin `card`."
   @else
-    box-shadow: 0 #{$depth * 2}px #{$depth * 4}px rgba($purple10, 0.1)
+    box-shadow: bottom-shadow($depth), top-shadow($depth)
 
 // Base styles
 body
@@ -119,7 +133,7 @@ h5, h6
   line-height: 1.5
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3)
   max-width: 800px
-  margin: 0 auto
+  margin: 0 auto 1.5rem
 
   @media (min-width: 769px)
     font-size: 1.5rem
@@ -199,57 +213,118 @@ h5, h6
 
 // Footer styles
 .footer
-  padding: 2rem 1rem
+  padding-bottom: 3rem
+  text-align: center
   background-color: $black
+  flex-shrink: 0
   color: $purple10
-
-  @media (min-width: 769px)
-    padding: 3rem 1.5rem
 
   .container
     display: flex
     flex-direction: column
     align-items: center
 
-    @media (min-width: 769px)
-      flex-direction: row
-      justify-content: space-between
-      align-items: flex-start
-
-.footer-links
-  width: 100%
-  margin-bottom: 1.5rem
-
-  @media (min-width: 769px)
-    margin-bottom: 0
+    @media screen and (min-width: 769px)
+      align-items: stretch
 
   .menu-list
-    display: flex
-    flex-wrap: wrap
-    justify-content: center
-
-    @media (min-width: 769px)
-      justify-content: flex-start
-
+    list-style-type: none
+    padding-left: 0
+    
     li
-      margin: 0 0.5rem 0.5rem 0
+      margin-bottom: 0.5rem
+    
+    a
+      color: $purple70
+      transition: background-color 0.3s ease
+      padding: 0.3em 0.5em
+      border-radius: 4px
+      display: inline-block
 
-      @media (min-width: 769px)
-        margin: 0 1rem 1rem 0
+      &:hover
+        background-color: lighten($black, 10%)
+        color: $purple10
 
-.footer-social
+  .navbar-item
+    color: $purple10
+    &:hover
+      background-color: lighten($black, 10%)
+
+.footer-logo-section
+  padding: 2rem 0
+
+.footer-brand
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin-bottom: 1rem
+
+.footer-logo
+  width: 2.5em
+  height: auto
+  margin-bottom: 0.5rem
+
+.footer-title
+  font-size: 2rem
+  color: #7035CC
+  font-weight: bold
+  letter-spacing: 0.1em
+
+.social-icons
   display: flex
   justify-content: center
-
-  @media (min-width: 769px)
-    justify-content: flex-end
+  align-items: center
+  gap: 1rem
+  margin-top: 1rem
 
   a
-    margin: 0 0.5rem
-    font-size: 1.25rem
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    width: 2em
+    height: 2em
+    background-color: $purple50
+    border-radius: 50%
+    transition: background-color 0.3s ease
 
-    @media (min-width: 769px)
-      font-size: 1rem
+    &:hover
+      background-color: lighten($purple50, 20%)
+
+  img
+    width: 1em
+    height: 1em
+
+.footer-links
+  padding-top: 2rem
+  width: 100%
+
+  .menu-list
+    li
+      text-align: center
+
+      @media screen and (min-width: 769px)
+        text-align: center
+
+.footer-columns
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-around
+
+  @media screen and (max-width: 768px)
+    flex-direction: column
+
+.footer-column
+  flex: 1
+  min-width: 200px
+  margin-bottom: 1rem
+
+  @media screen and (min-width: 769px)
+    margin-bottom: 0
+    text-align: left
+
+  @media screen and (max-width: 768px)
+    width: 100%
+    text-align: center
 
 // Code block styles
 pre
@@ -336,3 +411,100 @@ code
 .section p
   font-size: 1rem
   max-width: 75%
+
+//Blog Styles
+
+// Styles for the outer wrapper (large mat)
+.blog-section-wrapper
+  background-color: $purple90
+  padding: 2rem 1.5rem
+  margin: 2rem 0
+  border-radius: 12px
+  @include card(1)  // Apply depth level 1
+
+// Styles for the inner section
+.blog-section
+  .section-title
+    color: $purple50
+    border-radius: 0.5rem
+    margin-top: 0.5rem
+    margin-bottom: 2rem
+    text-align: center
+    font-size: 2rem
+
+  .section-title-lg
+    color: $purple50
+    border-radius: 0.5rem
+    margin-top: 0.5rem
+    margin-bottom: 2rem
+    text-align: center
+    font-size: 2.5rem
+
+  .section-description
+    color: white
+    margin-bottom: 2rem !important
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+    font-size: 1.5rem
+
+  .section-description-blk
+    color: $purple10
+    margin-bottom: 4rem !important
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+    font-size: 2.25rem
+    font-weight: 300
+    background-color: rgba($purple90, 0.8)
+    padding: 2rem
+    border-radius: 12px
+    max-width: 90%
+    line-height: 1.4
+ 
+  .btn
+    display: inline-block
+    background-color: $primary
+    color: white
+    padding: 0.5rem 1rem
+    border-radius: 0.25rem
+    text-decoration: none
+    transition: background-color 0.3s ease
+
+    &:hover
+      background-color: darken($primary, 10%)
+
+.blog-list-item
+  background-color: $purple90
+  margin-bottom: 1rem
+  border-radius: 12px
+  overflow: hidden
+  transition: transform 0.3s ease, box-shadow 0.3s ease
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+  color: $purple10
+
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15)
+  &.is-featured
+    background-color: $purple50
+    .has-text-primary
+      color: $purple10 !important
+    .subtitle
+      color: $purple30 !important
+    .box
+      color: $purple10 !important
+
+.blog-list-item header
+  display: flex
+  margin-bottom: 1em
+  color: $purple70
+  flex-direction: row-reverse
+  justify-content: space-between
+
+.blog-list-item .featured-thumbnail
+  margin: 0 1em 0 0
+  @media (max-width: 768px)
+
+.has-text-primary
+  color: $purple50 !important
