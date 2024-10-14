@@ -68,6 +68,7 @@ export const IndexPageTemplate = ({
                     </h3>
                     <hr className="tp-rule"/>
                     <BlogRoll />
+                    <hr className="tp-rule"/>
                     <div className="column is-12 has-text-centered">
                       <Link className="btn" to="/blog">
                         Read more
