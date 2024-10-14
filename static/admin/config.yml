@@ -60,68 +60,17 @@ collections:
                   { label: Description, name: description, widget: text },
                 ],
             }
-          - { label: Description, name: description, widget: string }
-          - {
-              label: Intro,
-              name: intro,
-              widget: object,
-              fields:
-                [
-                  { label: Heading, name: heading, widget: string },
-                  { label: Description, name: description, widget: text },
-                  {
-                    label: Blurbs,
-                    name: blurbs,
-                    widget: list,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Title, name: title, widget: text },
-                        { label: Text, name: text, widget: text },
-                      ],
-                  },
-                ],
-            }
-          - {
-              label: Main,
-              name: main,
-              widget: object,
-              fields:
-                [
-                  { label: Heading, name: heading, widget: string },
-                  { label: Description, name: description, widget: text },
-                  {
-                    label: Image1,
-                    name: image1,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Alt, name: alt, widget: string },
-                      ],
-                  },
-                  {
-                    label: Image2,
-                    name: image2,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Alt, name: alt, widget: string },
-                      ],
-                  },
-                  {
-                    label: Image3,
-                    name: image3,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Alt, name: alt, widget: string },
-                      ],
-                  },
-                ],
-            }
+          - { label: Features, name: features, widget: list, fields: [
+              {label: Title, name: title, widget: string},
+              {label: Description, name: description, widget: text},
+              {label: Icon, name: icon, widget: image}
+            ]}
+          - { label: "Call to Action", name: callToAction, widget: object, fields: [
+              {label: Title, name: title, widget: string},
+              {label: Description, name: description, widget: text},
+              {label: "Button Text", name: buttonText, widget: string},
+              {label: "Button Link", name: buttonLink, widget: string}
+            ]}
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
