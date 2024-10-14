@@ -1,27 +1,18 @@
-import * as React from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 
 const FeatureGrid = ({ gridItems }) => (
-  <div className="columns is-multiline feature-grid">
+  <div className="features">
     {gridItems.map((item) => (
-      <div key={item.text} className="column is-6">
-        <div className="feature-item-wrapper">
-          <div className="feature-item">
-            <div className="has-text-centered">
-            <h3 className="has-text-weight-semibold is-underlined is-size-2 section-title">{item.title}</h3>
-              <div
-                style={{
-                  width: "240px",
-                  display: "inline-block",
-                }}
-              >
-                <PreviewCompatibleImage imageInfo={item} />
-              </div>
-            </div>
-            <p className="feature-text">{item.text}</p>
+      <div key={item.title} className="feature-item">
+        {item.icon && (
+          <div className="feature-item-icon">
+            <PreviewCompatibleImage imageInfo={item.icon} />
           </div>
-        </div>
+        )}
+        <h3>{item.title}</h3>
+        <p>{item.description}</p>
       </div>
     ))}
   </div>
@@ -30,8 +21,9 @@ const FeatureGrid = ({ gridItems }) => (
 FeatureGrid.propTypes = {
   gridItems: PropTypes.arrayOf(
     PropTypes.shape({
-      image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-      text: PropTypes.string,
+      icon: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+      title: PropTypes.string,
+      description: PropTypes.string,
     })
   ),
 };

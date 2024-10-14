@@ -14,57 +14,55 @@ export const IndexPageTemplate = ({
   heading,
   subheading,
   mainpitch,
-  description,
-  intro,
+  features,
+  callToAction,
 }) => {
   const heroImage = getImage(image) || image;
 
   return (
-    <div>
+    <div className="content">
       <FullWidthImage img={heroImage} title={title} subheading={subheading} />
+      
       <section className="section section--gradient">
         <div className="container">
           <div className="section">
             <div className="columns">
-              <div className="content">
+              <div className="column is-10 is-offset-1">
                 <div className="content">
-                  <div className="feature-section">
-                    <h3 className="has-text-weight-semibold is-size-2 section-title-lg">{mainpitch.title}</h3>
-                    <p className="section-description-blk">{mainpitch.description}</p>
+                  <div className="content">
+                    <h2 className="title">{mainpitch.title}</h2>
+                    <p className="subtitle">{mainpitch.description}</p>
                   </div>
-                </div>
-                <div className="feature-section-wrapper">
-                  <div className="feature-section">
-                    <div className="container">
-                      <h3 className="has-text-weight-semibold is-size-2 is-underlined section-title">
+                  
+                  <div className="columns">
+                    <div className="column is-12">
+                      <h3 className="has-text-weight-semibold is-size-2">
                         {heading}
                       </h3>
-                      <hr class="tp-rule"/>
-                      <p className="section-description">Tools and resources to help inform, educate, and empower.</p>
-                      <br />
-                      <Features gridItems={intro.blurbs} />
-                      <div className="has-text-centered">
-                        <Link className="btn" to="/about">
-                          About MindGarden AI
-                        </Link>
-                      </div>
+                      <p className="section-description">{subheading}</p>
                     </div>
                   </div>
-                </div>
-                <div className="blog-section-wrapper">
-                  <div className="blog-section">
-                    <section className="container">
-                      <h3 className="has-text-weight-semibold is-size-2 is-underlined section-title">Latest Blogs</h3>
-                      <hr class="tp-rule"/>
-                      <p className="section-description">Stay up to date on the latest news, research and technologies from MindGarden AI.</p>
-                      <br />
-                      <BlogRoll />
-                      <div className="column is-12 has-text-centered">
-                        <Link className="btn" to="/blog">
-                          Read more
-                        </Link>
-                      </div>
-                    </section>
+                  
+                  <Features gridItems={features} />
+                  
+                  <div className="columns">
+                    <div className="column is-12 has-text-centered">
+                      <Link className="btn" to={callToAction.buttonLink}>
+                        {callToAction.buttonText}
+                      </Link>
+                    </div>
+                  </div>
+                  
+                  <div className="column is-12">
+                    <h3 className="has-text-weight-semibold is-size-2">
+                      Latest stories
+                    </h3>
+                    <BlogRoll />
+                    <div className="column is-12 has-text-centered">
+                      <Link className="btn" to="/blog">
+                        Read more
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -82,10 +80,8 @@ IndexPageTemplate.propTypes = {
   heading: PropTypes.string,
   subheading: PropTypes.string,
   mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
+  features: PropTypes.array,
+  callToAction: PropTypes.object,
 };
 
 const IndexPage = ({ data }) => {
@@ -99,8 +95,8 @@ const IndexPage = ({ data }) => {
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
         mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
+        features={frontmatter.features}
+        callToAction={frontmatter.callToAction}
       />
     </Layout>
   );
@@ -132,19 +128,14 @@ export const pageQuery = graphql`
           title
           description
         }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                gatsbyImageData(width: 240, quality: 64, layout: CONSTRAINED)
-              }
-            }
-            title
-            text
-          }
-          heading
+        features {
+          title
           description
+          icon
+        }
+        callToAction {
+          buttonText
+          buttonLink
         }
       }
     }

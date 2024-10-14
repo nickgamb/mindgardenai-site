@@ -687,3 +687,117 @@ blockquote code:hover
 // Adjust font-family to include 'Fira Code'
 code, pre code
   font-family: 'Fira Code', 'Courier New', Courier, monospace
+
+.content
+  h1, h2, h3, h4, h5, h6
+    font-weight: 600
+    letter-spacing: -0.02em
+
+.title
+  font-size: 3rem
+  margin-bottom: 1rem
+
+.subtitle
+  font-size: 1.5rem
+  color: $purple60
+  margin-bottom: 2rem
+
+.features
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+  gap: 2rem
+  margin: 4rem 0
+
+.feature-item
+  text-align: center
+  padding: 2rem
+  background-color: rgba($purple90, 0.1)
+  border-radius: 12px
+  transition: all 0.3s ease
+
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1)
+
+  img
+    width: 64px
+    height: 64px
+    margin-bottom: 1rem
+
+  h3
+    font-size: 1.25rem
+    margin-bottom: 0.5rem
+
+  p
+    font-size: 1rem
+    color: $purple60
+
+.btn
+  display: inline-block
+  padding: 12px 24px
+  font-size: 1rem
+  font-weight: 600
+  text-align: center
+  text-decoration: none
+  color: $purple10
+  background-color: $primary
+  border-radius: 8px
+  transition: all 0.3s ease
+
+  &:hover
+    background-color: darken($primary, 10%)
+    transform: translateY(-2px)
+
+.hero-content
+  text-align: center
+  color: $purple10
+  padding: 2rem
+  background-color: rgba($purple90, 0.7)
+  border-radius: 12px
+
+.hero-title
+  font-size: 3rem
+  font-weight: 700
+  margin-bottom: 1rem
+
+.hero-subtitle
+  font-size: 1.5rem
+  font-weight: 400
+
+.section-description
+  font-size: 1.25rem
+  color: $purple60
+  text-align: center
+  max-width: 800px
+  margin: 0 auto 3rem
+
+.features
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+  gap: 2rem
+  margin: 4rem 0
+
+.feature-item
+  text-align: center
+  padding: 2rem
+  background-color: rgba($purple90, 0.1)
+  border-radius: 12px
+  transition: all 0.3s ease
+
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1)
+
+  .feature-item-icon
+    width: 64px
+    height: 64px
+    margin: 0 auto 1rem
+
+  h3
+    font-size: 1.25rem
+    margin-bottom: 0.5rem
+    color: $purple10
+
+  p
+    font-size: 1rem
+    color: $purple60

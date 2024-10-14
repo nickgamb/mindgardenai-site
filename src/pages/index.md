@@ -1,53 +1,39 @@
 ---
 templateKey: index-page
-title: "Introducing MindGarden AI: Your Cloud-Native BCI Research Platform"
+title: "MindGarden AI: Your Cloud-Native BCI Research Platform"
 image: /img/MindGarden_Banner.png
-heading: End to End BCI Research Pipline In The Cloud
-subheading: "Let us handle the complexity so that you can focus on the science. "
+heading: Revolutionizing BCI Research
+subheading: "Streamline your entire research pipeline while we handle the complexity"
 mainpitch:
-  title: Coming Soon!
+  title: Coming Soon
   description: >-
-    At MindGarden, our mission is to create accessible, effective mental and
-    cognitive health solutions for everyone. 
+    At MindGarden, we're creating a comprehensive cloud-native solution for BCI research. Our mission is to empower researchers with accessible, effective tools for advancing mental and cognitive health solutions.
 
-
-    Join us on this new and exciting journey! Follow on social media and check back regularly for updates, new blogs and podcast episodes.
-description: "The MindGarden AI Research Platform is your cloud-native solution
-  for streamlining every aspect of your hashtag#BCI research pipeline. We manage
-  the technical complexities, allowing you to focus on the science that truly
-  matters. Effortlessly collaborate with remote teams and participants
-  worldwide, stream live sensor data from devices like PiEEG or OpenBCI, and
-  securely store it for in-depth analysis. From data processing and ML model
-  training to running experiments and compensating participants, MindGarden AI
-  empowers you to conduct groundbreaking research with ease. "
-intro:
-  blurbs: []
-  heading: End to End BCI Research Pipline In The Cloud
-  description: The MindGarden AI Research Platform is your cloud-native solution
-    for streamlining every aspect of your hashtag#BCI research pipeline. We
-    manage the technical complexities, allowing you to focus on the science that
-    truly matters. Effortlessly collaborate with remote teams and participants
-    worldwide, stream live sensor data from devices like PiEEG or OpenBCI, and
-    securely store it for in-depth analysis. From data processing and ML model
-    training to running experiments and compensating participants, MindGarden AI
-    empowers you to conduct groundbreaking research with ease.
-main:
-  heading: End to End BCI Research Pipline In The Cloud
-  description: The MindGarden AI Research Platform is your cloud-native solution
-    for streamlining every aspect of your hashtag#BCI research pipeline. We
-    manage the technical complexities, allowing you to focus on the science that
-    truly matters. Effortlessly collaborate with remote teams and participants
-    worldwide, stream live sensor data from devices like PiEEG or OpenBCI, and
-    securely store it for in-depth analysis. From data processing and ML model
-    training to running experiments and compensating participants, MindGarden AI
-    empowers you to conduct groundbreaking research with ease.
-  image1:
-    alt: remove
-    image: /img/MindGarden.png
-  image2:
-    alt: remove
-    image: /img/MindGarden.png
-  image3:
-    alt: remove
-    image: /img/MindGarden.png
+    Join us on this exciting journey! Follow us on social media and check back regularly for updates, new blogs, and podcast episodes.
+features:
+  - title: Seamless Collaboration
+    description: Connect effortlessly with remote teams and participants worldwide, breaking down geographical barriers in research.
+    icon: /img/icon-collaboration.svg
+  - title: Real-time Data Streaming
+    description: Stream live sensor data from various devices like PiEEG or OpenBCI, enabling real-time analysis and monitoring.
+    icon: /img/icon-streaming.svg
+  - title: Secure Data Storage
+    description: Store and manage your research data with enterprise-grade security, ensuring compliance and data integrity.
+    icon: /img/icon-security.svg
+  - title: Advanced Analytics
+    description: Process data, train ML models, and conduct in-depth analysis with our powerful cloud infrastructure.
+    icon: /img/icon-analytics.svg
+  - title: Experiment Management
+    description: Design, run, and manage experiments seamlessly, from participant recruitment to data collection.
+    icon: /img/icon-experiment.svg
+  - title: Participant Compensation
+    description: Easily manage participant compensation, streamlining the administrative aspects of your research.
+    icon: /img/icon-compensation.svg
+callToAction:
+  title: Ready to Transform Your BCI Research?
+  description: Experience the future of streamlined, collaborative, and powerful BCI research with MindGarden AI.
+  buttonText: Learn More
+  buttonLink: /about
 ---
+
+MindGarden AI Research Platform is your all-in-one solution for BCI research. We manage the technical complexities, allowing you to focus on groundbreaking science. From data collection to analysis, experiment design to participant management, we've got you covered. Conduct your research with unprecedented ease and efficiency.
