@@ -35,8 +35,8 @@ export const IndexPageTemplate = ({
                     <br />
                     <p className="subtitle">{mainpitch.description}</p>
                   </div>
-                  
-                  <hr className="tp-rule"/>
+
+                  <br />
                   
                   <div className="columns">
                     <div className="column is-12">
@@ -52,7 +52,6 @@ export const IndexPageTemplate = ({
                     <Features gridItems={features} />
                   </div>
                   
-                  <hr className="tp-rule"/>
                   
                   <div className="columns">
                     <div className="column is-12 has-text-centered">
@@ -62,7 +61,6 @@ export const IndexPageTemplate = ({
                     </div>
                   </div>
                   
-                  <hr className="tp-rule"/>
                   
                   <div className="column is-12">
                     <h3 className="has-text-weight-semibold is-size-2">

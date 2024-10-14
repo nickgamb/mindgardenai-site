@@ -4,34 +4,27 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const FeatureGrid = ({ gridItems }) => (
   <div className="columns is-multiline">
-    {gridItems.map((item, index) => (
-      <React.Fragment key={item.title}>
-        <div className="column is-6 feature-item">
-          <div className="has-text-centered">
-            {item.icon && item.icon.childImageSharp ? (
-              <GatsbyImage
-                image={getImage(item.icon)}
-                alt={item.title}
-                className="feature-image"
-              />
-            ) : (
-              <img
-                src={item.icon.publicURL || item.icon}
-                alt={item.title}
-                className="feature-image"
-              />
-            )}
-          </div>
-          <h3 className="feature-title">{item.title}</h3>
-          <hr className="tp-rule"/>
-          <p className="feature-description">{item.description}</p>
+    {gridItems.map((item) => (
+      <div key={item.title} className="column is-6 feature-item">
+        <div className="has-text-centered">
+          {item.icon && item.icon.childImageSharp ? (
+            <GatsbyImage
+              image={getImage(item.icon)}
+              alt={item.title}
+              className="feature-image"
+            />
+          ) : (
+            <img
+              src={item.icon.publicURL || item.icon}
+              alt={item.title}
+              className="feature-image"
+            />
+          )}
         </div>
-        {index % 2 === 1 && index !== gridItems.length - 1 && (
-          <div className="column is-12">
-            <hr className="tp-rule"/>
-          </div>
-        )}
-      </React.Fragment>
+        <h3 className="feature-title">{item.title}</h3>
+        <hr className="tp-rule"/>
+        <p className="feature-description">{item.description}</p>
+      </div>
     ))}
   </div>
 );
