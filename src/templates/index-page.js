@@ -39,11 +39,13 @@ export const IndexPageTemplate = ({
                       <h3 className="has-text-weight-semibold is-size-2">
                         {heading}
                       </h3>
-                      <p className="section-description-blk">{subheading}</p>
+                      <p className="section-description">{subheading}</p>
                     </div>
                   </div>
                   
-                  <Features gridItems={features} />
+                  <div className="feature-section-wrapper">
+                    <Features gridItems={features} />
+                  </div>
                   
                   <div className="columns">
                     <div className="column is-12 has-text-centered">
