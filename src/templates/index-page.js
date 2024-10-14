@@ -39,7 +39,7 @@ export const IndexPageTemplate = ({
                       <h3 className="has-text-weight-semibold is-size-2">
                         {heading}
                       </h3>
-                      <p className="section-description">{subheading}</p>
+                      <p className="section-description-blk">{subheading}</p>
                     </div>
                   </div>
                   
