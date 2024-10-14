@@ -131,7 +131,11 @@ export const pageQuery = graphql`
         features {
           title
           description
-          icon
+          icon {
+            childImageSharp {
+              gatsbyImageData(width: 64, quality: 100)
+            }
+          }
         }
         callToAction {
           title
