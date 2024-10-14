@@ -25,18 +25,26 @@
 
 // Base styles
 body
-  background-color: $purple20
+  background-color: $purple100
+  font-family: 'SF Pro Display', 'Roboto', 'Helvetica', 'Arial', sans-serif
+  color: $purple10
 
 .content
-  background-color: $purple20
-
-body
-  font-family: 'Roboto', sans-serif
-  color: $body-color
+  background-color: $purple100
 
 // Typography
-.title, .subtitle
-  color: $purple50
+.title, .subtitle, h1, h2, h3, h4, h5, h6
+  color: $purple10
+  letter-spacing: -0.01em
+
+.title, h1, h2
+  font-weight: 700
+
+h3, h4
+  font-weight: 600
+
+h5, h6
+  font-weight: 500
 
 .title
   font-size: 1.5rem !important
@@ -60,6 +68,7 @@ body
 // Layout
 .section
   padding: 1rem 0.5rem !important
+  background-color: $purple100
   @media (min-width: 768px)
     padding: 2rem 1.5rem !important
 
@@ -90,12 +99,13 @@ body
 // Navigation
 .navbar
   background-color: $black
+  box-shadow: none
   .navbar-menu
     box-shadow: none !important
   .navbar-item
-    color: $purple50
+    color: $purple10
     &:hover, &:focus
-      background-color: lighten($purple50, 20%)
+      background-color: lighten($black, 10%)
   .navbar-start 
     justify-content: end
   .navbar-item img
@@ -108,20 +118,20 @@ body
 // Buttons
 .btn
   display: inline-block
-  padding: 10px 14px 8px
+  padding: 10px 20px
   font-size: 1rem
   line-height: 1.25
   background-color: $primary
-  border-radius: 0.25rem
-  color: #ffffff
+  border-radius: 8px
+  color: $black
   text-decoration: none
-  font-weight: 700
+  font-weight: 500
   text-align: center
-  box-shadow: inset 0 0 0 2px $primary
-  transition: all 0.15s ease
+  box-shadow: none
+  transition: background-color 0.3s ease, box-shadow 0.3s ease
   &:hover, &:focus
     background-color: darken($primary, 10%)
-    @include card(1)  // Apply depth level 1
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
 
 // Images
 .full-width-image-container, .full-width-image
@@ -172,10 +182,10 @@ blockquote
 
 // Styles for the outer wrapper (large mat)
 .blog-section-wrapper
-  background-color:  $dark-gray
+  background-color: $purple90
   padding: 2rem 1.5rem
   margin: 2rem 0
-  border-radius: 1rem
+  border-radius: 12px
   @include card(1)  // Apply depth level 1
 
 // Styles for the inner section
@@ -225,15 +235,16 @@ blockquote
       background-color: darken($primary, 10%)
 
 .blog-list-item
-  background-color: $purple30
+  background-color: $purple90
   margin-bottom: 1rem
-  border-radius: 0.25rem
+  border-radius: 12px
   overflow: hidden
-  transition: transform 0.3s ease
-  @include card(1)  // Apply depth level 1
+  transition: transform 0.3s ease, box-shadow 0.3s ease
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
 
   &:hover
     transform: translateY(-5px)
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15)
   &.is-featured
     background-color: $purple50
     .has-text-primary
@@ -288,19 +299,19 @@ blockquote
       margin-bottom: 0.5rem
     
     a
-      color: $purple50
+      color: $purple70
       transition: background-color 0.3s ease
       padding: 0.3em 0.5em
       border-radius: 4px
       display: inline-block
 
       &:hover
-        background-color: lighten($purple50, 20%)
+        background-color: lighten($black, 10%)
 
   .navbar-item
-    color: $purple50
+    color: $purple10
     &:hover
-      background-color: lighten($purple50, 20%)
+      background-color: lighten($black, 10%)
 
 .footer-logo-section
   padding: 2rem 0
@@ -431,10 +442,10 @@ blockquote
 //Features Styles
 // Styles for the outer wrapper (large mat)
 .feature-section-wrapper
-  background-color: $dark-gray
+  background-color: $purple90
   padding: 2rem 1.5rem
   margin: 2rem 0
-  border-radius: 1rem
+  border-radius: 12px
   @include card(1)  // Apply depth level 1
 
 // Styles for the inner section
@@ -490,15 +501,15 @@ blockquote
 
 // Styles for the individual feature item wrappers (small mats)
 .feature-item-wrapper
-  border-radius: 0.5rem
+  border-radius: 12px
   height: 100%
   transition: transform 0.3s ease, box-shadow 0.3s ease
-  @include card(1)  // Apply depth level 1
-                
+  background-color: $purple90
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+
   &:hover
     transform: translateY(-5px)
-    @include card(1)  // Apply depth level 1
-                
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15)
 
 // Styles for the feature items themselves
 .feature-item
