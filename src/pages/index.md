@@ -13,22 +13,22 @@ mainpitch:
 features:
   - title: Seamless Collaboration
     description: Connect effortlessly with remote teams and participants worldwide, breaking down geographical barriers in research.
-    icon: /img/icon-collaboration.svg
+    icon: /img/MindGarden.png
   - title: Real-time Data Streaming
     description: Stream live sensor data from various devices like PiEEG or OpenBCI, enabling real-time analysis and monitoring.
-    icon: /img/icon-streaming.svg
+    icon: /img/MindGarden.png
   - title: Secure Data Storage
     description: Store and manage your research data with enterprise-grade security, ensuring compliance and data integrity.
-    icon: /img/icon-security.svg
+    icon: /img/MindGarden.png
   - title: Advanced Analytics
     description: Process data, train ML models, and conduct in-depth analysis with our powerful cloud infrastructure.
-    icon: /img/icon-analytics.svg
+    icon: /img/MindGarden.png
   - title: Experiment Management
     description: Design, run, and manage experiments seamlessly, from participant recruitment to data collection.
-    icon: /img/icon-experiment.svg
+    icon: /img/MindGarden.png
   - title: Participant Compensation
     description: Easily manage participant compensation, streamlining the administrative aspects of your research.
-    icon: /img/icon-compensation.svg
+    icon: /img/MindGarden.png
 callToAction:
   title: Ready to Transform Your BCI Research?
   description: Experience the future of streamlined, collaborative, and powerful BCI research with MindGarden AI.
