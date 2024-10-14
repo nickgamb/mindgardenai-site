@@ -135,6 +135,7 @@ export const pageQuery = graphql`
             childImageSharp {
               gatsbyImageData(width: 64, quality: 100)
             }
+            publicURL
           }
         }
         callToAction {
