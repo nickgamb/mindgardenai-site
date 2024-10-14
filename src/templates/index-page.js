@@ -134,6 +134,8 @@ export const pageQuery = graphql`
           icon
         }
         callToAction {
+          title
+          description
           buttonText
           buttonLink
         }
