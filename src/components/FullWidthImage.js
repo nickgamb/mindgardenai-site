@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 export default function FullWidthImage(props) {
-  const { img, title, subheading } = props;
+  const { height = 400, img, title, subheading } = props;
 
   return (
     <React.Fragment>
       <div
-        className="full-width-image-container"
+        className="margin-top-0"
         style={{
           display: "grid",
           alignItems: "center",
@@ -21,8 +21,8 @@ export default function FullWidthImage(props) {
             objectPosition={"center center"}
             style={{
               gridArea: "1/1",
+              height: height,
               width: "100%",
-              height: "100%",
             }}
             alt=""
           />
@@ -33,11 +33,11 @@ export default function FullWidthImage(props) {
             objectPosition={"center center"}
             style={{
               gridArea: "1/1",
-              width: "100%",
-              height: "100%",
+              maxHeight: height,
+              minHeight: height,
             }}
             layout="fullWidth"
-            aspectRatio={16 / 9}
+            aspectRatio={3 / 1}
             alt=""
             formats={["auto", "webp", "avif"]}
           />
@@ -73,5 +73,6 @@ export default function FullWidthImage(props) {
 FullWidthImage.propTypes = {
   img: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
+  height: PropTypes.number,
   subheading: PropTypes.string,
 };

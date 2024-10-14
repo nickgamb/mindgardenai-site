@@ -1,21 +1,33 @@
 @import "./variables.sass"
 
-// Mixins
+// Card mixin and shadow functions
+@function top-shadow($depth)
+  $primary-offset: nth((1.5px, 3px, 10px, 14px, 19px), $depth)
+  $blur: nth((1.5px, 3px, 10px, 14px, 19px), $depth) * 4
+  $color: rgba($purple10, nth((0.12, 0.16, 0.19, 0.25, 0.30), $depth))
+
+  @return 0 $primary-offset $blur $color
+
+@function bottom-shadow($depth)
+  $primary-offset: nth((1.5px, 3px, 6px, 10px, 15px), $depth)
+  $blur: nth((1px, 3px, 3px, 5px, 6px), $depth) * 4
+  $color: rgba($purple10, nth((0.24, 0.23, 0.23, 0.22, 0.22), $depth))
+
+  @return 0 $primary-offset $blur $color
+
 @mixin card($depth)
   @if $depth < 1
     box-shadow: none
   @else if $depth > 5
     @warn "Invalid $depth `#{$depth}` for mixin `card`."
   @else
-    box-shadow: 0 #{$depth * 2}px #{$depth * 4}px rgba($purple10, 0.1)
+    box-shadow: bottom-shadow($depth), top-shadow($depth)
 
 // Base styles
 body
   background-color: $purple100
-  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
+  font-family: 'SF Pro Display', 'Roboto', 'Helvetica', 'Arial', sans-serif
   color: $purple10
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
 
 .content
   background-color: $purple100
@@ -35,138 +47,694 @@ h5, h6
   font-weight: 500
 
 .title
-  font-size: 1.75rem
+  font-size: 1.5rem !important
   @media (min-width: 769px)
-    font-size: 2.5rem
+    font-size: 1.5rem !important
 
 .subtitle
-  font-size: 1.25rem
-  color: $purple60
+  font-size: 1rem !important
+
+  @media (min-width: 769px)
+    font-size: 1rem !important
 
 .section-title
-  font-size: 1.75rem
-  margin-top: 1rem
-  line-height: 1.2
-
+  font-size: 1.5rem !important
+  margin-top: 0.5rem !important
+  @media (min-width: 769px)
+    font-size: 1.5rem !important
+    margin-top: 1rem !important
+    line-height: 1.2 !important
+  
 // Layout
 .section
-  padding: 2rem 1rem
+  padding: 1rem 0.5rem !important
   background-color: $purple100
   @media (min-width: 768px)
-    padding: 4rem 2rem
+    padding: 2rem 1.5rem !important
 
 .full-width-content
-  max-width: 100%
+  max-width: 100% !important
   display: flex
   flex-direction: column
 
 .columns
-  margin-bottom: 2rem
+  margin-bottom: 1rem
+  @media (min-width: 768px)
+    margin-bottom: 2rem !important
 
 .column
-  padding: 1rem
+  padding: 0.5rem
+  @media (min-width: 768px)
+    padding: 1rem !important
 
-// Hero styles
-.full-width-image-container
-  position: relative
-  width: 100%
-  padding-top: 56.25%
+.column.is-4
+  width: 32.4%
+
+.column.social
+  width: 50%
+
+.tp-rule
+  color: $purple100
+
+// Navigation
+.navbar
+  background-color: $black
+  box-shadow: none
+  .navbar-menu
+    box-shadow: none !important
+  .navbar-item
+    color: $purple10
+    &:hover, &:focus
+      background-color: lighten($black, 10%)
+  .navbar-start 
+    justify-content: end
+  .navbar-item img
+    max-height: 5rem
+    padding-bottom: 0.2rem
+
+.navbar-brand .navbar-item.logo
+  padding: 0 1rem
+
+// Buttons
+.btn
+  display: inline-block
+  padding: 10px 20px
+  font-size: 1rem
+  line-height: 1.25
+  background-color: $primary
+  border-radius: 8px
+  color: $purple100
+  text-decoration: none
+  font-weight: 500
+  text-align: center
+  box-shadow: none
+  transition: background-color 0.3s ease, box-shadow 0.3s ease
+  &:hover, &:focus
+    background-color: darken($primary, 10%)
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+    color: $purple10
+
+// Images
+.full-width-image-container, .full-width-image
+  width: 100vw
+  background-size: cover
+  background-position: center
+  display: flex
+  align-items: center
   overflow: hidden
 
-  > div
-    position: absolute !important
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
+.full-width-image-container
+  height: 250px
+  position: relative
+  @media (min-width: 768px)
+    height: 400px
 
-  .gatsby-image-wrapper
-    position: absolute !important
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
+.full-width-image
+  height: 250px
+  @media (min-width: 768px)
+    height: 400px
 
-.hero-content
-  position: absolute
-  top: 50%
-  left: 50%
-  transform: translate(-50%, -50%)
-  text-align: center
-  width: 90%
-  max-width: 1200px
-  z-index: 2
-  padding: 1rem
+// Blockquote Styles
+blockquote
+  background-color: $purple10
+  padding: 1rem 1.5rem
+  margin: 1.5rem 0
+  border-left: 4px solid $purple50
+  border-radius: 0.5rem
+  position: relative
+  @include card(1)  // Apply depth level 1
 
-.hero-title
-  color: $purple10
-  font-size: 2rem
-  font-weight: 700
-  line-height: 1.2
-  margin-bottom: 1rem
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3)
+  p
+    color: $purple100
+    font-size: 1rem
+    margin: 0
 
-  @media (min-width: 769px)
-    font-size: 3rem
+    strong
+      color: $purple70
+      font-weight: bold
 
-.hero-subtitle
-  color: $purple10
-  font-size: 1.25rem
-  font-weight: 300
-  line-height: 1.4
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3)
+// Responsive adjustments for blockquotes
+@media (max-width: 768px)
+  blockquote
+    padding: 0.75rem 1rem
+    margin: 1rem 0
 
-  @media (min-width: 769px)
+//Blog Styles
+
+// Styles for the outer wrapper (large mat)
+.blog-section-wrapper
+  background-color: $purple90
+  padding: 2rem 1.5rem
+  margin: 2rem 0
+  border-radius: 12px
+  @include card(1)  // Apply depth level 1
+
+// Styles for the inner section
+.blog-section
+  .section-title
+    color: $purple50
+    border-radius: 0.5rem
+    margin-top: 0.5rem
+    margin-bottom: 2rem
+    text-align: center
+    font-size: 2rem
+
+  .section-title-lg
+    color: $purple50
+    border-radius: 0.5rem
+    margin-top: 0.5rem
+    margin-bottom: 2rem
+    text-align: center
+    font-size: 2.5rem
+
+  .section-description
+    color: white
+    margin-bottom: 2rem !important
+    text-align: center
+    margin-left: auto
+    margin-right: auto
     font-size: 1.5rem
 
-// Feature styles
-.feature-item
-  margin-bottom: 2rem
+  .section-description-blk
+    color: $purple10
+    margin-bottom: 4rem !important
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+    font-size: 2.25rem
+    font-weight: 300
+    background-color: rgba($purple90, 0.8)
+    padding: 2rem
+    border-radius: 12px
+    max-width: 90%
+    line-height: 1.4
+ 
+  .btn
+    display: inline-block
+    background-color: $primary
+    color: white
+    padding: 0.5rem 1rem
+    border-radius: 0.25rem
+    text-decoration: none
+    transition: background-color 0.3s ease
+
+    &:hover
+      background-color: darken($primary, 10%)
+
+.blog-list-item
+  background-color: $purple90
+  margin-bottom: 1rem
+  border-radius: 12px
+  overflow: hidden
+  transition: transform 0.3s ease, box-shadow 0.3s ease
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+  color: $purple10
+
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15)
+  &.is-featured
+    background-color: $purple50
+    .has-text-primary
+      color: $purple10 !important
+    .subtitle
+      color: $purple30 !important
+    .box
+      color: $purple10 !important
+
+.blog-list-item header
+  display: flex
+  margin-bottom: 1em
+  color: $purple70
+  flex-direction: row-reverse
+  justify-content: space-between
+
+.blog-list-item .featured-thumbnail
+  margin: 0 1em 0 0
+  @media (max-width: 768px)
+
+.has-text-primary
+  color: $purple50 !important
+
+.site-wrapper
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+
+.site-content
+  flex: 1 0 auto
+
+// Footer styles
+.footer
+  padding-bottom: 3rem
   text-align: center
-  padding: 1rem
+  background-color: $black
+  flex-shrink: 0
+  color: $purple10
+
+  .container
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    @media screen and (min-width: 769px)
+      align-items: stretch
+
+  .menu-list
+    list-style-type: none
+    padding-left: 0
+    
+    li
+      margin-bottom: 0.5rem
+    
+    a
+      color: $purple70
+      transition: background-color 0.3s ease
+      padding: 0.3em 0.5em
+      border-radius: 4px
+      display: inline-block
+
+      &:hover
+        background-color: lighten($black, 10%)
+        color: $purple10
+
+  .navbar-item
+    color: $purple10
+    &:hover
+      background-color: lighten($black, 10%)
+
+.footer-logo-section
+  padding: 2rem 0
+
+.footer-brand
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin-bottom: 1rem
+
+.footer-logo
+  width: 2.5em
+  height: auto
+  margin-bottom: 0.5rem
+
+.footer-title
+  font-size: 2rem
+  color: #7035CC
+  font-weight: bold
+  letter-spacing: 0.1em
+
+.social-icons
+  display: flex
+  justify-content: center
+  align-items: center
+  gap: 1rem
+  margin-top: 1rem
+
+  a
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    width: 2em
+    height: 2em
+    background-color: $purple50
+    border-radius: 50%
+    transition: background-color 0.3s ease
+
+    &:hover
+      background-color: lighten($purple50, 20%)
+
+  img
+    width: 1em
+    height: 1em
+
+.footer-links
+  padding-top: 2rem
+  width: 100%
+
+  .menu-list
+    li
+      text-align: center
+
+      @media screen and (min-width: 769px)
+        text-align: center
+
+.footer-columns
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-around
+
+  @media screen and (max-width: 768px)
+    flex-direction: column
+
+.footer-column
+  flex: 1
+  min-width: 200px
+  margin-bottom: 1rem
+
+  @media screen and (min-width: 769px)
+    margin-bottom: 0
+    text-align: left
+
+  @media screen and (max-width: 768px)
+    width: 100%
+    text-align: center
+
+@media screen and (max-width: 768px)
+  .columns.is-multiline
+    display: flex
+    flex-direction: column
+
+// Helper classes
+.margin-top-0
+  margin-top: 0 !important
+
+// Icons
+.navbar-item .icon
+  color: $primary
+
+.icon svg
+  width: 1.5rem
+  height: 1.5rem
+  fill: currentColor
+
+// Content
+.content
+  .taglist
+    list-style: none
+    margin: 1.5rem 1.5rem 0 0
+    display: flex
+    flex-wrap: wrap
+    justify-content: left
+    align-items: center
+    li
+      padding: 0 2rem 1rem 0
+      margin-bottom: 1.5rem
+
+// Responsive adjustments
+@media (max-width: 768px)
+  .hero .hero-body
+    padding: 2rem 1rem !important
+
+  .content
+    padding: 1rem !important
+
+  .navbar-menu
+    font-size: 1rem !important
+
+.section p
+  font-size: 1rem !important
+  max-width: 75%
+
+.title-container
+  @media (max-width: 768px)
+    padding: 0.5rem !important
+
+//Features Styles
+// Styles for the outer wrapper (large mat)
+.feature-section-wrapper
+  background-color: $purple90
+  padding: 2rem 1.5rem
+  margin: 2rem 0
+  border-radius: 12px
+  @include card(1)  // Apply depth level 1
+
+// Styles for the inner section
+.feature-section
+  .section-title
+    color: $purple50
+    border-radius: 0.5rem
+    margin-top: 0.5rem
+    margin-bottom: 2rem
+    text-align: center
+    font-size: 2rem
+
+  .section-title-lg
+    color: $purple50
+    border-radius: 0.5rem
+    margin-top: 0.5rem
+    margin-bottom: 2rem
+    text-align: center
+    font-size: 2.5rem
+
+  .section-description
+    color: white
+    margin-bottom: 2rem !important
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+    font-size: 1.5rem
+
+  .section-description-blk
+    color: $purple100
+    margin-bottom: 4rem !important
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+    font-size: 2rem
+ 
+  .btn
+    display: inline-block
+    background-color: $primary
+    color: white
+    padding: 0.5rem 1rem
+    border-radius: 0.25rem
+    text-decoration: none
+    transition: background-color 0.3s ease
+
+    &:hover
+      background-color: darken($primary, 10%)
+
+// Styles for the feature grid
+.feature-grid
+  margin-top: 2rem
+  margin-bottom: 2rem
+
+// Styles for the individual feature item wrappers (small mats)
+.feature-item-wrapper
+  border-radius: 12px
+  height: 100%
+  transition: transform 0.3s ease, box-shadow 0.3s ease
+  background-color: $purple90
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15)
+
+// Styles for the feature items themselves
+.feature-item
+  background-color: $purple20
+  border-radius: 0.5rem
+  padding: 1.5rem
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  color: $purple10
+
+  .has-text-centered
+    margin-bottom: 1rem
+
+  .feature-text
+    text-align: center
+    color: $purple10
+    margin-top: 1rem
+
+// Styles for images that use Gatsby image wrapper
+.gatsby-image-wrapper
+  border-radius: 0.5rem
+
+// Code Block Styles with Modern Grey Look
+
+// Define code block colors (you can add these to your variables.sass if you like)
+$code-bg-color: #2d2d2d       // Dark grey background for code blocks
+$code-text-color: #f8f8f2     // Off-white text color
+$code-border-color: #444444   // Border color for code blocks and scrollbars
+$code-comment-color: #75715e  // Color for comments
+$code-keyword-color: #66d9ef  // Color for keywords
+$code-string-color: #a6e22e   // Color for strings
+$code-function-color: #fd971f // Color for functions
+$code-variable-color: #f92672 // Color for variables
+
+// Wrapper for code blocks (pre elements)
+pre
+  background-color: $code-bg-color
+  padding: 1rem 1.5rem
+  margin: 1.5rem 0
+  border-radius: 0.5rem
+  overflow-x: auto
+  overflow-y: auto
+  max-height: 500px
+  position: relative
+  @include card(1)  // Apply depth level 1
+  border: 1px solid $code-border-color
+
+  code
+    background: none
+    color: $code-text-color
+    font-family: 'Fira Code', 'Courier New', Courier, monospace
+    font-size: 0.95rem
+    line-height: 1.5
+    display: block
+    white-space: pre
+    word-wrap: normal
+
+// Inline code (code elements not inside pre)
+p code,
+li code,
+blockquote code
+  background-color: $code-bg-color
+  padding: 0.2rem 0.4rem
+  border-radius: 0.3rem
+  font-family: 'Fira Code', 'Courier New', Courier, monospace
+  font-size: 0.95rem
+  color: $code-text-color
+  white-space: nowrap
+
+  &:hover
+    background-color: lighten($code-bg-color, 5%)
+
+// General code styling
+code
+  color: $code-text-color
+
+// Scrollbars for code blocks (Webkit browsers)
+pre::-webkit-scrollbar
+  background: $code-border-color
+  width: 8px
+  height: 8px
+
+pre::-webkit-scrollbar-track
+  background: $code-bg-color
+  border-radius: 0.5rem
+
+pre::-webkit-scrollbar-thumb
+  background-color: $code-border-color
+  border-radius: 0.5rem
+  border: 2px solid $code-bg-color
+
+// Copy to Clipboard Button
+pre
+  position: relative
+
+  .copy-button
+    position: absolute
+    top: 0.5rem
+    right: 0.5rem
+    background-color: transparent
+    border: none
+    color: $code-text-color
+    font-size: 0.8rem
+    cursor: pointer
+    border-radius: 0.3rem
+    opacity: 0.7
+    transition: opacity 0.2s ease
+
+    &:hover
+      opacity: 1
+
+// Responsive adjustments for code blocks
+@media (max-width: 768px)
+  pre
+    padding: 0.75rem 1rem
+    margin: 1rem 0
+    font-size: 0.9rem
+
+// Optional Line Numbers Styling (if line numbers are added)
+pre.line-numbers
+  counter-reset: linenumber
+  position: relative
+  padding-left: 3.5em
+
+  code
+    position: relative
+
+  code:before
+    counter-increment: linenumber
+    content: counter(linenumber)
+    position: absolute
+    left: -3em
+    width: 2.5em
+    text-align: right
+    color: $code-border-color
+
+// Syntax Highlighting Simulated with CSS Classes
+// If you can add classes manually or via preprocessing, you can simulate syntax highlighting
+// For example, wrap keywords in <span class="keyword">, strings in <span class="string">, etc.
+
+code .keyword
+  color: $code-keyword-color
+
+code .string
+  color: $code-string-color
+
+code .function
+  color: $code-function-color
+
+code .comment
+  color: $code-comment-color
+  font-style: italic
+
+code .variable
+  color: $code-variable-color
+
+// Hover effects for inline code
+p code:hover,
+li code:hover,
+blockquote code:hover
+  background-color: lighten($code-bg-color, 5%)
+
+// Font import for 'Fira Code' (Optional)
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap')
+
+// Adjust font-family to include 'Fira Code'
+code, pre code
+  font-family: 'Fira Code', 'Courier New', Courier, monospace
+
+.content
+  h1, h2, h3, h4, h5, h6
+    font-weight: 600
+    letter-spacing: -0.02em
+
+.title
+  font-size: 3rem
+  margin-bottom: 1rem
+
+.subtitle
+  font-size: 1.5rem
+  color: $purple60
+  margin-bottom: 2rem
+
+.features
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+  gap: 2rem
+  margin: 4rem 0
+
+.feature-item
+  text-align: center
+  padding: 2rem
   background-color: rgba($purple90, 0.1)
   border-radius: 12px
   transition: all 0.3s ease
-
-  @media (min-width: 769px)
-    padding: 2rem
 
   &:hover
     transform: translateY(-5px)
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1)
 
-.feature-image-container
-  position: relative
-  width: 100%
-  padding-top: 56.25%
-  overflow: hidden
-  border-radius: 8px
-  margin-bottom: 1rem
+  img
+    width: 64px
+    height: 64px
+    margin-bottom: 1rem
 
-  .feature-image
-    position: absolute !important
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    object-fit: cover
+  h3
+    font-size: 1.25rem
+    margin-bottom: 0.5rem
 
-.feature-title
-  font-size: 1.25rem
-  font-weight: 600
-  margin-bottom: 0.5rem
-
-  @media (min-width: 769px)
-    font-size: 1.5rem
-
-.feature-description
-  font-size: 0.9rem
-  color: $purple30
-
-  @media (min-width: 769px)
+  p
     font-size: 1rem
+    color: $purple60
 
-// Button styles
 .btn
   display: inline-block
   padding: 12px 24px
@@ -178,100 +746,46 @@ h5, h6
   background-color: $primary
   border-radius: 8px
   transition: all 0.3s ease
-  touch-action: manipulation
-
-  @media (max-width: 768px)
-    padding: 14px 28px
-    font-size: 1.1rem
 
   &:hover
     background-color: darken($primary, 10%)
     transform: translateY(-2px)
 
-// Footer styles
-.footer
-  padding: 2rem 1rem
-  background-color: $black
-  color: $purple10
+.hero-content
+  text-align: center
+  padding: 2rem
+  background-color: rgba($purple90, 0.8)
+  border-radius: 12px
+  max-width: 90%
+  margin: 0 auto
 
-  @media (min-width: 769px)
-    padding: 3rem 1.5rem
+.hero-title
+  color: $purple10 !important // Force override
+  font-size: 3rem
+  font-weight: 700
+  line-height: 1.2
+  margin-bottom: 1rem
 
-  .container
-    display: flex
-    flex-direction: column
-    align-items: center
+  @media (max-width: 768px)
+    font-size: 2rem
 
-    @media (min-width: 769px)
-      flex-direction: row
-      justify-content: space-between
-      align-items: flex-start
+.hero-subtitle
+  color: $purple10 !important // Force override
+  font-size: 1.5rem
+  font-weight: 300
+  line-height: 1.4
 
-.footer-links
-  width: 100%
-  margin-bottom: 1.5rem
-
-  @media (min-width: 769px)
-    margin-bottom: 0
-
-  .menu-list
-    display: flex
-    flex-wrap: wrap
-    justify-content: center
-
-    @media (min-width: 769px)
-      justify-content: flex-start
-
-    li
-      margin: 0 0.5rem 0.5rem 0
-
-      @media (min-width: 769px)
-        margin: 0 1rem 1rem 0
-
-.footer-social
-  display: flex
-  justify-content: center
-
-  @media (min-width: 769px)
-    justify-content: flex-end
-
-  a
-    margin: 0 0.5rem
+  @media (max-width: 768px)
     font-size: 1.25rem
 
-    @media (min-width: 769px)
-      font-size: 1rem
-
-// Code block styles
-pre
-  background-color: $purple80
-  padding: 1rem 1.5rem
-  margin: 1.5rem 0
-  border-radius: 0.5rem
-  overflow-x: auto
-  @include card(1)
-
-code
-  font-family: 'Fira Code', 'Courier New', Courier, monospace
-  color: $purple10
-
-// Responsive adjustments
-@media (max-width: 768px)
-  .columns.is-multiline
-    flex-direction: column
-
-  .column
-    width: 100% !important
-
-// Add these back to the custom-style.sass file
-
+// Section description styles
 .section-description-blk
   color: $purple10
-  margin-bottom: 4rem
+  margin-bottom: 4rem !important
   text-align: center
   margin-left: auto
   margin-right: auto
-  font-size: 2rem
+  font-size: 2.25rem
   font-weight: 300
   background-color: rgba($purple90, 0.8)
   padding: 2rem
@@ -283,47 +797,60 @@ code
     font-size: 1.5rem
     padding: 1.5rem
 
-.feature-section-wrapper
-  background-color: $purple90
-  padding: 2rem 1.5rem
-  margin: 2rem 0
+.section-description
+  font-size: 1.25rem
+  color: $purple60
+  text-align: center
+  max-width: 800px
+  margin: 0 auto 3rem
+
+.features
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+  gap: 2rem
+  margin: 4rem 0
+
+.feature-item
+  text-align: center
+  padding: 2rem
+  background-color: rgba($purple90, 0.1)
   border-radius: 12px
-  @include card(1)
+  transition: all 0.3s ease
 
-.feature-section
-  .section-title, .section-title-lg
-    color: $purple50
-    border-radius: 0.5rem
-    margin-top: 0.5rem
-    margin-bottom: 2rem
-    text-align: center
-    font-size: 2rem
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1)
 
-  .section-title-lg
-    font-size: 2.5rem
+  .feature-item-icon
+    width: 64px
+    height: 64px
+    margin: 0 auto 1rem
 
-  .section-description
+  h3
+    font-size: 1.25rem
+    margin-bottom: 0.5rem
     color: $purple10
-    margin-bottom: 2rem
-    text-align: center
-    margin-left: auto
-    margin-right: auto
-    font-size: 1.5rem
 
-// Additional responsive adjustments
-@media (max-width: 768px)
-  .hero .hero-body
-    padding: 2rem 1rem
-
-  .content
-    padding: 1rem
-
-  .navbar-menu
+  p
     font-size: 1rem
+    color: $purple60
 
-  .title-container
-    padding: 0.5rem
+.feature-item
+  margin-bottom: 2rem
 
-.section p
+.feature-image
+  width: 100%
+  max-width: 500px
+  height: auto
+  margin-bottom: 1rem
+  border-radius: 8px
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+
+.feature-title
+  font-size: 1.5rem
+  font-weight: 600
+  margin-bottom: 0.5rem
+
+.feature-description
   font-size: 1rem
-  max-width: 75%
+  color: $purple30

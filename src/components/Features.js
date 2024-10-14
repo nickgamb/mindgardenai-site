@@ -6,7 +6,7 @@ const FeatureGrid = ({ gridItems }) => (
   <div className="columns is-multiline">
     {gridItems.map((item) => (
       <div key={item.title} className="column is-6 feature-item">
-        <div className="feature-image-container">
+        <div className="has-text-centered">
           {item.icon && item.icon.childImageSharp ? (
             <GatsbyImage
               image={getImage(item.icon)}
