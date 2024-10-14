@@ -133,7 +133,7 @@ export const pageQuery = graphql`
           description
           icon {
             childImageSharp {
-              gatsbyImageData(width: 64, quality: 100)
+              gatsbyImageData(width: 500, quality: 100)
             }
             publicURL
           }
