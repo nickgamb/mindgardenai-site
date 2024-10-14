@@ -103,9 +103,13 @@ h5, h6
   .navbar-menu
     box-shadow: none !important
   .navbar-item
-    color: $purple10
+    color: $purple70
+    transition: background-color 0.3s ease, color 0.3s ease
+    padding: 0.3em 0.5em
+    border-radius: 4px
     &:hover, &:focus
       background-color: lighten($black, 10%)
+      color: $purple10
   .navbar-start 
     justify-content: end
   .navbar-item img
@@ -309,7 +313,7 @@ blockquote
     
     a
       color: $purple70
-      transition: background-color 0.3s ease
+      transition: background-color 0.3s ease, color 0.3s ease
       padding: 0.3em 0.5em
       border-radius: 4px
       display: inline-block
