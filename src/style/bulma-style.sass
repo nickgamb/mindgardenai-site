@@ -9,14 +9,40 @@
 
 @import "./variables.sass"
 
-// Menu overrides
+// Import only the necessary Bulma components
+@import "~bulma/sass/utilities/_all"
+@import "~bulma/sass/base/_all"
+@import "~bulma/sass/elements/button"
+@import "~bulma/sass/elements/container"
+@import "~bulma/sass/elements/title"
+@import "~bulma/sass/form/_all"
+@import "~bulma/sass/components/navbar"
+@import "~bulma/sass/components/menu"
+@import "~bulma/sass/layout/hero"
+@import "~bulma/sass/layout/section"
+
+// Customize Bulma variables
 $menu-item-color: $purple50
-$menu-item-hover-color: $purple70 !important
-$menu-item-hover-background-color: $purple70
+$menu-item-hover-color: $purple70
+$menu-item-hover-background-color: $purple90
 $menu-item-active-color: $purple10
 $menu-item-active-background-color: $purple70
 $menu-list-border-left: 1px solid $purple70
 $menu-label-color: $purple50
 
-// Import bulma only after the variables have been customized.
-@import "~bulma"
+// Override Bulma styles if needed
+.navbar
+  background-color: $black
+
+.navbar-item
+  color: $purple10
+
+  &:hover
+    background-color: $purple90
+    color: $purple70
+
+.navbar-burger
+  color: $purple10
+
+  &:hover
+    background-color: $purple90
