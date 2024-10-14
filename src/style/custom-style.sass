@@ -23,30 +23,30 @@ body
 // Typography
 .title, .subtitle, h1, h2, h3, h4, h5, h6
   color: $purple10
-  letter-spacing: -0.02em
+  letter-spacing: -0.01em
 
 .title, h1, h2
-  font-weight: 800
-
-h3, h4
   font-weight: 700
 
-h5, h6
+h3, h4
   font-weight: 600
 
+h5, h6
+  font-weight: 500
+
 .title
-  font-size: 2rem
+  font-size: 1.75rem
   @media (min-width: 769px)
-    font-size: 3rem
+    font-size: 2.5rem
 
 .subtitle
-  font-size: 1.5rem
+  font-size: 1.25rem
   color: $purple60
 
 .section-title
-  font-size: 2rem
-  margin-top: 1.5rem
-  line-height: 1.3
+  font-size: 1.75rem
+  margin-top: 1rem
+  line-height: 1.2
 
 // Layout
 .section
@@ -96,57 +96,52 @@ h5, h6
   width: 90%
   max-width: 1200px
   z-index: 2
-  padding: 2rem
-  background-color: rgba($purple100, 0.7)
-  border-radius: 16px
-  backdrop-filter: blur(10px)
+  padding: 1rem
 
 .hero-title
   color: $purple10
-  font-size: 2.5rem
-  font-weight: 800
+  font-size: 2rem
+  font-weight: 700
   line-height: 1.2
   margin-bottom: 1rem
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3)
 
   @media (min-width: 769px)
-    font-size: 3.5rem
+    font-size: 3rem
 
 .hero-subtitle
-  color: $purple30
+  color: $purple10
   font-size: 1.25rem
-  font-weight: 400
-  line-height: 1.5
+  font-weight: 300
+  line-height: 1.4
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3)
-  max-width: 800px
-  margin: 0 auto
 
   @media (min-width: 769px)
     font-size: 1.5rem
 
 // Feature styles
 .feature-item
-  margin-bottom: 3rem
+  margin-bottom: 2rem
   text-align: center
-  padding: 1.5rem
-  background-color: rgba($purple90, 0.2)
-  border-radius: 16px
+  padding: 1rem
+  background-color: rgba($purple90, 0.1)
+  border-radius: 12px
   transition: all 0.3s ease
 
   @media (min-width: 769px)
-    padding: 2.5rem
+    padding: 2rem
 
   &:hover
-    transform: translateY(-8px)
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15)
+    transform: translateY(-5px)
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1)
 
 .feature-image-container
   position: relative
   width: 100%
   padding-top: 56.25%
   overflow: hidden
-  border-radius: 12px
-  margin-bottom: 1.5rem
+  border-radius: 8px
+  margin-bottom: 1rem
 
   .feature-image
     position: absolute !important
@@ -157,45 +152,41 @@ h5, h6
     object-fit: cover
 
 .feature-title
-  font-size: 1.5rem
-  font-weight: 700
-  margin-bottom: 0.75rem
-  color: $purple40
+  font-size: 1.25rem
+  font-weight: 600
+  margin-bottom: 0.5rem
 
   @media (min-width: 769px)
-    font-size: 1.75rem
+    font-size: 1.5rem
 
 .feature-description
-  font-size: 1rem
+  font-size: 0.9rem
   color: $purple30
-  line-height: 1.6
 
   @media (min-width: 769px)
-    font-size: 1.1rem
+    font-size: 1rem
 
 // Button styles
 .btn
   display: inline-block
-  padding: 14px 28px
+  padding: 12px 24px
   font-size: 1rem
   font-weight: 600
   text-align: center
   text-decoration: none
-  color: $purple100
+  color: $purple10
   background-color: $primary
-  border-radius: 50px
+  border-radius: 8px
   transition: all 0.3s ease
   touch-action: manipulation
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
 
   @media (max-width: 768px)
-    padding: 12px 24px
-    font-size: 0.9rem
+    padding: 14px 28px
+    font-size: 1.1rem
 
   &:hover
-    background-color: darken($primary, 5%)
+    background-color: darken($primary, 10%)
     transform: translateY(-2px)
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15)
 
 // Footer styles
 .footer
