@@ -31,14 +31,19 @@ export const IndexPageTemplate = ({
                 <div className="content">
                   <div className="content">
                     <h2 className="title">{mainpitch.title}</h2>
+                    <hr className="tp-rule"/>
+                    <br />
                     <p className="subtitle">{mainpitch.description}</p>
                   </div>
                   
+                  <hr className="tp-rule"/>
+                  
                   <div className="columns">
                     <div className="column is-12">
-                      <h3 className="has-text-weight-semibold is-size-2">
+                      <h3 className="has-text-weight-semibold is-size-2 has-text-centered">
                         {heading}
                       </h3>
+                      <hr className="tp-rule"/>
                       <p className="section-description">{subheading}</p>
                     </div>
                   </div>
@@ -46,6 +51,8 @@ export const IndexPageTemplate = ({
                   <div className="feature-section-wrapper">
                     <Features gridItems={features} />
                   </div>
+                  
+                  <hr className="tp-rule"/>
                   
                   <div className="columns">
                     <div className="column is-12 has-text-centered">
@@ -55,10 +62,13 @@ export const IndexPageTemplate = ({
                     </div>
                   </div>
                   
+                  <hr className="tp-rule"/>
+                  
                   <div className="column is-12">
                     <h3 className="has-text-weight-semibold is-size-2">
                       Latest stories
                     </h3>
+                    <hr className="tp-rule"/>
                     <BlogRoll />
                     <div className="column is-12 has-text-centered">
                       <Link className="btn" to="/blog">
