@@ -12,7 +12,7 @@ mainpitch:
     Be part of this exciting evolution! Follow us on social media and stay tuned for updates, insightful blogs, and new podcast episodes.
 features:
   - title: Seamless Collaboration
-    description: Effortlessly connect with remote teams and participants worldwide, removing geographical limitations and fostering global research partnerships.
+    description: Effortlessly create Studies with remote teams and invite participants worldwide, removing geographical limitations and fostering global research partnerships.
     icon: /img/screenshot-2024-10-13-at-3.36.42 pm.png
   - title: Visual Study Design
     description: "With the MindGarden AI Study Designer, you can visually craft complex study experiences tailored to your participants."
