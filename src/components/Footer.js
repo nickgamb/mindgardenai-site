@@ -65,12 +65,6 @@ const Footer = () => {
                       API-Docs
                     </a>
                   </li>
-                  {/* New Login link */}
-                  <li>
-                    <a className="navbar-item" href="https://cloud.mindgardenai.com" target="_blank" rel="noopener noreferrer">
-                      Login
-                    </a>
-                  </li>
                 </ul>
               </section>
             </div>
