@@ -12,7 +12,7 @@ mainpitch:
     Be part of this exciting evolution! Follow us on social media and stay tuned for updates, insightful blogs, and new podcast episodes.
 features:
   - title: Seamless Collaboration
-    description: Effortlessly connect with remote teams and participants worldwide, removing geographical limitations and fostering global research partnerships.
+    description: Effortlessly create Studies with remote teams and invite participants worldwide, removing geographical limitations and fostering global research partnerships.
     icon: /img/screenshot-2024-10-13-at-3.36.42 pm.png
   - title: Visual Study Design
     description: "With the MindGarden AI Study Designer, you can visually craft complex study experiences tailored to your participants."
@@ -21,7 +21,7 @@ features:
     description: Easily integrate with a wide range of supported BCI sensors and devices.
     icon: /img/screenshot-2024-10-13-at-9.43.54 am.png
   - title: Stream Live EEG Data
-    description: Stream real-time data from multiple devices – such as PiEEG or OpenBCI – enabling simultaneous multi-modal analysis and monitoring.
+    description: Stream live data from multiple devices – such as PiEEG or OpenBCI – enabling simultaneous multi-modal analysis and monitoring.
     icon: /img/experiments_plot.png
   - title: Design & Manage Data Flow
     description: "Quickly set up secure, enterprise-grade data solutions and use the MindGarden AI Study Designer to visually map your data flows."
