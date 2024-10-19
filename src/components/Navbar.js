@@ -51,6 +51,11 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="navbar-item" style={{ padding: '0px' }}>
+            <a className="navbar-item" href="https://cloud.mindgardenai.com/api-docs" target="_blank" rel="noopener noreferrer">
+              API-Docs
+            </a>
+          </li>
+          <li className="navbar-item" style={{ padding: '0px' }}>
             <Link className="navbar-item" to="/about">
               About
             </Link>
@@ -59,6 +64,11 @@ const Navbar = () => {
             <Link className="navbar-item" to="/contact">
               Contact
             </Link>
+          </li>
+          <li className="navbar-item" style={{ padding: '0px' }}>
+            <a className="navbar-item" href="https://cloud.mindgardenai.com" target="_blank" rel="noopener noreferrer">
+              Login
+            </a>
           </li>
         </ul>
       </div>
