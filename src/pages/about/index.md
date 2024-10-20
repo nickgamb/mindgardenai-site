@@ -38,3 +38,16 @@ We are dedicated to making a positive impact on mental health care. Our commitme
 ### Privacy and Data Protection
 
 At MindGarden AI, we take your privacy seriously. We are committed to protecting your personal information and ensuring the confidentiality of your data. We will never sell or distribute your personal data to third parties. The only data we store is that which is necessary for authentication purposes, allowing you to securely access our platform. Your mental health data and insights remain private and under your control.
+
+### Terms of Service
+
+By using MindGarden AI's services, you agree to the following terms:
+
+1. You must be at least 18 years old to use our services.
+2. You are responsible for maintaining the confidentiality of your account information.
+3. You agree to use our services only for lawful purposes and in accordance with these terms.
+4. We reserve the right to modify or terminate our services at any time.
+5. You acknowledge that our services are not a substitute for professional medical advice, diagnosis, or treatment.
+6. We may update these terms from time to time, and your continued use of our services constitutes acceptance of any changes.
+
+For a complete version of our Terms of Service, please visit our full legal documentation page.
