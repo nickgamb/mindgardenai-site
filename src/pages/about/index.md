@@ -34,3 +34,7 @@ We value community and collaboration. By working closely with mental health prof
 ### Our Commitment
 
 We are dedicated to making a positive impact on mental health care. Our commitment to innovation, personalization, and ethical practices drives us to create solutions that empower individuals to take control of their mental health journey.
+
+### Privacy and Data Protection
+
+At MindGarden AI, we take your privacy seriously. We are committed to protecting your personal information and ensuring the confidentiality of your data. We will never sell or distribute your personal data to third parties. The only data we store is that which is necessary for authentication purposes, allowing you to securely access our platform. Your mental health data and insights remain private and under your control.
