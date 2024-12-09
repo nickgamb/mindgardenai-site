@@ -16,9 +16,10 @@ const Footer = () => {
             src={lgicon}
             alt="MindGarden Icon"
             className="footer-logo"
+            style={{ width: '35px', height: 'auto' }}
           />
           <span className="footer-title">
-            MINDGARDEN AI
+            MIND<span style={{ fontWeight: 'bold' }}>GARDEN</span>
           </span>
         </div>
         <div className="social-icons">
