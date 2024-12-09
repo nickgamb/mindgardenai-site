@@ -1,11 +1,11 @@
 ---
 templateKey: about-page
 path: /about
-title: About MindGarden AI
+title: About MindGarden
 ---
 ### Our Vision
 
-At MindGarden AI, we are dedicated to revolutionizing BCI research through our cloud-native platform. Our mission is to provide accessible, powerful tools that streamline the entire research pipeline, allowing researchers to focus on advancing scientific discovery in mental and cognitive health.
+At MindGarden, we are dedicated to revolutionizing BCI research through our cloud-native platform. Our mission is to provide accessible, powerful tools that streamline the entire research pipeline, allowing researchers to focus on advancing scientific discovery in mental and cognitive health.
 
 ### Transforming BCI Research
 
@@ -17,7 +17,7 @@ Our platform facilitates effortless collaboration, allowing researchers to creat
 
 ### Visual Study Design
 
-The MindGarden AI Study Designer empowers researchers to visually craft complex study experiences tailored to their participants. This intuitive tool simplifies the process of creating and managing research protocols.
+The MindGarden Study Designer empowers researchers to visually craft complex study experiences tailored to their participants. This intuitive tool simplifies the process of creating and managing research protocols.
 
 ### BCI Device Integration
 
@@ -25,7 +25,7 @@ We support a wide range of BCI sensors and devices, making it easy to integrate 
 
 ### Data Management and Security
 
-MindGarden AI provides enterprise-grade data solutions with a focus on security. Our platform is built on Zero Trust principles, ensuring Least Privilege access with RBAC and complying with leading standards like OAuth and OIDC. Researchers can quickly set up secure data flows and visually map them using our Study Designer.
+MindGarden provides enterprise-grade data solutions with a focus on security. Our platform is built on Zero Trust principles, ensuring Least Privilege access with RBAC and complying with leading standards like OAuth and OIDC. Researchers can quickly set up secure data flows and visually map them using our Study Designer.
 
 ### Community and Collaboration
 
@@ -37,11 +37,11 @@ We are dedicated to making a positive impact on BCI research and mental health c
 
 ### Privacy and Data Protection
 
-At MindGarden AI, we take your privacy seriously. We are committed to protecting your personal information and ensuring the confidentiality of your data. We will never sell or distribute your personal data to third parties. The only data we store is that which is necessary for authentication purposes, allowing you to securely access our platform. Your research data and insights remain private and under your control.
+At MindGarden, we take your privacy seriously. We are committed to protecting your personal information and ensuring the confidentiality of your data. We will never sell or distribute your personal data to third parties. The only data we store is that which is necessary for authentication purposes, allowing you to securely access our platform. Your research data and insights remain private and under your control.
 
 ### Terms of Service
 
-By using MindGarden AI's services, you agree to the following terms:
+By using MindGarden's services, you agree to the following terms:
 
 1. You must be at least 18 years old to use our services.
 2. You are responsible for maintaining the confidentiality of your account information.

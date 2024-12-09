@@ -27,7 +27,7 @@ export default class BlogIndexPage extends React.Component {
                 margin: "0",
               }}
             >
-              MindGarden AI Blogs
+              MindGarden Blogs
             </h1>
         </div>
         <div className="blog-section-wrapper">
