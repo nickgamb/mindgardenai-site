@@ -4,9 +4,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: "MindGarden AI",
+    title: "MindGarden",
     description:
-      "MindGarden AI combines advanced neurotechnology with machine learning to support personal growth and well-being.",
+      "MindGarden: Simple, Accessible Brain Science.",
     siteUrl: "https://mindgardenai.netlify.app",
     image: "/img/mindgardennologo.png", // Path to your site image
     recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
