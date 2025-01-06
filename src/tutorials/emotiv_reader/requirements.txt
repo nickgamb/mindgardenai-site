@@ -1,0 +1,5 @@
+pycryptodome
+hid
+matplotlib
+pandas
+scipy
