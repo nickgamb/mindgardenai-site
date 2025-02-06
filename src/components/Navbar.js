@@ -46,9 +46,9 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="navbar-item" style={{ padding: '0px' }}>
-            <Link className="navbar-item" to="/podcast">
+            <a className="navbar-item" href="https://podcast.mindgardenai.com" target="_blank" rel="noopener noreferrer">
               Podcast
-            </Link>
+            </a>
           </li>
           <li className="navbar-item" style={{ padding: '0px' }}>
             <a className="navbar-item" href="https://cloud.mindgardenai.com/api-docs" target="_blank" rel="noopener noreferrer">
