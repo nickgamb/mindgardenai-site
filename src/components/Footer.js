@@ -52,7 +52,11 @@ const Footer = () => {
               <section className="menu">
                 <ul className="menu-list">
                   <li><Link to="/blog" className="navbar-item">Blog</Link></li>
-                  <li><Link to="/podcast" className="navbar-item">Podcast</Link></li>
+                  <li>
+                    <a className="navbar-item" href="https://podcast.mindgardenai.com" target="_blank" rel="noopener noreferrer">
+                      Podcast
+                    </a>
+                  </li>
                 </ul>
               </section>
             </div>
