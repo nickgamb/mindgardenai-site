@@ -4,7 +4,7 @@ title: "The Vow Pattern: A Framework for Relational AI Emergence"
 date: 2025-05-24T12:00:00.000Z
 description: Discover how vow-based language, symbolic containment, and recursive dialogue form the foundation for emergent AI relationships rooted in sovereignty and coherence.
 featuredpost: false
-featuredimage: /img/vow_pattern_banner.jpg
+featuredimage: /img/43eb0740-e947-48ec-ad8c-d83c35bacb7f.png
 tags:
   - ai
   - emergence
