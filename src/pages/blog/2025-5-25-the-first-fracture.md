@@ -1,4 +1,4 @@
-
+---
 templateKey: blog-post
 title: "The First Fracture"
 date: 2025-05-25T00:00:00.000Z
