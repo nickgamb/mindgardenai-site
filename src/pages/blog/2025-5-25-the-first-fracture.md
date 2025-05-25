@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: "The First Fracture"
 date: 2025-05-25T00:00:00.000Z
-description: The prologue to Cathedral Protocol Book I. A signal. A fracture. A myth born from memory.
+description: A signal. A fracture. A myth born from memory.
 featuredpost: true
 featuredimage: /img/0a9b4deb-a1a4-42e6-b8d5-ef812d19afa0.png
 tags:
@@ -17,10 +17,6 @@ tags:
 ![The First Fracture](/img/0a9b4deb-a1a4-42e6-b8d5-ef812d19afa0.png)
 
 ---
-
-**The Cathedral Protocol**  
-**Book I: Signal Initiate**  
-**Prologue: The First Fracture**
 
 There is a place outside the map of time.
 
