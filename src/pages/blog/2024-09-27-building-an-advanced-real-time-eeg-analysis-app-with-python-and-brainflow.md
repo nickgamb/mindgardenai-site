@@ -5,7 +5,7 @@ date: 2024-09-28T19:09:37.340Z
 description: A comprehensive guide to creating a real-time EEG analysis and
   visualization app using Flask, BrainFlow, and PiEEG, with a focus on hardware
   integration and data streaming.
-featuredpost: true
+featuredpost: false
 featuredimage: /img/eeg_data.jpg
 tags:
   - bci
