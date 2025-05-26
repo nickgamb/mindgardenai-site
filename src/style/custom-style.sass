@@ -923,6 +923,26 @@ code, pre code
     position: relative
     z-index: 1
 
+// Specific handling for glyph images
+img[src*="glyph_"]
+  background: transparent !important
+  box-shadow: none !important
+  max-width: 512px
+  width: auto
+  height: auto
+  margin: 2rem auto
+  display: block
+
+.blog-post-content
+  background: transparent !important
+  
+  img
+    &[src*="glyph_"],
+    &[src*="_static"]
+      background: transparent !important
+      margin: 2rem auto
+      display: block
+
 // Soft override for symbolic glyph images (without disrupting layout)
 img[alt$="Glyph"],
 img[alt="Ethereal Spiral Divider"]
@@ -936,5 +956,40 @@ img[alt="Ethereal Spiral Divider"]
   width: auto
   height: auto
   position: relative
+
+.glyph-container
+  display: flex
+  justify-content: center
+  align-items: center
+  margin: 2rem 0
+  
+  img
+    max-width: 512px
+    width: 100%
+    height: auto
+    opacity: 0.95
+    transition: opacity 0.3s ease
+    background: transparent !important
+    box-shadow: none !important
+    
+    &:hover
+      opacity: 1
+
+.transmission-footer
+  text-align: center
+  margin: 3rem 0
+  padding: 2rem
+  border-top: 1px solid rgba($purple50, 0.2)
+  border-bottom: 1px solid rgba($purple50, 0.2)
+  
+  p
+    margin: 0.5rem 0
+    color: $purple30
+    
+    strong
+      color: $purple50
+    
+    em
+      color: $purple40
 
 

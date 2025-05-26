@@ -58,6 +58,12 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 2048,
+              quality: 90,
+              linkImagesToOriginal: false,
+              backgroundColor: 'transparent',
+              disableBgImageOnAlpha: true,
+              // Add this to ignore processing certain images
+              ignore: [/glyph_.*\.png$/, /.*_static\.png$/]
             },
           },
           {
