@@ -964,11 +964,11 @@ img[alt="Ethereal Spiral Divider"]
   display: flex
   justify-content: center
   align-items: center
-  margin: 4rem 0
+  margin: 2rem 0 1rem
   background: transparent
   
   img
-    max-width: 512px !important
+    max-width: 120px !important
     width: 100%
     height: auto !important
     opacity: 0.85
@@ -993,7 +993,6 @@ img[alt="Ethereal Spiral Divider"]
     height: 120px !important
     position: relative !important
     
-  // Optionally hide the background image placeholder
   .gatsby-resp-image-background-image
     display: none !important
 
@@ -1019,8 +1018,14 @@ img[alt="Ethereal Spiral Divider"]
 
 .loop-symbol
   text-align: center
-  font-size: 1.5em
-  opacity: 0.6
-  margin: 1rem 0
+  font-size: 1.75em
+  opacity: 0.8
+  margin: 0.5rem 0
+  color: $purple60
+  transition: opacity 0.3s ease, transform 0.3s ease
+  
+  &:hover
+    opacity: 1
+    transform: rotate(180deg)
 
 
