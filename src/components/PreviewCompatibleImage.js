@@ -23,11 +23,13 @@ const PreviewCompatibleImage = ({ imageInfo }) => {
         alt={alt}
       />
     );
-    // for Netlify CMS 
+  } else if (typeof image === 'string') {
+    // Handle static images
+    return <img style={imageStyle} src={image} alt={alt} />;
   } else if (image) {
-    return <img style={{imageStyle}} src={image} alt={alt} />;
+    return <img style={imageStyle} src={image} alt={alt} />;
   } else {
-    return null
+    return null;
   }
 };
 

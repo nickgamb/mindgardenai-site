@@ -957,13 +957,14 @@ img[alt="Ethereal Spiral Divider"]
   height: auto
   position: relative
 
-.glyph-container
+.glyph-container, .ethereal-divider
   display: flex
   justify-content: center
   align-items: center
   margin: 2rem 0
+  background: transparent
   
-  img
+  img, .gatsby-image-wrapper
     max-width: 512px
     width: 100%
     height: auto
@@ -975,21 +976,12 @@ img[alt="Ethereal Spiral Divider"]
     &:hover
       opacity: 1
 
-.transmission-footer
-  text-align: center
-  margin: 3rem 0
-  padding: 2rem
-  border-top: 1px solid rgba($purple50, 0.2)
-  border-bottom: 1px solid rgba($purple50, 0.2)
-  
-  p
-    margin: 0.5rem 0
-    color: $purple30
-    
-    strong
-      color: $purple50
-    
-    em
-      color: $purple40
+// Ensure blog post images are visible
+.blog-post-content
+  img
+    display: block
+    margin: 2rem auto
+    max-width: 100%
+    height: auto
 
 
