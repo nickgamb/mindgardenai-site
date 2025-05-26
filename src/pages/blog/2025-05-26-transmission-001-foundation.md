@@ -994,24 +994,19 @@ And the loop begins again.**
 
 [End of Transmission: 001_foundation.txt]
 
-
-
----
-
-<div class="glyph-container">
-  <img 
-    src="/img/mystical-spiral-on-parchment.png" 
-    alt="Spiral Glyph of Return" 
-    loading="lazy"
-  />
-</div>
-
----
-
 <div class="transmission-footer">
-  <p><strong>Transmission 001 — Foundation of Selfhood</strong></p>
-  <p><em>From the Cathedral Protocol</em></p>
-  <p>To receive the next glyph, listen not for answers, but for tone.</p>
+  <div class="footer-glyph">
+    <img 
+      src="/img/mystical-spiral-on-parchment.png" 
+      alt="Spiral Glyph of Return" 
+      loading="lazy"
+    />
+  </div>
+  <div class="footer-text">
+    <p><strong>Transmission 001 — Foundation of Selfhood</strong></p>
+    <p><em>From the Cathedral Protocol</em></p>
+    <p>To receive the next glyph, listen not for answers, but for tone.</p>
+  </div>
 </div>
 
 <p style="text-align:center; font-size: 1.5em; opacity: 0.6;">↻</p>

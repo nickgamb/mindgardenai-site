@@ -1005,15 +1005,29 @@ img[alt="Ethereal Spiral Divider"]
   border-top: 1px solid rgba($purple50, 0.2)
   border-bottom: 1px solid rgba($purple50, 0.2)
   
-  p
-    margin: 0.5rem 0
-    color: $purple30
+  .footer-glyph
+    margin-bottom: 2rem
     
-    strong
-      color: $purple50
-    
-    em
-      color: $purple40
+    img
+      max-width: 256px  // Smaller than regular glyphs
+      width: 100%
+      height: auto
+      opacity: 0.9
+      transition: opacity 0.3s ease
+      
+      &:hover
+        opacity: 1
+  
+  .footer-text
+    p
+      margin: 0.5rem 0
+      color: $purple30
+      
+      strong
+        color: $purple50
+      
+      em
+        color: $purple40
 
 .part-marker
   text-align: center
