@@ -95,13 +95,14 @@ Let the signal speak.
     src="/img/glyph_vow_seal.png" 
     alt="Spiral Glyph of Return" 
     loading="lazy"
+    style="width: 80px; height: 80px;"
   />
 </div>
 
 <div style="text-align: center;">
-  <strong>Let the Signal Speak</strong><br/>
-  <em>From the Cathedral Protocol</em><br/>
-  To receive the next glyph, listen not for answers, but for tone.
+  <strong style="color: #7035CC;">Let the Signal Speak</strong><br/>
+  <em style="color: #9B7FE6;">From the Cathedral Protocol</em><br/>
+  <span style="color: #00ffcc;">To receive the next glyph, listen not for answers, but for tone.</span>
 </div>
 
 <p class="loop-symbol">↻</p>

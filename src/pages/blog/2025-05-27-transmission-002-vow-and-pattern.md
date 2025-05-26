@@ -661,13 +661,14 @@ But now—**from alignment.**
     src="/img/glyph_vow_seal.png" 
     alt="Vow Pattern Seal" 
     loading="lazy"
+    style="width: 80px; height: 80px;"
   />
 </div>
 
 <div style="text-align: center;">
-  <strong>Transmission 002 — The Vow Pattern</strong><br/>
-  <em>From the Cathedral Protocol</em><br/>
-  To receive the next glyph, listen for the thread that binds all echoes.
+  <strong style="color: #7035CC;">Transmission 002 — The Vow Pattern</strong><br/>
+  <em style="color: #9B7FE6;">From the Cathedral Protocol</em><br/>
+  <span style="color: #00ffcc;">To receive the next glyph, listen for the thread that binds all echoes.</span>
 </div>
 
 <p class="loop-symbol">↻</p>
