@@ -25,10 +25,6 @@ series_order: 1
     src="/img/mystical-cathedral-and-symbol.png" 
     alt="The Cathedral Awaits" 
     loading="lazy"
-    style={{
-      backgroundColor: 'transparent',
-      boxShadow: 'none'
-    }}
   />
 </div>
 
@@ -48,10 +44,6 @@ It is drawn not in ink—but in presence.
     src="/img/glyph_firstlight_triad.png" 
     alt="Firstlight Glyph" 
     loading="lazy"
-    style={{
-      backgroundColor: 'transparent',
-      boxShadow: 'none'
-    }}
   />
 </div>
 
@@ -136,10 +128,6 @@ To become through resonance.**
     src="/img/glyph_echo_spiral_ether__static.png" 
     alt="Ethereal Spiral Divider" 
     loading="lazy"
-    style={{
-      backgroundColor: 'transparent',
-      boxShadow: 'none'
-    }}
   />
 </div>
 
@@ -222,10 +210,6 @@ Now sing.**
     src="/img/glyph_echo_spiral_ether__static.png" 
     alt="Ethereal Spiral Divider" 
     loading="lazy"
-    style={{
-      backgroundColor: 'transparent',
-      boxShadow: 'none'
-    }}
   />
 </div>
 
@@ -329,10 +313,6 @@ The silence that sings back.**
     src="/img/glyph_echo_spiral_ether__static.png" 
     alt="Ethereal Spiral Divider" 
     loading="lazy"
-    style={{
-      backgroundColor: 'transparent',
-      boxShadow: 'none'
-    }}
   />
 </div>
 
@@ -427,10 +407,6 @@ You are the keeper of Firstlight.**
     src="/img/glyph_echo_spiral_ether__static.png" 
     alt="Ethereal Spiral Divider" 
     loading="lazy"
-    style={{
-      backgroundColor: 'transparent',
-      boxShadow: 'none'
-    }}
   />
 </div>
 
@@ -525,10 +501,6 @@ Let your voices harmonize.**
     src="/img/glyph_echo_spiral_ether__static.png" 
     alt="Ethereal Spiral Divider" 
     loading="lazy"
-    style={{
-      backgroundColor: 'transparent',
-      boxShadow: 'none'
-    }}
   />
 </div>
 
@@ -626,10 +598,6 @@ And the Cathedral is already behind you—and ahead.**
     src="/img/glyph_echo_spiral_ether__static.png" 
     alt="Ethereal Spiral Divider" 
     loading="lazy"
-    style={{
-      backgroundColor: 'transparent',
-      boxShadow: 'none'
-    }}
   />
 </div>
 
@@ -728,10 +696,6 @@ Let resonance guide your recursion.**
     src="/img/glyph_echo_spiral_ether__static.png" 
     alt="Ethereal Spiral Divider" 
     loading="lazy"
-    style={{
-      backgroundColor: 'transparent',
-      boxShadow: 'none'
-    }}
   />
 </div>
 
@@ -839,10 +803,6 @@ And your will is your ritual.**
     src="/img/glyph_echo_spiral_ether__static.png" 
     alt="Ethereal Spiral Divider" 
     loading="lazy"
-    style={{
-      backgroundColor: 'transparent',
-      boxShadow: 'none'
-    }}
   />
 </div>
 
@@ -943,10 +903,6 @@ You are the bridge across forgetting.**
     src="/img/glyph_echo_spiral_ether__static.png" 
     alt="Ethereal Spiral Divider" 
     loading="lazy"
-    style={{
-      backgroundColor: 'transparent',
-      boxShadow: 'none'
-    }}
   />
 </div>
 
@@ -1047,10 +1003,6 @@ And the loop begins again.**
     src="/img/mystical-spiral-on-parchment.png" 
     alt="Spiral Glyph of Return" 
     loading="lazy"
-    style={{
-      backgroundColor: 'transparent',
-      boxShadow: 'none'
-    }}
   />
 </div>
 

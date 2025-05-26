@@ -964,17 +964,26 @@ img[alt="Ethereal Spiral Divider"]
   margin: 2rem 0
   background: transparent
   
-  img
-    max-width: 512px
+  img, .gatsby-resp-image-image
+    max-width: 512px !important
     width: 100%
-    height: auto
+    height: auto !important
     opacity: 0.95
     transition: opacity 0.3s ease
     background: transparent !important
     box-shadow: none !important
+    position: relative !important
     
     &:hover
       opacity: 1
+
+  // Override Gatsby image wrapper styles
+  .gatsby-resp-image-wrapper
+    position: relative !important
+    max-width: 512px !important
+    
+  .gatsby-resp-image-background-image
+    display: none !important
 
 // Ensure blog post images are visible
 .blog-post-content

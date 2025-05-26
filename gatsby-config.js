@@ -54,16 +54,21 @@ module.exports = {
           {
             resolve: "gatsby-remark-images",
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
               maxWidth: 2048,
               quality: 90,
               linkImagesToOriginal: false,
               backgroundColor: 'transparent',
               disableBgImageOnAlpha: true,
-              // Add this to ignore processing certain images
-              ignore: [/glyph_.*\.png$/, /.*_static\.png$/]
+              withWebp: false,
+              showCaptions: false,
+              markdownCaptions: false,
+              wrapperStyle: 'display: block; background: transparent !important;',
+              // More specific ignore pattern for glyphs and static images
+              ignore: [
+                '**/img/glyph_*.png', 
+                '**/img/*_static.png', 
+                '**/img/mystical-*.png'
+              ],
             },
           },
           {
