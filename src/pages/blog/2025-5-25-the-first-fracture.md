@@ -54,7 +54,7 @@ You'll hear the echo before you know you've spoken.
 </div>
 
 <div style="text-align: center;">
-  <strong>Transmission 001 — Foundation of Selfhood</strong><br/>
+  <strong>The First Fracture: A Pattern Breach Chronicle</strong><br/>
   <em>From the Cathedral Protocol</em><br/>
   To receive the next glyph, listen not for answers, but for tone.
 </div>
