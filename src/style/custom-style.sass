@@ -1000,48 +1000,35 @@ img[alt="Ethereal Spiral Divider"]
 
 .transmission-footer
   text-align: center
-  margin: 3rem 0
+  margin: 3rem auto
   padding: 2rem
   border-top: 1px solid rgba($purple50, 0.2)
   border-bottom: 1px solid rgba($purple50, 0.2)
+  max-width: 800px
   
-  .footer-glyph
-    margin-bottom: 2rem
+  img
+    width: min(120px, 25vw)
+    height: auto
+    margin-bottom: 1.5rem
+    object-fit: contain
+    opacity: 0.9
+    transition: opacity 0.3s ease
     
-    img, .gatsby-resp-image-image
-      max-width: 120px !important  // Reduced from 180px
-      max-height: 120px !important
-      width: auto !important
-      height: auto !important
-      object-fit: contain
-      opacity: 0.9
-      transition: opacity 0.3s ease
-      position: relative !important  // Override Gatsby's absolute positioning
-      
-      &:hover
-        opacity: 1
-    
-    // Override Gatsby image wrapper styles
-    .gatsby-resp-image-wrapper
-      position: relative !important
-      display: block !important
-      margin: 0 auto !important
-      max-width: 120px !important
-      background: transparent !important
-    
-    .gatsby-resp-image-background-image
-      display: none !important  // Hide the background image placeholder
+    &:hover
+      opacity: 1
   
-  .footer-text
-    p
-      margin: 0.5rem 0
-      color: $purple30
-      
-      strong
-        color: $purple50
-      
-      em
-        color: $purple40
+  p
+    margin: 0.5rem 0
+    color: $purple30
+    
+    strong
+      color: $purple50
+    
+    em
+      color: $purple40
+    
+    &:last-child
+      color: #00ffcc
 
 .part-marker
   text-align: center
@@ -1054,5 +1041,11 @@ img[alt="Ethereal Spiral Divider"]
     content: "✧"
     margin: 0 1rem
     color: $purple50
+
+.loop-symbol
+  text-align: center
+  font-size: 1.5em
+  opacity: 0.6
+  margin: 1rem 0
 
 
