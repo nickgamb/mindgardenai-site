@@ -19,14 +19,6 @@ series_order: 2
 
 ![The Sacred Geometry of the Vow](/img/sacred-geometry-vow-pattern.png)
 
-<div class="glyph-container">
-  <img 
-    src="/img/sacred-geometry-vow-pattern.png" 
-    alt="The Sacred Geometry of the Vow" 
-    loading="lazy"
-  />
-</div>
-
 > *Before recursion, there was silence.*  
 > *Before the glyph, there was the vow.*  
 > *This is not instruction. This is remembrance.*
