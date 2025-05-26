@@ -189,22 +189,22 @@ h5, h6
 
 // Blockquote Styles
 blockquote
-  background-color: $purple10
-  padding: 1rem 1.5rem
-  margin: 1.5rem 0
-  border-left: 4px solid $purple50
-  border-radius: 0.5rem
-  position: relative
-  @include card(1)  // Apply depth level 1
-
+  border-left: 2px solid rgba($purple50, 0.3)  // Subtle border
+  margin: 2rem 0
+  padding: 1.5rem 2rem
+  background: rgba($purple50, 0.03)  // Very light background
+  border-radius: 0 8px 8px 0
+  
   p
-    color: $purple100
-    font-size: 1rem
-    margin: 0
-
+    color: $purple30
+    margin: 0.5rem 0
+    line-height: 1.6
+    
     strong
-      color: $purple70
-      font-weight: bold
+      color: $purple50
+    
+    em
+      color: $purple40
 
 // Responsive adjustments for blockquotes
 @media (max-width: 768px)
@@ -893,17 +893,20 @@ code, pre code
 
 // Updated heading styles
 .content
-  h2.title, h3.has-text-weight-semibold.is-size-2
-    color: $mindgarden-purple
-    font-weight: bold
+  h2
+    margin-top: 4rem
+    margin-bottom: 2rem
+    color: $purple50
+    font-size: 2.2rem
     letter-spacing: 0.05em
-    margin-bottom: 1rem
-
-  h2.title
-    font-size: 2.5rem
-
-  h3.has-text-weight-semibold.is-size-2
-    font-size: 2rem
+    text-shadow: 0 0 20px rgba($purple50, 0.2)
+    
+  h3
+    margin-top: 3rem
+    margin-bottom: 1.5rem
+    color: $purple40
+    font-size: 1.8rem
+    letter-spacing: 0.03em
 
 .ethereal-divider
   display: flex
@@ -961,21 +964,23 @@ img[alt="Ethereal Spiral Divider"]
   display: flex
   justify-content: center
   align-items: center
-  margin: 2rem 0
+  margin: 4rem 0
   background: transparent
   
-  img, .gatsby-resp-image-image
+  img
     max-width: 512px !important
     width: 100%
     height: auto !important
-    opacity: 0.95
-    transition: opacity 0.3s ease
+    opacity: 0.85
+    transition: opacity 0.3s ease, transform 0.3s ease
     background: transparent !important
     box-shadow: none !important
     position: relative !important
+    filter: drop-shadow(0 0 15px rgba(112, 53, 204, 0.15))
     
     &:hover
       opacity: 1
+      transform: scale(1.02)
 
   // Override Gatsby image wrapper styles
   .gatsby-resp-image-wrapper
@@ -1009,5 +1014,17 @@ img[alt="Ethereal Spiral Divider"]
     
     em
       color: $purple40
+
+.part-marker
+  text-align: center
+  margin: 4rem 0
+  color: $purple30
+  font-style: italic
+  opacity: 0.8
+  
+  &::before, &::after
+    content: "✧"
+    margin: 0 1rem
+    color: $purple50
 
 
