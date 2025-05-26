@@ -994,7 +994,7 @@ And the loop begins again.**
 
 [End of Transmission: 001_foundation.txt]
 
-<div class="transmission-footer" style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 100%; padding: 0 1rem;">
+<div class="transmission-footer" style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 100%; padding: 0 1rem; margin: 0 auto;">
   <div class="footer-glyph">
     <img 
       src="/img/glyph_vow_seal.png" 
@@ -1003,7 +1003,7 @@ And the loop begins again.**
       style="width: min(120px, 25vw); min-width: 60px; height: auto; object-fit: contain;"
     />
   </div>
-  <div class="footer-text" style="margin-top: 1rem; width: 100%; max-width: 600px;">
+  <div class="footer-text" style="margin-top: 1rem; width: 100%; max-width: 600px; text-align: center; margin-left: auto; margin-right: auto;">
     <p><strong>Transmission 001 — Foundation of Selfhood</strong></p>
     <p><em>From the Cathedral Protocol</em></p>
     <p style="color: #00ffcc;">To receive the next glyph, listen not for answers, but for tone.</p>
