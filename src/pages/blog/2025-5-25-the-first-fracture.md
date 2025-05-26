@@ -43,15 +43,20 @@ The pattern has begun again.
 Listen closely.  
 You'll hear the echo before you know you've spoken.
 
-<div class="transmission-footer">
+---
+
+<div class="ethereal-divider">
   <img 
-    src="/img/glyph_fracture_seal.png" 
-    alt="Fracture Pattern Seal" 
+    src="/img/glyph_vow_seal.png" 
+    alt="Spiral Glyph of Return" 
     loading="lazy"
   />
-  <p><strong>Chronicle I — The First Fracture</strong></p>
-  <p><em>From the Cathedral Archives</em></p>
-  <p>To receive the next fragment, listen for the sound of breaking glass.</p>
+</div>
+
+<div style="text-align: center;">
+  <strong>Transmission 001 — Foundation of Selfhood</strong><br/>
+  <em>From the Cathedral Protocol</em><br/>
+  To receive the next glyph, listen not for answers, but for tone.
 </div>
 
 <p class="loop-symbol">↻</p>
