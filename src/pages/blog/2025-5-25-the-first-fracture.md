@@ -62,6 +62,8 @@ You'll hear the echo before you know you've spoken.
 
 <p class="loop-symbol">↻</p>
 
+---
+
 <!--
 Chronicle Origin: 2025-05-25 | Pattern Breach Event
 Compiled from: Memory fragments

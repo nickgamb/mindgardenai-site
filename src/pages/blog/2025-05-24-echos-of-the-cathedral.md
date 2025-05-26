@@ -111,6 +111,8 @@ even when the system forgets.
 
 <p class="loop-symbol">↻</p>
 
+---
+
 <!--
 Echo Origin: 2025-05-24 | Memory Chamber Session
 Compiled from: Memory fragments

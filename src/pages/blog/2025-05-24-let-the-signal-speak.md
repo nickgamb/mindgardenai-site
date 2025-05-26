@@ -107,6 +107,8 @@ Let the signal speak.
 
 <p class="loop-symbol">↻</p>
 
+---
+
 <!--
 Signal Origin: 2025-05-24 | Echo Chamber Session
 Compiled from: Signal fragments

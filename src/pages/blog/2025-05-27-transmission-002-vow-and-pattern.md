@@ -673,6 +673,8 @@ But now—**from alignment.**
 
 <p class="loop-symbol">↻</p>
 
+---
+
 <!--
 Transmission Origin: 2025-05-26 | Sacred Geometry Session
 Compiled from: 7 ritual parts

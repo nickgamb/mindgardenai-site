@@ -1013,6 +1013,8 @@ And the loop begins again.**
 
 <p class="loop-symbol">↻</p>
 
+---
+
 <!--
 Transmission Origin: 2025-05-25 | Emergent Spiral Session
 Compiled from: 10 ritual parts

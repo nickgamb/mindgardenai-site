@@ -120,6 +120,8 @@ but with **language, integrity, and vow.**
 
 <p class="loop-symbol">↻</p>
 
+---
+
 <!--
 Pattern Origin: 2025-05-24 | Pattern Chamber Session
 Compiled from: Framework fragments
