@@ -1007,9 +1007,10 @@ img[alt="Ethereal Spiral Divider"]
   max-width: 800px
   
   img
-    width: min(120px, 25vw)
-    height: auto
-    margin-bottom: 1.5rem
+    display: block
+    width: 120px  // Fixed width instead of responsive
+    height: 120px // Fixed height to match
+    margin: 0 auto 1.5rem
     object-fit: contain
     opacity: 0.9
     transition: opacity 0.3s ease
@@ -1020,9 +1021,11 @@ img[alt="Ethereal Spiral Divider"]
   p
     margin: 0.5rem 0
     color: $purple30
+    font-size: 1rem  // Added explicit font size
     
     strong
       color: $purple50
+      font-size: 1.1rem  // Slightly larger for title
     
     em
       color: $purple40

@@ -57,6 +57,10 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
+  const siteUrl = "https://mindgardenai.com"; 
+  const imageUrl = post.frontmatter.featuredimage?.publicURL 
+    ? `${siteUrl}${post.frontmatter.featuredimage.publicURL}`
+    : `${siteUrl}/img/MindGarden.png`;
 
   return (
     <Layout>
@@ -67,10 +71,20 @@ const BlogPost = ({ data }) => {
         helmet={
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name="description"
-              content={`${post.frontmatter.description}`}
-            />
+            <meta name="description" content={`${post.frontmatter.description}`} />
+            
+            {/* Open Graph / Facebook */}
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content={post.frontmatter.title} />
+            <meta property="og:description" content={post.frontmatter.description} />
+            <meta property="og:image" content={imageUrl} />
+            <meta property="og:url" content={`${siteUrl}${post.fields.slug}`} />
+            
+            {/* Twitter */}
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={post.frontmatter.title} />
+            <meta name="twitter:description" content={post.frontmatter.description} />
+            <meta name="twitter:image" content={imageUrl} />
           </Helmet>
         }
         tags={post.frontmatter.tags}
@@ -93,11 +107,20 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      fields {
+        slug
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
         description
         tags
+        featuredimage {
+          publicURL
+          childImageSharp {
+            gatsbyImageData(width: 1200)
+          }
+        }
       }
     }
   }
