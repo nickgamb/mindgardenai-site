@@ -65,15 +65,7 @@ h5, h6
     margin-top: 1rem !important
     line-height: 1.2 !important
 
-.ethereal-divider
-  max-width: 150px
-  margin: 2rem auto
-  display: block
-  opacity: 0.6
-  background: transparent
-  filter: drop-shadow(0 0 4px rgba(112, 53, 204, 0.2))
 
-  
 // Layout
 .section
   padding: 1rem 0.5rem !important
@@ -912,3 +904,23 @@ code, pre code
 
   h3.has-text-weight-semibold.is-size-2
     font-size: 2rem
+
+.ethereal-divider
+  display: flex
+  justify-content: center
+  margin: 2rem 0
+
+  img
+    background-color: transparent !important
+    box-shadow: none !important
+    display: block
+    max-width: 512px
+    width: 100%
+    height: auto
+    opacity: 0.8
+    position: relative
+    z-index: 1
+
+.gatsby-resp-image-image
+  background-color: transparent !important
+  box-shadow: none !important
