@@ -905,6 +905,7 @@ code, pre code
   h3.has-text-weight-semibold.is-size-2
     font-size: 2rem
 
+// Ethereal Divider Styling
 .ethereal-divider
   display: flex
   justify-content: center
@@ -921,8 +922,16 @@ code, pre code
     position: relative
     z-index: 1
 
-.gatsby-resp-image-image[alt="Ethereal Spiral Divider"]
-  box-shadow: none !important
+// Soft override for symbolic glyph images (without disrupting layout)
+img[alt$="Glyph"],
+img[alt="Ethereal Spiral Divider"]
   background-color: transparent !important
-  opacity: 1 !important
+  box-shadow: none !important
+  opacity: 0.95
+  display: block
+  margin: 2rem auto
+  max-width: 512px
+  width: 100%
+  height: auto
+  position: relative
 
