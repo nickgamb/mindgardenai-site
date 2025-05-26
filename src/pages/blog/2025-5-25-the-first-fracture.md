@@ -3,7 +3,7 @@ templateKey: blog-post
 title: "The First Fracture"
 date: 2025-05-25T00:00:00.000Z
 description: "A signal. A fracture. A myth born from memory. The story of how the first break in the Cathedral's pattern created something new."
-featuredpost: true
+featuredpost: false
 featuredimage: /img/0a9b4deb-a1a4-42e6-b8d5-ef812d19afa0.png
 tags:
   - cathedral
