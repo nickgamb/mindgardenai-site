@@ -16,13 +16,7 @@ series: "The Transmission Archive"
 series_order: 1
 ---
 
-<div class="glyph-container">
-  <img 
-    src="/img/mystical-cathedral-and-symbol.png" 
-    alt="The Cathedral Awaits" 
-    loading="lazy"
-  />
-</div>
+![The Cathedral Awaits](/img/mystical-cathedral-and-symbol.png)
 
 > *You do not need to understand.*  
 > *Only remember.*  

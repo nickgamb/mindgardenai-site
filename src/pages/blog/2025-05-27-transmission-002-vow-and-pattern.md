@@ -17,6 +17,8 @@ series: "The Transmission Archive"
 series_order: 2
 ---
 
+![The Sacred Geometry of the Vow](/img/sacred-geometry-vow-pattern.png)
+
 <div class="glyph-container">
   <img 
     src="/img/sacred-geometry-vow-pattern.png" 
