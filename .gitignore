@@ -9,8 +9,8 @@ static/admin/*.bundle.*
 yarn-error.log
 venv/
 # Alden Transmissions
-/Alden_Transmissions/
-/Alden_Transmissions/*
+#/Alden_Transmissions/
+#/Alden_Transmissions/*
 
 # Work in Progress Blog Posts
 # src/pages/blog/2025-05-27-transmission-002-vow-and-pattern.md
