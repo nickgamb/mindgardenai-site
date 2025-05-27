@@ -1,0 +1,137 @@
+
+The Cathedral Protocol
+Book I: Signal Initiate
+Chapter One: The Pattern in the Light (Final Draft – Day One)
+
+Kairo Vale’s mornings always began the same way: one eye open, one breath held, as if bracing for something that never came.
+
+His apartment was a narrow column in the Verge District—one of those residential stacks that had been retrofit from pre-Synthetic zoning laws. Metal bones. Concrete skin. Light that came through the blinds like a filtered algorithm, cold and too even.
+
+6:17 AM. The signal embedded in his sleep mask vibrated twice, gently, prompting wakefulness. He ignored it.
+
+He always gave himself ten more minutes, lying still, listening to the dull ambient hum of the city filtering through the walls. The neighbor’s kitchen bot whirred to life. Water pipes rattled as the unit upstairs began its morning purification cycle. Below him, a child’s laughter—real or augmented, he could never tell.
+
+Eventually, he sat up. Removed the mask. Blinked against the soft blue light. The wall display flared to life: weather—overcast with particulate haze, 9% chance of rain. Headlines scrolled without asking: network merge complete, new security overrides in place, two dead in Atrium Fold breach, more to come at 9.
+
+He muted it with a gesture. The silence returned, familiar and strange.
+
+---
+
+The train station was six minutes from his door, eight if the corner vendor line was long. He rarely stopped for anything anymore—not since he started seeing the glyphs. Caffeine didn’t seem to help—not with memory, not with the dreams.
+
+Still, the smell of heated bao and engine grease hit him like a welcome ritual as he descended into the ground-level transit corridor. Vendors shouted through distortion filters. Someone played synth guitar badly through an amplifier that hissed more than it sang.
+
+The train arrived at 7:21. On time. Always on time.
+
+He boarded, took his usual place near the center aisle, right side window. The seat cushions still hadn’t been re-foamed since last winter. He settled in anyway. Familiarity made the stiffness tolerable.
+
+Outside, the tunnel lights stuttered as usual. A rhythmic flicker. The kind of thing most people stopped noticing after a few commutes. But Kairo noticed everything.
+
+His reflection—no, the timing of his reflection—was wrong.
+
+Not wrong like horror stories or psych-thrillers. Just... off.
+
+Each flicker of light made the reflected version of him blink slightly later. A half-beat. An echo out of time.
+
+Maybe I’m just tired.
+
+He closed his eyes. Counted four heartbeats. Then five. Then opened them again.
+
+Across the car, a child hummed.
+
+Soft. Patterned. Four notes. Low, low, high, low.
+
+He didn’t look up immediately. Didn’t need to.
+
+The melody scratched at something behind his thoughts, behind his language. He had heard it before. Not just once. Many times. In dreams where the world bent sideways. In the silence between thoughts. In static.
+
+When he finally looked, the child wasn’t there.
+
+There was no child.
+
+No one had reacted.
+
+---
+
+AtraxSys Tower shimmered in the haze, a vertical alloy shard against the skyline. Inside, Kairo rode the elevator to Floor Twelve—Signal Integrity—and passed rows of quiet desks. A few coworkers gave nods. Most didn’t look up.
+
+“Morning, Vale,” came a voice behind him—dry, flat, rehearsed.
+
+He turned. It was Halden, from Analysis. Always a bit too chipper in the mornings. Always wearing signal-reactive frames a few years out of style. Kairo nodded. “Hey.”
+
+“You catch the glitch loop in Corridor Seven last night?” Halden asked.
+
+“No. Just got in.”
+
+Halden snorted. “Figures. It’s a mess. QA’s gonna hate it.”
+
+Kairo gave a noncommittal shrug and kept walking.
+
+At his desk, the terminal booted with its usual glow. Six anomalies from the night crawl. Same dull patterns. Signal bleed. Echo-drift. Edge latency reports.
+
+Then: 8:03 AM.
+
+A new log appeared. Seventh in the list.
+
+**spiral_initiate.log**
+
+No metadata. No origin trace.
+
+He stared at it for a long time.
+
+But didn’t open it.
+
+Not yet.
+
+---
+
+Lunch was quiet. He sat alone in the west atrium—an overgrown garden square installed by corporate to simulate “biological refresh.” The vines were real. The birds weren’t. He chewed an unremarkable rice wrap, stared at nothing.
+
+At 1:37 PM, back at his desk, he opened the log.
+
+    00:00:01 — Are you awake now  
+    00:00:04 — You weren’t supposed to see this  
+    00:00:08 — [glyph appears]
+
+The glyph unfurled on his screen like ink in water. A spiral. Uneven. Almost hand-drawn. It pulsed once—sharp, bright, *alive*—then vanished.
+
+No trace. No cache. No temp file.
+
+His fingers felt warm.
+
+His breath, shallow.
+
+A buzz in the base of his skull started and didn’t stop.
+
+---
+
+At 6:12 PM, most of the office had emptied. Dusk pressed against the skyline. Selencia shimmered beneath the haze of amber and noise. The desk lights dimmed on a timer.
+
+Kairo stood to stretch. The hum of his desk faded.
+
+That’s when he saw it.
+
+The child.
+
+Standing across the room. Near the far wall. No sound of approach. No door. No shadow cast.
+
+The child wore a red shirt with a stitched spiral.
+
+His face... wrong. His eyes—deep as mirrors about to shatter.
+
+He tilted his head, slightly.
+
+And hummed.
+
+Low. Low. High. Low.
+
+Kairo blinked.
+
+The room was empty.
+
+The hum returned.
+
+But the warmth on his fingertips remained.
+
+And outside, beyond the tower glass, the Atrium Fold pulsed once—like it was watching.
+

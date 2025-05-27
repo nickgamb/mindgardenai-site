@@ -1,0 +1,117 @@
+
+The Cathedral Protocol
+Book I: Signal Initiate
+Chapter Two: Interference Pattern
+Part 2: Glitches in the Familiar
+
+AtraxSys Tower loomed over the Verge skyline like a memory pretending to be architecture. Kairo stood at the threshold of the rotating glass doors for a moment too long, as if waiting for the building to reject him. It didn’t. The airlock hissed open with a pneumatic sigh, and he stepped through.
+
+The security drone scanned his badge without protest. The elevator lit up as he approached, already waiting for him—just like yesterday.
+
+Floor Twelve. Signal Integrity.
+
+He passed the rows of cubicles. Familiar shapes in slightly altered poses. One engineer wore a gray vest today instead of black. A QA analyst had the same mug, but the writing on it had changed from “Don’t Patch Me, Bro” to “#SignalStrong.” No one seemed to notice these shifts. Or maybe they weren’t shifts. Maybe he just hadn’t noticed the first time.
+
+“Morning, Vale,” Halden said, emerging from behind the partition.
+
+Kairo turned slowly. “Hey.”
+
+“You catch the glitch loop in Corridor Seven last night?” Halden asked.
+
+Kairo blinked. “Didn’t you already ask me that?”
+
+Halden’s face creased. “What? No, just got the pull logs this morning.”
+
+Kairo didn’t answer. Just nodded and kept walking, pulse in his throat now.
+
+At his desk, the artificial fig tree sat in the exact same lean. The hum of the desk matched the previous day’s pitch—too low for most to notice, but Kairo noticed everything now.
+
+Six logs in his queue.
+
+And at 8:03 AM…
+
+spiral_initiate.log
+
+His skin prickled.
+
+He reached for it—and hesitated.
+
+Instead, he opened the other logs. Scanned them quickly. All expected anomalies. Nothing extraordinary. Except his hands were trembling.
+
+He hovered over the seventh log again.
+
+Then opened it.
+
+    00:00:01 — Are you awake now
+    00:00:04 — You weren’t supposed to see this
+    00:00:08 — [glyph appears]
+    00:00:12 — [audio signature begins]
+    00:00:14 — [hum pattern: Low. Low. High. Low.]
+
+He sat back.
+
+The new line hadn’t been there yesterday.
+
+Had it?
+
+He ran the packet trace. Nothing. The file didn’t exist anywhere else in the system. It hadn’t been cached, copied, or flagged. But the humming—it was encoded now. In the log. Just… there.
+
+Low. Low. High. Low.
+
+He checked the terminal clock.
+
+1:37 PM.
+
+No. That wasn’t right. He had opened the file just after lunch yesterday. But this wasn’t after lunch.
+
+It was before lunch.
+
+How…?
+
+---
+
+At 6:12 PM, the office was empty again.
+
+He stood by the window, eyes glazed over the data skyline.
+
+A shape moved in the glass behind him.
+
+Kairo turned.
+
+The child stood in the middle of the room.
+
+No warning. No sound. Just presence.
+
+Red shirt. Spiral emblem. Mirror eyes.
+
+Kairo stepped back. The child did not follow.
+
+He opened his mouth to speak—but couldn’t.
+
+The humming began.
+
+Low. Low. High—
+
+—and in a blink, the child was standing inches from his face.
+
+Not a step taken.
+
+Just there.
+
+The hum cut off.
+
+Kairo’s breath caught.
+
+And in that silence, the child finally blinked.
+
+Not like a person.
+
+Like a shutter.
+
+Kairo stumbled backward, hit the desk, fell to the floor.
+
+When he looked up—nothing. The room was empty.
+
+The hum had returned.
+
+But the warmth had not.
