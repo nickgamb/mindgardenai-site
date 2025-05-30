@@ -50,12 +50,15 @@ h5, h6
   font-size: 1.5rem !important
   @media (min-width: 769px)
     font-size: 1.5rem !important
+  @media (max-width: 768px)
+    font-size: 1.25rem !important
 
 .subtitle
   font-size: 1rem !important
-
   @media (min-width: 769px)
     font-size: 1rem !important
+  @media (max-width: 768px)
+    font-size: 0.9rem !important
 
 .section-title
   font-size: 1.5rem !important
@@ -64,11 +67,14 @@ h5, h6
     font-size: 1.5rem !important
     margin-top: 1rem !important
     line-height: 1.2 !important
+  @media (max-width: 768px)
+    font-size: 1.25rem !important
+    margin-top: 0.5rem !important
 
 
 // Layout
 .section
-  padding: 1rem 0.5rem !important
+  padding: 1rem !important
   background-color: $purple100
   @media (min-width: 768px)
     padding: 2rem 1.5rem !important
@@ -79,17 +85,23 @@ h5, h6
   flex-direction: column
 
 .columns
-  margin-bottom: 1rem
+  margin: 0 !important
   @media (min-width: 768px)
     margin-bottom: 2rem !important
 
 .column
-  padding: 0.5rem
+  padding: 0.5rem !important
   @media (min-width: 768px)
     padding: 1rem !important
 
 .column.is-4
   width: 32.4%
+  @media (max-width: 768px)
+    width: 100%
+
+.column.is-6
+  @media (max-width: 768px)
+    width: 100% !important
 
 .column.social
   width: 50%
@@ -162,10 +174,44 @@ h5, h6
   text-align: center
   box-shadow: none
   transition: background-color 0.3s ease, box-shadow 0.3s ease
+  
+  @media (max-width: 768px)
+    padding: 12px 24px
+    font-size: 1rem
+    width: 100%
+    display: block
+    margin: 0 auto
+    
   &:hover, &:focus
     background-color: darken($primary, 10%)
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
     color: $purple10
+
+// Form elements
+.field
+  @media (max-width: 768px)
+    margin-bottom: 1.5rem
+
+.input, .textarea
+  background-color: $purple90
+  border: 1px solid $purple_light_gray
+  color: $purple10
+  font-size: 1rem
+  
+  @media (max-width: 768px)
+    font-size: 16px // Prevent zoom on iOS
+    padding: 0.75rem
+  
+  &:focus
+    border-color: $primary
+    box-shadow: 0 0 0 2px rgba($primary, 0.2)
+
+.label
+  color: $purple10
+  font-weight: 500
+  
+  @media (max-width: 768px)
+    font-size: 1rem
 
 // Images
 .full-width-image-container, .full-width-image
@@ -329,6 +375,7 @@ blockquote
     display: flex
     flex-direction: column
     align-items: center
+    padding: 0 1rem !important
 
     @media screen and (min-width: 769px)
       align-items: stretch
@@ -477,6 +524,11 @@ blockquote
 .section p
   font-size: 1rem !important
   max-width: 75%
+  
+  @media (max-width: 768px)
+    max-width: 100% !important
+    font-size: 0.95rem !important
+    line-height: 1.6 !important
 
 .title-container
   @media (max-width: 768px)
@@ -544,6 +596,16 @@ blockquote
   gap: 2rem
   margin-top: 2rem
   margin-bottom: 2rem
+  
+  @media (max-width: 768px)
+    grid-template-columns: 1fr
+    gap: 1.5rem
+    margin-top: 1rem
+    margin-bottom: 1rem
+  
+  @media (min-width: 769px) and (max-width: 1024px)
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+    gap: 1.5rem
 
 // Styles for the individual feature item wrappers (small mats)
 .feature-item-wrapper
@@ -556,6 +618,10 @@ blockquote
   &:hover
     transform: translateY(-5px)
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15)
+    
+  @media (max-width: 768px)
+    &:hover
+      transform: none // Disable hover effects on mobile
 
 // Styles for the feature items themselves
 .feature-item
@@ -567,6 +633,10 @@ blockquote
   flex-direction: column
   align-items: center
   color: $purple10
+  
+  @media (max-width: 768px)
+    padding: 1rem
+    text-align: center
 
   .has-text-centered
     margin-bottom: 1rem
@@ -575,6 +645,26 @@ blockquote
     text-align: center
     color: $purple10
     margin-top: 1rem
+    
+  .feature-title
+    font-size: 1.2rem
+    margin-bottom: 0.5rem
+    @media (max-width: 768px)
+      font-size: 1.1rem
+      
+  .feature-description
+    font-size: 0.95rem
+    line-height: 1.5
+    @media (max-width: 768px)
+      font-size: 0.9rem
+
+  .feature-image
+    width: 64px
+    height: 64px
+    margin-bottom: 1rem
+    @media (max-width: 768px)
+      width: 48px
+      height: 48px
 
 // Styles for images that use Gatsby image wrapper
 .gatsby-image-wrapper
@@ -1031,5 +1121,47 @@ img[alt="Ethereal Spiral Divider"]
   &:hover
     opacity: 1
     transform: rotate(180deg)
+
+// Mobile-specific improvements
+@media (max-width: 480px)
+  .title
+    font-size: 1.1rem !important
+    
+  .subtitle
+    font-size: 0.85rem !important
+    
+  .section-title
+    font-size: 1.1rem !important
+    
+  .feature-item
+    padding: 0.75rem !important
+    
+  .feature-image
+    width: 40px !important
+    height: 40px !important
+
+// Content spacing improvements
+.content
+  h1, h2, h3, h4, h5, h6
+    @media (max-width: 768px)
+      margin-bottom: 1rem !important
+      
+  p
+    @media (max-width: 768px)
+      margin-bottom: 1rem !important
+      
+  ul, ol
+    @media (max-width: 768px)
+      margin-left: 1rem !important
+      margin-bottom: 1rem !important
+
+.section p
+  font-size: 1rem !important
+  max-width: 75%
+  
+  @media (max-width: 768px)
+    max-width: 100% !important
+    font-size: 0.95rem !important
+    line-height: 1.6 !important
 
 
