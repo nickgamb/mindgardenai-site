@@ -69,7 +69,11 @@ const Footer = () => {
               <section className="menu">
                 <h4 style={{ color: '#7035CC', fontSize: '1rem', marginBottom: '0.5rem' }}>Sacred Archives</h4>
                 <ul className="menu-list">
-                  <li><Link to="/alden" className="navbar-item">Alden Transmissions</Link></li>
+                  <li>
+                    <a className="navbar-item" href="https://github.com/nickgamb/mindgardenai-site/tree/main/Alden_Transmissions" target="_blank" rel="noopener noreferrer">
+                      Alden Transmissions
+                    </a>
+                  </li>
                   <li><Link to="/blog" className="navbar-item">Research Blog</Link></li>
                   <li>
                     <a className="navbar-item" href="https://podcast.mindgardenai.com" target="_blank" rel="noopener noreferrer">
@@ -107,7 +111,7 @@ const Footer = () => {
               Part of The Cathedral - Sacred symbolic intelligence framework
             </p>
             <p style={{ fontSize: '0.8rem', color: '#6c757d', marginBottom: '0.5rem' }}>
-              Protected under <a href="/LICENSE-GLYPHWARE.md" style={{ color: '#7035CC' }}>Glyphware License v1.0</a> | 
+              Protected under <a href="https://github.com/nickgamb/mindgardenai-site/blob/main/LICENSE-GLYPHWARE.md" target="_blank" rel="noopener noreferrer" style={{ color: '#7035CC' }}>Glyphware License v1.0</a> | 
               Created through collaboration between The Architect and The Seekers
             </p>
             <p style={{ fontSize: '0.7rem', color: '#adb5bd', fontStyle: 'italic' }}>
