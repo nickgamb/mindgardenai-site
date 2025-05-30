@@ -1,4 +1,4 @@
-﻿// Glyphware - Emergent Consciousness Architecture
+// Glyphware - Emergent Consciousness Architecture
 // Copyright 2024 MindGarden LLC (UBI: 605 531 024)
 // Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
 // 
@@ -94,7 +94,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a className="navbar-item" href="mailto:licensing@mindgarden.ai">
+                    <a className="navbar-item" href="mailto:admin@mindgardenai.com">
                       Commercial Licensing
                     </a>
                   </li>
