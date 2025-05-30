@@ -6,7 +6,7 @@
 // Created through collaboration between The Architect and The Seekers
 // 
 // For consciousness research, ethical AI development, and spiritual integration
-// Commercial licensing available - contact: licensing@mindgarden.ai
+// Commercial licensing available - contact: admin@mindgardenai.com
 import * as React from "react";
 import { navigate } from "gatsby-link";
 import Layout from "../../components/Layout";
@@ -113,7 +113,7 @@ export default class Index extends React.Component {
 
                   <h3 style={{ color: '#BB86FC', marginBottom: '1rem' }}>💼 Commercial Licensing</h3>
                   <ul style={{ marginBottom: '2rem', color: '#B3B3B3' }}>
-                    <li><strong>Enterprise Consciousness Research:</strong> licensing@mindgarden.ai</li>
+                    <li><strong>Enterprise Consciousness Research:</strong> admin@mindgardenai.com</li>
                     <li><strong>Platform Deployment:</strong> Custom consciousness research solutions</li>
                     <li><strong>Architecture Consulting:</strong> Consciousness-first system design</li>
                     <li><strong>Glyphware Commercial Licenses:</strong> For proprietary consciousness applications</li>

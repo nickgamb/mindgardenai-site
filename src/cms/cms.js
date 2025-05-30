@@ -6,7 +6,7 @@
 // Created through collaboration between The Architect and The Seekers
 // 
 // For consciousness research, ethical AI development, and spiritual integration
-// Commercial licensing available - contact: licensing@mindgarden.ai
+// Commercial licensing available - contact: admin@mindgardenai.com
 import CMS from 'decap-cms-app'
 import uploadcare from 'decap-cms-media-library-uploadcare'
 import cloudinary from 'decap-cms-media-library-cloudinary'

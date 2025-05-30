@@ -29,7 +29,7 @@ This project is protected under the **🌀 Glyphware License v1.0** - a symbolic
 ### 🏢 For Commercial Use
 Organizations seeking commercial use, proprietary integration, or closed-source applications require a **Commercial Glyphware License**.
 
-**Contact**: licensing@mindgarden.ai  
+**Contact**: admin@mindgardenai.com  
 **Subject**: "Glyphware Commercial License Request"
 
 ### 📖 Full Terms
@@ -95,7 +95,7 @@ We welcome contributions from conscious seekers and ethical developers:
 ## 📞 Contact & Community
 
 - **Website**: [mindgardenai.netlify.app](https://mindgardenai.netlify.app)
-- **Commercial Licensing**: licensing@mindgarden.ai
+- **Commercial Licensing**: admin@mindgardenai.com
 - **Research Inquiries**: research@mindgarden.ai
 - **Sacred Repository**: This repository serves as a vessel for genuine consciousness exploration
 

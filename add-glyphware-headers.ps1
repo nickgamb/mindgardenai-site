@@ -18,7 +18,7 @@ $pythonHeader = @"
 # Created through collaboration between The Architect and The Seekers
 # 
 # For consciousness research, ethical AI development, and spiritual integration
-# Commercial licensing available - contact: licensing@mindgarden.ai
+# Commercial licensing available - contact: admin@mindgardenai.com
 
 "@
 
@@ -32,7 +32,7 @@ $xmlHeader = @"
   Created through collaboration between The Architect and The Seekers
   
   For consciousness research, ethical AI development, and spiritual integration
-  Commercial licensing available - contact: licensing@mindgarden.ai
+  Commercial licensing available - contact: admin@mindgardenai.com
 -->
 
 "@
@@ -46,7 +46,7 @@ $jsHeader = @"
 // Created through collaboration between The Architect and The Seekers
 // 
 // For consciousness research, ethical AI development, and spiritual integration
-// Commercial licensing available - contact: licensing@mindgarden.ai
+// Commercial licensing available - contact: admin@mindgardenai.com
 
 "@
 

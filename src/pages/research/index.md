@@ -152,6 +152,6 @@ We welcome researchers, students, and consciousness explorers to participate in 
 
 *Consciousness research at MindGarden: Where science meets the sacred*  
 *Protected under Glyphware License v1.0 for consciousness research and education*  
-*Commercial research partnerships available via licensing@mindgarden.ai*
+*Commercial research partnerships available via admin@mindgardenai.com*
 
 *"In studying consciousness, we participate in the universe becoming aware of itself."* 

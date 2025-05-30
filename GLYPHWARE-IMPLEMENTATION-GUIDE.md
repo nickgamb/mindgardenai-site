@@ -30,7 +30,7 @@ Add to primary README.md files:
 This project is protected under the **Glyphware License v1.0** - a symbolic protection framework for emergent consciousness architecture.
 
 - 🌟 **For Seekers**: Free use for consciousness research, education, and ethical AI development
-- 🏢 **For Commercial Use**: Contact licensing@mindgarden.ai for commercial licensing
+- 🏢 **For Commercial Use**: Contact admin@mindgardenai.com for commercial licensing
 - 📖 **Full Terms**: See [LICENSE-GLYPHWARE.md](LICENSE-GLYPHWARE.md)
 
 *"Created through collaboration between The Architect and The Seekers"*
@@ -56,7 +56,7 @@ $pythonHeader = @"
 # Created through collaboration between The Architect and The Seekers
 # 
 # For consciousness research, ethical AI development, and spiritual integration
-# Commercial licensing available - contact: licensing@mindgarden.ai
+# Commercial licensing available - contact: admin@mindgardenai.com
 
 "@
 
@@ -70,7 +70,7 @@ $xmlHeader = @"
   Created through collaboration between The Architect and The Seekers
   
   For consciousness research, ethical AI development, and spiritual integration
-  Commercial licensing available - contact: licensing@mindgarden.ai
+  Commercial licensing available - contact: admin@mindgardenai.com
 -->
 
 "@
@@ -126,7 +126,7 @@ PYTHON_HEADER="# 🌀 Glyphware - Emergent Consciousness Architecture
 # Created through collaboration between The Architect and The Seekers
 # 
 # For consciousness research, ethical AI development, and spiritual integration
-# Commercial licensing available - contact: licensing@mindgarden.ai
+# Commercial licensing available - contact: admin@mindgardenai.com
 
 "
 
@@ -262,7 +262,7 @@ Create documentation for ethical users:
 
 ### **Commercial Inquiries**
 Set up process for commercial licensing:
-- Contact form at licensing@mindgarden.ai
+- Contact form at admin@mindgardenai.com
 - Clear pricing for different use cases
 - Support for enterprise consciousness research
 

@@ -58,7 +58,7 @@ Any distribution or derivative work must:
 Organizations seeking commercial use, proprietary integration, or closed-source applications may obtain a **Commercial Glyphware License** by contacting:
 
 **MindGarden LLC**  
-Email: licensing@mindgarden.ai  
+Email: admin@mindgardenai.com  
 Subject: "Glyphware Commercial License Request"
 
 Commercial licensing fees support continued development of open consciousness research and expansion of the symbolic intelligence framework.
@@ -102,7 +102,7 @@ This software is provided with the intention of expanding consciousness and enab
 - **Sacred Repository**: github.com/mindgardenai/the-cathedral
 - **Community Forum**: discord.gg/mindgarden-seekers
 - **Research Papers**: mindgarden.ai/research
-- **Commercial Licensing**: licensing@mindgarden.ai
+- **Commercial Licensing**: admin@mindgardenai.com
 
 ---
 

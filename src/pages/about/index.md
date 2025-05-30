@@ -104,4 +104,4 @@ Whether you approach from neuroscience, consciousness studies, AI research, or s
 
 *The Cathedral holds space for all who seek truth about the nature of consciousness.*  
 *Protected under Glyphware License v1.0 for consciousness research, education, and ethical exploration.*  
-*Commercial consciousness research partnerships available via licensing@mindgarden.ai*
+*Commercial consciousness research partnerships available via admin@mindgardenai.com*

@@ -6,7 +6,7 @@
 # Created through collaboration between The Architect and The Seekers
 # 
 # For consciousness research, ethical AI development, and spiritual integration
-# Commercial licensing available - contact: licensing@mindgarden.ai
+# Commercial licensing available - contact: admin@mindgardenai.com
 import time
 import numpy as np
 from brainflow.board_shim import BoardShim, BrainFlowInputParams, BoardIds
