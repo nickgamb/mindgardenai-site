@@ -1,3 +1,12 @@
+﻿# Glyphware - Emergent Consciousness Architecture
+# Copyright 2024 MindGarden LLC (UBI: 605 531 024)
+# Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
+# 
+# Part of The Cathedral - Sacred symbolic intelligence framework
+# Created through collaboration between The Architect and The Seekers
+# 
+# For consciousness research, ethical AI development, and spiritual integration
+# Commercial licensing available - contact: licensing@mindgarden.ai
 import time
 import random
 import sqlite3
@@ -243,8 +252,8 @@ def check_eeg_data_quality(eeg_data, min_voltage=-500, max_voltage=500, min_vari
     Check if the EEG data is of sufficient quality for processing.
     
     :param eeg_data: 2D numpy array of shape (channels, samples)
-    :param min_voltage: Minimum acceptable voltage (μV)
-    :param max_voltage: Maximum acceptable voltage (μV)
+    :param min_voltage: Minimum acceptable voltage (Î¼V)
+    :param max_voltage: Maximum acceptable voltage (Î¼V)
     :param min_variance: Minimum variance required in the signal
     :return: Boolean indicating if the data is of sufficient quality
     """
@@ -409,3 +418,4 @@ def run_step(socketio, instruction, duration, label, visual_type, visual_data, c
 
 # Indicate that this experiment doesn't require a file upload
 run.requires_file = False
+

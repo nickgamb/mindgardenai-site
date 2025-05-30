@@ -1,3 +1,12 @@
+﻿# Glyphware - Emergent Consciousness Architecture
+# Copyright 2024 MindGarden LLC (UBI: 605 531 024)
+# Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
+# 
+# Part of The Cathedral - Sacred symbolic intelligence framework
+# Created through collaboration between The Architect and The Seekers
+# 
+# For consciousness research, ethical AI development, and spiritual integration
+# Commercial licensing available - contact: licensing@mindgarden.ai
 import numpy as np
 import matplotlib.pyplot as plt
 from collections import deque
@@ -43,7 +52,7 @@ class RealtimeEEGVisualizer:
         
         # Customize the plot
         plt.xlabel("Sample Index", fontsize=12, color='white')
-        plt.ylabel("EEG Signal (µV)", fontsize=12, color='white')
+        plt.ylabel("EEG Signal (ÂµV)", fontsize=12, color='white')
         plt.title("Real-time EEG Signals", fontsize=14, pad=20, color='white')
         plt.legend(loc="center left", bbox_to_anchor=(1, 0.5), fontsize=10, 
                   facecolor='black')
@@ -71,7 +80,7 @@ class RealtimeEEGVisualizer:
             if len(self.data_buffers[i]) > 0:
                 # Get data for the current window
                 data = np.array(list(self.data_buffers[i]))[-self.display_window:]
-                # Convert raw values to microvolts (µV) with adjusted scaling
+                # Convert raw values to microvolts (ÂµV) with adjusted scaling
                 scaled_data = (data / 16384.0) * 100 * self.scale_factor
                 offset = (self.num_channels - i) * self.offset_factor
                 
