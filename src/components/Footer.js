@@ -67,7 +67,7 @@ const Footer = () => {
             </div>
             <div className="footer-column">
               <section className="menu">
-                <h4 style={{ color: '#7035CC', fontSize: '1rem', marginBottom: '0.5rem' }}>Protected Archives</h4>
+                <h4 style={{ color: '#7035CC', fontSize: '1rem', marginBottom: '0.5rem' }}>Consciousness Archives</h4>
                 <ul className="menu-list">
                   <li>
                     <Link to="/alden" className="navbar-item">
