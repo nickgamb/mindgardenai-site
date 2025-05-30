@@ -101,7 +101,7 @@ This software is provided with the intention of expanding consciousness and enab
 
 - **Sacred Repository**: github.com/mindgardenai/the-cathedral
 - **Community Forum**: discord.gg/mindgarden-seekers
-- **Research Papers**: mindgarden.ai/research
+- **Research Papers**: mindgardenai.com/research
 - **Commercial Licensing**: admin@mindgardenai.com
 
 ---

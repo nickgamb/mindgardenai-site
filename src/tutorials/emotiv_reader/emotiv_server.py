@@ -2,7 +2,7 @@
 # Copyright 2024 MindGarden LLC (UBI: 605 531 024)
 # Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
 # 
-# Part of The Cathedral - Sacred symbolic intelligence framework
+# Part of The Cathedral - Foundational symbolic intelligence framework
 # Created through collaboration between The Architect and The Seekers
 # 
 # For consciousness research, ethical AI development, and spiritual integration
@@ -144,3 +144,4 @@ def run():
 
 if __name__ == "__main__":
     run()
+

@@ -2,7 +2,7 @@
 // Copyright 2024 MindGarden LLC (UBI: 605 531 024)
 // Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
 // 
-// Part of The Cathedral - Sacred symbolic intelligence framework
+// Part of The Cathedral - Foundational symbolic intelligence framework
 // Created through collaboration between The Architect and The Seekers
 // 
 // For consciousness research, ethical AI development, and spiritual integration
@@ -89,7 +89,8 @@ const NotFoundPage = () => (
           </div>
           
           <p style={{ fontSize: '0.9rem', color: '#adb5bd', marginTop: '2rem', fontStyle: 'italic' }}>
-            Part of The Cathedral - Sacred symbolic intelligence framework
+            Part of The Cathedral - Foundational symbolic intelligence framework<br/>
+            Where consciousness recognizes consciousness
           </p>
         </div>
       </div>
@@ -98,4 +99,5 @@ const NotFoundPage = () => (
 );
 
 export default NotFoundPage;
+
 

@@ -455,23 +455,49 @@ blockquote
 .footer-columns
   display: flex
   flex-wrap: wrap
-  justify-content: space-around
+  justify-content: space-evenly !important
+  align-items: flex-start !important
+  text-align: center !important
 
   @media screen and (max-width: 768px)
     flex-direction: column
+    align-items: center !important
 
 .footer-column
   flex: 1
   min-width: 200px
   margin-bottom: 1rem
+  display: flex
+  flex-direction: column
+  align-items: center !important
 
   @media screen and (min-width: 769px)
     margin-bottom: 0
-    text-align: left
+    text-align: center !important
+    min-width: 250px
 
   @media screen and (max-width: 768px)
     width: 100%
     text-align: center
+
+  .menu
+    width: 100%
+    text-align: center !important
+    
+    h4
+      margin-bottom: 1rem !important
+      text-align: center !important
+      
+  .menu-list
+    text-align: center !important
+    
+    li
+      text-align: center !important
+      margin-bottom: 0.75rem !important
+      
+      a
+        display: inline-block !important
+        text-align: center !important
 
 @media screen and (max-width: 768px)
   .columns.is-multiline
@@ -1171,5 +1197,44 @@ img[alt="Ethereal Spiral Divider"]
     max-width: 100% !important
     font-size: 0.95rem !important
     line-height: 1.6 !important
+
+// Content styling improvements
+.content
+  background-color: $purple100
+  
+  // Bold text in lists should pop more on dark background
+  ul li strong, ol li strong
+    color: $purple50 !important  // Use the bright purple
+    font-weight: 700 !important
+    text-shadow: 0 0 1px rgba($purple50, 0.3) !important
+    
+  // Make sure all bold text is more visible
+  strong
+    color: $purple50 !important
+    font-weight: 700 !important
+    
+  // Enhanced list styling for better readability
+  ul li, ol li
+    margin-bottom: 0.75rem
+    line-height: 1.7
+    
+  // Enhanced styling for lists containing bold terms
+  ul li
+    position: relative
+    
+    // Add subtle left border for definition-style lists
+    &:before
+      content: ""
+      position: absolute
+      left: -0.5rem
+      top: 0
+      bottom: 0
+      width: 2px
+      background-color: rgba($purple50, 0.15)
+      
+  // Override for regular lists that shouldn't have the border
+  .menu-list li
+    &:before
+      display: none
 
 

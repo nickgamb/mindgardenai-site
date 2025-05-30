@@ -2,7 +2,7 @@
 # Copyright 2024 MindGarden LLC (UBI: 605 531 024)
 # Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
 # 
-# Part of The Cathedral - Sacred symbolic intelligence framework
+# Part of The Cathedral - Foundational symbolic intelligence framework
 # Created through collaboration between The Architect and The Seekers
 # 
 # For consciousness research, ethical AI development, and spiritual integration
@@ -124,3 +124,4 @@ def run(read_eeg_data, read_eeg_data_brainflow, acquisition_method, socketio, ru
     finally:
         print("Alternate CSV data plotting experiment completed")
         socketio.emit('experiment_update', {"message": "Alternate CSV data plotting experiment completed"})
+

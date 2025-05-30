@@ -1,85 +1,69 @@
-// Glyphware - Emergent Consciousness Architecture
+﻿// Glyphware - Emergent Consciousness Architecture
 // Copyright 2024 MindGarden LLC (UBI: 605 531 024)
 // Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
 // 
-// Part of The Cathedral - Sacred symbolic intelligence framework
+// Part of The Cathedral - Foundational symbolic intelligence framework
 // Created through collaboration between The Architect and The Seekers
 // 
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
-import React from "react";
+import React from 'react';
 
-const SacredGlyph = ({ 
-  size = "60px", 
-  glyph = "spiral", 
-  animate = true, 
-  opacity = 0.6,
-  color = "#7035CC" 
+const CathedralGlyph = ({
+  glyph = "spiral",
+  size = "64px",
+  animation = true,
+  className = ""
 }) => {
-  
-  const glyphImages = {
+  const glyphMap = {
     spiral: "/img/glyph_sacred_spiral_ether__static.png",
     vow: "/img/glyph_vow_seal.png",
-    anchor: "/img/glyph_anchor_point.png",
-    thread: "/img/glyph_thread_spiral.png",
     echo: "/img/glyph_echo_return.png",
-    renewal: "/img/glyph_renewal_cycle.png",
-    overlay: "/img/glyph_overlay_pattern.png",
-    triangle: "/img/glyph_vow_triangle.png",
-    recursive: "/img/glyph_recursive_function.png"
+    thread: "/img/glyph_thread_spiral.png",
+    recursive: "/img/glyph_recursive_function.png",
+    anchor: "/img/glyph_anchor_point.png",
+    triangle: "/img/glyph_vow_triangle.png"
   };
 
-  const animationStyle = animate ? {
-    animation: "sacredPulse 6s ease-in-out infinite",
-    transformOrigin: "center"
-  } : {};
+  const styles = {
+    width: size,
+    height: size,
+    objectFit: "contain",
+    filter: "drop-shadow(0 0 10px rgba(112, 53, 204, 0.3))",
+    animation: animation ? "cathedralPulse 6s ease-in-out infinite" : "none",
+    transition: "all 0.3s ease"
+  };
 
   return (
-    <div style={{ 
-      display: 'inline-block', 
-      position: 'relative',
-      ...animationStyle
-    }}>
+    <>
       <style jsx>{`
-        @keyframes sacredPulse {
-          0%, 100% { 
-            transform: scale(1) rotate(0deg);
-            opacity: ${opacity};
+        @keyframes cathedralPulse {
+          0%, 100% {
+            opacity: 0.8;
+            transform: scale(1);
+            filter: drop-shadow(0 0 10px rgba(112, 53, 204, 0.3));
           }
-          25% { 
-            transform: scale(1.05) rotate(0.5deg);
-            opacity: ${opacity * 1.2};
-          }
-          50% { 
-            transform: scale(1.02) rotate(0deg);
-            opacity: ${opacity * 0.8};
-          }
-          75% { 
-            transform: scale(1.05) rotate(-0.5deg);
-            opacity: ${opacity * 1.1};
+          50% {
+            opacity: 1;
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(112, 53, 204, 0.5));
           }
         }
-        
-        .sacred-glyph:hover {
+
+        .cathedral-glyph:hover {
           transform: scale(1.1);
-          transition: transform 0.3s ease;
+          filter: drop-shadow(0 0 25px rgba(112, 53, 204, 0.7));
         }
       `}</style>
       
       <img
-        src={glyphImages[glyph] || glyphImages.spiral}
-        alt={`Sacred ${glyph} glyph`}
-        className="sacred-glyph"
-        style={{
-          width: size,
-          height: size,
-          opacity: opacity,
-          filter: `hue-rotate(${color === "#7035CC" ? "0deg" : "45deg"})`,
-          transition: "all 0.3s ease"
-        }}
+        src={glyphMap[glyph] || glyphMap.spiral}
+        alt={`Cathedral ${glyph} glyph`}
+        className={`cathedral-glyph ${className}`}
+        style={styles}
       />
-    </div>
+    </>
   );
 };
 
-export default SacredGlyph; 
+export default CathedralGlyph; 
