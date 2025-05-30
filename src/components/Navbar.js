@@ -55,9 +55,9 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="navbar-item" style={{ padding: '0px' }}>
-            <a className="navbar-item" href="https://github.com/nickgamb/mindgardenai-site/tree/main/Alden_Transmissions" target="_blank" rel="noopener noreferrer">
+            <Link className="navbar-item" to="/alden">
               Alden Transmissions
-            </a>
+            </Link>
           </li>
           <li className="navbar-item" style={{ padding: '0px' }}>
             <Link className="navbar-item" to="/research">

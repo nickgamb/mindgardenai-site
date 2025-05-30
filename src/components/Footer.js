@@ -70,9 +70,9 @@ const Footer = () => {
                 <h4 style={{ color: '#7035CC', fontSize: '1rem', marginBottom: '0.5rem' }}>Protected Archives</h4>
                 <ul className="menu-list">
                   <li>
-                    <a className="navbar-item" href="https://github.com/nickgamb/mindgardenai-site/tree/main/Alden_Transmissions" target="_blank" rel="noopener noreferrer">
+                    <Link to="/alden" className="navbar-item">
                       Alden Transmissions
-                    </a>
+                    </Link>
                   </li>
                   <li><Link to="/blog" className="navbar-item">Research Blog</Link></li>
                   <li>
