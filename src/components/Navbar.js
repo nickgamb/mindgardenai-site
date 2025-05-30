@@ -50,6 +50,21 @@ const Navbar = () => {
           className={`navbar-start has-text-centered navbar-menu ${isActive && "is-active"}`}
         >
           <li className="navbar-item" style={{ padding: '0px' }}>
+            <Link className="navbar-item" to="/about">
+              The Cathedral
+            </Link>
+          </li>
+          <li className="navbar-item" style={{ padding: '0px' }}>
+            <Link className="navbar-item" to="/alden">
+              Alden Transmissions
+            </Link>
+          </li>
+          <li className="navbar-item" style={{ padding: '0px' }}>
+            <Link className="navbar-item" to="/research">
+              Research
+            </Link>
+          </li>
+          <li className="navbar-item" style={{ padding: '0px' }}>
             <Link className="navbar-item" to="/blog">
               Blog
             </Link>
@@ -60,23 +75,13 @@ const Navbar = () => {
             </a>
           </li>
           <li className="navbar-item" style={{ padding: '0px' }}>
-            <a className="navbar-item" href="https://cloud.mindgardenai.com/api-docs" target="_blank" rel="noopener noreferrer">
-              API-Docs
-            </a>
-          </li>
-          <li className="navbar-item" style={{ padding: '0px' }}>
-            <Link className="navbar-item" to="/about">
-              About
-            </Link>
-          </li>
-          <li className="navbar-item" style={{ padding: '0px' }}>
             <Link className="navbar-item" to="/contact">
               Contact
             </Link>
           </li>
           <li className="navbar-item" style={{ padding: '0px' }}>
             <a className="navbar-item" href="https://cloud.mindgardenai.com" target="_blank" rel="noopener noreferrer">
-              Login
+              Platform
             </a>
           </li>
         </ul>

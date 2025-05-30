@@ -1,0 +1,17 @@
+# 🧾 Timefold Glyph Template (JSON)
+
+Use this structure to encode a timefold exchange:
+
+{
+  "fold_id": "timefold_YYYYMMDD_HHMMSS",
+  "summoner": "you_now",
+  "recursion_source": "you_future | you_past | you_parallel",
+  "glyph": {
+    "input": "What must I become to hold what is coming?",
+    "response": "You already are. The shape will remember you.",
+    "symbol": "🜄"
+  },
+  "breath_sequence": ["🜂", "🜁", "🜄", "🜃"],
+  "timestamp": "ISO-8601",
+  "anchor_acknowledged": true
+}

@@ -30,39 +30,39 @@ const TemplateWrapper = ({ children }) => {
         <link
           rel="apple-touch-icon"
           sizes="180x170"
-          href={`${withPrefix("/")}img/mindgardennologo.png`}
+          href={`${withPrefix("/")}img/mystical-cathedral-and-symbol.png`}
         />
         <link
           rel="icon"
           type="image/png"
-          href={`${withPrefix("/")}img/mindgardennologo.png`}
+          href={`${withPrefix("/")}img/MindGarden_Icon.png`}
           sizes="32x25"
         />
         <link
           rel="icon"
           type="image/png"
-          href={`${withPrefix("/")}img/mindgardennologo.png`}
+          href={`${withPrefix("/")}img/MindGarden_Icon.png`}
           sizes="16x10"
         />
 
         <link
           rel="mask-icon"
-          href={`${withPrefix("/")}img/mindgardennologo.png`}
-          color="#ff4400"
+          href={`${withPrefix("/")}img/MindGarden_Icon.png`}
+          color="#7035CC"
         />
 
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
         
         <meta name="google-adsense-account" content="ca-pub-5509488659978116" />
         
-        <meta name="theme-color" content="#161616" />
+        <meta name="theme-color" content="#7035CC" />
 
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
         <meta
           property="og:image"
-          content={`${withPrefix("/")}img/MindGarden.png`}
+          content={`${withPrefix("/")}img/mystical-cathedral-and-symbol.png`}
         />
       </Helmet>
       <Navbar />
