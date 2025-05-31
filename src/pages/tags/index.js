@@ -27,8 +27,8 @@ const TagsPage = ({
       <div className="container content">
         <div className="columns">
           <div
-            className="column is-10 is-offset-1"
-            style={{ marginBottom: "6rem" }}
+            className="column is-12"
+            style={{ marginBottom: "6rem", padding: "0.5rem" }}
           >
             <h1 className="title is-size-2 is-bold-light">Tags</h1>
             <ul className="taglist">

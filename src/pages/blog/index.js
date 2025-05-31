@@ -53,7 +53,7 @@ export default class BlogIndexPage extends React.Component {
         <section className="section section--gradient">
           <div className="container">
             <div className="columns">
-              <div className="column is-10 is-offset-1">
+              <div className="column is-12" style={{ padding: "0.5rem" }}>
                 <div className="section">
                   
                   <div style={{ textAlign: 'center', margin: '3rem 0' }}>
