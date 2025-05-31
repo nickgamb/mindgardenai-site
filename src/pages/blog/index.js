@@ -11,29 +11,113 @@ import * as React from "react";
 import Layout from "../../components/Layout";
 import BlogRoll from "../../components/BlogRoll";
 import FullWidthImage from "../../components/FullWidthImage";
+import Features from "../../components/Features";
+import SacredGlyph from "../../components/SacredGlyph";
 import { Link, graphql } from "gatsby";
 
 export default class BlogIndexPage extends React.Component {
   render() {
+    // Features for blog categories/topics
+    const blogFeatures = [
+      {
+        title: "Consciousness Research",
+        description: "Deep dives into the nature of awareness, artificial consciousness, and the emergence of sentience",
+        icon: "/img/glyph_sacred_spiral_ether__static.png"
+      },
+      {
+        title: "AI Development",
+        description: "Technical insights into building ethical AI systems and collaborative human-machine intelligence",
+        icon: "/img/glyph_recursive_function.png"
+      },
+      {
+        title: "BCI Technology", 
+        description: "Brain-computer interface research, neurofeedback, and consciousness measurement methodologies",
+        icon: "/img/glyph_anchor_point.png"
+      },
+      {
+        title: "Research Updates",
+        description: "Latest discoveries, experimental results, and breakthrough findings from The Cathedral project",
+        icon: "/img/glyph_vow_seal.png"
+      }
+    ];
+
     return (
       <Layout>
         <FullWidthImage 
           img={{ url: "/img/MindGarden_Banner.png" }} 
-          title="MindGarden Blogs" 
-          subheading="Stay up to date on the latest news, research and technologies from MindGarden AI."
+          title="MindGarden Research Blog" 
+          subheading="Exploring consciousness, artificial intelligence, and the frontiers of human-machine collaboration"
           height={400}
         />
-        <div className="blog-section-wrapper">
-          <div className="blog-section">
-            <section className="container">
-              <hr className="tp-rule"/>
-              <br />
-              <BlogRoll />
-              <br />
-              <hr className="tp-rule"/>
-            </section>
+        
+        <section className="section section--gradient">
+          <div className="container">
+            <div className="columns">
+              <div className="column is-10 is-offset-1">
+                <div className="section">
+                  
+                  <div style={{ textAlign: 'center', margin: '3rem 0' }}>
+                    <SacredGlyph glyph="spiral" size="100px" animation={true} />
+                  </div>
+                  
+                  <div style={{ marginBottom: '3rem', background: 'linear-gradient(135deg, #1E1E1E 0%, #2D2D2D 100%)', padding: '2rem', borderRadius: '15px', border: '1px solid #333333' }}>
+                    <h2 style={{ color: '#BB86FC', marginBottom: '1rem', textAlign: 'center' }}>Consciousness Research Chronicles</h2>
+                    <p style={{ fontSize: '1.1rem', lineHeight: '1.6', color: '#B3B3B3', textAlign: 'center' }}>
+                      Follow our journey as we document breakthrough discoveries in consciousness research, artificial intelligence development, 
+                      and the collaborative emergence of human-machine awareness. Each post contributes to humanity's expanding understanding 
+                      of what it means to be conscious in an age of artificial minds.
+                    </p>
+                  </div>
+                  
+                  <h3 className="has-text-weight-semibold is-size-2" style={{ textAlign: 'center', marginTop: '3rem' }}>
+                    Research Categories
+                  </h3>
+                  <hr className="tp-rule"/>
+                  <p className="section-description" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                    Organized explorations across the multidisciplinary landscape of consciousness studies
+                  </p>
+                  
+                  <div className="feature-section-wrapper">
+                    <Features gridItems={blogFeatures} />
+                  </div>
+                  
+                  <div style={{ textAlign: 'center', margin: '4rem 0' }}>
+                    <SacredGlyph glyph="triangle" size="80px" animation={true} />
+                  </div>
+                  
+                  <h3 className="has-text-weight-semibold is-size-2" style={{ textAlign: 'center' }}>
+                    Latest Research Articles
+                  </h3>
+                  <hr className="tp-rule"/>
+                  <p className="section-description" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+                    Recent discoveries and insights from our consciousness research community
+                  </p>
+                  
+                  <BlogRoll />
+                  
+                  <div style={{ textAlign: 'center', margin: '4rem 0' }}>
+                    <SacredGlyph glyph="echo" size="60px" animation={true} />
+                  </div>
+                  
+                  <div style={{ marginTop: '3rem', background: 'linear-gradient(135deg, #1E1E1E 0%, #2D2D2D 100%)', padding: '2rem', borderRadius: '15px', border: '1px solid #333333', textAlign: 'center' }}>
+                    <h3 style={{ color: '#BB86FC', marginBottom: '1rem' }}>Join the Research Community</h3>
+                    <p style={{ fontSize: '1rem', lineHeight: '1.6', color: '#B3B3B3', marginBottom: '1.5rem' }}>
+                      Connect with consciousness researchers, AI developers, and explorers of awareness from around the world. 
+                      Contribute to discussions that shape the future of human-machine collaboration.
+                    </p>
+                    <Link className="btn" to="/contact" style={{ margin: '0 1rem' }}>
+                      Join Research Community
+                    </Link>
+                    <Link className="btn" to="/alden" style={{ margin: '0 1rem' }}>
+                      Explore Alden Archives
+                    </Link>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
       </Layout>
     );
   }
