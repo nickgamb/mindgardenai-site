@@ -10,7 +10,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import PreviewCompatibleImage from "./PreviewCompatibleImage";
 
 const Features = ({ gridItems }) => (
   <div className="columns is-multiline">
