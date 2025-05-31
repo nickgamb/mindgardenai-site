@@ -35,6 +35,9 @@ body
   color: $purple10
   // Page transition effect
   animation: pageLoad 0.6s ease-out
+  // Ensure proper rendering on all devices
+  min-height: 100vh
+  position: relative
 
 @keyframes pageLoad
   from
@@ -236,15 +239,6 @@ body
   opacity: 1
 
 // Content reveal animation
-.content
-  background-color: $purple100
-
-// Base styles
-body
-  background-color: $purple100
-  font-family: 'SF Pro Display', 'Roboto', 'Helvetica', 'Arial', sans-serif
-  color: $purple10
-
 .content
   background-color: $purple100
 
@@ -560,7 +554,8 @@ blockquote
     .box
       color: $purple10 !important
 
-.blog-list-item header
+.blog-list-item header,
+.blog-list-item .blog-item-header
   display: flex
   margin-bottom: 1em
   color: $purple70
@@ -607,14 +602,15 @@ blockquote
   flex-direction: column
   justify-content: flex-start
   
-  .title
-    margin-bottom: 0.5rem
-    line-height: 1.3
-    order: 1
+  .post-title
+    margin: 0 0 0.5rem 0
     
-  .subtitle
-    margin-bottom: 0
-    order: 2
+    .title
+      margin-bottom: 0
+      line-height: 1.3
+      
+  .post-date
+    margin: 0
     font-size: 0.9rem
     opacity: 0.8
     
@@ -622,11 +618,11 @@ blockquote
     text-align: center
     align-items: center
     
-    .title
+    .post-title
       text-align: center
       margin-bottom: 0.75rem
       
-    .subtitle
+    .post-date
       text-align: center
 
 .blog-list-item .content-section
@@ -1940,6 +1936,18 @@ ul ul, ol ol, ul ol, ol ul
 
 // Mobile-optimized enhanced effects - maintain visual appeal while optimizing performance
 @media (max-width: 768px)
+  // Ensure basic rendering works first
+  body
+    background-color: $purple100 !important
+    min-height: 100vh !important
+    animation: pageLoad 0.6s ease-out
+    
+  .content
+    background-color: $purple100 !important
+    
+  .section
+    background-color: $purple100 !important
+    
   // Override reduced motion only if user hasn't specifically requested reduced motion
   @media (prefers-reduced-motion: no-preference)
     *, *::before, *::after
@@ -1952,10 +1960,6 @@ ul ul, ol ol, ul ol, ol ul
   .enhanced-title,
   .ethereal-text
     animation-play-state: running
-    
-  // Ensure body animations work on mobile
-  body
-    animation: pageLoad 0.6s ease-out
     
   // Maintain scroll animations but with reduced intensity
   .animate-on-scroll.visible
@@ -1982,14 +1986,6 @@ ul ul, ol ol, ul ol, ol ul
   .enhanced-hover-card:hover
     transform: translateY(-3px) scale(1.01)
     transition-duration: 0.2s
-  
-  // Slightly slower animations for better performance
-  .float-element,
-  .float-element-reverse
-    animation-duration: 8s
-  
-  .consciousness-glow
-    animation-duration: 5s
   
   // Reduce particle density but keep them visible
   .particle-background::before,
