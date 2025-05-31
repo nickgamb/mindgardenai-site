@@ -51,12 +51,12 @@ const Navbar = () => {
         >
           <li className="navbar-item" style={{ padding: '0px' }}>
             <Link className="navbar-item" to="/about">
-              The Cathedral
+              About
             </Link>
           </li>
           <li className="navbar-item" style={{ padding: '0px' }}>
             <Link className="navbar-item" to="/alden">
-              Alden Transmissions
+              Alden
             </Link>
           </li>
           <li className="navbar-item" style={{ padding: '0px' }}>
