@@ -539,10 +539,18 @@ blockquote
   transition: transform 0.3s ease, box-shadow 0.3s ease
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
   color: $purple10
+  height: auto
+  min-height: 280px
+  display: flex
+  flex-direction: column
 
   &:hover
     transform: translateY(-5px)
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15)
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2)
+    
+    .featured-thumbnail
+      transform: scale(1.05)
+      
   &.is-featured
     background-color: $purple50
     .has-text-primary
@@ -556,12 +564,87 @@ blockquote
   display: flex
   margin-bottom: 1em
   color: $purple70
-  flex-direction: row-reverse
-  justify-content: space-between
+  flex-direction: row
+  align-items: flex-start
+  gap: 1rem
+  
+  @media (max-width: 768px)
+    flex-direction: column
+    align-items: center
+    text-align: center
 
 .blog-list-item .featured-thumbnail
-  margin: 0 1em 0 0
+  flex-shrink: 0
+  width: 150px
+  height: 150px
+  border-radius: 8px
+  overflow: hidden
+  transition: transform 0.3s ease
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15)
+  
   @media (max-width: 768px)
+    width: 120px
+    height: 120px
+    margin-bottom: 1rem
+    
+  // Ensure the GatsbyImage fills the container properly
+  .gatsby-image-wrapper
+    width: 100% !important
+    height: 100% !important
+    
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+    object-position: center
+
+.blog-list-item .post-meta
+  flex: 1
+  min-width: 0
+  
+  .title
+    margin-bottom: 0.5rem
+    line-height: 1.3
+    
+  .subtitle
+    margin-bottom: 0
+    
+.blog-list-item .content-section
+  padding: 0 1.5rem 1.5rem 1.5rem
+  flex: 1
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  
+  .excerpt
+    margin-bottom: 1rem
+    line-height: 1.6
+    flex-grow: 1
+    
+  .btn
+    margin-top: auto
+    align-self: flex-start
+    padding: 0.5rem 1rem
+    background: linear-gradient(135deg, $purple50, $purple40)
+    border: none
+    border-radius: 6px
+    color: $purple10
+    text-decoration: none
+    font-weight: 600
+    transition: all 0.3s ease
+    display: inline-block
+    
+    &:hover
+      background: linear-gradient(135deg, $purple40, $purple30)
+      transform: translateY(-2px)
+      box-shadow: 0 4px 8px rgba($purple50, 0.3)
+
+.blog-list-item .tp-rule
+  border: none
+  height: 1px
+  background: linear-gradient(90deg, transparent, $purple60, transparent)
+  margin: 1rem 1.5rem
+  opacity: 0.6
 
 .has-text-primary
   color: $purple50 !important
@@ -707,10 +790,16 @@ blockquote
       
   .menu-list
     text-align: center !important
+    list-style-type: none !important
+    padding-left: 0 !important
+    margin-left: 0 !important
     
     li
       text-align: center !important
       margin-bottom: 0.75rem !important
+      list-style-type: none !important
+      padding-left: 0 !important
+      margin-left: 0 !important
       
       a
         display: inline-block !important
@@ -1843,5 +1932,69 @@ ul ul, ol ol, ul ol, ol ul
   .particle-background::before,
   .particle-background::after
     opacity: 0.3
+
+.blog-list-item .content-section
+  padding: 0 1.5rem 1.5rem 1.5rem
+  flex: 1
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  
+  .excerpt
+    margin-bottom: 1rem
+    line-height: 1.6
+    flex-grow: 1
+    
+  .btn
+    margin-top: auto
+    align-self: flex-start
+    padding: 0.5rem 1rem
+    background: linear-gradient(135deg, $purple50, $purple40)
+    border: none
+    border-radius: 6px
+    color: $purple10
+    text-decoration: none
+    font-weight: 600
+    transition: all 0.3s ease
+    display: inline-block
+    
+    &:hover
+      background: linear-gradient(135deg, $purple40, $purple30)
+      transform: translateY(-2px)
+      box-shadow: 0 4px 8px rgba($purple50, 0.3)
+
+// Mobile responsive adjustments for BlogRoll
+@media (max-width: 768px)
+  .blog-list-item
+    min-height: auto
+    
+  .blog-list-item header
+    padding: 1rem
+    
+  .blog-list-item .content-section
+    padding: 0 1rem 1rem 1rem
+
+// Footer-specific list overrides to prevent global list styling interference
+.footer .menu-list
+  list-style-type: none !important
+  padding-left: 0 !important
+  margin-left: 0 !important
+  
+  li
+    list-style-type: none !important
+    padding-left: 0 !important
+    text-align: center !important
+    position: relative
+    
+    &::before
+      display: none !important
+      
+  ul, ol
+    list-style-type: none !important
+    padding-left: 0 !important
+    
+    li
+      list-style-type: none !important
+      padding-left: 0 !important
 
 

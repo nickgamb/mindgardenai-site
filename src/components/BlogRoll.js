@@ -34,38 +34,31 @@ const BlogRollTemplate = (props) => {
                       imageInfo={{
                         image: post.frontmatter.featuredimage,
                         alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                        width:
-                          post.frontmatter.featuredimage.childImageSharp
-                            .gatsbyImageData.width,
-                        height:
-                          post.frontmatter.featuredimage.childImageSharp
-                            .gatsbyImageData.height,
                       }}
                     />
                   </div>
-                ) }
-                <p className="post-meta">
+                )}
+                <div className="post-meta">
                   <Link
                     className="title has-text-primary is-underlined is-size-4"
                     to={post.fields.slug}
                   >
                     {post.frontmatter.title}
                   </Link>
-                  <span> </span>
                   <span className="subtitle is-size-5 is-block">
                     {post.frontmatter.date}
                   </span>
-                </p>
+                </div>
               </header>
-              <hr class="tp-rule"/>
-              <p>
-                {post.excerpt}
-                <br />
-                <br />
+              <hr className="tp-rule"/>
+              <div className="content-section">
+                <p className="excerpt">
+                  {post.excerpt}
+                </p>
                 <Link className="btn" to={post.fields.slug}>
                   Keep Reading →
                 </Link>
-              </p>
+              </div>
             </article>
           </div>
         ))}
@@ -106,11 +99,16 @@ export default function BlogRoll() {
                   featuredimage {
                     childImageSharp {
                       gatsbyImageData(
-                        width: 120
-                        quality: 100
-                        layout: CONSTRAINED
+                        width: 150
+                        height: 150
+                        placeholder: BLURRED
+                        quality: 90
+                        layout: FIXED
+                        transformOptions: {
+                          cropFocus: CENTER
+                          fit: COVER
+                        }
                       )
-
                     }
                   }
                 }
