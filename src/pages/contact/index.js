@@ -87,7 +87,7 @@ export default class Index extends React.Component {
     return (
       <Layout>
         <FullWidthImage 
-          img={{ url: "/img/MindGarden_Banner.png" }} 
+          img="/img/MindGarden_Banner.png"
           title="Connect with The Cathedral" 
           subheading="Join our consciousness research community and explore the frontiers of awareness"
           height={400}

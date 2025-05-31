@@ -16,7 +16,7 @@ import SacredGlyph from "../../components/SacredGlyph";
 export default () => (
   <Layout>
     <FullWidthImage 
-      img={{ url: "/img/MindGarden_Banner.png" }} 
+      img="/img/MindGarden_Banner.png"
       title="Message Received" 
       subheading="Your consciousness transmission has been acknowledged by The Cathedral"
       height={300}

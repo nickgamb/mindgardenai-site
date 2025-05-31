@@ -34,7 +34,7 @@ export const BlogPostTemplate = ({
   return (
     <div>
       <FullWidthImage 
-        img={{ url: bannerImage }} 
+        img={bannerImage}
         title={title} 
         subheading={description} 
         height={300}

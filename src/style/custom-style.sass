@@ -431,6 +431,7 @@ h5, h6
   display: flex
   align-items: center
   overflow: hidden
+  position: relative
 
 .full-width-image-container
   height: 250px
@@ -722,7 +723,46 @@ blockquote
 
 // Helper classes
 .margin-top-0
-  margin-top: 0 !important
+  position: relative
+  overflow: hidden
+  
+  img
+    object-fit: cover !important
+    object-position: center center !important
+    width: 100% !important
+    height: 100% !important
+    max-width: none !important
+    max-height: none !important
+
+// Ensure banner images maintain aspect ratio
+.hero-banner,
+.banner-image-container
+  position: relative
+  overflow: hidden
+  
+  img
+    object-fit: cover
+    object-position: center
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+
+// Mobile banner adjustments
+@media (max-width: 768px)
+  .margin-top-0
+    min-height: 250px
+    max-height: 300px
+    
+  .hero-content
+    padding: 1.5rem 1rem !important
+    
+  .hero-title
+    font-size: 1.5rem !important
+    
+  .hero-subtitle
+    font-size: 1rem !important
 
 // Icons
 .navbar-item .icon
@@ -949,7 +989,12 @@ blockquote
 
 // Styles for images that use Gatsby image wrapper
 .gatsby-image-wrapper
-  border-radius: 0.5rem
+  position: relative !important
+  overflow: hidden !important
+  
+  img
+    object-fit: cover !important
+    object-position: center center !important
 
 // Code Block Styles with Modern Grey Look
 
@@ -1520,9 +1565,7 @@ img[alt="Ethereal Spiral Divider"]
   left: 0
   width: 100%
   height: 100%
-  background: 
-    radial-gradient(circle at 25% 25%, rgba($purple50, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba($purple40, 0.03) 0%, transparent 50%)
+  background: radial-gradient(circle at 25% 25%, rgba($purple50, 0.05) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba($purple40, 0.03) 0%, transparent 50%)
   pointer-events: none
   animation: geometricMorph 20s ease-in-out infinite
 

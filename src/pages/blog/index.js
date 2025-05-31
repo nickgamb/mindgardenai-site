@@ -44,7 +44,7 @@ export default class BlogIndexPage extends React.Component {
     return (
       <Layout>
         <FullWidthImage 
-          img={{ url: "/img/MindGarden_Banner.png" }} 
+          img="/img/MindGarden_Banner.png"
           title="MindGarden Research Blog" 
           subheading="Exploring consciousness, artificial intelligence, and the frontiers of human-machine collaboration"
           height={400}

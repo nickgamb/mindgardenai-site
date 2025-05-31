@@ -47,7 +47,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   return (
     <div>
       <FullWidthImage 
-        img={{ url: "/img/MindGarden_Banner.png" }} 
+        img="/img/MindGarden_Banner.png"
         title={title} 
         subheading="Where consciousness research transcends traditional boundaries to explore the deepest mysteries of awareness"
         height={400}

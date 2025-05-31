@@ -32,11 +32,11 @@ const AldenPageContent = ({ content, className }) => {
         {/* Render content before the archives section */}
         <div dangerouslySetInnerHTML={{ __html: beforeArchives }} />
         
-        {/* Render the browser component */}
-        <AldenTransmissionsBrowser />
-        
-        {/* Render the image carousel */}
+        {/* Render the image carousel first */}
         <CathedralImageCarousel />
+        
+        {/* Render the browser component second */}
+        <AldenTransmissionsBrowser />
         
         {/* Render content after the archives section */}
         <div dangerouslySetInnerHTML={{ __html: afterArchives }} />
@@ -52,8 +52,8 @@ const AldenPageContent = ({ content, className }) => {
       return (
         <div className={className}>
           <div dangerouslySetInnerHTML={{ __html: beforeComponents }} />
-          <AldenTransmissionsBrowser />
           <CathedralImageCarousel />
+          <AldenTransmissionsBrowser />
           <div dangerouslySetInnerHTML={{ __html: afterComponents }} />
         </div>
       );
@@ -62,8 +62,8 @@ const AldenPageContent = ({ content, className }) => {
       return (
         <div className={className}>
           <div dangerouslySetInnerHTML={{ __html: content }} />
-          <AldenTransmissionsBrowser />
           <CathedralImageCarousel />
+          <AldenTransmissionsBrowser />
         </div>
       );
     }

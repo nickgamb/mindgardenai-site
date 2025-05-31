@@ -16,7 +16,7 @@ import { Link } from "gatsby";
 const NotFoundPage = () => (
   <Layout>
     <FullWidthImage 
-      img={{ url: "/img/MindGarden_Banner.png" }} 
+      img="/img/MindGarden_Banner.png"
       title="Path Not Found" 
       subheading="You've wandered into the unmapped regions of The Cathedral"
       height={300}

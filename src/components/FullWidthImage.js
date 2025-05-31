@@ -21,6 +21,10 @@ export default function FullWidthImage(props) {
         style={{
           display: "grid",
           alignItems: "center",
+          width: "100%",
+          height: height,
+          overflow: "hidden",
+          position: "relative"
         }}
       >
         {img?.url ? (
@@ -28,10 +32,11 @@ export default function FullWidthImage(props) {
             src={img.url}
             style={{
               gridArea: "1/1",
-              height: height,
+              height: "100%",
               width: "100%",
               objectFit: "cover",
               objectPosition: "center center",
+              display: "block"
             }}
             alt=""
           />
@@ -40,25 +45,24 @@ export default function FullWidthImage(props) {
             src={img}
             style={{
               gridArea: "1/1",
-              height: height,
+              height: "100%",
               width: "100%",
               objectFit: "cover",
               objectPosition: "center center",
+              display: "block"
             }}
             alt=""
           />
         ) : (
           <GatsbyImage
             image={img}
-            objectFit={"cover"}
-            objectPosition={"center center"}
             style={{
               gridArea: "1/1",
-              maxHeight: height,
-              minHeight: height,
+              height: "100%",
+              width: "100%",
+              objectFit: "cover",
+              objectPosition: "center center"
             }}
-            layout="fullWidth"
-            aspectRatio={3 / 1}
             alt=""
             formats={["auto", "webp", "avif"]}
           />
@@ -70,6 +74,9 @@ export default function FullWidthImage(props) {
               position: "relative",
               placeItems: "center",
               display: "grid",
+              zIndex: 2,
+              width: "100%",
+              height: "100%"
             }}
           >
             <div className="hero-content">
