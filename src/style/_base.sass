@@ -128,4 +128,141 @@ h5, h6
     font-size: 1.5rem !important
     
   .hero-subtitle
-    font-size: 1rem !important 
+    font-size: 1rem !important
+
+// === CRITICAL MOBILE RENDERING FIXES ===
+// Ensure content is ALWAYS visible, even without JavaScript
+
+// Mobile-first approach: content visible by default
+*, *::before, *::after
+  box-sizing: border-box
+
+html
+  height: 100%
+  overflow-x: hidden
+
+body
+  min-height: 100vh
+  margin: 0
+  padding: 0
+  font-family: 'Roboto', sans-serif
+  background-color: $purple100
+  color: $grey10
+  overflow-x: hidden
+  
+  // Critical: Ensure body is always visible on mobile
+  @media (max-width: 768px)
+    opacity: 1 !important
+    transform: none !important
+    animation: none !important
+
+// Ensure main layout containers are always visible
+.site-wrapper,
+.site-content,
+main
+  @media (max-width: 768px)
+    opacity: 1 !important
+    transform: none !important
+    transition: none !important
+
+// === RESPONSIVE FOUNDATION ===
+.container
+  max-width: 1200px
+  margin: 0 auto
+  padding: 0 1rem
+  
+  @media (max-width: 768px)
+    padding: 0 0.75rem
+
+// === TYPOGRAPHY BASE ===
+h1, h2, h3, h4, h5, h6
+  margin: 0 0 1rem 0
+  font-weight: 600
+  line-height: 1.25
+
+p
+  margin: 0 0 1rem 0
+  line-height: 1.6
+
+// === MOBILE TOUCH OPTIMIZATION ===
+@media (max-width: 768px)
+  // Ensure proper touch target sizes
+  button, .button, a
+    min-height: 44px
+    min-width: 44px
+    
+  // Prevent zoom on input focus
+  input, textarea, select
+    font-size: 16px !important
+    
+  // Optimize text for mobile reading
+  body
+    font-size: 14px
+    line-height: 1.5
+    
+  h1 { font-size: 1.75rem }
+  h2 { font-size: 1.5rem }
+  h3 { font-size: 1.25rem }
+  h4 { font-size: 1.1rem }
+  h5 { font-size: 1rem }
+  h6 { font-size: 0.9rem }
+
+// === CRITICAL ANIMATION OVERRIDES ===
+// Ensure animations don't break mobile rendering
+@media (max-width: 768px)
+  // Override any problematic animations
+  .animate-on-scroll,
+  .animate-fade-in,
+  .section-reveal,
+  .enhanced-hover-card,
+  .consciousness-glow,
+  .float-element,
+  .enhanced-title
+    opacity: 1 !important
+    transform: none !important
+    animation-duration: 0s !important
+    transition-duration: 0s !important
+    
+  // Disable complex transforms that might cause rendering issues
+  *
+    transform: none !important
+    animation: none !important
+    transition: none !important
+    
+  // Re-enable only safe transitions for user interactions
+  button, .button, a, input, textarea
+    transition: background-color 0.2s ease, color 0.2s ease !important
+    
+// === ACCESSIBILITY ===
+@media (prefers-reduced-motion: reduce)
+  *, *::before, *::after
+    animation-duration: 0.01ms !important
+    animation-iteration-count: 1 !important
+    transition-duration: 0.01ms !important
+
+// Ensure proper focus indicators
+:focus-visible
+  outline: 2px solid $purple50
+  outline-offset: 2px
+
+// === PERFORMANCE OPTIMIZATIONS ===
+img
+  max-width: 100%
+  height: auto
+  
+video
+  max-width: 100%
+
+// High-performance scrolling
+*
+  scroll-behavior: smooth
+  
+@media (prefers-reduced-motion: reduce)
+  *
+    scroll-behavior: auto
+
+// === DEBUG HELPERS ===
+// Uncomment for debugging mobile layout issues
+// @media (max-width: 768px)
+//   * 
+//     border: 1px solid red !important 

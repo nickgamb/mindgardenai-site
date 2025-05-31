@@ -1,6 +1,76 @@
 // _components.sass - Interactive components
 // Mobile-first component design
 
+// === BULMA COMPONENT OVERRIDES ===
+// Essential Bulma components used throughout the site
+
+.tile
+  align-items: stretch
+  display: block
+  flex-basis: 0
+  flex-grow: 1
+  flex-shrink: 1
+  min-height: min-content
+
+.tile.is-child
+  margin: 0 !important
+
+.tile.is-parent
+  padding: 0.75rem
+
+.box
+  background-color: $purple90
+  border-radius: 12px
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+  color: $purple10
+  display: block
+  padding: 1.25rem
+  transition: transform 0.3s ease, box-shadow 0.3s ease
+
+  &:hover
+    transform: translateY(-2px)
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15)
+
+// Bulma column system overrides
+.columns
+  &.is-multiline
+    flex-wrap: wrap
+
+.column
+  &.is-6
+    flex: none
+    width: 50%
+    
+    @media (max-width: 768px)
+      width: 100%
+
+// Text utilities
+.is-underlined
+  text-decoration: underline
+  text-decoration-color: $purple50
+  text-underline-offset: 0.2em
+
+.has-text-primary
+  color: $purple50 !important
+
+// Size utilities
+.is-size-4
+  font-size: 1.5rem !important
+
+.is-size-5
+  font-size: 1.25rem !important
+
+// Sacred component classes
+.cathedral-glyph
+  filter: drop-shadow(0 0 15px rgba(112, 53, 204, 0.15))
+  transition: opacity 0.3s ease, transform 0.3s ease
+  background: transparent !important
+  box-shadow: none !important
+  
+  &:hover
+    opacity: 1
+    transform: scale(1.02)
+
 // === BUTTONS ===
 .btn
   display: inline-block
@@ -200,19 +270,16 @@
 // Styles for the feature grid
 .feature-grid
   display: grid
-  grid-template-columns: 1fr
-  gap: 1.5rem
-  margin-top: 1rem
-  margin-bottom: 1rem
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+  gap: 2rem
+  margin-top: 2rem
+  margin-bottom: 2rem
   
-  @media (min-width: 769px)
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
-    gap: 2rem
-    margin-top: 2rem
-    margin-bottom: 2rem
-  
-  @media (min-width: 1024px)
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+  @media (max-width: 768px)
+    grid-template-columns: 1fr
+    gap: 1.5rem
+    margin-top: 1rem
+    margin-bottom: 1rem
 
 // Feature item wrappers
 .feature-item-wrapper
@@ -223,55 +290,44 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
 
   &:hover
-    transform: translateY(-2px)
+    transform: translateY(-5px)
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15)
     
-    @media (min-width: 768px)
-      transform: translateY(-5px)
+  @media (max-width: 768px)
+    &:hover
+      transform: translateY(-3px)
+      transition-duration: 0.2s
 
 // Feature items
 .feature-item
   text-align: center
-  padding: 1.5rem
+  padding: 2rem
   background-color: rgba($purple90, 0.05)
   border-radius: 16px
   transition: all 0.3s ease
   border: 1px solid rgba($purple50, 0.08)
 
   &:hover
-    transform: translateY(-2px)
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08)
+    transform: translateY(-3px)
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08)
     background-color: rgba($purple90, 0.08)
-    
-    @media (min-width: 768px)
-      transform: translateY(-3px)
 
   .feature-item-icon
-    width: 48px
-    height: 48px
+    width: 64px
+    height: 64px
     margin: 0 auto 1rem
     opacity: 0.9
-    
-    @media (min-width: 768px)
-      width: 64px
-      height: 64px
 
   h3
-    font-size: 1.1rem
+    font-size: 1.2rem
     margin-bottom: 0.8rem
     color: rgba($purple10, 0.9)
     font-weight: 500
-    
-    @media (min-width: 768px)
-      font-size: 1.2rem
 
   p
-    font-size: 0.9rem
+    font-size: 0.95rem
     color: rgba($purple60, 0.8)
     line-height: 1.6
-    
-    @media (min-width: 768px)
-      font-size: 0.95rem
 
 .features
   display: grid
@@ -286,29 +342,20 @@
 
 .feature-image
   width: 100%
-  max-width: 300px
+  max-width: 500px
   height: auto
   margin-bottom: 1rem
   border-radius: 8px
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
-  
-  @media (min-width: 768px)
-    max-width: 500px
 
 .feature-title
-  font-size: 1.3rem
+  font-size: 1.5rem
   font-weight: 600
   margin-bottom: 0.5rem
-  
-  @media (min-width: 768px)
-    font-size: 1.5rem
 
 .feature-description
-  font-size: 0.95rem
+  font-size: 1rem
   color: $purple30
-  
-  @media (min-width: 768px)
-    font-size: 1rem
 
 // === GATSBY IMAGE WRAPPER ===
 .gatsby-image-wrapper
@@ -328,7 +375,7 @@
   background: transparent
   
   img
-    max-width: 150px !important
+    max-width: 200px !important
     width: 100%
     height: auto !important
     opacity: 0.85
@@ -337,9 +384,6 @@
     box-shadow: none !important
     position: relative !important
     filter: drop-shadow(0 0 15px rgba(112, 53, 204, 0.15))
-    
-    @media (min-width: 768px)
-      max-width: 200px !important
     
     &:hover
       opacity: 1
@@ -458,7 +502,6 @@
 // === TOUCH-FRIENDLY INTERACTIONS ===
 // Touch-friendly interactions for mobile
 @media (max-width: 768px) and (pointer: coarse)
-  // Ensure hover states work with touch
   .enhanced-hover-card,
   .feature-item-wrapper,
   .blog-list-item

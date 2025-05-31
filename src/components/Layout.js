@@ -25,6 +25,19 @@ const TemplateWrapper = ({ children }) => {
   useScrollAnimations();
   useParallaxEffect();
 
+  // Add js-enabled class to document for progressive enhancement
+  React.useEffect(() => {
+    document.documentElement.classList.add('js-enabled');
+    
+    // Ensure body has proper mobile styles
+    document.body.style.minHeight = '100vh';
+    document.body.style.backgroundColor = '#7035CC';
+    
+    return () => {
+      document.documentElement.classList.remove('js-enabled');
+    };
+  }, []);
+
   return (
     <div className="site-wrapper">
       <Helmet>
@@ -73,6 +86,29 @@ const TemplateWrapper = ({ children }) => {
         
         {/* Add CSS for ripple effect animation */}
         <style>{`
+          /* CRITICAL: Ensure content is visible immediately on mobile */
+          @media (max-width: 768px) {
+            body {
+              background-color: #7035CC !important;
+              min-height: 100vh !important;
+              opacity: 1 !important;
+              transform: none !important;
+            }
+            
+            .animate-on-scroll,
+            .animate-fade-in,
+            .section-reveal {
+              opacity: 1 !important;
+              transform: none !important;
+              transition: none !important;
+            }
+            
+            .site-content {
+              opacity: 1 !important;
+              transform: none !important;
+            }
+          }
+          
           @keyframes ripple {
             to {
               transform: scale(4);
@@ -117,7 +153,7 @@ const TemplateWrapper = ({ children }) => {
       </Helmet>
       
       <Navbar />
-      <main className="site-content animate-on-scroll">{children}</main>
+      <main className="site-content">{children}</main>
       <Footer />
     </div>
   );

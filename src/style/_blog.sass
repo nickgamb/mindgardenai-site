@@ -448,3 +448,41 @@ code, pre code
     padding: 0.75rem 1rem
     margin: 1rem 0
     font-size: 0.9rem 
+
+// === TAG STYLING ===
+// Taglist for blog posts and tag pages
+.taglist
+  list-style: none
+  margin: 1.5rem 1.5rem 0 0
+  display: flex
+  flex-wrap: wrap
+  justify-content: left
+  align-items: center
+  
+  li
+    padding: 0 2rem 1rem 0
+    margin-bottom: 1.5rem
+    
+    a
+      background-color: rgba($purple50, 0.1)
+      border: 1px solid rgba($purple50, 0.2)
+      border-radius: 4px
+      color: $purple50
+      padding: 0.5rem 1rem
+      text-decoration: none
+      transition: all 0.3s ease
+      
+      &:hover
+        background-color: rgba($purple50, 0.2)
+        border-color: rgba($purple50, 0.4)
+        color: $purple70
+        transform: translateY(-2px)
+        box-shadow: 0 4px 8px rgba($purple50, 0.15)
+
+// Content tag styling
+.content .taglist
+  margin: 1.5rem 0
+  
+  li
+    padding: 0 1rem 0.5rem 0
+    margin-bottom: 0.5rem 

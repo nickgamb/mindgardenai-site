@@ -12,7 +12,24 @@ import React, { useEffect, useState } from 'react';
 
 export const useScrollAnimations = () => {
   useEffect(() => {
-    // Intersection Observer for scroll-based animations
+    // Only enable scroll animations on desktop with JavaScript
+    const isDesktop = window.innerWidth >= 769;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (!isDesktop || prefersReducedMotion) {
+      // On mobile or when reduced motion is preferred, ensure all elements are visible
+      const animatedElements = document.querySelectorAll(
+        '.animate-on-scroll, .animate-fade-in, .section-reveal'
+      );
+      animatedElements.forEach((el) => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.classList.add('visible');
+      });
+      return;
+    }
+
+    // Desktop with motion allowed - proceed with animations
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -26,15 +43,20 @@ export const useScrollAnimations = () => {
       });
     }, observerOptions);
 
-    // Observe all elements with animation classes
-    const animatedElements = document.querySelectorAll(
-      '.animate-on-scroll, .animate-fade-in, .section-reveal'
-    );
-    
-    animatedElements.forEach((el) => observer.observe(el));
+    // Small delay to ensure DOM is ready
+    setTimeout(() => {
+      const animatedElements = document.querySelectorAll(
+        '.animate-on-scroll, .animate-fade-in, .section-reveal'
+      );
+      
+      animatedElements.forEach((el) => observer.observe(el));
+    }, 100);
 
     // Cleanup function
     return () => {
+      const animatedElements = document.querySelectorAll(
+        '.animate-on-scroll, .animate-fade-in, .section-reveal'
+      );
       animatedElements.forEach((el) => observer.unobserve(el));
     };
   }, []);

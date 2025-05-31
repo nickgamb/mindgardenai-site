@@ -24,19 +24,16 @@
     padding: 1rem !important
 
 .column.is-4
-  width: 100%
-  @media (min-width: 768px)
-    width: 32.4%
+  width: 32.4%
+  @media (max-width: 768px)
+    width: 100%
 
 .column.is-6
-  width: 100% !important
-  @media (min-width: 768px)
-    width: 50% !important
+  @media (max-width: 768px)
+    width: 100% !important
 
 .column.social
-  width: 100%
-  @media (min-width: 768px)
-    width: 50%
+  width: 50%
 
 .tp-rule
   color: $purple100
@@ -89,14 +86,10 @@
 // === BLOCKQUOTES ===
 blockquote
   border-left: 2px solid rgba($purple50, 0.3)
-  margin: 1rem 0
-  padding: 0.75rem 1rem
+  margin: 2rem 0
+  padding: 1.5rem 2rem
   background: rgba($purple50, 0.03)
   border-radius: 0 8px 8px 0
-  
-  @media (min-width: 768px)
-    margin: 2rem 0
-    padding: 1.5rem 2rem
   
   p
     color: $purple30
@@ -108,6 +101,11 @@ blockquote
     
     em
       color: $purple40
+
+@media (max-width: 768px)
+  blockquote
+    padding: 0.75rem 1rem
+    margin: 1rem 0
 
 // === RESPONSIVE TEXT CONTENT ===
 .section p
@@ -317,3 +315,372 @@ ul ul, ol ol, ul ol, ol ul
 
   @media (max-width: 768px)
     font-size: 1.1rem 
+
+// === BULMA LAYOUT OVERRIDES ===
+.section--gradient
+  background: $purple100
+
+.container
+  flex-grow: 1
+  margin: 0 auto
+  position: relative
+  width: auto
+  
+  @media (min-width: 1024px)
+    max-width: 960px
+  
+  @media (min-width: 1216px)
+    max-width: 1152px
+  
+  @media (min-width: 1408px)
+    max-width: 1344px
+
+// Bulma column width classes
+.column.is-10
+  flex: none
+  width: 83.33333%
+
+.column.is-offset-1
+  margin-left: 8.33333%
+
+// === 404 PAGE STYLES ===
+.error-page-container
+  text-align: center
+  max-width: 800px
+  margin: 0 auto
+
+.error-page-card
+  background: linear-gradient(135deg, #1E1E1E 0%, #2D2D2D 100%)
+  padding: 3rem
+  border-radius: 20px
+  margin-top: 2rem
+  border: 1px solid #333333
+
+.error-page-title
+  font-size: 3rem
+  color: #BB86FC
+  margin-bottom: 1rem
+
+.error-page-description
+  font-size: 1.3rem
+  line-height: 1.6
+  color: #B3B3B3
+  margin-bottom: 2rem
+
+.error-page-nav-section
+  background: rgba(112, 53, 204, 0.1)
+  padding: 2rem
+  border-radius: 15px
+  margin-bottom: 2rem
+  border: 1px solid rgba(112, 53, 204, 0.2)
+
+.error-page-nav-title
+  color: #BB86FC
+  margin-bottom: 1.5rem
+
+.error-page-nav-grid
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+  gap: 1rem
+  margin-bottom: 1rem
+
+.error-page-nav-link
+  display: block
+  padding: 1rem
+  background: linear-gradient(135deg, #7035CC 0%, #5a2d99 100%)
+  color: white
+  text-decoration: none
+  border-radius: 10px
+  transition: all 0.3s ease
+  
+  &:hover
+    transform: translateY(-2px)
+    box-shadow: 0 4px 8px rgba(112, 53, 204, 0.3)
+
+.error-page-quote-section
+  background: rgba(112, 53, 204, 0.05)
+  padding: 1.5rem
+  border-radius: 15px
+  margin-bottom: 1rem
+  border: 1px solid rgba(112, 53, 204, 0.1)
+
+.error-page-quote
+  font-style: italic
+  color: #B3B3B3
+  font-size: 1.1rem
+  margin-bottom: 0.5rem
+
+.error-page-quote-source
+  font-size: 0.9rem
+  color: #666666
+
+.error-page-footer
+  font-size: 0.9rem
+  color: #666666
+  margin-top: 1rem
+  font-style: italic
+
+// === RESPONSIVE LAYOUT ===
+.full-width-content
+  max-width: 100% !important
+  display: flex
+  flex-direction: column
+
+// Mobile-specific improvements
+@media (max-width: 480px)
+  .title
+    font-size: 1.1rem !important
+    
+  .subtitle
+    font-size: 0.85rem !important
+    
+  .section-title
+    font-size: 1.1rem !important
+    
+  .feature-item
+    padding: 0.75rem !important
+    
+  .feature-image
+    width: 40px !important
+    height: 40px !important
+
+// Content spacing improvements
+.content
+  h1, h2, h3, h4, h5, h6
+    @media (max-width: 768px)
+      margin-bottom: 1rem !important
+      
+  p
+    @media (max-width: 768px)
+      margin-bottom: 1rem !important
+      
+  ul, ol
+    @media (max-width: 768px)
+      margin-left: 1rem !important
+      margin-bottom: 1rem !important
+
+// Typography helpers
+.title-container
+  @media (max-width: 768px)
+    padding: 0.5rem !important
+
+// === HERO CONTENT ===
+.hero-content
+  text-align: center
+  padding: 2.5rem 2rem
+  background-color: rgba($purple90, 0.6)
+  border-radius: 16px
+  max-width: 90%
+  margin: 0 auto
+  backdrop-filter: blur(10px)
+  border: 1px solid rgba($purple50, 0.1)
+
+.hero-title
+  color: rgba($purple70, 0.95) !important
+  font-size: 2.5rem
+  font-weight: 500
+  line-height: 1.3
+  margin-bottom: 1.5rem
+  letter-spacing: -0.01em
+
+  @media (max-width: 768px)
+    font-size: 1.8rem
+
+.hero-subtitle
+  color: rgba($purple60, 0.9) !important
+  font-size: 1.25rem
+  font-weight: 300
+  line-height: 1.5
+  margin-bottom: 1rem
+
+  @media (max-width: 768px)
+    font-size: 1.1rem
+
+// Section description styles
+.section-description-blk
+  color: rgba($purple10, 0.95)
+  margin-bottom: 4rem !important
+  text-align: center
+  margin-left: auto
+  margin-right: auto
+  font-size: 2rem
+  font-weight: 300
+  background-color: rgba($purple90, 0.5)
+  padding: 2.5rem 2rem
+  border-radius: 16px
+  max-width: 88%
+  line-height: 1.5
+  backdrop-filter: blur(8px)
+  border: 1px solid rgba($purple50, 0.08)
+
+  @media (max-width: 768px)
+    font-size: 1.3rem
+    padding: 1.8rem 1.5rem
+    max-width: 95%
+
+.section-description
+  font-size: 1.25rem
+  color: $purple60
+  max-width: 800px
+
+// === GRID SYSTEMS ===
+.feature-grid
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+  gap: 2rem
+  margin-top: 2rem
+  margin-bottom: 2rem
+  
+  @media (max-width: 768px)
+    grid-template-columns: 1fr
+    gap: 1.5rem
+    margin-top: 1rem
+    margin-bottom: 1rem
+
+// === IMAGE HANDLING ===
+.full-width-image-container, .full-width-image
+  width: 100vw
+  background-size: cover
+  background-position: center
+  display: flex
+  align-items: center
+  overflow: hidden
+  position: relative
+
+.full-width-image-container
+  height: 250px
+  position: relative
+  
+  @media (min-width: 768px)
+    height: 400px
+
+.full-width-image
+  height: 250px
+  
+  @media (min-width: 768px)
+    height: 400px
+
+.margin-top-0
+  position: relative
+  overflow: hidden
+  
+  img
+    object-fit: cover !important
+    object-position: center center !important
+    width: 100% !important
+    height: 100% !important
+    max-width: none !important
+    max-height: none !important
+
+.hero-banner,
+.banner-image-container
+  position: relative
+  overflow: hidden
+  
+  img
+    object-fit: cover
+    object-position: center
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+
+// Mobile banner adjustments
+@media (max-width: 768px)
+  .margin-top-0
+    min-height: 250px
+    max-height: 300px
+    
+  .hero-content
+    padding: 1.5rem 1rem !important
+    
+  .hero-title
+    font-size: 1.5rem !important
+    
+  .hero-subtitle
+    font-size: 1rem !important
+
+// === BLOCKQUOTES ===
+blockquote
+  border-left: 2px solid rgba($purple50, 0.3)
+  margin: 2rem 0
+  padding: 1.5rem 2rem
+  background: rgba($purple50, 0.03)
+  border-radius: 0 8px 8px 0
+  
+  p
+    color: $purple30
+    margin: 0.5rem 0
+    line-height: 1.6
+    
+    strong
+      color: $purple50
+    
+    em
+      color: $purple40
+
+@media (max-width: 768px)
+  blockquote
+    padding: 0.75rem 1rem
+    margin: 1rem 0
+
+// === SECTION CONTENT ALIGNMENT ===
+.section p
+  font-size: 1rem !important
+  max-width: 85%
+  margin-left: auto
+  margin-right: auto
+  text-align: left
+  
+  @media (max-width: 768px)
+    max-width: 100% !important
+    font-size: 0.95rem !important
+    line-height: 1.6 !important
+
+.section
+  text-align: center
+  
+  .title
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+    max-width: 85%
+    
+    @media (max-width: 768px)
+      max-width: 100% !important
+  
+  .content
+    margin-left: auto
+    margin-right: auto
+    text-align: left
+    max-width: 85%
+    
+    @media (max-width: 768px)
+      max-width: 100% !important
+    
+    h1, h2, h3, h4, h5, h6
+      text-align: left
+      margin-left: 0
+      margin-right: 0
+      
+    ul, ol
+      text-align: left
+      margin-left: 0 !important
+      margin-right: 0
+      padding-left: 1.5rem !important
+      max-width: 100%
+      
+      li
+        text-align: left
+        margin-left: 0 !important
+        position: relative
+        margin-bottom: 0.75rem
+        line-height: 1.7
+        list-style-position: outside
+      
+    blockquote
+      margin-left: auto
+      margin-right: auto
+      max-width: 100%
+      text-align: left
