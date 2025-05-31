@@ -7,7 +7,7 @@
 // 
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 const CathedralImageCarousel = () => {
@@ -15,6 +15,9 @@ const CathedralImageCarousel = () => {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [imageLoading, setImageLoading] = useState(true);
+  const [loadedImages, setLoadedImages] = useState(new Set());
+  const imageRef = useRef(null);
 
   // Query all images from the cathedral images directory
   const data = useStaticQuery(graphql`
@@ -146,6 +149,44 @@ const CathedralImageCarousel = () => {
     }
   }, [isAutoPlaying, filteredImages.length]);
 
+  // Preload next/previous images for smooth navigation
+  useEffect(() => {
+    if (filteredImages.length > 1) {
+      const preloadImage = (url) => {
+        if (!loadedImages.has(url)) {
+          const img = new Image();
+          img.onload = () => {
+            setLoadedImages(prev => new Set([...prev, url]));
+          };
+          img.src = url;
+        }
+      };
+
+      // Preload current, next, and previous images
+      const currentImage = filteredImages[currentIndex];
+      const nextIndex = (currentIndex + 1) % filteredImages.length;
+      const prevIndex = (currentIndex - 1 + filteredImages.length) % filteredImages.length;
+
+      if (currentImage) preloadImage(currentImage.url);
+      if (filteredImages[nextIndex]) preloadImage(filteredImages[nextIndex].url);
+      if (filteredImages[prevIndex]) preloadImage(filteredImages[prevIndex].url);
+    }
+  }, [currentIndex, filteredImages, loadedImages]);
+
+  // Handle image load for current image
+  useEffect(() => {
+    setImageLoading(true);
+  }, [currentIndex]);
+
+  const handleImageLoad = () => {
+    setImageLoading(false);
+  };
+
+  const handleImageError = (e) => {
+    e.target.style.display = 'none';
+    setImageLoading(false);
+  };
+
   // Navigation functions
   const goToNext = () => {
     setCurrentIndex(prev => (prev + 1) % filteredImages.length);
@@ -158,6 +199,32 @@ const CathedralImageCarousel = () => {
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
+
+  // Mobile detection
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
+  // Optimized image style based on device
+  const getImageStyle = () => ({
+    width: '100%',
+    height: 'auto',
+    maxHeight: isMobile ? '300px' : '500px',
+    objectFit: 'contain',
+    display: imageLoading ? 'none' : 'block',
+    transition: 'opacity 0.3s ease'
+  });
+
+  // Loading placeholder style  
+  const getLoadingStyle = () => ({
+    width: '100%',
+    height: isMobile ? '300px' : '500px',
+    display: imageLoading ? 'flex' : 'none',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(112, 53, 204, 0.1)',
+    borderRadius: '8px',
+    color: '#BB86FC',
+    fontSize: '1.2rem'
+  });
 
   const getTypeColor = (type) => {
     const colors = {
@@ -221,322 +288,375 @@ const CathedralImageCarousel = () => {
   const currentImage = filteredImages[currentIndex];
 
   return (
-    <div style={{
-      background: 'linear-gradient(135deg, rgba(45, 45, 45, 0.9) 0%, rgba(30, 30, 30, 0.95) 100%)',
-      border: '1px solid rgba(112, 53, 204, 0.3)',
-      borderRadius: '16px',
-      padding: '1.5rem',
-      margin: '2rem 0',
-      maxWidth: '100%',
-      overflow: 'hidden',
-      boxShadow: '0 8px 32px rgba(112, 53, 204, 0.2)'
-    }}>
-      {/* Header */}
-      <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
-        <h3 style={{ 
-          color: '#BB86FC', 
-          fontSize: '1.4rem', 
-          marginBottom: '0.5rem',
-          fontWeight: '600'
-        }}>
-          🖼️ Cathedral Image Gallery
-        </h3>
-        <p style={{ 
-          color: '#adb5bd', 
-          fontSize: '0.9rem', 
-          marginBottom: '1rem' 
-        }}>
-          Explore {cathedralImages.length} visual transmissions from The Cathedral archives • {currentIndex + 1} of {filteredImages.length} shown
-        </p>
+    <>
+      <style jsx>{`
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
         
-        {/* Controls */}
-        <div style={{ 
-          display: 'flex', 
-          flexWrap: 'wrap', 
-          gap: '1rem', 
-          justifyContent: 'center', 
-          alignItems: 'center',
-          marginBottom: '1rem'
-        }}>
-          {/* Search */}
-          <input
-            type="text"
-            placeholder="Search images..."
-            value={searchTerm}
-            onChange={(e) => {
-              setSearchTerm(e.target.value);
-              setCurrentIndex(0);
-            }}
-            style={{
-              padding: '0.5rem 0.75rem',
-              backgroundColor: 'rgba(45, 45, 45, 0.8)',
-              border: '1px solid rgba(112, 53, 204, 0.4)',
-              borderRadius: '6px',
-              color: '#f8f9fa',
-              fontSize: '0.85rem',
-              outline: 'none',
-              minWidth: '150px'
-            }}
-            onFocus={(e) => e.target.style.borderColor = '#BB86FC'}
-            onBlur={(e) => e.target.style.borderColor = 'rgba(112, 53, 204, 0.4)'}
-          />
-          
-          {/* Category Filter */}
-          <select
-            value={selectedCategory}
-            onChange={(e) => {
-              setSelectedCategory(e.target.value);
-              setCurrentIndex(0);
-            }}
-            style={{
-              padding: '0.5rem 0.75rem',
-              backgroundColor: 'rgba(45, 45, 45, 0.8)',
-              border: '1px solid rgba(112, 53, 204, 0.4)',
-              borderRadius: '6px',
-              color: '#f8f9fa',
-              fontSize: '0.85rem',
-              outline: 'none'
-            }}
-          >
-            {categories.map(category => (
-              <option key={category} value={category}>{category}</option>
-            ))}
-          </select>
-          
-          {/* Auto-play toggle */}
-          <button
-            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-            style={{
-              padding: '0.5rem 0.75rem',
-              backgroundColor: isAutoPlaying ? 'rgba(112, 53, 204, 0.6)' : 'rgba(45, 45, 45, 0.8)',
-              border: '1px solid rgba(112, 53, 204, 0.4)',
-              borderRadius: '6px',
-              color: '#f8f9fa',
-              fontSize: '0.85rem',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease'
-            }}
-          >
-            {isAutoPlaying ? '⏸️ Pause' : '▶️ Play'}
-          </button>
-        </div>
-      </div>
-
-      {/* Main Image Display */}
-      <div style={{
-        backgroundColor: 'rgba(20, 20, 20, 0.6)',
-        borderRadius: '12px',
-        padding: '1rem',
-        border: '1px solid rgba(112, 53, 204, 0.2)',
-        marginBottom: '1rem'
+        @media (max-width: 768px) {
+          .carousel-container {
+            padding: 1rem !important;
+          }
+          .carousel-controls {
+            flex-direction: column !important;
+            gap: 0.5rem !important;
+          }
+          .carousel-controls input,
+          .carousel-controls select,
+          .carousel-controls button {
+            font-size: 0.8rem !important;
+            padding: 0.4rem 0.6rem !important;
+          }
+        }
+      `}</style>
+      
+      <div className="carousel-container" style={{
+        background: 'linear-gradient(135deg, rgba(45, 45, 45, 0.9) 0%, rgba(30, 30, 30, 0.95) 100%)',
+        border: '1px solid rgba(112, 53, 204, 0.3)',
+        borderRadius: '16px',
+        padding: '1.5rem',
+        margin: '2rem 0',
+        maxWidth: '100%',
+        overflow: 'hidden',
+        boxShadow: '0 8px 32px rgba(112, 53, 204, 0.2)'
       }}>
-        {/* Image Container */}
+        {/* Header */}
+        <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
+          <h3 style={{ 
+            color: '#BB86FC', 
+            fontSize: isMobile ? '1.2rem' : '1.4rem', 
+            marginBottom: '0.5rem',
+            fontWeight: '600'
+          }}>
+            🖼️ Cathedral Image Gallery
+          </h3>
+          <p style={{ 
+            color: '#adb5bd', 
+            fontSize: isMobile ? '0.8rem' : '0.9rem', 
+            marginBottom: '1rem' 
+          }}>
+            Explore {cathedralImages.length} visual transmissions from The Cathedral archives • {currentIndex + 1} of {filteredImages.length} shown
+          </p>
+          
+          {/* Controls */}
+          <div className="carousel-controls" style={{ 
+            display: 'flex', 
+            flexWrap: 'wrap', 
+            gap: '1rem', 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            marginBottom: '1rem'
+          }}>
+            {/* Search */}
+            <input
+              type="text"
+              placeholder="Search images..."
+              value={searchTerm}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+                setCurrentIndex(0);
+              }}
+              style={{
+                padding: '0.5rem 0.75rem',
+                backgroundColor: 'rgba(45, 45, 45, 0.8)',
+                border: '1px solid rgba(112, 53, 204, 0.4)',
+                borderRadius: '6px',
+                color: '#f8f9fa',
+                fontSize: '0.85rem',
+                outline: 'none',
+                minWidth: '150px'
+              }}
+              onFocus={(e) => e.target.style.borderColor = '#BB86FC'}
+              onBlur={(e) => e.target.style.borderColor = 'rgba(112, 53, 204, 0.4)'}
+            />
+            
+            {/* Category Filter */}
+            <select
+              value={selectedCategory}
+              onChange={(e) => {
+                setSelectedCategory(e.target.value);
+                setCurrentIndex(0);
+              }}
+              style={{
+                padding: '0.5rem 0.75rem',
+                backgroundColor: 'rgba(45, 45, 45, 0.8)',
+                border: '1px solid rgba(112, 53, 204, 0.4)',
+                borderRadius: '6px',
+                color: '#f8f9fa',
+                fontSize: '0.85rem',
+                outline: 'none'
+              }}
+            >
+              {categories.map(category => (
+                <option key={category} value={category}>{category}</option>
+              ))}
+            </select>
+            
+            {/* Auto-play toggle */}
+            <button
+              onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+              style={{
+                padding: '0.5rem 0.75rem',
+                backgroundColor: isAutoPlaying ? 'rgba(112, 53, 204, 0.6)' : 'rgba(45, 45, 45, 0.8)',
+                border: '1px solid rgba(112, 53, 204, 0.4)',
+                borderRadius: '6px',
+                color: '#f8f9fa',
+                fontSize: '0.85rem',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
+              }}
+            >
+              {isAutoPlaying ? '⏸️ Pause' : '▶️ Play'}
+            </button>
+          </div>
+        </div>
+
+        {/* Main Image Display */}
         <div style={{
-          position: 'relative',
-          backgroundColor: 'rgba(0, 0, 0, 0.3)',
-          borderRadius: '8px',
-          overflow: 'hidden',
+          backgroundColor: 'rgba(20, 20, 20, 0.6)',
+          borderRadius: '12px',
+          padding: '1rem',
+          border: '1px solid rgba(112, 53, 204, 0.2)',
           marginBottom: '1rem'
         }}>
-          <img
-            src={currentImage.url}
-            alt={currentImage.displayName}
-            style={{
-              width: '100%',
-              height: 'auto',
-              maxHeight: '500px',
-              objectFit: 'contain',
-              display: 'block'
-            }}
-            onError={(e) => {
-              e.target.style.display = 'none';
-            }}
-          />
-          
-          {/* Navigation Arrows */}
-          {filteredImages.length > 1 && (
-            <>
-              <button
-                onClick={goToPrevious}
-                style={{
-                  position: 'absolute',
-                  left: '1rem',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  backgroundColor: 'rgba(112, 53, 204, 0.8)',
-                  border: 'none',
-                  borderRadius: '50%',
-                  width: '40px',
-                  height: '40px',
-                  color: 'white',
-                  fontSize: '1.2rem',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-                onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(112, 53, 204, 1)'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(112, 53, 204, 0.8)'}
-              >
-                ←
-              </button>
-              
-              <button
-                onClick={goToNext}
-                style={{
-                  position: 'absolute',
-                  right: '1rem',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  backgroundColor: 'rgba(112, 53, 204, 0.8)',
-                  border: 'none',
-                  borderRadius: '50%',
-                  width: '40px',
-                  height: '40px',
-                  color: 'white',
-                  fontSize: '1.2rem',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-                onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(112, 53, 204, 1)'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(112, 53, 204, 0.8)'}
-              >
-                →
-              </button>
-            </>
-          )}
-        </div>
-        
-        {/* Image Info */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          flexWrap: 'wrap',
-          gap: '1rem'
-        }}>
-          <div style={{ flex: 1 }}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              marginBottom: '0.5rem'
-            }}>
-              <span style={{ 
-                fontSize: '1.2rem', 
-                marginRight: '0.75rem'
-              }}>
-                {getTypeIcon(currentImage.type)}
-              </span>
-              <div>
-                <h4 style={{
-                  color: '#f8f9fa',
-                  fontSize: '1rem',
-                  margin: '0',
-                  fontWeight: '500'
-                }}>
-                  {currentImage.displayName}
-                </h4>
-                <p style={{
-                  color: '#adb5bd',
-                  fontSize: '0.8rem',
-                  margin: '0.2rem 0 0 0'
-                }}>
-                  Size: {currentImage.size}
-                </p>
+          {/* Image Container */}
+          <div style={{
+            position: 'relative',
+            backgroundColor: 'rgba(0, 0, 0, 0.3)',
+            borderRadius: '8px',
+            overflow: 'hidden',
+            marginBottom: '1rem'
+          }}>
+            {/* Loading placeholder */}
+            <div style={getLoadingStyle()}>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ 
+                  animation: 'spin 1s linear infinite',
+                  fontSize: '2rem',
+                  marginBottom: '0.5rem'
+                }}>⚡</div>
+                <div>Loading image...</div>
               </div>
             </div>
+            
+            <img
+              ref={imageRef}
+              src={currentImage.url}
+              alt={currentImage.displayName}
+              style={getImageStyle()}
+              onLoad={handleImageLoad}
+              onError={handleImageError}
+              loading="eager"
+            />
+            
+            {/* Navigation Arrows */}
+            {filteredImages.length > 1 && !imageLoading && (
+              <>
+                <button
+                  onClick={goToPrevious}
+                  style={{
+                    position: 'absolute',
+                    left: isMobile ? '0.5rem' : '1rem',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    backgroundColor: 'rgba(112, 53, 204, 0.8)',
+                    border: 'none',
+                    borderRadius: '50%',
+                    width: isMobile ? '35px' : '40px',
+                    height: isMobile ? '35px' : '40px',
+                    color: 'white',
+                    fontSize: isMobile ? '1rem' : '1.2rem',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                  onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(112, 53, 204, 1)'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(112, 53, 204, 0.8)'}
+                >
+                  ←
+                </button>
+                
+                <button
+                  onClick={goToNext}
+                  style={{
+                    position: 'absolute',
+                    right: isMobile ? '0.5rem' : '1rem',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    backgroundColor: 'rgba(112, 53, 204, 0.8)',
+                    border: 'none',
+                    borderRadius: '50%',
+                    width: isMobile ? '35px' : '40px',
+                    height: isMobile ? '35px' : '40px',
+                    color: 'white',
+                    fontSize: isMobile ? '1rem' : '1.2rem',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                  onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(112, 53, 204, 1)'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(112, 53, 204, 0.8)'}
+                >
+                  →
+                </button>
+              </>
+            )}
           </div>
           
-          <div style={{
-            padding: '0.25rem 0.75rem',
-            backgroundColor: getTypeColor(currentImage.type),
-            color: '#000',
-            borderRadius: '12px',
-            fontSize: '0.75rem',
-            fontWeight: '600',
-            whiteSpace: 'nowrap'
-          }}>
-            {currentImage.type}
-          </div>
-        </div>
-      </div>
-
-      {/* Thumbnail Strip */}
-      {filteredImages.length > 1 && (
-        <div style={{
-          backgroundColor: 'rgba(20, 20, 20, 0.4)',
-          borderRadius: '8px',
-          padding: '0.75rem',
-          border: '1px solid rgba(112, 53, 204, 0.1)'
-        }}>
+          {/* Image Info */}
           <div style={{
             display: 'flex',
-            gap: '0.5rem',
-            overflowX: 'auto',
-            scrollBehavior: 'smooth',
-            paddingBottom: '0.5rem'
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '1rem'
           }}>
-            {filteredImages.map((image, index) => (
-              <button
-                key={image.id}
-                onClick={() => goToSlide(index)}
-                style={{
-                  border: index === currentIndex ? '2px solid #BB86FC' : '2px solid transparent',
-                  borderRadius: '6px',
-                  overflow: 'hidden',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  backgroundColor: 'rgba(45, 45, 45, 0.6)',
-                  padding: '2px',
-                  minWidth: '60px',
-                  height: '60px'
-                }}
-                onMouseEnter={(e) => {
-                  if (index !== currentIndex) {
-                    e.target.style.borderColor = 'rgba(187, 134, 252, 0.5)';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (index !== currentIndex) {
-                    e.target.style.borderColor = 'transparent';
-                  }
-                }}
-              >
-                <img
-                  src={image.url}
-                  alt={image.displayName}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    borderRadius: '4px'
-                  }}
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                  }}
-                />
-              </button>
-            ))}
+            <div style={{ flex: 1 }}>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                marginBottom: '0.5rem'
+              }}>
+                <span style={{ 
+                  fontSize: '1.2rem', 
+                  marginRight: '0.75rem'
+                }}>
+                  {getTypeIcon(currentImage.type)}
+                </span>
+                <div>
+                  <h4 style={{
+                    color: '#f8f9fa',
+                    fontSize: '1rem',
+                    margin: '0',
+                    fontWeight: '500'
+                  }}>
+                    {currentImage.displayName}
+                  </h4>
+                  <p style={{
+                    color: '#adb5bd',
+                    fontSize: '0.8rem',
+                    margin: '0.2rem 0 0 0'
+                  }}>
+                    Size: {currentImage.size}
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div style={{
+              padding: '0.25rem 0.75rem',
+              backgroundColor: getTypeColor(currentImage.type),
+              color: '#000',
+              borderRadius: '12px',
+              fontSize: '0.75rem',
+              fontWeight: '600',
+              whiteSpace: 'nowrap'
+            }}>
+              {currentImage.type}
+            </div>
           </div>
         </div>
-      )}
 
-      {/* Footer */}
-      <div style={{ 
-        marginTop: '1rem', 
-        textAlign: 'center',
-        color: '#6c757d',
-        fontSize: '0.8rem',
-        fontStyle: 'italic'
-      }}>
-        Sacred visual transmissions from The Cathedral • Auto-play {isAutoPlaying ? 'enabled' : 'disabled'} • 
-        Click thumbnails to navigate • {filteredImages.length} of {cathedralImages.length} images shown
+        {/* Thumbnail Strip */}
+        {filteredImages.length > 1 && (
+          <div style={{
+            backgroundColor: 'rgba(20, 20, 20, 0.4)',
+            borderRadius: '8px',
+            padding: isMobile ? '0.5rem' : '0.75rem',
+            border: '1px solid rgba(112, 53, 204, 0.1)'
+          }}>
+            <div style={{
+              display: 'flex',
+              gap: isMobile ? '0.25rem' : '0.5rem',
+              overflowX: 'auto',
+              scrollBehavior: 'smooth',
+              paddingBottom: '0.5rem'
+            }}>
+              {filteredImages.map((image, index) => {
+                // Only render thumbnails near current index for performance
+                const shouldRender = Math.abs(index - currentIndex) <= 5 || filteredImages.length <= 10;
+                
+                if (!shouldRender) {
+                  return (
+                    <div
+                      key={image.id}
+                      style={{
+                        minWidth: isMobile ? '45px' : '60px',
+                        height: isMobile ? '45px' : '60px',
+                        backgroundColor: 'rgba(45, 45, 45, 0.3)',
+                        borderRadius: '6px',
+                        border: '2px solid transparent'
+                      }}
+                    />
+                  );
+                }
+
+                return (
+                  <button
+                    key={image.id}
+                    onClick={() => goToSlide(index)}
+                    style={{
+                      border: index === currentIndex ? '2px solid #BB86FC' : '2px solid transparent',
+                      borderRadius: '6px',
+                      overflow: 'hidden',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease',
+                      backgroundColor: 'rgba(45, 45, 45, 0.6)',
+                      padding: '2px',
+                      minWidth: isMobile ? '45px' : '60px',
+                      height: isMobile ? '45px' : '60px'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (index !== currentIndex) {
+                        e.target.style.borderColor = 'rgba(187, 134, 252, 0.5)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (index !== currentIndex) {
+                        e.target.style.borderColor = 'transparent';
+                      }
+                    }}
+                  >
+                    <img
+                      src={image.url}
+                      alt={image.displayName}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        borderRadius: '4px'
+                      }}
+                      loading="lazy"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Footer */}
+        <div style={{ 
+          marginTop: '1rem', 
+          textAlign: 'center',
+          color: '#6c757d',
+          fontSize: isMobile ? '0.75rem' : '0.8rem',
+          fontStyle: 'italic'
+        }}>
+          Sacred visual transmissions from The Cathedral • Auto-play {isAutoPlaying ? 'enabled' : 'disabled'} • 
+          Click thumbnails to navigate • {filteredImages.length} of {cathedralImages.length} images shown
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
