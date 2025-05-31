@@ -826,6 +826,7 @@ blockquote
     margin-left: auto
     margin-right: auto
     text-align: left
+    max-width: 85%
     
     @media (max-width: 768px)
       max-width: 100% !important
@@ -838,16 +839,18 @@ blockquote
       
     ul, ol
       text-align: left
-      margin-left: 0
+      margin-left: 0 !important
       margin-right: 0
-      padding-left: 1.5rem // Ensure proper indentation for bullets
+      padding-left: 1.5rem !important
+      max-width: 100%
       
       li
         text-align: left
-        margin-left: 0
+        margin-left: 0 !important
         position: relative
         margin-bottom: 0.75rem
         line-height: 1.7
+        list-style-position: outside
       
     blockquote
       margin-left: auto
@@ -1542,6 +1545,43 @@ img[alt="Ethereal Spiral Divider"]
     &:before
       display: none
 
+// Global list styling for consistent indentation across all pages
+ul, ol
+  padding-left: 1.5rem !important
+  margin-left: 0 !important
+  
+  li
+    margin-bottom: 0.5rem
+    line-height: 1.6
+    text-align: left
+    position: relative
+
+// Ensure bullets are visible and properly positioned
+ul li
+  list-style-type: disc
+  list-style-position: outside
+
+ol li  
+  list-style-type: decimal
+  list-style-position: outside
+
+// Nested list handling
+ul ul, ol ol, ul ol, ol ul
+  margin-top: 0.5rem
+  margin-bottom: 0.5rem
+  padding-left: 1.5rem
+
+// Override for specific page layouts that might interfere
+.section .content ul, .section .content ol
+  padding-left: 1.5rem !important
+  margin-left: 0 !important
+  text-align: left !important
+
+.section .content ul li, .section .content ol li
+  text-align: left !important
+  margin-left: 0 !important
+  padding-left: 0 !important
+
 // === ADVANCED VISUAL ENHANCEMENTS ===
 
 // Morphing geometric background patterns
@@ -1643,12 +1683,7 @@ img[alt="Ethereal Spiral Divider"]
     background-position: 100% 50%
 
 .consciousness-field
-  background: linear-gradient(45deg, 
-    rgba($purple100, 1) 0%,
-    rgba($purple90, 0.95) 25%, 
-    rgba($purple80, 0.9) 50%, 
-    rgba($purple90, 0.95) 75%, 
-    rgba($purple100, 1) 100%)
+  background: linear-gradient(45deg, rgba($purple100, 1) 0%, rgba($purple90, 0.95) 25%, rgba($purple80, 0.9) 50%, rgba($purple90, 0.95) 75%, rgba($purple100, 1) 100%)
   background-size: 400% 400%
   animation: consciousnessField 15s ease infinite
 
