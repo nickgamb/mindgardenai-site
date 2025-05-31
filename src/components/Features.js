@@ -42,19 +42,18 @@ const Features = ({ gridItems }) => (
               flexShrink: 0
             }}>
               {item.icon && (
-                <div style={{
-                  width: '60px',
-                  height: '60px',
-                  margin: '0 auto',
-                  filter: 'drop-shadow(0 2px 4px rgba(112, 53, 204, 0.3))'
-                }}>
-                  <PreviewCompatibleImage
-                    imageInfo={{
-                      image: item.icon,
-                      alt: `${item.title} icon`,
-                    }}
-                  />
-                </div>
+                <PreviewCompatibleImage
+                  imageInfo={{
+                    image: item.icon,
+                    alt: `${item.title} icon`,
+                  }}
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    margin: '0 auto',
+                    filter: 'drop-shadow(0 2px 4px rgba(112, 53, 204, 0.3))'
+                  }}
+                />
               )}
             </div>
             
