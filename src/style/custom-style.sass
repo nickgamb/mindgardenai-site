@@ -196,10 +196,10 @@ body
     background-position: 200% 0
 
 // Enhanced focus states for accessibility
-*:focus
+*:focus-visible
   outline: none
-  box-shadow: 0 0 0 3px rgba(112, 53, 204, 0.5)
-  border-radius: 4px
+  box-shadow: 0 0 0 2px $purple100, 0 0 0 4px $purple50, 0 0 20px rgba($purple50, 0.3)
+  border-radius: 8px
 
 // Smooth reveal animations for sections
 .section-reveal
@@ -1827,15 +1827,6 @@ ul ul, ol ol, ul ol, ol ul
 
 .glow-trail:hover::before
   left: 100%
-
-// Enhanced focus ring for accessibility
-*:focus-visible
-  outline: none
-  box-shadow: 
-    0 0 0 2px $purple100,
-    0 0 0 4px $purple50,
-    0 0 20px rgba($purple50, 0.3)
-  border-radius: 8px
 
 // Mobile-optimized enhanced effects
 @media (max-width: 768px)
