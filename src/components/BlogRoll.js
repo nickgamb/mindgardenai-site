@@ -63,7 +63,7 @@ const BlogRollTemplate = (props) => {
                 <br />
                 <br />
                 <Link className="btn" to={post.fields.slug}>
-                  Keep Reading â†’
+                  Keep Reading →
                 </Link>
               </p>
             </article>

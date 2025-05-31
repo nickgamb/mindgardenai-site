@@ -1,5 +1,5 @@
 ---
-templateKey: about-page
+templateKey: research-page
 path: /research
 title: Consciousness Research - Advanced Technology for Awareness Exploration
 ---
