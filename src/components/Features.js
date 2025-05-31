@@ -11,81 +11,99 @@ import React from "react";
 import PropTypes from "prop-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const Features = ({ gridItems }) => (
-  <div className="columns is-multiline">
-    {gridItems.map((item) => (
-      <div key={item.title} className="column is-6">
-        <section className="section">
-          <div className="feature-item" style={{
-            background: 'linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(45, 45, 45, 0.8) 100%)',
-            padding: '1.5rem',
-            borderRadius: '12px',
-            border: '1px solid rgba(51, 51, 51, 0.5)',
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            transition: 'all 0.3s ease',
-            cursor: 'pointer'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = '0 4px 12px rgba(112, 53, 204, 0.2)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = 'none';
-          }}>
-            
-            <div className="feature-icon" style={{ 
-              textAlign: 'center', 
-              marginBottom: '1rem',
-              flexShrink: 0
-            }}>
-              {item.icon && (
-                <PreviewCompatibleImage
-                  imageInfo={{
-                    image: item.icon,
-                    alt: `${item.title} icon`,
-                  }}
-                  style={{
-                    width: '60px',
-                    height: '60px',
-                    margin: '0 auto',
-                    filter: 'drop-shadow(0 2px 4px rgba(112, 53, 204, 0.3))'
-                  }}
-                />
-              )}
-            </div>
-            
-            <h4 style={{
-              color: '#BB86FC',
-              fontSize: '1.1rem',
-              fontWeight: '600',
-              marginBottom: '0.75rem',
-              textAlign: 'center',
-              lineHeight: '1.3'
-            }}>
-              {item.title}
-            </h4>
-            
-            <p style={{
-              color: 'rgba(179, 179, 179, 0.95)',
-              fontSize: '0.9rem',
-              lineHeight: '1.5',
-              textAlign: 'center',
-              margin: 0,
-              flex: 1
-            }}>
-              {item.description}
-            </p>
+const FeatureGrid = ({ gridItems }) => (
+  <div className="columns is-multiline animate-on-scroll">
+    {gridItems.map((item, index) => (
+      <div key={item.title} className="column is-6 feature-item animate-on-scroll" style={{ animationDelay: `${index * 0.1}s` }}>
+        <div className="enhanced-hover-card consciousness-glow" style={{ 
+          padding: '2rem', 
+          borderRadius: '16px', 
+          background: 'linear-gradient(135deg, rgba(45, 45, 45, 0.9) 0%, rgba(30, 30, 30, 0.95) 100%)',
+          border: '1px solid rgba(112, 53, 204, 0.2)',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+          position: 'relative',
+          overflow: 'hidden'
+        }}>
+          <div className="has-text-centered enhanced-image float-element" style={{ marginBottom: '1.5rem' }}>
+            {item.icon && item.icon.childImageSharp ? (
+              <GatsbyImage
+                image={getImage(item.icon)}
+                alt={item.title}
+                className="feature-image"
+                style={{
+                  width: '80px',
+                  height: '80px',
+                  filter: 'drop-shadow(0 0 15px rgba(112, 53, 204, 0.4))'
+                }}
+              />
+            ) : (
+              <img
+                src={item.icon.publicURL || item.icon}
+                alt={item.title}
+                className="feature-image enhanced-image"
+                style={{
+                  width: '80px',
+                  height: '80px',
+                  objectFit: 'contain',
+                  filter: 'drop-shadow(0 0 15px rgba(112, 53, 204, 0.4))',
+                  transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                }}
+              />
+            )}
           </div>
-        </section>
+          <h3 className="feature-title enhanced-title" style={{
+            color: '#BB86FC',
+            fontSize: '1.3rem',
+            fontWeight: '600',
+            marginBottom: '1rem',
+            background: 'linear-gradient(45deg, #BB86FC, #66FFF8, #BB86FC)',
+            backgroundSize: '200% 200%',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>
+            {item.title}
+          </h3>
+          <hr className="tp-rule" style={{ 
+            width: '60%', 
+            margin: '0 auto 1rem auto',
+            background: 'linear-gradient(90deg, transparent, #BB86FC, transparent)',
+            height: '1px',
+            border: 'none'
+          }}/>
+          <p className="feature-description" style={{
+            color: '#B3B3B3',
+            fontSize: '1rem',
+            lineHeight: '1.6',
+            flex: 1,
+            display: 'flex',
+            alignItems: 'center'
+          }}>
+            {item.description}
+          </p>
+          
+          {/* Add subtle particle effect overlay */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'radial-gradient(circle at 20% 80%, rgba(112, 53, 204, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(102, 255, 248, 0.03) 0%, transparent 50%)',
+            pointerEvents: 'none',
+            zIndex: 0
+          }} />
+        </div>
       </div>
     ))}
   </div>
 );
 
-Features.propTypes = {
+FeatureGrid.propTypes = {
   gridItems: PropTypes.arrayOf(
     PropTypes.shape({
       icon: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -95,6 +113,6 @@ Features.propTypes = {
   ),
 };
 
-export default Features;
+export default FeatureGrid;
 
 
