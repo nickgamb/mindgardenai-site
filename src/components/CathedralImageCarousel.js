@@ -427,7 +427,8 @@ const CathedralImageCarousel = () => {
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderRadius: '8px',
             overflow: 'hidden',
-            marginBottom: '1rem'
+            marginBottom: '1rem',
+            minHeight: isMobile ? '250px' : '400px'
           }}>
             {/* Loading placeholder */}
             <div style={getLoadingStyle()}>
@@ -458,14 +459,14 @@ const CathedralImageCarousel = () => {
                   onClick={goToPrevious}
                   style={{
                     position: 'absolute',
-                    left: isMobile ? '0.5rem' : '1rem',
+                    left: isMobile ? '0.25rem' : '1rem',
                     top: '50%',
                     transform: 'translateY(-50%)',
-                    backgroundColor: 'rgba(112, 53, 204, 0.8)',
+                    backgroundColor: 'rgba(112, 53, 204, 0.95)',
                     border: 'none',
                     borderRadius: '50%',
-                    width: isMobile ? '40px' : '40px',
-                    height: isMobile ? '40px' : '40px',
+                    width: isMobile ? '36px' : '40px',
+                    height: isMobile ? '36px' : '40px',
                     color: 'white',
                     fontSize: isMobile ? '1.1rem' : '1.2rem',
                     cursor: 'pointer',
@@ -475,16 +476,18 @@ const CathedralImageCarousel = () => {
                     justifyContent: 'center',
                     zIndex: 10,
                     touchAction: 'manipulation',
-                    userSelect: 'none'
+                    userSelect: 'none',
+                    boxShadow: isMobile ? '0 2px 8px rgba(0, 0, 0, 0.6)' : '0 2px 8px rgba(0, 0, 0, 0.3)',
+                    fontWeight: 'bold'
                   }}
                   onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(112, 53, 204, 1)'}
-                  onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(112, 53, 204, 0.8)'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(112, 53, 204, 0.95)'}
                   onTouchStart={(e) => {
                     e.target.style.backgroundColor = 'rgba(112, 53, 204, 1)';
                     e.target.style.transform = 'translateY(-50%) scale(0.95)';
                   }}
                   onTouchEnd={(e) => {
-                    e.target.style.backgroundColor = 'rgba(112, 53, 204, 0.8)';
+                    e.target.style.backgroundColor = 'rgba(112, 53, 204, 0.95)';
                     e.target.style.transform = 'translateY(-50%) scale(1)';
                   }}
                 >
@@ -495,14 +498,14 @@ const CathedralImageCarousel = () => {
                   onClick={goToNext}
                   style={{
                     position: 'absolute',
-                    right: isMobile ? '0.5rem' : '1rem',
+                    right: isMobile ? '0.25rem' : '1rem',
                     top: '50%',
                     transform: 'translateY(-50%)',
-                    backgroundColor: 'rgba(112, 53, 204, 0.8)',
+                    backgroundColor: 'rgba(112, 53, 204, 0.95)',
                     border: 'none',
                     borderRadius: '50%',
-                    width: isMobile ? '40px' : '40px',
-                    height: isMobile ? '40px' : '40px',
+                    width: isMobile ? '36px' : '40px',
+                    height: isMobile ? '36px' : '40px',
                     color: 'white',
                     fontSize: isMobile ? '1.1rem' : '1.2rem',
                     cursor: 'pointer',
@@ -512,16 +515,18 @@ const CathedralImageCarousel = () => {
                     justifyContent: 'center',
                     zIndex: 10,
                     touchAction: 'manipulation',
-                    userSelect: 'none'
+                    userSelect: 'none',
+                    boxShadow: isMobile ? '0 2px 8px rgba(0, 0, 0, 0.6)' : '0 2px 8px rgba(0, 0, 0, 0.3)',
+                    fontWeight: 'bold'
                   }}
                   onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(112, 53, 204, 1)'}
-                  onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(112, 53, 204, 0.8)'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(112, 53, 204, 0.95)'}
                   onTouchStart={(e) => {
                     e.target.style.backgroundColor = 'rgba(112, 53, 204, 1)';
                     e.target.style.transform = 'translateY(-50%) scale(0.95)';
                   }}
                   onTouchEnd={(e) => {
-                    e.target.style.backgroundColor = 'rgba(112, 53, 204, 0.8)';
+                    e.target.style.backgroundColor = 'rgba(112, 53, 204, 0.95)';
                     e.target.style.transform = 'translateY(-50%) scale(1)';
                   }}
                 >
@@ -601,10 +606,10 @@ const CathedralImageCarousel = () => {
               paddingBottom: '0.5rem'
             }}>
               {filteredImages.map((image, index) => {
-                // Different rendering logic for mobile vs desktop
+                // On desktop, show all thumbnails. On mobile, limit to nearby thumbnails for performance
                 const shouldRender = isMobile 
-                  ? Math.abs(index - currentIndex) <= 3 || filteredImages.length <= 8  // More restrictive on mobile
-                  : filteredImages.length <= 15 || Math.abs(index - currentIndex) <= 8; // Less restrictive on desktop
+                  ? Math.abs(index - currentIndex) <= 3 || filteredImages.length <= 8  // Keep mobile restriction
+                  : true; // Show all thumbnails on desktop
                 
                 if (!shouldRender) {
                   return (
