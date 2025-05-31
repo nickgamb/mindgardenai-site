@@ -585,6 +585,14 @@ blockquote
       text-align: left
       margin-left: 0
       margin-right: 0
+      padding-left: 1.5rem // Ensure proper indentation for bullets
+      
+      li
+        text-align: left
+        margin-left: 0
+        position: relative
+        margin-bottom: 0.75rem
+        line-height: 1.7
       
     blockquote
       margin-left: auto
@@ -1266,16 +1274,8 @@ img[alt="Ethereal Spiral Divider"]
   // Enhanced styling for lists containing bold terms
   ul li
     position: relative
-    
-    // Add subtle left border for definition-style lists
-    &:before
-      content: ""
-      position: absolute
-      left: -0.5rem
-      top: 0
-      bottom: 0
-      width: 2px
-      background-color: rgba($purple50, 0.15)
+    margin-bottom: 0.75rem
+    line-height: 1.7
       
   // Override for regular lists that shouldn't have the border
   .menu-list li
