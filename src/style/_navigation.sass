@@ -16,7 +16,7 @@
     border-radius: 4px
     
     &:hover, &:focus
-      background-color: lighten($black, 10%)
+      background-color: color.adjust($black, $lightness: 10%)
       color: $purple10
       
   .navbar-start 
@@ -52,7 +52,7 @@
       color: $mindgarden-purple
       
       &:hover
-        background-color: rgba($mindgarden-purple, 0.1)
+        background-color: color.adjust($mindgarden-purple, $lightness: 10%, $alpha: -0.9)
 
 .navbar-brand .navbar-item.logo
   padding: 0 1rem

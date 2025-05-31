@@ -41,13 +41,13 @@
       display: inline-block
 
       &:hover
-        background-color: lighten($black, 10%)
+        background-color: color.adjust($black, $lightness: 10%)
         color: $purple10
 
   .navbar-item
     color: $purple10
     &:hover
-      background-color: lighten($black, 10%)
+      background-color: color.adjust($black, $lightness: 10%)
 
 .footer-logo-section
   padding: 2rem 0
@@ -87,7 +87,7 @@
     transition: background-color 0.3s ease
 
     &:hover
-      background-color: lighten($purple50, 20%)
+      background-color: color.adjust($purple50, $lightness: 20%)
 
   img
     width: 1em

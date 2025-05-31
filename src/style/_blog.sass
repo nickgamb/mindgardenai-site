@@ -80,7 +80,7 @@
     transition: background-color 0.3s ease
 
     &:hover
-      background-color: darken($primary, 10%)
+      background-color: color.adjust($primary, $lightness: -10%)
 
 // === BLOG LIST ITEMS ===
 .blog-list-item
@@ -353,7 +353,7 @@ blockquote code
     font-size: 0.95rem
 
   &:hover
-    background-color: lighten($code-bg-color, 5%)
+    background-color: color.adjust($code-bg-color, $lightness: 5%)
 
 // General code styling
 code

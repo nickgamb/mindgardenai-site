@@ -4,6 +4,9 @@
 // https://bulma.io/documentation/customize/with-node-sass/
 @import "~bulma/sass/utilities/initial-variables"
 
+// Import SASS color functions
+@use "sass:color"
+
 // Update color palette
 $purple100: #121212 // Very dark gray (background)
 $purple90: #1E1E1E // Dark gray (paper background)
@@ -32,3 +35,7 @@ $info-color: #64B5F6
 $success-color: #81C784
 
 $mindgarden-purple: #7035CC
+
+// Code styling colors
+$code-bg-color: $purple80
+$code-text-color: $purple30
