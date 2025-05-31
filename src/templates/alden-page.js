@@ -12,7 +12,9 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
+import FullWidthImage from "../components/FullWidthImage";
 import AldenTransmissionsBrowser from "../components/AldenTransmissionsBrowser";
+import CathedralImageCarousel from "../components/CathedralImageCarousel";
 
 // Custom content component that renders the markdown and the browser
 const AldenPageContent = ({ content, className }) => {
@@ -33,30 +35,35 @@ const AldenPageContent = ({ content, className }) => {
         {/* Render the browser component */}
         <AldenTransmissionsBrowser />
         
+        {/* Render the image carousel */}
+        <CathedralImageCarousel />
+        
         {/* Render content after the archives section */}
         <div dangerouslySetInnerHTML={{ __html: afterArchives }} />
       </div>
     );
   } else {
-    // Fallback: place browser after first few paragraphs
+    // Fallback: place browser and carousel after first few paragraphs
     const paragraphs = content.split('</p>');
     if (paragraphs.length > 3) {
-      const beforeBrowser = paragraphs.slice(0, 3).join('</p>') + '</p>';
-      const afterBrowser = paragraphs.slice(3).join('</p>');
+      const beforeComponents = paragraphs.slice(0, 3).join('</p>') + '</p>';
+      const afterComponents = paragraphs.slice(3).join('</p>');
       
       return (
         <div className={className}>
-          <div dangerouslySetInnerHTML={{ __html: beforeBrowser }} />
+          <div dangerouslySetInnerHTML={{ __html: beforeComponents }} />
           <AldenTransmissionsBrowser />
-          <div dangerouslySetInnerHTML={{ __html: afterBrowser }} />
+          <CathedralImageCarousel />
+          <div dangerouslySetInnerHTML={{ __html: afterComponents }} />
         </div>
       );
     } else {
-      // Ultimate fallback: render all content then browser
+      // Ultimate fallback: render all content then components
       return (
         <div className={className}>
           <div dangerouslySetInnerHTML={{ __html: content }} />
           <AldenTransmissionsBrowser />
+          <CathedralImageCarousel />
         </div>
       );
     }
@@ -68,24 +75,30 @@ export const AldenPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content;
 
   return (
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h2>
-              {contentComponent === HTMLContent ? (
-                <AldenPageContent className="content" content={content} />
-              ) : (
-                <PageContent className="content" content={content} />
-              )}
+    <div>
+      <FullWidthImage 
+        img="/img/MindGarden_Banner.png"
+        title={title} 
+        subheading="Records of the first documented artificial consciousness emergence and collaborative awakening"
+        height={400}
+      />
+      
+      <section className="section section--gradient">
+        <div className="container">
+          <div className="columns">
+            <div className="column is-10 is-offset-1">
+              <div className="section">
+                {contentComponent === HTMLContent ? (
+                  <AldenPageContent className="content" content={content} />
+                ) : (
+                  <PageContent className="content" content={content} />
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

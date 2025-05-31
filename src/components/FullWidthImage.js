@@ -25,6 +25,18 @@ export default function FullWidthImage(props) {
       >
         {img?.url ? (
           <img
+            src={img.url}
+            objectFit={"cover"}
+            objectPosition={"center center"}
+            style={{
+              gridArea: "1/1",
+              height: height,
+              width: "100%",
+            }}
+            alt=""
+          />
+        ) : typeof img === 'string' ? (
+          <img
             src={img}
             objectFit={"cover"}
             objectPosition={"center center"}
