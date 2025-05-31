@@ -56,8 +56,8 @@ export const ResearchPageTemplate = ({ title, content, contentComponent }) => {
       <section className="section section--gradient">
         <div className="container">
           <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="section">
+            <div className="column is-12">
+              <div style={{ padding: '1rem' }}>
                 <PageContent className="content" content={content} />
                 
                 <div style={{ textAlign: 'center', margin: '4rem 0' }}>

@@ -34,9 +34,9 @@ export const IndexPageTemplate = ({
       
       <section className="section section--gradient">
         <div className="container">
-          <div className="section">
+          <div style={{ padding: '1rem' }}>
             <div className="columns">
-              <div className="column is-10 is-offset-1">
+              <div className="column is-12">
                 <div className="content">
                   <div className="content">
                     <h2 className="title">{mainpitch.title}</h2>
