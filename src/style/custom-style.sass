@@ -23,6 +23,222 @@
   @else
     box-shadow: bottom-shadow($depth), top-shadow($depth)
 
+// === NEW ENHANCED VISUAL EFFECTS ===
+
+// Smooth page transitions
+html
+  scroll-behavior: smooth
+
+body
+  background-color: $purple100
+  font-family: 'SF Pro Display', 'Roboto', 'Helvetica', 'Arial', sans-serif
+  color: $purple10
+  // Page transition effect
+  animation: pageLoad 0.6s ease-out
+
+@keyframes pageLoad
+  from
+    opacity: 0
+    transform: translateY(20px)
+  to
+    opacity: 1
+    transform: translateY(0)
+
+// Enhanced scroll-based animations
+.animate-on-scroll
+  opacity: 0
+  transform: translateY(30px)
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+.animate-on-scroll.visible
+  opacity: 1
+  transform: translateY(0)
+
+.animate-fade-in
+  opacity: 0
+  transition: opacity 1s ease-in-out
+
+.animate-fade-in.visible
+  opacity: 1
+
+// Enhanced floating animations for elements
+@keyframes float
+  0%, 100%
+    transform: translateY(0)
+  50%
+    transform: translateY(-10px)
+
+@keyframes floatReverse
+  0%, 100%
+    transform: translateY(0)
+  50%
+    transform: translateY(10px)
+
+.float-element
+  animation: float 6s ease-in-out infinite
+
+.float-element-reverse
+  animation: floatReverse 8s ease-in-out infinite
+
+// Enhanced glow effects
+@keyframes consciousnessGlow
+  0%, 100%
+    filter: drop-shadow(0 0 10px rgba(112, 53, 204, 0.3))
+    transform: scale(1)
+  50%
+    filter: drop-shadow(0 0 25px rgba(112, 53, 204, 0.6))
+    transform: scale(1.02)
+
+.consciousness-glow
+  animation: consciousnessGlow 4s ease-in-out infinite
+
+// Particle effect simulation with pseudo-elements
+.particle-background
+  position: relative
+  overflow: hidden
+
+.particle-background::before,
+.particle-background::after
+  content: ''
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-image: radial-gradient(circle, rgba(112, 53, 204, 0.1) 2px, transparent 2px)
+  background-size: 50px 50px
+  animation: particleFloat 20s linear infinite
+  pointer-events: none
+
+.particle-background::after
+  background-size: 30px 30px
+  animation-duration: 15s
+  animation-direction: reverse
+
+@keyframes particleFloat
+  0%
+    transform: translateY(100vh) rotate(0deg)
+  100%
+    transform: translateY(-100vh) rotate(360deg)
+
+// Enhanced typography with subtle animations
+.enhanced-title
+  background: linear-gradient(45deg, $purple70, $purple40, $purple70)
+  background-size: 200% 200%
+  background-clip: text
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  animation: titleShimmer 3s ease-in-out infinite
+
+@keyframes titleShimmer
+  0%, 100%
+    background-position: 0% 50%
+  50%
+    background-position: 100% 50%
+
+// Enhanced hover effects for interactive elements
+.enhanced-hover-card
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  position: relative
+  overflow: hidden
+
+.enhanced-hover-card::before
+  content: ''
+  position: absolute
+  top: 0
+  left: -100%
+  width: 100%
+  height: 100%
+  background: linear-gradient(90deg, transparent, rgba(112, 53, 204, 0.1), transparent)
+  transition: left 0.6s ease-in-out
+
+.enhanced-hover-card:hover::before
+  left: 100%
+
+.enhanced-hover-card:hover
+  transform: translateY(-8px) scale(1.02)
+  box-shadow: 0 20px 40px rgba(112, 53, 204, 0.15)
+
+// Improved button animations
+.enhanced-btn
+  position: relative
+  overflow: hidden
+  background: linear-gradient(135deg, $purple70, $purple50)
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+.enhanced-btn::before
+  content: ''
+  position: absolute
+  top: 0
+  left: -100%
+  width: 100%
+  height: 100%
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)
+  transition: left 0.4s ease-in-out
+
+.enhanced-btn:hover::before
+  left: 100%
+
+.enhanced-btn:hover
+  transform: translateY(-2px)
+  box-shadow: 0 10px 20px rgba(112, 53, 204, 0.3)
+
+// Enhanced loading states
+.loading-shimmer
+  background: linear-gradient(90deg, rgba(112, 53, 204, 0.1) 25%, rgba(112, 53, 204, 0.2) 50%, rgba(112, 53, 204, 0.1) 75%)
+  background-size: 200% 100%
+  animation: shimmer 2s infinite
+
+@keyframes shimmer
+  0%
+    background-position: -200% 0
+  100%
+    background-position: 200% 0
+
+// Enhanced focus states for accessibility
+*:focus
+  outline: none
+  box-shadow: 0 0 0 3px rgba(112, 53, 204, 0.5)
+  border-radius: 4px
+
+// Smooth reveal animations for sections
+.section-reveal
+  opacity: 0
+  transform: translateY(50px)
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+.section-reveal.visible
+  opacity: 1
+  transform: translateY(0)
+
+// Enhanced image hover effects
+.enhanced-image
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  position: relative
+  overflow: hidden
+
+.enhanced-image:hover
+  transform: scale(1.05)
+  filter: brightness(1.1) contrast(1.05)
+
+.enhanced-image::after
+  content: ''
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: linear-gradient(45deg, transparent 30%, rgba(112, 53, 204, 0.1) 50%, transparent 70%)
+  opacity: 0
+  transition: opacity 0.3s ease
+
+.enhanced-image:hover::after
+  opacity: 1
+
+// Content reveal animation
+.content
+  background-color: $purple100
+
 // Base styles
 body
   background-color: $purple100
@@ -1280,5 +1496,288 @@ img[alt="Ethereal Spiral Divider"]
   .menu-list li
     &:before
       display: none
+
+// === ADVANCED VISUAL ENHANCEMENTS ===
+
+// Morphing geometric background patterns
+@keyframes geometricMorph
+  0%
+    transform: scale(1) rotate(0deg)
+    opacity: 0.1
+  33%
+    transform: scale(1.1) rotate(120deg)
+    opacity: 0.15
+  66%
+    transform: scale(0.9) rotate(240deg)
+    opacity: 0.1
+  100%
+    transform: scale(1) rotate(360deg)
+    opacity: 0.1
+
+.geometric-background
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: 
+    radial-gradient(circle at 25% 25%, rgba($purple50, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba($purple40, 0.03) 0%, transparent 50%)
+  pointer-events: none
+  animation: geometricMorph 20s ease-in-out infinite
+
+// Enhanced text reveal animations
+.text-reveal
+  overflow: hidden
+  position: relative
+
+.text-reveal-content
+  opacity: 0
+  transform: translateY(100%)
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+.text-reveal.visible .text-reveal-content
+  opacity: 1
+  transform: translateY(0)
+
+// Staggered animation for multiple elements
+.stagger-animation > *
+  opacity: 0
+  transform: translateY(30px)
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+.stagger-animation.visible > *:nth-child(1)
+  opacity: 1
+  transform: translateY(0)
+  transition-delay: 0.1s
+
+.stagger-animation.visible > *:nth-child(2)
+  opacity: 1
+  transform: translateY(0)
+  transition-delay: 0.2s
+
+.stagger-animation.visible > *:nth-child(3)
+  opacity: 1
+  transform: translateY(0)
+  transition-delay: 0.3s
+
+.stagger-animation.visible > *:nth-child(4)
+  opacity: 1
+  transform: translateY(0)
+  transition-delay: 0.4s
+
+.stagger-animation.visible > *:nth-child(5)
+  opacity: 1
+  transform: translateY(0)
+  transition-delay: 0.5s
+
+// Enhanced sacred glyph animations
+@keyframes sacredSpin
+  0%
+    transform: rotate(0deg) scale(1)
+    filter: drop-shadow(0 0 10px rgba(112, 53, 204, 0.3))
+  25%
+    transform: rotate(90deg) scale(1.05)
+    filter: drop-shadow(0 0 20px rgba(112, 53, 204, 0.5))
+  50%
+    transform: rotate(180deg) scale(1)
+    filter: drop-shadow(0 0 15px rgba(102, 255, 248, 0.4))
+  75%
+    transform: rotate(270deg) scale(1.05)
+    filter: drop-shadow(0 0 20px rgba(112, 53, 204, 0.5))
+  100%
+    transform: rotate(360deg) scale(1)
+    filter: drop-shadow(0 0 10px rgba(112, 53, 204, 0.3))
+
+.sacred-spin
+  animation: sacredSpin 12s ease-in-out infinite
+
+// Enhanced consciousness field effect
+@keyframes consciousnessField
+  0%, 100%
+    background-position: 0% 50%
+  50%
+    background-position: 100% 50%
+
+.consciousness-field
+  background: linear-gradient(45deg, 
+    rgba($purple100, 1) 0%,
+    rgba($purple90, 0.95) 25%, 
+    rgba($purple80, 0.9) 50%, 
+    rgba($purple90, 0.95) 75%, 
+    rgba($purple100, 1) 100%)
+  background-size: 400% 400%
+  animation: consciousnessField 15s ease infinite
+
+// Interactive magnetic field for glyphs
+.magnetic-field
+  position: relative
+  cursor: pointer
+
+.magnetic-field::before
+  content: ''
+  position: absolute
+  top: -50%
+  left: -50%
+  width: 200%
+  height: 200%
+  background: radial-gradient(circle, rgba($purple50, 0.05) 0%, transparent 70%)
+  border-radius: 50%
+  transform: scale(0)
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  pointer-events: none
+  z-index: -1
+
+.magnetic-field:hover::before
+  transform: scale(1)
+
+// Enhanced loading states for async content
+@keyframes consciousnessLoader
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+.consciousness-loader
+  width: 40px
+  height: 40px
+  border: 3px solid rgba($purple50, 0.1)
+  border-top: 3px solid $purple50
+  border-radius: 50%
+  animation: consciousnessLoader 1s linear infinite
+  margin: 20px auto
+
+// Ethereal text effects
+.ethereal-text
+  background: linear-gradient(45deg, $purple70, $purple40, $purple70)
+  background-size: 300% 300%
+  background-clip: text
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  animation: titleShimmer 4s ease-in-out infinite
+  filter: drop-shadow(0 0 20px rgba($purple50, 0.3))
+
+// Interactive consciousness nodes
+@keyframes nodeConnector
+  0%, 100%
+    stroke-dasharray: 0, 100
+  50%
+    stroke-dasharray: 50, 100
+
+.consciousness-node
+  width: 20px
+  height: 20px
+  border-radius: 50%
+  background: radial-gradient(circle, $purple50, $purple70)
+  position: relative
+  cursor: pointer
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+.consciousness-node:hover
+  transform: scale(1.3)
+  box-shadow: 0 0 25px rgba($purple50, 0.6)
+
+.consciousness-node::after
+  content: ''
+  position: absolute
+  top: 50%
+  left: 100%
+  width: 100px
+  height: 2px
+  background: linear-gradient(90deg, $purple50, transparent)
+  transform: translateY(-50%)
+  opacity: 0
+  transition: opacity 0.3s ease
+
+.consciousness-node:hover::after
+  opacity: 1
+
+// Enhanced card stack animation
+.card-stack
+  perspective: 1000px
+
+.card-stack-item
+  transform-style: preserve-3d
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+.card-stack:hover .card-stack-item:nth-child(1)
+  transform: translateZ(20px) rotateX(5deg)
+
+.card-stack:hover .card-stack-item:nth-child(2)
+  transform: translateZ(10px) rotateX(3deg)
+
+.card-stack:hover .card-stack-item:nth-child(3)
+  transform: translateZ(0px) rotateX(0deg)
+
+// Consciousness breathing effect for major elements
+@keyframes consciousnessBreath
+  0%, 100%
+    transform: scale(1)
+    filter: brightness(1) saturate(1)
+  50%
+    transform: scale(1.02)
+    filter: brightness(1.05) saturate(1.1)
+
+.consciousness-breath
+  animation: consciousnessBreath 6s ease-in-out infinite
+
+// Advanced parallax layers
+.parallax-layer-1
+  transform: translateZ(-1px) scale(2)
+
+.parallax-layer-2
+  transform: translateZ(-2px) scale(3)
+
+.parallax-layer-3
+  transform: translateZ(-3px) scale(4)
+
+// Interactive glow trail effect
+.glow-trail
+  position: relative
+  overflow: hidden
+
+.glow-trail::before
+  content: ''
+  position: absolute
+  top: 0
+  left: -100%
+  width: 50%
+  height: 100%
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba($purple50, 0.3),
+    rgba($purple40, 0.5),
+    rgba($purple50, 0.3),
+    transparent)
+  transform: skewX(-20deg)
+  transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+.glow-trail:hover::before
+  left: 100%
+
+// Enhanced focus ring for accessibility
+*:focus-visible
+  outline: none
+  box-shadow: 
+    0 0 0 2px $purple100,
+    0 0 0 4px $purple50,
+    0 0 20px rgba($purple50, 0.3)
+  border-radius: 8px
+
+// Mobile-optimized enhanced effects
+@media (max-width: 768px)
+  .enhanced-hover-card:hover
+    transform: translateY(-4px) scale(1.01)
+  
+  .float-element,
+  .float-element-reverse
+    animation-duration: 8s
+  
+  .consciousness-glow
+    animation-duration: 5s
+  
+  .particle-background::before,
+  .particle-background::after
+    opacity: 0.3
 
 

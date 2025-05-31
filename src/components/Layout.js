@@ -11,6 +11,7 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import { useScrollAnimations, useParallaxEffect } from "../components/AnimationUtils";
 import "../style/bulma-style.sass";
 import "../style/custom-style.sass";
 import useSiteMetadata from "./SiteMetadata";
@@ -19,8 +20,13 @@ import '@thumbtack/thumbprint-scss';
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
+  
+  // Initialize animation effects
+  useScrollAnimations();
+  useParallaxEffect();
+
   return (
-    <div>
+    <div className="site-wrapper">
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -64,9 +70,54 @@ const TemplateWrapper = ({ children }) => {
           property="og:image"
           content={`${withPrefix("/")}img/mystical-cathedral-and-symbol.png`}
         />
+        
+        {/* Add CSS for ripple effect animation */}
+        <style>{`
+          @keyframes ripple {
+            to {
+              transform: scale(4);
+              opacity: 0;
+            }
+          }
+          
+          .parallax-element {
+            will-change: transform;
+          }
+          
+          .site-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+          }
+          
+          .site-content {
+            flex: 1 0 auto;
+            position: relative;
+            z-index: 1;
+          }
+          
+          /* Enhanced smooth scrolling */
+          * {
+            scroll-behavior: smooth;
+          }
+          
+          /* Add subtle gradient overlay for depth */
+          body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(112, 53, 204, 0.03) 100%);
+            pointer-events: none;
+            z-index: -1;
+          }
+        `}</style>
       </Helmet>
+      
       <Navbar />
-      <main className="site-content">{children}</main>
+      <main className="site-content animate-on-scroll">{children}</main>
       <Footer />
     </div>
   );
