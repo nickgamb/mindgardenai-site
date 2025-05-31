@@ -1,0 +1,319 @@
+// _layout.sass - Layout and responsive design
+// Mobile-first layout system
+
+// === LAYOUT FUNDAMENTALS ===
+.section
+  padding: 1rem !important
+  background-color: $purple100
+  @media (min-width: 768px)
+    padding: 2rem 1.5rem !important
+
+.full-width-content
+  max-width: 100% !important
+  display: flex
+  flex-direction: column
+
+.columns
+  margin: 0 !important
+  @media (min-width: 768px)
+    margin-bottom: 2rem !important
+
+.column
+  padding: 0.5rem !important
+  @media (min-width: 768px)
+    padding: 1rem !important
+
+.column.is-4
+  width: 100%
+  @media (min-width: 768px)
+    width: 32.4%
+
+.column.is-6
+  width: 100% !important
+  @media (min-width: 768px)
+    width: 50% !important
+
+.column.social
+  width: 100%
+  @media (min-width: 768px)
+    width: 50%
+
+.tp-rule
+  color: $purple100
+
+// === SITE WRAPPER ===
+.site-wrapper
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+
+.site-content
+  flex: 1 0 auto
+
+// === IMAGES ===
+.full-width-image-container, .full-width-image
+  width: 100vw
+  background-size: cover
+  background-position: center
+  display: flex
+  align-items: center
+  overflow: hidden
+  position: relative
+
+.full-width-image-container
+  height: 250px
+  position: relative
+  @media (min-width: 768px)
+    height: 400px
+
+.full-width-image
+  height: 250px
+  @media (min-width: 768px)
+    height: 400px
+
+// Ensure banner images maintain aspect ratio
+.hero-banner,
+.banner-image-container
+  position: relative
+  overflow: hidden
+  
+  img
+    object-fit: cover
+    object-position: center
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+
+// === BLOCKQUOTES ===
+blockquote
+  border-left: 2px solid rgba($purple50, 0.3)
+  margin: 1rem 0
+  padding: 0.75rem 1rem
+  background: rgba($purple50, 0.03)
+  border-radius: 0 8px 8px 0
+  
+  @media (min-width: 768px)
+    margin: 2rem 0
+    padding: 1.5rem 2rem
+  
+  p
+    color: $purple30
+    margin: 0.5rem 0
+    line-height: 1.6
+    
+    strong
+      color: $purple50
+    
+    em
+      color: $purple40
+
+// === RESPONSIVE TEXT CONTENT ===
+.section p
+  font-size: 1rem !important
+  max-width: 85%
+  margin-left: auto
+  margin-right: auto
+  text-align: left
+  
+  @media (max-width: 768px)
+    max-width: 100% !important
+    font-size: 0.95rem !important
+    line-height: 1.6 !important
+
+// Ensure all section content is properly centered
+.section
+  text-align: center
+  
+  .title
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+    max-width: 85%
+    
+    @media (max-width: 768px)
+      max-width: 100% !important
+  
+  .content
+    margin-left: auto
+    margin-right: auto
+    text-align: left
+    max-width: 85%
+    
+    @media (max-width: 768px)
+      max-width: 100% !important
+    
+    // Make sure lists, headers, and other elements are properly aligned
+    h1, h2, h3, h4, h5, h6
+      text-align: left
+      margin-left: 0
+      margin-right: 0
+      
+    ul, ol
+      text-align: left
+      margin-left: 0 !important
+      margin-right: 0
+      padding-left: 1.5rem !important
+      max-width: 100%
+      
+      li
+        text-align: left
+        margin-left: 0 !important
+        position: relative
+        margin-bottom: 0.75rem
+        line-height: 1.7
+        list-style-position: outside
+      
+    blockquote
+      margin-left: auto
+      margin-right: auto
+      max-width: 100%
+      text-align: left
+
+.title-container
+  @media (max-width: 768px)
+    padding: 0.5rem !important
+
+// === CONTENT STYLING ===
+.content
+  background-color: $purple100
+  
+  h1, h2, h3, h4, h5, h6
+    font-weight: 600
+    letter-spacing: -0.02em
+
+  // Bold text in lists should pop more on dark background
+  ul li strong, ol li strong
+    color: $purple50 !important
+    font-weight: 700 !important
+    text-shadow: 0 0 1px rgba($purple50, 0.3) !important
+    
+  // Make sure all bold text is more visible
+  strong
+    color: $purple50 !important
+    font-weight: 700 !important
+    
+  // Enhanced list styling for better readability
+  ul li, ol li
+    margin-bottom: 0.75rem
+    line-height: 1.7
+
+// Global list styling for consistent indentation across all pages
+ul, ol
+  padding-left: 1.5rem !important
+  margin-left: 0 !important
+  
+  li
+    margin-bottom: 0.5rem
+    line-height: 1.6
+    text-align: left
+    position: relative
+
+// Ensure bullets are visible and properly positioned
+ul li
+  list-style-type: disc
+  list-style-position: outside
+
+ol li  
+  list-style-type: decimal
+  list-style-position: outside
+
+// Nested list handling
+ul ul, ol ol, ul ol, ol ul
+  margin-top: 0.5rem
+  margin-bottom: 0.5rem
+  padding-left: 1.5rem
+
+// Override for specific page layouts that might interfere
+.section .content ul, .section .content ol
+  padding-left: 1.5rem !important
+  margin-left: 0 !important
+  text-align: left !important
+
+.section .content ul li, .section .content ol li
+  text-align: left !important
+  margin-left: 0 !important
+  padding-left: 0 !important
+
+// === RESPONSIVE ADJUSTMENTS ===
+@media (max-width: 768px)
+  .hero .hero-body
+    padding: 2rem 1rem !important
+
+  .content
+    padding: 1rem !important
+
+  .navbar-menu
+    font-size: 1rem !important
+
+// Content spacing improvements
+.content
+  h1, h2, h3, h4, h5, h6
+    @media (max-width: 768px)
+      margin-bottom: 1rem !important
+      
+  p
+    @media (max-width: 768px)
+      margin-bottom: 1rem !important
+      
+  ul, ol
+    @media (max-width: 768px)
+      margin-left: 1rem !important
+      margin-bottom: 1rem !important
+
+// Mobile-specific improvements
+@media (max-width: 480px)
+  .title
+    font-size: 1.1rem !important
+    
+  .subtitle
+    font-size: 0.85rem !important
+    
+  .section-title
+    font-size: 1.1rem !important
+    
+  .feature-item
+    padding: 0.75rem !important
+    
+  .feature-image
+    width: 40px !important
+    height: 40px !important
+
+// Responsive columns
+@media screen and (max-width: 768px)
+  .columns.is-multiline
+    display: flex
+    flex-direction: column
+
+// === HERO CONTENT STYLES ===
+.hero-content
+  text-align: center
+  padding: 2.5rem 2rem
+  background-color: rgba($purple90, 0.6)
+  border-radius: 16px
+  max-width: 90%
+  margin: 0 auto
+  backdrop-filter: blur(10px)
+  border: 1px solid rgba($purple50, 0.1)
+
+.hero-title
+  color: rgba($purple70, 0.95) !important
+  font-size: 2.5rem
+  font-weight: 500
+  line-height: 1.3
+  margin-bottom: 1.5rem
+  letter-spacing: -0.01em
+
+  @media (max-width: 768px)
+    font-size: 1.8rem
+
+.hero-subtitle
+  color: rgba($purple60, 0.9) !important
+  font-size: 1.25rem
+  font-weight: 300
+  line-height: 1.5
+  margin-bottom: 1rem
+
+  @media (max-width: 768px)
+    font-size: 1.1rem 

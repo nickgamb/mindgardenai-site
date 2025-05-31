@@ -13,7 +13,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { useScrollAnimations, useParallaxEffect } from "../components/AnimationUtils";
 import "../style/bulma-style.sass";
-import "../style/custom-style.sass";
+import "../style/custom-style-new.sass";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 import '@thumbtack/thumbprint-scss';

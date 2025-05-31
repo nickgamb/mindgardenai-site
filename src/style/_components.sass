@@ -1,0 +1,467 @@
+// _components.sass - Interactive components
+// Mobile-first component design
+
+// === BUTTONS ===
+.btn
+  display: inline-block
+  padding: 12px 24px
+  font-size: 1rem
+  font-weight: 500
+  text-align: center
+  text-decoration: none
+  color: rgba($purple10, 0.95)
+  background: linear-gradient(135deg, rgba($primary, 0.9), rgba($primary, 0.8))
+  border-radius: 12px
+  transition: all 0.3s ease
+  box-shadow: 0 2px 8px rgba($primary, 0.15)
+  border: 1px solid rgba($primary, 0.2)
+
+  &:hover
+    background: linear-gradient(135deg, rgba($primary, 1), rgba($primary, 0.9))
+    transform: translateY(-1px)
+    box-shadow: 0 4px 12px rgba($primary, 0.2)
+    color: $purple10
+
+// === ENHANCED HOVER EFFECTS - DESKTOP ONLY ===
+@media (min-width: 769px) and (hover: hover)
+  .enhanced-hover-card
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    position: relative
+    overflow: hidden
+
+  .enhanced-hover-card::before
+    content: ''
+    position: absolute
+    top: 0
+    left: -100%
+    width: 100%
+    height: 100%
+    background: linear-gradient(90deg, transparent, rgba(112, 53, 204, 0.1), transparent)
+    transition: left 0.6s ease-in-out
+
+  .enhanced-hover-card:hover::before
+    left: 100%
+
+  .enhanced-hover-card:hover
+    transform: translateY(-8px) scale(1.02)
+    box-shadow: 0 20px 40px rgba(112, 53, 204, 0.15)
+
+  // Enhanced button animations
+  .enhanced-btn
+    position: relative
+    overflow: hidden
+    background: linear-gradient(135deg, $purple70, $purple50)
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+  .enhanced-btn::before
+    content: ''
+    position: absolute
+    top: 0
+    left: -100%
+    width: 100%
+    height: 100%
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)
+    transition: left 0.4s ease-in-out
+
+  .enhanced-btn:hover::before
+    left: 100%
+
+  .enhanced-btn:hover
+    transform: translateY(-2px)
+    box-shadow: 0 10px 20px rgba(112, 53, 204, 0.3)
+
+  // Enhanced image effects
+  .enhanced-image
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    position: relative
+    overflow: hidden
+
+  .enhanced-image:hover
+    transform: scale(1.05)
+    filter: brightness(1.1) contrast(1.05)
+
+  .enhanced-image::after
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: linear-gradient(45deg, transparent 30%, rgba(112, 53, 204, 0.1) 50%, transparent 70%)
+    opacity: 0
+    transition: opacity 0.3s ease
+
+  .enhanced-image:hover::after
+    opacity: 1
+
+// === FORM ELEMENTS ===
+.field
+  @media (max-width: 768px)
+    margin-bottom: 1.5rem
+
+.input, .textarea
+  background-color: $purple90
+  border: 1px solid $purple_light_gray
+  color: $purple10
+  font-size: 1rem
+  
+  @media (max-width: 768px)
+    font-size: 16px // Prevent zoom on iOS
+    padding: 0.75rem
+  
+  &:focus
+    border-color: $primary
+    box-shadow: 0 0 0 2px rgba($primary, 0.2)
+
+.label
+  color: $purple10
+  font-weight: 500
+  
+  @media (max-width: 768px)
+    font-size: 1rem
+
+// === FEATURES STYLES ===
+.feature-section-wrapper
+  background-color: rgba($purple90, 0.1)
+  padding: 1rem
+  margin: 1rem 0
+  border-radius: 12px
+  @include card(1)
+  
+  @media (min-width: 768px)
+    padding: 2rem 1.5rem
+    margin: 2rem 0
+
+.feature-section
+  .section-title
+    color: rgba($purple50, 0.9)
+    border-radius: 0.5rem
+    margin-top: 0.5rem
+    margin-bottom: 1.5rem
+    text-align: center
+    font-size: 1.5rem
+    font-weight: 500
+    letter-spacing: 0.02em
+    
+    @media (min-width: 768px)
+      font-size: 1.8rem
+      margin-bottom: 2rem
+
+  .section-title-lg
+    color: rgba($purple50, 0.9)
+    border-radius: 0.5rem
+    margin-top: 0.5rem
+    margin-bottom: 1.5rem
+    text-align: center
+    font-size: 1.8rem
+    font-weight: 500
+    letter-spacing: 0.01em
+    
+    @media (min-width: 768px)
+      font-size: 2.2rem
+      margin-bottom: 2rem
+
+  .section-description
+    color: rgba($purple60, 0.9)
+    margin-bottom: 1.5rem !important
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+    font-size: 1.1rem
+    font-weight: 300
+    line-height: 1.5
+    
+    @media (min-width: 768px)
+      font-size: 1.3rem
+      margin-bottom: 2rem !important
+
+  .section-description-blk
+    color: rgba($purple10, 0.95)
+    margin-bottom: 2rem !important
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+    font-size: 1.5rem
+    font-weight: 300
+    background-color: rgba($purple90, 0.5)
+    padding: 1.8rem 1.5rem
+    border-radius: 16px
+    max-width: 95%
+    line-height: 1.5
+    backdrop-filter: blur(8px)
+    border: 1px solid rgba($purple50, 0.08)
+    
+    @media (min-width: 768px)
+      font-size: 1.8rem
+      padding: 2.5rem 2rem
+      margin-bottom: 4rem !important
+      max-width: 88%
+
+// Styles for the feature grid
+.feature-grid
+  display: grid
+  grid-template-columns: 1fr
+  gap: 1.5rem
+  margin-top: 1rem
+  margin-bottom: 1rem
+  
+  @media (min-width: 769px)
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+    gap: 2rem
+    margin-top: 2rem
+    margin-bottom: 2rem
+  
+  @media (min-width: 1024px)
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+
+// Feature item wrappers
+.feature-item-wrapper
+  border-radius: 12px
+  height: 100%
+  transition: transform 0.3s ease, box-shadow 0.3s ease
+  background-color: $purple90
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+
+  &:hover
+    transform: translateY(-2px)
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15)
+    
+    @media (min-width: 768px)
+      transform: translateY(-5px)
+
+// Feature items
+.feature-item
+  text-align: center
+  padding: 1.5rem
+  background-color: rgba($purple90, 0.05)
+  border-radius: 16px
+  transition: all 0.3s ease
+  border: 1px solid rgba($purple50, 0.08)
+
+  &:hover
+    transform: translateY(-2px)
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08)
+    background-color: rgba($purple90, 0.08)
+    
+    @media (min-width: 768px)
+      transform: translateY(-3px)
+
+  .feature-item-icon
+    width: 48px
+    height: 48px
+    margin: 0 auto 1rem
+    opacity: 0.9
+    
+    @media (min-width: 768px)
+      width: 64px
+      height: 64px
+
+  h3
+    font-size: 1.1rem
+    margin-bottom: 0.8rem
+    color: rgba($purple10, 0.9)
+    font-weight: 500
+    
+    @media (min-width: 768px)
+      font-size: 1.2rem
+
+  p
+    font-size: 0.9rem
+    color: rgba($purple60, 0.8)
+    line-height: 1.6
+    
+    @media (min-width: 768px)
+      font-size: 0.95rem
+
+.features
+  display: grid
+  grid-template-columns: 1fr
+  gap: 1.5rem
+  margin: 2rem 0
+  
+  @media (min-width: 769px)
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+    gap: 2rem
+    margin: 4rem 0
+
+.feature-image
+  width: 100%
+  max-width: 300px
+  height: auto
+  margin-bottom: 1rem
+  border-radius: 8px
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+  
+  @media (min-width: 768px)
+    max-width: 500px
+
+.feature-title
+  font-size: 1.3rem
+  font-weight: 600
+  margin-bottom: 0.5rem
+  
+  @media (min-width: 768px)
+    font-size: 1.5rem
+
+.feature-description
+  font-size: 0.95rem
+  color: $purple30
+  
+  @media (min-width: 768px)
+    font-size: 1rem
+
+// === GATSBY IMAGE WRAPPER ===
+.gatsby-image-wrapper
+  position: relative !important
+  overflow: hidden !important
+  
+  img
+    object-fit: cover !important
+    object-position: center center !important
+
+// === GLYPH CONTAINERS ===
+.glyph-container, .ethereal-divider
+  display: flex
+  justify-content: center
+  align-items: center
+  margin: 1rem 0 0.5rem
+  background: transparent
+  
+  img
+    max-width: 150px !important
+    width: 100%
+    height: auto !important
+    opacity: 0.85
+    transition: opacity 0.3s ease, transform 0.3s ease
+    background: transparent !important
+    box-shadow: none !important
+    position: relative !important
+    filter: drop-shadow(0 0 15px rgba(112, 53, 204, 0.15))
+    
+    @media (min-width: 768px)
+      max-width: 200px !important
+    
+    &:hover
+      opacity: 1
+      transform: scale(1.02)
+
+  // Override Gatsby image wrapper styles
+  .gatsby-resp-image-wrapper
+    max-width: 150px !important
+    width: 150px !important
+    height: auto !important
+    
+    @media (min-width: 768px)
+      max-width: 200px !important
+      width: 200px !important
+    
+  .gatsby-resp-image-image
+    width: 150px !important
+    height: auto !important
+    position: relative !important
+    
+    @media (min-width: 768px)
+      width: 200px !important
+    
+  .gatsby-resp-image-background-image
+    display: none !important
+
+// === SPECIAL ELEMENTS ===
+.part-marker
+  text-align: center
+  margin: 3rem 0
+  color: $purple30
+  font-style: italic
+  opacity: 0.8
+  
+  @media (min-width: 768px)
+    margin: 4rem 0
+  
+  &::before, &::after
+    content: "✧"
+    margin: 0 1rem
+    color: $purple50
+
+.loop-symbol
+  text-align: center
+  font-size: 2em
+  opacity: 0.85
+  margin: 1.5rem auto
+  padding: 0.5rem 0
+  display: block
+  width: 100%
+  color: #9B7FE6
+  transition: opacity 0.3s ease, transform 0.3s ease
+  cursor: pointer
+  
+  @media (min-width: 768px)
+    font-size: 2.5em
+  
+  &:hover
+    opacity: 1
+    transform: rotate(180deg)
+
+.ethereal-divider
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 2rem 0
+  min-height: 150px
+  
+  @media (min-width: 768px)
+    padding: 3rem 0
+    min-height: 200px
+
+  img
+    background-color: transparent !important
+    box-shadow: none !important
+    display: block
+    max-width: 300px
+    width: 100%
+    height: auto
+    opacity: 1
+    position: relative
+    z-index: 1
+    
+    @media (min-width: 768px)
+      max-width: 512px
+
+// Updated heading styles for content
+.content
+  h2
+    margin-top: 2.5rem
+    margin-bottom: 1.5rem
+    color: rgba($purple50, 0.9)
+    font-size: 1.6rem
+    font-weight: 500
+    letter-spacing: 0.02em
+    text-shadow: 0 0 10px rgba($purple50, 0.1)
+    
+    @media (min-width: 768px)
+      margin-top: 3.5rem
+      margin-bottom: 1.8rem
+      font-size: 2rem
+    
+  h3
+    margin-top: 2rem
+    margin-bottom: 1rem
+    color: rgba($purple40, 0.85)
+    font-size: 1.4rem
+    font-weight: 400
+    letter-spacing: 0.01em
+    
+    @media (min-width: 768px)
+      margin-top: 2.5rem
+      margin-bottom: 1.2rem
+      font-size: 1.6rem
+
+// === TOUCH-FRIENDLY INTERACTIONS ===
+// Touch-friendly interactions for mobile
+@media (max-width: 768px) and (pointer: coarse)
+  // Ensure hover states work with touch
+  .enhanced-hover-card,
+  .feature-item-wrapper,
+  .blog-list-item
+    &:active
+      transform: translateY(-2px) scale(1.01)
+      transition-duration: 0.1s 

@@ -1,0 +1,181 @@
+// _footer.sass - Footer styles
+// Mobile-first footer design
+
+// === FOOTER ===
+.footer
+  padding-bottom: 3rem
+  text-align: center
+  background-color: $black
+  flex-shrink: 0
+  color: $purple10
+
+  .container
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 0 1rem !important
+
+    @media screen and (min-width: 769px)
+      align-items: stretch
+
+  .menu-list
+    list-style-type: none !important
+    padding-left: 0 !important
+    margin-left: 0 !important
+    
+    li
+      margin-bottom: 0.5rem
+      list-style-type: none !important
+      padding-left: 0 !important
+      text-align: center !important
+      position: relative
+      
+      &::before
+        display: none !important
+    
+    a
+      color: $mindgarden-purple
+      transition: background-color 0.3s ease, color 0.3s ease
+      padding: 0.3em 0.5em
+      border-radius: 4px
+      display: inline-block
+
+      &:hover
+        background-color: lighten($black, 10%)
+        color: $purple10
+
+  .navbar-item
+    color: $purple10
+    &:hover
+      background-color: lighten($black, 10%)
+
+.footer-logo-section
+  padding: 2rem 0
+
+.footer-brand
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin-bottom: 1rem
+
+.footer-logo
+  width: 2.5em
+  height: auto
+  margin-bottom: 0.5rem
+
+.footer-title
+  font-size: 2rem
+  color: #7035CC
+  font-weight: bold
+  letter-spacing: 0.1em
+
+.social-icons
+  display: flex
+  justify-content: center
+  align-items: center
+  gap: 1rem
+  margin-top: 1rem
+
+  a
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    width: 2em
+    height: 2em
+    background-color: $purple50
+    border-radius: 50%
+    transition: background-color 0.3s ease
+
+    &:hover
+      background-color: lighten($purple50, 20%)
+
+  img
+    width: 1em
+    height: 1em
+
+.footer-links
+  padding-top: 2rem
+  width: 100%
+
+  .menu-list
+    li
+      text-align: center
+
+      @media screen and (min-width: 769px)
+        text-align: center
+
+.footer-columns
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-evenly !important
+  align-items: flex-start !important
+  text-align: center !important
+
+  @media screen and (max-width: 768px)
+    flex-direction: column
+    align-items: center !important
+
+.footer-column
+  flex: 1
+  min-width: 200px
+  margin-bottom: 1rem
+  display: flex
+  flex-direction: column
+  align-items: center !important
+
+  @media screen and (min-width: 769px)
+    margin-bottom: 0
+    text-align: center !important
+    min-width: 250px
+
+  @media screen and (max-width: 768px)
+    width: 100%
+    text-align: center
+
+  .menu
+    width: 100%
+    text-align: center !important
+    
+    h4
+      margin-bottom: 1rem !important
+      text-align: center !important
+      
+  .menu-list
+    text-align: center !important
+    list-style-type: none !important
+    padding-left: 0 !important
+    margin-left: 0 !important
+    
+    li
+      text-align: center !important
+      margin-bottom: 0.75rem !important
+      list-style-type: none !important
+      padding-left: 0 !important
+      margin-left: 0 !important
+      
+      a
+        display: inline-block !important
+        text-align: center !important
+
+// Footer-specific list overrides to prevent global list styling interference
+.footer .menu-list
+  list-style-type: none !important
+  padding-left: 0 !important
+  margin-left: 0 !important
+  
+  li
+    list-style-type: none !important
+    padding-left: 0 !important
+    text-align: center !important
+    position: relative
+    
+    &::before
+      display: none !important
+      
+  ul, ol
+    list-style-type: none !important
+    padding-left: 0 !important
+    
+    li
+      list-style-type: none !important
+      padding-left: 0 !important 

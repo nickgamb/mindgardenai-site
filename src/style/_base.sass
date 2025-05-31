@@ -1,0 +1,131 @@
+// _base.sass - Core mobile-first styles
+// Essential styles that MUST work on all devices
+
+// === CRITICAL MOBILE FIXES ===
+// Disable problematic animations on mobile to ensure rendering
+@media (max-width: 768px)
+  // Force disable complex animations on mobile
+  *,
+  *::before,
+  *::after
+    animation-duration: 0.3s !important
+    animation-delay: 0s !important
+    animation-iteration-count: 1 !important
+    transition-duration: 0.2s !important
+    
+  // Ensure body renders properly on mobile
+  body
+    animation: none !important
+    transform: none !important
+    opacity: 1 !important
+    background-color: $purple100 !important
+    
+  // Ensure content is visible
+  .content
+    background-color: $purple100 !important
+    opacity: 1 !important
+    transform: none !important
+
+// === BASE STYLES ===
+html
+  scroll-behavior: smooth
+
+body
+  background-color: $purple100 !important
+  font-family: 'SF Pro Display', 'Roboto', 'Helvetica', 'Arial', sans-serif
+  color: $purple10
+  min-height: 100vh
+  position: relative
+  margin: 0
+  padding: 0
+
+// Essential content visibility
+.content
+  background-color: $purple100 !important
+
+// === UTILITY FUNCTIONS ===
+@function top-shadow($depth)
+  $primary-offset: nth((1.5px, 3px, 10px, 14px, 19px), $depth)
+  $blur: nth((1.5px, 3px, 10px, 14px, 19px), $depth) * 4
+  $color: rgba($purple10, nth((0.12, 0.16, 0.19, 0.25, 0.30), $depth))
+  @return 0 $primary-offset $blur $color
+
+@function bottom-shadow($depth)
+  $primary-offset: nth((1.5px, 3px, 6px, 10px, 15px), $depth)
+  $blur: nth((1px, 3px, 3px, 5px, 6px), $depth) * 4
+  $color: rgba($purple10, nth((0.24, 0.23, 0.23, 0.22, 0.22), $depth))
+  @return 0 $primary-offset $blur $color
+
+@mixin card($depth)
+  @if $depth < 1
+    box-shadow: none
+  @else if $depth > 5
+    @warn "Invalid $depth `#{$depth}` for mixin `card`."
+  @else
+    box-shadow: bottom-shadow($depth), top-shadow($depth)
+
+// === TYPOGRAPHY - MOBILE FIRST ===
+.title, .subtitle, h1, h2, h3, h4, h5, h6
+  color: $purple10
+  letter-spacing: -0.01em
+
+.title, h1, h2
+  font-weight: 600
+
+h3, h4
+  font-weight: 500
+
+h5, h6
+  font-weight: 400
+
+.title
+  font-size: 1.25rem !important
+  @media (min-width: 769px)
+    font-size: 1.5rem !important
+
+.subtitle
+  font-size: 0.9rem !important
+  @media (min-width: 769px)
+    font-size: 1rem !important
+
+.section-title
+  font-size: 1.25rem !important
+  margin-top: 0.5rem !important
+  @media (min-width: 769px)
+    font-size: 1.5rem !important
+    margin-top: 1rem !important
+    line-height: 1.2 !important
+
+// === ENHANCED FOCUS STATES ===
+*:focus-visible
+  outline: none
+  box-shadow: 0 0 0 2px $purple100, 0 0 0 4px $purple50, 0 0 20px rgba($purple50, 0.3)
+  border-radius: 8px
+
+// === RESPONSIVE HELPERS ===
+.margin-top-0
+  position: relative
+  overflow: hidden
+  
+  img
+    object-fit: cover !important
+    object-position: center center !important
+    width: 100% !important
+    height: 100% !important
+    max-width: none !important
+    max-height: none !important
+
+// === MOBILE BANNER ADJUSTMENTS ===
+@media (max-width: 768px)
+  .margin-top-0
+    min-height: 250px
+    max-height: 300px
+    
+  .hero-content
+    padding: 1.5rem 1rem !important
+    
+  .hero-title
+    font-size: 1.5rem !important
+    
+  .hero-subtitle
+    font-size: 1rem !important 
