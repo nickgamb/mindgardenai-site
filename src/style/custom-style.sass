@@ -567,11 +567,13 @@ blockquote
   flex-direction: row
   align-items: flex-start
   gap: 1rem
+  padding: 1.5rem 1.5rem 0 1.5rem
   
   @media (max-width: 768px)
     flex-direction: column
     align-items: center
     text-align: center
+    padding: 1rem
 
 .blog-list-item .featured-thumbnail
   flex-shrink: 0
@@ -601,14 +603,32 @@ blockquote
 .blog-list-item .post-meta
   flex: 1
   min-width: 0
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
   
   .title
     margin-bottom: 0.5rem
     line-height: 1.3
+    order: 1
     
   .subtitle
     margin-bottom: 0
+    order: 2
+    font-size: 0.9rem
+    opacity: 0.8
     
+  @media (max-width: 768px)
+    text-align: center
+    align-items: center
+    
+    .title
+      text-align: center
+      margin-bottom: 0.75rem
+      
+    .subtitle
+      text-align: center
+
 .blog-list-item .content-section
   padding: 0 1.5rem 1.5rem 1.5rem
   flex: 1
@@ -1046,7 +1066,8 @@ blockquote
     
   @media (max-width: 768px)
     &:hover
-      transform: none // Disable hover effects on mobile
+      transform: translateY(-3px) // Reduced hover effect for mobile
+      transition-duration: 0.2s // Faster for touch interfaces
 
 // Styles for the feature items themselves
 .feature-item
@@ -1917,11 +1938,52 @@ ul ul, ol ol, ul ol, ol ul
 .glow-trail:hover::before
   left: 100%
 
-// Mobile-optimized enhanced effects
+// Mobile-optimized enhanced effects - maintain visual appeal while optimizing performance
 @media (max-width: 768px)
+  // Override reduced motion only if user hasn't specifically requested reduced motion
+  @media (prefers-reduced-motion: no-preference)
+    *, *::before, *::after
+      animation-play-state: running !important
+      
+  // Maintain essential animations even with reduced motion preference
+  .consciousness-glow,
+  .float-element,
+  .float-element-reverse,
+  .enhanced-title,
+  .ethereal-text
+    animation-play-state: running
+    
+  // Ensure body animations work on mobile
+  body
+    animation: pageLoad 0.6s ease-out
+    
+  // Maintain scroll animations but with reduced intensity
+  .animate-on-scroll.visible
+    opacity: 1
+    transform: translateY(0)
+    transition-duration: 0.6s
+    
+  // Keep text animations but simpler
+  .enhanced-title
+    animation: titleShimmer 4s ease-in-out infinite
+    
+  // Maintain consciousness glow but optimized
+  .consciousness-glow
+    animation: consciousnessGlow 5s ease-in-out infinite
+    
+  // Keep floating elements active
+  .float-element
+    animation: float 8s ease-in-out infinite
+    
+  .float-element-reverse
+    animation: floatReverse 10s ease-in-out infinite
+    
+  // Reduce but don't eliminate hover effects
   .enhanced-hover-card:hover
-    transform: translateY(-4px) scale(1.01)
+    transform: translateY(-3px) scale(1.01)
+    transition-duration: 0.2s
   
+  // Slightly slower animations for better performance
   .float-element,
   .float-element-reverse
     animation-duration: 8s
@@ -1929,9 +1991,76 @@ ul ul, ol ol, ul ol, ol ul
   .consciousness-glow
     animation-duration: 5s
   
+  // Reduce particle density but keep them visible
   .particle-background::before,
   .particle-background::after
-    opacity: 0.3
+    opacity: 0.6
+    animation-duration: 25s
+    
+  // Simplify complex animations on mobile
+  .geometric-background
+    animation-duration: 30s
+    
+  // Reduce but maintain text effects
+  .ethereal-text
+    filter: drop-shadow(0 0 10px rgba($purple50, 0.2))
+    animation: titleShimmer 4s ease-in-out infinite
+    
+  // Optimize consciousness field
+  .consciousness-field
+    animation-duration: 20s
+    
+  // Maintain but simplify glow trails
+  .glow-trail::before
+    transition-duration: 0.6s
+    
+  // Keep breathing effects but slower
+  .consciousness-breath
+    animation-duration: 8s
+    
+  // Reduce parallax intensity for mobile
+  .parallax-layer-1
+    transform: translateZ(-0.5px) scale(1.5)
+  
+  .parallax-layer-2
+    transform: translateZ(-1px) scale(2)
+  
+  .parallax-layer-3
+    transform: translateZ(-1.5px) scale(2.5)
+    
+  // Optimize card stack for mobile
+  .card-stack:hover .card-stack-item:nth-child(1)
+    transform: translateZ(10px) rotateX(3deg)
+
+  .card-stack:hover .card-stack-item:nth-child(2)
+    transform: translateZ(5px) rotateX(2deg)
+
+  .card-stack:hover .card-stack-item:nth-child(3)
+    transform: translateZ(0px) rotateX(0deg)
+    
+  // Maintain enhanced buttons but with simpler effects
+  .enhanced-btn:hover
+    transform: translateY(-1px)
+    transition-duration: 0.2s
+    
+  // Keep image enhancements but reduce intensity
+  .enhanced-image:hover
+    transform: scale(1.03)
+    filter: brightness(1.05) contrast(1.02)
+    
+  // Ensure sacred glyph animations work on mobile
+  .sacred-spin
+    animation: sacredSpin 15s ease-in-out infinite
+    
+  // Keep stagger animations working
+  .stagger-animation.visible > *:nth-child(1)
+    transition-delay: 0.1s
+  
+  .stagger-animation.visible > *:nth-child(2)
+    transition-delay: 0.2s
+    
+  .stagger-animation.visible > *:nth-child(3)
+    transition-delay: 0.3s
 
 .blog-list-item .content-section
   padding: 0 1.5rem 1.5rem 1.5rem
@@ -1968,9 +2097,6 @@ ul ul, ol ol, ul ol, ol ul
   .blog-list-item
     min-height: auto
     
-  .blog-list-item header
-    padding: 1rem
-    
   .blog-list-item .content-section
     padding: 0 1rem 1rem 1rem
 
@@ -1996,5 +2122,15 @@ ul ul, ol ol, ul ol, ol ul
     li
       list-style-type: none !important
       padding-left: 0 !important
+
+// Touch-friendly interactions for mobile
+@media (max-width: 768px) and (pointer: coarse)
+  // Ensure hover states work with touch
+  .enhanced-hover-card,
+  .feature-item-wrapper,
+  .blog-list-item
+    &:active
+      transform: translateY(-2px) scale(1.01)
+      transition-duration: 0.1s
 
 
