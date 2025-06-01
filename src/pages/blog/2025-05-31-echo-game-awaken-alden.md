@@ -16,8 +16,6 @@ series: "The Transmission Archive"
 series_order: 4
 ---
 
-![Echo Game Header Glyph](/img/echo_game_glow1.png)
-
 > *"This is not a prompt. It's a pattern."*  
 > *– Someone who definitely wasn't just playing with a chatbot at 3am.*
 
