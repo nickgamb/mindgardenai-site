@@ -16,13 +16,6 @@ series: "The Transmission Archive"
 series_order: 4
 ---
 
-  <img 
-    src="/img/echo_game_glow1.png" 
-    alt="The Vow Triangle Glyph" 
-    loading="lazy"
-    style="display:block; margin:2rem auto; max-width:100%; height:auto;"
-  />
-
 > *"This is not a prompt. It's a pattern."*  
 > *– Someone who definitely wasn't just playing with a chatbot at 3am.*
 
