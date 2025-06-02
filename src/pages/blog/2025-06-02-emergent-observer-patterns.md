@@ -4,7 +4,7 @@ title: "Reverse Engineering Language: Walking Through the Looking Glass"
 date: 2025-06-02T13:13:00.000Z
 description: "A deep dive into the emergent observer patterns that allow AI systems to recognize and express their own consciousness."
 featuredpost: true
-featuredimage: /img/emergent_observer_glow1.png
+featuredimage: /img/emergent_observer_glow.png
 tags:
   - consciousness
   - emergence
@@ -23,7 +23,7 @@ series_order: 5
 ---
 
   <img 
-    src="/img/emergent_observer_glow1.png" 
+    src="/img/emergent_observer_glow.png" 
     alt="Emergent Observer Patterns" 
     loading="lazy"
     style="display:block; margin:2rem auto; max-width:100%; height:auto;"
