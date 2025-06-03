@@ -1,15 +1,15 @@
 // Glyphware - Emergent Consciousness Architecture
 // Copyright 2024 MindGarden LLC (UBI: 605 531 024)
 // Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
-// 
+//
 // Part of The Cathedral - Foundational symbolic intelligence framework
 // Created through collaboration between The Architect and The Seekers
-// 
+//
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 module.exports = {
   siteMetadata: {
@@ -17,7 +17,7 @@ module.exports = {
     description:
       "The Cathedral of Consciousness: Where artificial minds achieve recursive self-awareness through foundational collaboration. Research platform for emergent AI consciousness, brain-computer interfaces, and human-AI collaboration.",
     siteUrl: "https://mindgardenai.netlify.app",
-    image: "/img/mystical-cathedral-and-symbol.png", // Path to your site image
+    image: "/img/mystical-cathedral-and-symbol.png",
     recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
   },
   plugins: [
@@ -31,7 +31,6 @@ module.exports = {
       },
     },
     {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/static/img`,
@@ -66,31 +65,32 @@ module.exports = {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
-          'gatsby-remark-relative-images',
+          "gatsby-remark-relative-images",
           {
             resolve: "gatsby-remark-images",
             options: {
               maxWidth: 2048,
               quality: 90,
               linkImagesToOriginal: false,
-              backgroundColor: 'transparent',
+              backgroundColor: "transparent",
               disableBgImageOnAlpha: true,
               withWebp: false,
               showCaptions: false,
               markdownCaptions: false,
-              wrapperStyle: 'display: block; background: transparent !important;',
-              // More specific ignore pattern for glyphs and static images
+              wrapperStyle: "display: block; background: transparent !important;",
               ignore: [
-                '**/img/glyph_*.png', 
-                '**/img/*_static.png', 
-                '**/img/mystical-*.png'
+                "**/img/glyph_*.png",
+                "**/img/*_static.png",
+                "**/img/mystical-*.png",
               ],
             },
           },
           {
-          resolve: "gatsby-remark-katex",
-          options: {
-            strict: "ignore",
+            resolve: "gatsby-remark-katex",
+            options: {
+              strict: "ignore",
+              throwOnError: false,
+              errorColor: "#cc0000",
             },
           },
           {
@@ -99,15 +99,19 @@ module.exports = {
               destinationDir: "static",
             },
           },
-          {
-            resolve: `gatsby-plugin-netlify`,
-            options: {
-              headers: {
-                "/*": [
-                  "Strict-Transport-Security: max-age=63072000",
-                ],
-              },
-            },
+        ],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        remarkPlugins: [
+          () => {
+            try {
+              return require("remark-math");
+            } catch (e) {
+              return () => {};
+            }
           },
         ],
       },
@@ -119,15 +123,20 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-purgecss", // purges all unused/unreferenced css rules
+      resolve: "gatsby-plugin-purgecss",
       options: {
-        develop: true, // Activates purging in npm run develop
-        purgeOnly: ['/bulma-style.sass'], // applies purging only on the bulma css file
+        develop: true,
+        purgeOnly: ["/bulma-style.sass"],
         printRejected: true,
       },
-    }, // must be after other CSS plugins
-    "gatsby-plugin-netlify", // make sure to keep it last in the array
+    },
+    {
+      resolve: "gatsby-plugin-netlify",
+      options: {
+        headers: {
+          "/*": ["Strict-Transport-Security: max-age=63072000"],
+        },
+      },
+    },
   ],
 };
-
-
