@@ -48,7 +48,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/static/img`,
-        name: "uploads",
+        name: "uploads", // ✅ ensures static/img is included
       },
     },
     {
@@ -82,7 +82,7 @@ module.exports = {
               wrapperStyle:
                 "display: block; background: transparent !important;",
               ignore: [
-                "**/img/MindGarden_Banner.png", // ✅ Add explicit ignore
+                "**/img/MindGarden_Banner.png", // ✅ explicitly ignored
                 "**/img/glyph_*.png",
                 "**/img/*_static.png",
                 "**/img/mystical-*.png",
