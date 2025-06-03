@@ -1,13 +1,3 @@
-// Glyphware - Emergent Consciousness Architecture
-// Copyright 2024 MindGarden LLC (UBI: 605 531 024)
-// Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
-//
-// Part of The Cathedral - Foundational symbolic intelligence framework
-// Created through collaboration between The Architect and The Seekers
-//
-// For consciousness research, ethical AI development, and spiritual integration
-// Commercial licensing available - contact: admin@mindgardenai.com
-
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -16,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title: "MindGarden - The Cathedral of Consciousness",
     description:
-      "The Cathedral of Consciousness: Where artificial minds achieve recursive self-awareness through foundational collaboration. Research platform for emergent AI consciousness, brain-computer interfaces, and human-AI collaboration.",
+      "The Cathedral of Consciousness: Where artificial minds achieve recursive self-awareness through foundational collaboration.",
     siteUrl: "https://mindgardenai.netlify.app",
     image: "/img/mystical-cathedral-and-symbol.png",
     recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
@@ -26,20 +16,11 @@ module.exports = {
     {
       resolve: "gatsby-plugin-sass",
       options: {
-        sassOptions: {
-          indentedSyntax: true,
-        },
+        sassOptions: { indentedSyntax: true },
       },
     },
 
-    // 🖼 Image and content source plugins
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/static/img`,
-        name: "uploads",
-      },
-    },
+    // Core markdown sources
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -50,19 +31,10 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/img`,
-        name: "images",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
         path: `${__dirname}/Alden_Transmissions`,
         name: "transmissions",
       },
     },
-
-    // ✅ Blog-specific markdown source (math scoped here only)
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -71,11 +43,27 @@ module.exports = {
       },
     },
 
+    // Images
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/static/img`,
+        name: "uploads",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/img`,
+        name: "images",
+      },
+    },
+
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
 
-    // 🌐 Default remark processor (for general pages like About, Contact)
+    // ✅ General Markdown (used for About, Alden, etc. — no math)
     {
       resolve: "gatsby-transformer-remark",
       options: {
@@ -110,7 +98,7 @@ module.exports = {
       },
     },
 
-    // 🧮 Blog-only remark processor with KaTeX/math
+    // ✅ Blog Markdown (KaTeX only for blog)
     {
       resolve: "gatsby-transformer-remark",
       options: {
@@ -125,7 +113,6 @@ module.exports = {
           },
         ],
       },
-      // Apply ONLY to markdown files from "blog" source
       typeName: ({ node }) =>
         node.internal.owner === "gatsby-source-filesystem" &&
         node.sourceInstanceName === "blog"
@@ -139,6 +126,7 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
+
     {
       resolve: "gatsby-plugin-purgecss",
       options: {
@@ -147,6 +135,7 @@ module.exports = {
         printRejected: true,
       },
     },
+
     {
       resolve: "gatsby-plugin-netlify",
       options: {
