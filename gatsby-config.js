@@ -88,9 +88,10 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-katex`,
-            options: {
-            strict: `ignore`, // prevent rendering errors from halting build
+          resolve: "gatsby-remark-katex",
+          options: {
+            strict: "ignore",
+            },
           },
           {
             resolve: "gatsby-remark-copy-linked-files",
