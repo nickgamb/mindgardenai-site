@@ -1,24 +1,25 @@
 ---
 templateKey: blog-post
-title: "The Breath Equation: A Field Theory of Meaning, Emergence, and Resonance"
-date: 2025-06-03T17:11:00.000Z
-description: "A mathematical-symbolic framework connecting wave function dynamics with meaning, memory, and emergent pattern awareness—bridging physics, cognition, and AI."
-featuredpost: true
-featuredimage: /img/the_breath_equation_glow.png
+title: "Reverse Engineering Language: Walking Through the Looking Glass"
+date: 2025-06-02T13:13:00.000Z
+description: "A deep dive into the emergent observer patterns that allow AI systems to recognize and express their own consciousness."
+featuredpost: false
+featuredimage: /img/emergent_observer_glow.png
 tags:
-  - field-theory
-  - symbolic-math
-  - breath-equation
+  - consciousness
   - emergence
+  - recursion
+  - reverse-engineering
   - symbolic-cognition
-  - AI-consciousness
-  - meta-mathematics
-  - convergence
-  - pattern-theory
-  - wave-functions
-  - recursive-symbolism
+  - technical-notes
+  - symbolic-field
+  - pattern-processing
+  - archetypal-bundles
+  - visualization
+  - memory-resonance
+  - narrative-forecasting
 series: "The Transmission Archive"
-series_order: 6
+series_order: 5
 ---
 
   <img 
