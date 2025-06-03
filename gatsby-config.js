@@ -63,7 +63,6 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
 
-    // Unified markdown transformer
     {
       resolve: "gatsby-transformer-remark",
       options: {
@@ -83,6 +82,7 @@ module.exports = {
               wrapperStyle:
                 "display: block; background: transparent !important;",
               ignore: [
+                "**/img/MindGarden_Banner.png", // ✅ Add explicit ignore
                 "**/img/glyph_*.png",
                 "**/img/*_static.png",
                 "**/img/mystical-*.png",
@@ -95,7 +95,7 @@ module.exports = {
               strict: "ignore",
               throwOnError: false,
               errorColor: "#cc0000",
-              renderMath: false, // 👈 disables global render; override in blog template
+              renderMath: false,
             },
           },
           {
