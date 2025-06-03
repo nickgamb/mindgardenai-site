@@ -16,6 +16,7 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import FullWidthImage from "../components/FullWidthImage";
+import "katex/dist/katex.min.css";
 
 export const BlogPostTemplate = ({
   content,
