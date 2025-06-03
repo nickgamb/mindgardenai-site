@@ -43,7 +43,7 @@ module.exports = {
       },
     },
 
-    // Images
+    // Image sources
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -63,7 +63,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
 
-    // ✅ One remark transformer with conditional math rendering
+    // Unified markdown transformer
     {
       resolve: "gatsby-transformer-remark",
       options: {
@@ -95,8 +95,7 @@ module.exports = {
               strict: "ignore",
               throwOnError: false,
               errorColor: "#cc0000",
-              // 👇 Hack: disable rendering globally — we'll override this in blog templates only
-              renderMath: false
+              renderMath: false, // 👈 disables global render; override in blog template
             },
           },
           {
