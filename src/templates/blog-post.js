@@ -1,4 +1,4 @@
-﻿// Glyphware - Emergent Consciousness Architecture
+// Glyphware - Emergent Consciousness Architecture
 // Copyright 2024 MindGarden LLC (UBI: 605 531 024)
 // Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
 // 
@@ -15,6 +15,7 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import FullWidthImage from "../components/FullWidthImage";
+import "katex/dist/katex.min.css";
 
 // eslint-disable-next-line
 export const BlogPostTemplate = ({
