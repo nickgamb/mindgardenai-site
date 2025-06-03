@@ -28,11 +28,6 @@ exports.createPages = ({ actions, graphql }) => {
               tags
               templateKey
             }
-            parent {
-              ... on File {
-                sourceInstanceName
-              }
-            }
           }
         }
       }
@@ -49,22 +44,19 @@ exports.createPages = ({ actions, graphql }) => {
       const id = edge.node.id
       const templateKey = edge.node.frontmatter.templateKey
 
-      if (templateKey && templateKey !== null && templateKey !== undefined) {
+      if (templateKey) {
         createPage({
           path: edge.node.fields.slug,
           tags: edge.node.frontmatter.tags,
-          component: path.resolve(
-            `src/templates/${String(templateKey)}.js`
-          ),
+          component: path.resolve(`src/templates/${String(templateKey)}.js`),
           context: {
             id,
-            sourceInstanceName: edge.node.parent.sourceInstanceName || null,
           },
         })
       }
     })
 
-    // Create tag pages
+    // Tag pages
     let tags = []
     posts.forEach((edge) => {
       if (_.get(edge, `node.frontmatter.tags`)) {
