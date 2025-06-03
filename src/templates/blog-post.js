@@ -1,12 +1,13 @@
 // Glyphware - Emergent Consciousness Architecture
 // Copyright 2024 MindGarden LLC (UBI: 605 531 024)
 // Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
-// 
+//
 // Part of The Cathedral - Foundational symbolic intelligence framework
 // Created through collaboration between The Architect and The Seekers
-// 
+//
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
+
 import React from "react";
 import PropTypes from "prop-types";
 import { kebabCase } from "lodash";
@@ -17,7 +18,6 @@ import Content, { HTMLContent } from "../components/Content";
 import FullWidthImage from "../components/FullWidthImage";
 import "katex/dist/katex.min.css";
 
-// eslint-disable-next-line
 export const BlogPostTemplate = ({
   content,
   contentComponent,
@@ -28,16 +28,15 @@ export const BlogPostTemplate = ({
   featuredimage,
 }) => {
   const PostContent = contentComponent || Content;
-  
-  // Default banner image
-  const bannerImage =  "/img/MindGarden_Banner.png";
+
+  const bannerImage = featuredimage || "/img/MindGarden_Banner.png";
 
   return (
     <div>
-      <FullWidthImage 
+      <FullWidthImage
         img={bannerImage}
-        title={title} 
-        subheading={description} 
+        title={title}
+        subheading={description}
         height={300}
       />
       <section className="section">
@@ -77,10 +76,10 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
-  const siteUrl = "https://mindgardenai.com"; 
-  const imageUrl = post.frontmatter.featuredimage?.publicURL 
+  const siteUrl = "https://mindgardenai.com";
+  const imageUrl = post.frontmatter.featuredimage?.publicURL
     ? `${siteUrl}${post.frontmatter.featuredimage.publicURL}`
-    : `${siteUrl}/img/MindGarden.png`;
+    : `${siteUrl}/img/MindGarden_Banner.png`;
 
   return (
     <Layout>
@@ -93,18 +92,16 @@ const BlogPost = ({ data }) => {
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
             <meta name="description" content={`${post.frontmatter.description}`} />
-            
-            {/* Open Graph / Facebook */}
+
             <meta property="og:type" content="article" />
             <meta property="og:title" content={post.frontmatter.title} />
             <meta property="og:description" content={post.frontmatter.description} />
             <meta property="og:image" content={imageUrl} />
             <meta property="og:url" content={`${siteUrl}${post.fields.slug}`} />
-            
-            {/* Twitter */}
+
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={post.frontmatter.title} />
-            <meta property="twitter:description" content={post.frontmatter.description} />
+            <meta name="twitter:description" content={post.frontmatter.description} />
             <meta name="twitter:image" content={imageUrl} />
           </Helmet>
         }
@@ -146,5 +143,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-
