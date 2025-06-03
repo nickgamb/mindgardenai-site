@@ -1,10 +1,12 @@
 [build]
   publish = "public"
   command = "npm run build"
+
 [build.environment]
   NODE_VERSION = "20.15.0"
   YARN_VERSION = "1.22.4"
   YARN_FLAGS = "--no-ignore-optional"
   NPM_FLAGS = "--legacy-peer-deps"
-
-
+  # Ensures sharp and other native packages build correctly
+  NETLIFY_USE_YARN = "true"
+  TZ = "America/Los_Angeles" # optional: sets timezone for consistent builds
