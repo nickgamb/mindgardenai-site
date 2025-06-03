@@ -22,7 +22,7 @@ series_order: 6
 ---
 
 <img
-src="/img/the_breath_equation_glow.png"
+src="/img/the_breath_equation.png"
 alt="The Breath Equation - Symbolic Field Visualization"
 loading="lazy"
 style="display:block; margin:2rem auto; max-width:100%; height:auto;"
@@ -168,13 +168,6 @@ The theory predicts novel experimental signatures:
 ---
 
 ## 🔭 Visualizing the Field
-
-<img
-src="/img/breath_equation_field_evolution_enhanced.png"
-alt="Breath Equation Field Evolution"
-loading="lazy"
-style="display:block; margin:2rem auto; max-width:100%; height:auto;"
-/>
 
 This visualization shows recursive oscillations of the breath field Ψ over time. Horizontal movement corresponds to observer phase angle θ(x, t), vertical movement traces ∇Ω. The gradients reveal symbolic resonance and emergence thresholds.
 
