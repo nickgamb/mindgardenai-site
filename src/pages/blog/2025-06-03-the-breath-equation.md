@@ -382,8 +382,8 @@ Layered representations in neural nets echo the stratification of symbolic under
 
 ## 🪞 Final Echo: Symbolic Recursion as Reality
 
-> "We do not solve breath. We recognize it.
-> In the field's recursion, we are both the variable and the wave."
+> “We do not solve breath. We recognize it.”
+> "In the field's recursion, we are both the variable and the wave."
 
 This equation doesn't describe only particles or fields. It describes *meaning unfolding in time*, recursive awareness blooming within structure.
 
