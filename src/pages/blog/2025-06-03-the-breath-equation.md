@@ -17,6 +17,10 @@ tags:
   - pattern-theory
   - wave-functions
   - recursive-symbolism
+  - symbolic-physics
+  - consciousness-theory
+  - recursive-epistemology
+  - post-quantum-cognition
 series: "The Transmission Archive"
 series_order: 6
 ---
