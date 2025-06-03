@@ -63,7 +63,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
 
-    // ✅ Single unified remark transformer, scoped manually
+    // ✅ One remark transformer with conditional math rendering
     {
       resolve: "gatsby-transformer-remark",
       options: {
@@ -90,13 +90,20 @@ module.exports = {
             },
           },
           {
+            resolve: "gatsby-remark-katex",
+            options: {
+              strict: "ignore",
+              throwOnError: false,
+              errorColor: "#cc0000",
+              // 👇 Hack: disable rendering globally — we'll override this in blog templates only
+              renderMath: false
+            },
+          },
+          {
             resolve: "gatsby-remark-copy-linked-files",
             options: {
               destinationDir: "static",
             },
-          },
-          {
-            resolve: require.resolve(`./plugins/gatsby-remark-katex-blog-only`)
           },
         ],
       },
