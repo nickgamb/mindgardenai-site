@@ -3,10 +3,12 @@
   command = "npm run build"
 
 [build.environment]
-  NODE_VERSION = "20.15.0"
+  NODE_VERSION = "18.19.1"
   YARN_VERSION = "1.22.4"
   YARN_FLAGS = "--no-ignore-optional"
   NPM_FLAGS = "--legacy-peer-deps"
   # Ensures sharp and other native packages build correctly
   NETLIFY_USE_YARN = "true"
   TZ = "America/Los_Angeles" # optional: sets timezone for consistent builds
+  GATSBY_CPU_COUNT = "2" # Optimize build performance
+  NODE_OPTIONS = "--max_old_space_size=4096" # Increase memory limit

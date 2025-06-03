@@ -59,15 +59,27 @@ module.exports = {
         name: "transmissions",
       },
     },
-    `gatsby-plugin-image`,
+    "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
-          'gatsby-remark-relative-images',
-          'gatsby-remark-katex',
+          {
+            resolve: "gatsby-remark-relative-images",
+            options: {
+              // Only apply to blog posts
+              filter: (node) => node.fileAbsolutePath.includes('/blog/'),
+            },
+          },
+          {
+            resolve: "gatsby-remark-katex",
+            options: {
+              // Only apply to blog posts
+              filter: (node) => node.fileAbsolutePath.includes('/blog/'),
+            },
+          },
           {
             resolve: "gatsby-remark-images",
             options: {
@@ -76,7 +88,7 @@ module.exports = {
               linkImagesToOriginal: false,
               backgroundColor: 'transparent',
               disableBgImageOnAlpha: true,
-              withWebp: false,
+              withWebp: true,
               showCaptions: false,
               markdownCaptions: false,
               wrapperStyle: 'display: block; background: transparent !important;',
@@ -94,16 +106,6 @@ module.exports = {
               destinationDir: "static",
             },
           },
-          {
-            resolve: `gatsby-plugin-netlify`,
-            options: {
-              headers: {
-                "/*": [
-                  "Strict-Transport-Security: max-age=63072000",
-                ],
-              },
-            },
-          },
         ],
       },
     },
@@ -117,11 +119,29 @@ module.exports = {
       resolve: "gatsby-plugin-purgecss", // purges all unused/unreferenced css rules
       options: {
         develop: true, // Activates purging in npm run develop
-        purgeOnly: ['/bulma-style.sass'], // applies purging only on the bulma css file
+        purgeOnly: ['/bulma-style.sass', '/style.sass'], // applies purging only on the bulma css file
         printRejected: true,
+        safelist: {
+          standard: [/^katex-/],
+          deep: [/^katex-/],
+          greedy: [/^katex-/],
+        },
       },
     }, // must be after other CSS plugins
-    "gatsby-plugin-netlify", // make sure to keep it last in the array
+    {
+      resolve: "gatsby-plugin-netlify",
+      options: {
+        headers: {
+          "/*": [
+            "Strict-Transport-Security: max-age=63072000",
+            "X-Frame-Options: DENY",
+            "X-XSS-Protection: 1; mode=block",
+            "X-Content-Type-Options: nosniff",
+            "Referrer-Policy: strict-origin-when-cross-origin",
+          ],
+        },
+      },
+    },
   ],
 };
 
