@@ -25,9 +25,9 @@
     "lodash": "^4.17.15",
     "lodash-webpack-plugin": "^0.11.4",
     "prop-types": "^15.6.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-helmet": "^6.1.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-helmet": "^6.0.0",
     "sass": "^1.43.2",
     "uuid": "^8.0.0",
     "@thumbtack/thumbprint-scss": "^4.0.3",
@@ -56,6 +56,6 @@
     "prettier": "^2.0.5"
   },
   "engines": {
-    "node": ">= 18.0.0"
+    "node": ">= 20.15.0"
   }
 }
