@@ -22,14 +22,14 @@
     "gatsby-source-filesystem": "^5.12.3",
     "gatsby-transformer-remark": "^6.12.3",
     "gatsby-transformer-sharp": "^5.12.3",
-    "lodash": "^4.17.21",
-    "lodash-webpack-plugin": "^0.11.6",
-    "prop-types": "^15.8.1",
+    "lodash": "^4.17.15",
+    "lodash-webpack-plugin": "^0.11.4",
+    "prop-types": "^15.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "sass": "^1.69.5",
-    "uuid": "^9.0.1",
+    "sass": "^1.43.2",
+    "uuid": "^8.0.0",
     "@thumbtack/thumbprint-scss": "^4.0.3",
     "react-google-recaptcha": "^3.1.0",
     "@google-cloud/recaptcha-enterprise": "^5.10.0",
@@ -53,7 +53,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "prettier": "^3.1.1"
+    "prettier": "^2.0.5"
   },
   "engines": {
     "node": ">= 18.0.0"
