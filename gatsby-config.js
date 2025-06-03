@@ -142,6 +142,46 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: '/sitemap.xml',
+        createLinkInHead: true,
+        exclude: [
+          '/admin/*',
+          '/private/*',
+          '/api/*',
+          '/dev-404-page',
+          '/404',
+          '/404.html',
+          '/500',
+          '/500.html',
+        ],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              nodes {
+                path
+                pageContext
+              }
+            }
+          }
+        `,
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.nodes.map(node => {
+            return {
+              url: `${site.siteMetadata.siteUrl}${node.path}`,
+              changefreq: 'daily',
+              priority: node.path === '/' ? 1.0 : 0.7,
+            }
+          }),
+      },
+    },
   ],
 };
 

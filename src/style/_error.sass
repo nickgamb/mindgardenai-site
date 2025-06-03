@@ -1,0 +1,76 @@
+@import variables
+
+.error-page
+  font-family: 'SF Pro Display', 'Roboto', 'Helvetica', 'Arial', sans-serif
+  background: $purple100
+  color: $purple10
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  height: 100vh
+  margin: 0
+  padding: 20px
+  text-align: center
+  position: relative
+  overflow: hidden
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: radial-gradient(circle at center, rgba($purple70, 0.15) 0%, rgba($purple100, 0) 70%)
+    pointer-events: none
+
+  h1
+    font-size: 3rem
+    margin-bottom: 1rem
+    font-weight: 600
+    letter-spacing: -0.01em
+    background: linear-gradient(45deg, $purple70, $purple40)
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    background-clip: text
+    position: relative
+    z-index: 1
+
+    @media (max-width: 768px)
+      font-size: 2rem
+
+  p
+    font-size: 1.2rem
+    margin-bottom: 2rem
+    color: $purple_white
+    position: relative
+    z-index: 1
+
+    @media (max-width: 768px)
+      font-size: 1rem
+
+  a
+    color: $purple70
+    text-decoration: none
+    padding: 12px 24px
+    border: 2px solid $purple70
+    border-radius: 8px
+    transition: all 0.3s ease
+    position: relative
+    z-index: 1
+    font-weight: 500
+    letter-spacing: 0.5px
+    text-transform: uppercase
+    font-size: 0.9rem
+
+    &:hover
+      background: $purple70
+      color: $purple100
+      transform: translateY(-2px)
+      box-shadow: 0 4px 12px rgba($purple70, 0.3)
+
+    &:focus-visible
+      outline: none
+      box-shadow: 0 0 0 2px $purple100, 0 0 0 4px $purple70, 0 0 20px rgba($purple70, 0.3)
+      border-radius: 8px 

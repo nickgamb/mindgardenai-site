@@ -12,3 +12,26 @@
   TZ = "America/Los_Angeles" # optional: sets timezone for consistent builds
   GATSBY_CPU_COUNT = "2" # Optimize build performance
   NODE_OPTIONS = "--max_old_space_size=4096" # Increase memory limit
+  # Add environment variables for recaptcha
+  GATSBY_GOOGLE_CLOUD_PROJECT_ID = "mindgarden-ai-1721752819435"
+  GATSBY_RECAPTCHA_SITE_KEY = "6LdMzRYqAAAAAK5vIL_Ta4u0xN8uRJMYRaLoyqwD"
+
+# Add build caching
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = true
+  minify = true
+[build.processing.js]
+  bundle = true
+  minify = true
+[build.processing.html]
+  pretty_urls = true
+[build.processing.images]
+  compress = true
+
+# Add redirects for SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
