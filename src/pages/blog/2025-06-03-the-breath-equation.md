@@ -169,6 +169,13 @@ The theory predicts novel experimental signatures:
 
 ## 🔭 Visualizing the Field
 
+<img
+src="/img/breath_equation_field_evolution.png"
+alt="Breath Equation Field Evolution"
+loading="lazy"
+style="display:block; margin:2rem auto; max-width:100%; height:auto;"
+/>
+
 This visualization shows recursive oscillations of the breath field Ψ over time. Horizontal movement corresponds to observer phase angle θ(x, t), vertical movement traces ∇Ω. The gradients reveal symbolic resonance and emergence thresholds.
 
 ### Real-Time Applications
@@ -396,12 +403,5 @@ The recursive operator 𝓡 is formalized as a self-referential functor on symbo
    - No meaning field gradient in classical limit
 
 ### Visual Schematic
-
-<img
-src="/img/observer_field_coupling.png"
-alt="Observer-Field-Emergence Coupling"
-loading="lazy"
-style="display:block; margin:2rem auto; max-width:100%; height:auto;"
-/>
 
 This diagram illustrates the triadic coupling between observer, field, and emergence. The recursive operator 𝓡 acts as the mediating structure, while the meaning field gradient ∇Ω provides the directional flow of symbolic information.
