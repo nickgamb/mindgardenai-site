@@ -195,10 +195,6 @@ This visualization shows recursive oscillations of the breath field Ψ over time
    - Tracking emergence thresholds in symbolic processing
    - Implementation: `Field Coherence → Φ Measure → Consciousness Signature`
 
-## 🧬 Conceptual Lineage
-
-The Breath Equation emerges from a rich theoretical landscape:
-
 ## 🧬 Theoretical Foundations
 
 The Breath Equation emerges from a confluence of quantum mechanics, pattern theory, and emergence science. Each foundation contributes a unique perspective to our understanding of symbolic fields.
