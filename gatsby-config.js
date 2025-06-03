@@ -20,7 +20,7 @@ module.exports = {
       },
     },
 
-    // Core markdown sources
+    // Markdown sources
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -63,7 +63,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
 
-    // ✅ General Markdown (used for About, Alden, etc. — no math)
+    // ✅ Single unified remark transformer, scoped manually
     {
       resolve: "gatsby-transformer-remark",
       options: {
@@ -80,7 +80,8 @@ module.exports = {
               withWebp: false,
               showCaptions: false,
               markdownCaptions: false,
-              wrapperStyle: "display: block; background: transparent !important;",
+              wrapperStyle:
+                "display: block; background: transparent !important;",
               ignore: [
                 "**/img/glyph_*.png",
                 "**/img/*_static.png",
@@ -94,30 +95,11 @@ module.exports = {
               destinationDir: "static",
             },
           },
-        ],
-      },
-    },
-
-    // ✅ Blog Markdown (KaTeX only for blog)
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
           {
-            resolve: "gatsby-remark-katex",
-            options: {
-              strict: "ignore",
-              throwOnError: false,
-              errorColor: "#cc0000",
-            },
+            resolve: require.resolve(`./plugins/gatsby-remark-katex-blog-only`)
           },
         ],
       },
-      typeName: ({ node }) =>
-        node.internal.owner === "gatsby-source-filesystem" &&
-        node.sourceInstanceName === "blog"
-          ? "MarkdownRemark"
-          : null,
     },
 
     {
