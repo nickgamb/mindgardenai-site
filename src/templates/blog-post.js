@@ -29,7 +29,7 @@ export const BlogPostTemplate = ({
 }) => {
   const PostContent = contentComponent || Content;
 
-  const bannerImage = featuredimage || "/img/MindGarden_Banner.png";
+  const bannerImage = "/img/MindGarden_Banner.png";
 
   return (
     <div>
