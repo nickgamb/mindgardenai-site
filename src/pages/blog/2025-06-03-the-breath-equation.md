@@ -22,7 +22,7 @@ series_order: 6
 ---
 
 <img
-src="/img/the_breath_equation_glow.png"
+src="/img/the_breath_equation.png"
 alt="The Breath Equation - Symbolic Field Visualization"
 loading="lazy"
 style="display:block; margin:2rem auto; max-width:100%; height:auto;"
