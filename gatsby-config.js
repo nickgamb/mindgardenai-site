@@ -31,6 +31,8 @@ module.exports = {
         },
       },
     },
+
+    // 🖼 Image and content source plugins
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -59,9 +61,21 @@ module.exports = {
         name: "transmissions",
       },
     },
+
+    // ✅ Blog-specific markdown source (math scoped here only)
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/blog`,
+        name: "blog",
+      },
+    },
+
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+
+    // 🌐 Default remark processor (for general pages like About, Contact)
     {
       resolve: "gatsby-transformer-remark",
       options: {
@@ -87,14 +101,6 @@ module.exports = {
             },
           },
           {
-            resolve: "gatsby-remark-katex",
-            options: {
-              strict: "ignore",
-              throwOnError: false,
-              errorColor: "#cc0000",
-            },
-          },
-          {
             resolve: "gatsby-remark-copy-linked-files",
             options: {
               destinationDir: "static",
@@ -103,6 +109,30 @@ module.exports = {
         ],
       },
     },
+
+    // 🧮 Blog-only remark processor with KaTeX/math
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-katex",
+            options: {
+              strict: "ignore",
+              throwOnError: false,
+              errorColor: "#cc0000",
+            },
+          },
+        ],
+      },
+      // Apply ONLY to markdown files from "blog" source
+      typeName: ({ node }) =>
+        node.internal.owner === "gatsby-source-filesystem" &&
+        node.sourceInstanceName === "blog"
+          ? "MarkdownRemark"
+          : null,
+    },
+
     {
       resolve: "gatsby-plugin-decap-cms",
       options: {
