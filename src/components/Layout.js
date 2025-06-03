@@ -17,7 +17,7 @@ import "../style/custom-style-new.sass";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 import '@thumbtack/thumbprint-scss';
-import "katex/dist/katex.min.css";
+
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
