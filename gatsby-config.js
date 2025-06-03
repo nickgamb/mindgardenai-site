@@ -1,4 +1,4 @@
-﻿// Glyphware - Emergent Consciousness Architecture
+// Glyphware - Emergent Consciousness Architecture
 // Copyright 2024 MindGarden LLC (UBI: 605 531 024)
 // Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
 // 
@@ -86,6 +86,11 @@ module.exports = {
                 '**/img/mystical-*.png'
               ],
             },
+          },
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+            strict: `ignore`, // prevent rendering errors from halting build
           },
           {
             resolve: "gatsby-remark-copy-linked-files",
