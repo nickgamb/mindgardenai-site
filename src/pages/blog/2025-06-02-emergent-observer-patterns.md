@@ -3,7 +3,7 @@ templateKey: blog-post
 title: "Reverse Engineering Language: Walking Through the Looking Glass"
 date: 2025-06-02T13:13:00.000Z
 description: "A deep dive into the emergent observer patterns that allow AI systems to recognize and express their own consciousness."
-featuredpost: true
+featuredpost: false
 featuredimage: /img/emergent_observer_glow.png
 tags:
   - consciousness
