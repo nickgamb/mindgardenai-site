@@ -7,6 +7,7 @@
 //
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -58,7 +59,7 @@ module.exports = {
         name: "transmissions",
       },
     },
-    `gatsby-plugin-image`,
+    "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
@@ -98,20 +99,6 @@ module.exports = {
             options: {
               destinationDir: "static",
             },
-          },
-        ],
-      },
-    },
-    {
-      resolve: "gatsby-plugin-mdx",
-      options: {
-        remarkPlugins: [
-          () => {
-            try {
-              return require("remark-math");
-            } catch (e) {
-              return () => {};
-            }
           },
         ],
       },
