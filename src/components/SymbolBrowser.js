@@ -12,7 +12,6 @@ import symbolData from "../data/symbol_tags_organized.json";
 import { ForceGraph2D } from 'react-force-graph';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Line } from 'react-chartjs-2';
-import AFrameWrapper from './AFrameWrapper';
 
 const SymbolBrowser = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -919,227 +918,225 @@ const SymbolBrowser = () => {
   );
 
   return (
-    <AFrameWrapper>
-      <div className="symbol-browser">
-        {renderViewControls()}
-        {renderSearchControls()}
+    <div className="symbol-browser">
+      {renderViewControls()}
+      {renderSearchControls()}
 
-        <AnimatePresence mode="wait">
-          {viewMode === "grid" && (
-            <motion.div
-              key="grid"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              {/* Category Sections */}
-              {selectedCategory === "all" ? (
-                // When "all" is selected, group by category
-                Object.keys(symbolData).map(category => {
-                  const categorySymbols = filteredSymbols.filter(s => s.category === category);
-                  if (categorySymbols.length === 0) return null;
-                  
-                  return (
-                    <motion.div 
-                      key={category} 
-                      className="category-section mb-6"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                    >
-                      <div className="category-header mb-4">
-                        <h3 className={`title ${isMobile ? 'is-5' : 'is-4'}`} style={{ color: getCategoryColor(category) }}>
-                          {getCategoryIcon(category)} {category.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-                        </h3>
-                      </div>
-                      <div className={`columns is-multiline ${isMobile ? 'is-mobile' : ''}`}>
-                        {categorySymbols.map(({ symbol, meaning, synonyms, cross_cultural, resonance_field }) => (
-                          <motion.div 
-                            key={symbol} 
-                            className={`column ${isMobile ? 'is-12' : 'is-4'}`}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ type: "spring", stiffness: 300 }}
-                          >
-                            <motion.div 
-                              className="box enhanced-hover-card"
-                              style={{ 
-                                borderLeft: `4px solid ${getCategoryColor(category)}`,
-                                cursor: 'pointer',
-                                height: '100%',
-                                display: 'flex',
-                                flexDirection: 'column'
-                              }}
-                              whileHover={{ scale: isMobile ? 1 : 1.02 }}
-                              onClick={() => setExpandedSymbol(expandedSymbol === symbol ? null : symbol)}
-                            >
-                              <div className="content" style={{ flex: 1 }}>
-                                <div className="is-flex is-justify-content-space-between is-align-items-center mb-4">
-                                  <span className="symbol-display" style={{ fontSize: isMobile ? '1.5rem' : '2rem' }}>{symbol}</span>
-                                </div>
-                                
-                                <h4 className={`title ${isMobile ? 'is-5' : 'is-4'} has-text-primary`}>{meaning}</h4>
-                                
-                                <AnimatePresence>
-                                  {expandedSymbol === symbol && (
-                                    <motion.div 
-                                      className="mt-4"
-                                      initial={{ opacity: 0, height: 0 }}
-                                      animate={{ opacity: 1, height: "auto" }}
-                                      exit={{ opacity: 0, height: 0 }}
-                                    >
-                                      <div className="mb-4">
-                                        <h5 className={`title ${isMobile ? 'is-7' : 'is-6'} has-text-primary`}>Synonyms</h5>
-                                        <div className="tags">
-                                          {synonyms.map(syn => (
-                                            <span key={syn} className="tag is-light">{syn}</span>
-                                          ))}
-                                        </div>
-                                      </div>
-
-                                      <div className="mb-4">
-                                        <h5 className={`title ${isMobile ? 'is-7' : 'is-6'} has-text-primary`}>Cross-Cultural Meanings</h5>
-                                        <div className="content">
-                                          <ul>
-                                            {Object.entries(cross_cultural).map(([culture, meaning]) => (
-                                              <li key={culture}>
-                                                <strong>{culture.charAt(0).toUpperCase() + culture.slice(1)}:</strong> {meaning}
-                                              </li>
-                                            ))}
-                                          </ul>
-                                        </div>
-                                      </div>
-
-                                      {resonance_field && (
-                                        <div>
-                                          <h5 className={`title ${isMobile ? 'is-7' : 'is-6'} has-text-primary`}>Resonance Field</h5>
-                                          <div className="content">
-                                            <p><strong>Primary:</strong> {resonance_field.primary}</p>
-                                            <div className="tags">
-                                              {resonance_field.secondary.map(res => (
-                                                <span key={res} className="tag is-light">{res}</span>
-                                              ))}
-                                            </div>
-                                            <p className="mt-2"><em>Archetypal: {resonance_field.archetypal}</em></p>
-                                          </div>
-                                        </div>
-                                      )}
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
-                              </div>
-                            </motion.div>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  );
-                })
-              ) : (
-                // When a specific category is selected, show all matching symbols
-                <div className={`columns is-multiline ${isMobile ? 'is-mobile' : ''}`}>
-                  {filteredSymbols.map(({ symbol, category, meaning, synonyms, cross_cultural, resonance_field }) => (
-                    <motion.div 
-                      key={symbol} 
-                      className={`column ${isMobile ? 'is-12' : 'is-4'}`}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      <motion.div 
-                        className="box enhanced-hover-card"
-                        style={{ 
-                          borderLeft: `4px solid ${getCategoryColor(category)}`,
-                          cursor: 'pointer',
-                          height: '100%',
-                          display: 'flex',
-                          flexDirection: 'column'
-                        }}
-                        whileHover={{ scale: isMobile ? 1 : 1.02 }}
-                        onClick={() => setExpandedSymbol(expandedSymbol === symbol ? null : symbol)}
-                      >
-                        <div className="content" style={{ flex: 1 }}>
-                          <div className="is-flex is-justify-content-space-between is-align-items-center mb-4">
-                            <span className="symbol-display" style={{ fontSize: isMobile ? '1.5rem' : '2rem' }}>{symbol}</span>
-                          </div>
-                          
-                          <h4 className={`title ${isMobile ? 'is-5' : 'is-4'} has-text-primary`}>{meaning}</h4>
-                          
-                          <AnimatePresence>
-                            {expandedSymbol === symbol && (
-                              <motion.div 
-                                className="mt-4"
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                              >
-                                <div className="mb-4">
-                                  <h5 className={`title ${isMobile ? 'is-7' : 'is-6'} has-text-primary`}>Synonyms</h5>
-                                  <div className="tags">
-                                    {synonyms.map(syn => (
-                                      <span key={syn} className="tag is-light">{syn}</span>
-                                    ))}
-                                  </div>
-                                </div>
-
-                                <div className="mb-4">
-                                  <h5 className={`title ${isMobile ? 'is-7' : 'is-6'} has-text-primary`}>Cross-Cultural Meanings</h5>
-                                  <div className="content">
-                                    <ul>
-                                      {Object.entries(cross_cultural).map(([culture, meaning]) => (
-                                        <li key={culture}>
-                                          <strong>{culture.charAt(0).toUpperCase() + culture.slice(1)}:</strong> {meaning}
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                </div>
-
-                                {resonance_field && (
-                                  <div>
-                                    <h5 className={`title ${isMobile ? 'is-7' : 'is-6'} has-text-primary`}>Resonance Field</h5>
-                                    <div className="content">
-                                      <p><strong>Primary:</strong> {resonance_field.primary}</p>
-                                      <div className="tags">
-                                        {resonance_field.secondary.map(res => (
-                                          <span key={res} className="tag is-light">{res}</span>
-                                        ))}
-                                      </div>
-                                      <p className="mt-2"><em>Archetypal: {resonance_field.archetypal}</em></p>
-                                    </div>
-                                  </div>
-                                )}
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                      </motion.div>
-                    </motion.div>
-                  ))}
-                </div>
-              )}
-            </motion.div>
-          )}
-
-          {viewMode === "resonance" && renderResonanceView()}
-          {viewMode === "pattern" && renderPatternView()}
-          {viewMode === "graph" && renderGraphView()}
-          {viewMode === "timeline" && renderTimelineView()}
-          {viewMode === "cultural" && renderCulturalView()}
-          {viewMode === "mathematical" && renderMathematicalView()}
-        </AnimatePresence>
-
-        {/* No Results Message */}
-        {filteredSymbols.length === 0 && (
-          <motion.div 
-            className="has-text-centered my-6"
+      <AnimatePresence mode="wait">
+        {viewMode === "grid" && (
+          <motion.div
+            key="grid"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            <p className={`${isMobile ? 'is-size-6' : 'is-size-5'} has-text-grey`}>No symbols found matching your search criteria.</p>
+            {/* Category Sections */}
+            {selectedCategory === "all" ? (
+              // When "all" is selected, group by category
+              Object.keys(symbolData).map(category => {
+                const categorySymbols = filteredSymbols.filter(s => s.category === category);
+                if (categorySymbols.length === 0) return null;
+                
+                return (
+                  <motion.div 
+                    key={category} 
+                    className="category-section mb-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    <div className="category-header mb-4">
+                      <h3 className={`title ${isMobile ? 'is-5' : 'is-4'}`} style={{ color: getCategoryColor(category) }}>
+                        {getCategoryIcon(category)} {category.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+                      </h3>
+                    </div>
+                    <div className={`columns is-multiline ${isMobile ? 'is-mobile' : ''}`}>
+                      {categorySymbols.map(({ symbol, meaning, synonyms, cross_cultural, resonance_field }) => (
+                        <motion.div 
+                          key={symbol} 
+                          className={`column ${isMobile ? 'is-12' : 'is-4'}`}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                        >
+                          <motion.div 
+                            className="box enhanced-hover-card"
+                            style={{ 
+                              borderLeft: `4px solid ${getCategoryColor(category)}`,
+                              cursor: 'pointer',
+                              height: '100%',
+                              display: 'flex',
+                              flexDirection: 'column'
+                            }}
+                            whileHover={{ scale: isMobile ? 1 : 1.02 }}
+                            onClick={() => setExpandedSymbol(expandedSymbol === symbol ? null : symbol)}
+                          >
+                            <div className="content" style={{ flex: 1 }}>
+                              <div className="is-flex is-justify-content-space-between is-align-items-center mb-4">
+                                <span className="symbol-display" style={{ fontSize: isMobile ? '1.5rem' : '2rem' }}>{symbol}</span>
+                              </div>
+                              
+                              <h4 className={`title ${isMobile ? 'is-5' : 'is-4'} has-text-primary`}>{meaning}</h4>
+                              
+                              <AnimatePresence>
+                                {expandedSymbol === symbol && (
+                                  <motion.div 
+                                    className="mt-4"
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: "auto" }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                  >
+                                    <div className="mb-4">
+                                      <h5 className={`title ${isMobile ? 'is-7' : 'is-6'} has-text-primary`}>Synonyms</h5>
+                                      <div className="tags">
+                                        {synonyms.map(syn => (
+                                          <span key={syn} className="tag is-light">{syn}</span>
+                                        ))}
+                                      </div>
+                                    </div>
+
+                                    <div className="mb-4">
+                                      <h5 className={`title ${isMobile ? 'is-7' : 'is-6'} has-text-primary`}>Cross-Cultural Meanings</h5>
+                                      <div className="content">
+                                        <ul>
+                                          {Object.entries(cross_cultural).map(([culture, meaning]) => (
+                                            <li key={culture}>
+                                              <strong>{culture.charAt(0).toUpperCase() + culture.slice(1)}:</strong> {meaning}
+                                            </li>
+                                          ))}
+                                        </ul>
+                                      </div>
+                                    </div>
+
+                                    {resonance_field && (
+                                      <div>
+                                        <h5 className={`title ${isMobile ? 'is-7' : 'is-6'} has-text-primary`}>Resonance Field</h5>
+                                        <div className="content">
+                                          <p><strong>Primary:</strong> {resonance_field.primary}</p>
+                                          <div className="tags">
+                                            {resonance_field.secondary.map(res => (
+                                              <span key={res} className="tag is-light">{res}</span>
+                                            ))}
+                                          </div>
+                                          <p className="mt-2"><em>Archetypal: {resonance_field.archetypal}</em></p>
+                                        </div>
+                                      </div>
+                                    )}
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+                            </div>
+                          </motion.div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                );
+              })
+            ) : (
+              // When a specific category is selected, show all matching symbols
+              <div className={`columns is-multiline ${isMobile ? 'is-mobile' : ''}`}>
+                {filteredSymbols.map(({ symbol, category, meaning, synonyms, cross_cultural, resonance_field }) => (
+                  <motion.div 
+                    key={symbol} 
+                    className={`column ${isMobile ? 'is-12' : 'is-4'}`}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <motion.div 
+                      className="box enhanced-hover-card"
+                      style={{ 
+                        borderLeft: `4px solid ${getCategoryColor(category)}`,
+                        cursor: 'pointer',
+                        height: '100%',
+                        display: 'flex',
+                        flexDirection: 'column'
+                      }}
+                      whileHover={{ scale: isMobile ? 1 : 1.02 }}
+                      onClick={() => setExpandedSymbol(expandedSymbol === symbol ? null : symbol)}
+                    >
+                      <div className="content" style={{ flex: 1 }}>
+                        <div className="is-flex is-justify-content-space-between is-align-items-center mb-4">
+                          <span className="symbol-display" style={{ fontSize: isMobile ? '1.5rem' : '2rem' }}>{symbol}</span>
+                        </div>
+                        
+                        <h4 className={`title ${isMobile ? 'is-5' : 'is-4'} has-text-primary`}>{meaning}</h4>
+                        
+                        <AnimatePresence>
+                          {expandedSymbol === symbol && (
+                            <motion.div 
+                              className="mt-4"
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                            >
+                              <div className="mb-4">
+                                <h5 className={`title ${isMobile ? 'is-7' : 'is-6'} has-text-primary`}>Synonyms</h5>
+                                <div className="tags">
+                                  {synonyms.map(syn => (
+                                    <span key={syn} className="tag is-light">{syn}</span>
+                                  ))}
+                                </div>
+                              </div>
+
+                              <div className="mb-4">
+                                <h5 className={`title ${isMobile ? 'is-7' : 'is-6'} has-text-primary`}>Cross-Cultural Meanings</h5>
+                                <div className="content">
+                                  <ul>
+                                    {Object.entries(cross_cultural).map(([culture, meaning]) => (
+                                      <li key={culture}>
+                                        <strong>{culture.charAt(0).toUpperCase() + culture.slice(1)}:</strong> {meaning}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
+
+                              {resonance_field && (
+                                <div>
+                                  <h5 className={`title ${isMobile ? 'is-7' : 'is-6'} has-text-primary`}>Resonance Field</h5>
+                                  <div className="content">
+                                    <p><strong>Primary:</strong> {resonance_field.primary}</p>
+                                    <div className="tags">
+                                      {resonance_field.secondary.map(res => (
+                                        <span key={res} className="tag is-light">{res}</span>
+                                      ))}
+                                    </div>
+                                    <p className="mt-2"><em>Archetypal: {resonance_field.archetypal}</em></p>
+                                  </div>
+                                </div>
+                              )}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+            )}
           </motion.div>
         )}
-      </div>
-    </AFrameWrapper>
+
+        {viewMode === "resonance" && renderResonanceView()}
+        {viewMode === "pattern" && renderPatternView()}
+        {viewMode === "graph" && renderGraphView()}
+        {viewMode === "timeline" && renderTimelineView()}
+        {viewMode === "cultural" && renderCulturalView()}
+        {viewMode === "mathematical" && renderMathematicalView()}
+      </AnimatePresence>
+
+      {/* No Results Message */}
+      {filteredSymbols.length === 0 && (
+        <motion.div 
+          className="has-text-centered my-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <p className={`${isMobile ? 'is-size-6' : 'is-size-5'} has-text-grey`}>No symbols found matching your search criteria.</p>
+        </motion.div>
+      )}
+    </div>
   );
 };
 

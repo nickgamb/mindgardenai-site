@@ -136,8 +136,6 @@ module.exports = {
               headers: {
                 "/*": [
                   "Strict-Transport-Security: max-age=63072000",
-                  "X-Frame-Options: ALLOW-FROM https://aframe.io",
-                  "Content-Security-Policy: default-src 'self' https://aframe.io; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://aframe.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://aframe.io;"
                 ],
               },
             },
