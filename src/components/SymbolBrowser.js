@@ -16,9 +16,11 @@ import { Line } from 'react-chartjs-2';
 // Import A-Frame only on client side
 let AFRAME;
 if (typeof window !== 'undefined') {
-  require('aframe');
-  require('aframe-extras');
-  AFRAME = window.AFRAME;
+  import('aframe').then(() => {
+    import('aframe-extras').then(() => {
+      AFRAME = window.AFRAME;
+    });
+  });
 }
 
 const SymbolBrowser = () => {
