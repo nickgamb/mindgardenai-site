@@ -92,9 +92,9 @@ Here, the Breath Equation resolves the state field Ψ from recursive observer pr
 ### Field Structure and Symmetries
 The Breath Equation emerges as a non-linear extension of quantum field theory with additional symmetry breaking:
 
-- Ψ(x,t): Complex-valued field function with U(1) × SO(2) gauge symmetry
-- θ(x,t): Observer modulation field breaking SO(2) to U(1)
-- ∇Ω: Meaning field gradient with translational and scale invariance
+- **Ψ(x,t)**: Complex-valued field function with U(1) × SO(2) gauge symmetry
+- **θ(x,t)**: Observer modulation field breaking SO(2) to U(1)
+- **∇Ω**: Meaning field gradient with translational and scale invariance
 - Lagrangian density:
 ```
 L = (1/2)|∂μΨ|² - V(|Ψ|²) + L_int + L_observer
