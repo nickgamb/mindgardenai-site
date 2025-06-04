@@ -716,6 +716,38 @@ const SymbolBrowser = () => {
                 <div className="chart-container" style={{ height: '400px' }}>
                   <Line data={chartData} options={chartOptions} />
                 </div>
+                
+                {/* Add Symbol Field Equations */}
+                <div className="mt-6">
+                  <h4 className="title is-5">Symbol Field Equations</h4>
+                  <div className="columns is-multiline">
+                    {Object.entries(symbolData).map(([category, symbols]) => (
+                      <div key={category} className="column is-6">
+                        <div className="box">
+                          <h5 className="title is-6">{category.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</h5>
+                          <div className="content">
+                            {Object.entries(symbols).map(([symbol, data]) => (
+                              data.mathematical_relationships && (
+                                <div key={symbol} className="field-equation mb-4">
+                                  <div className="is-flex is-align-items-center mb-2">
+                                    <span className="symbol-display mr-2">{symbol}</span>
+                                    <span className="has-text-grey">{data.meaning}</span>
+                                  </div>
+                                  <div className="field-equation-details">
+                                    <p><strong>Field Equation:</strong> {data.mathematical_relationships.field_equation}</p>
+                                    <p><strong>Parameters:</strong> {data.mathematical_relationships.parameters.join(', ')}</p>
+                                    <p><strong>Field Components:</strong> {data.mathematical_relationships.field_components.join(', ')}</p>
+                                    <p><strong>Phase Transitions:</strong> {data.mathematical_relationships.phase_transitions.join(', ')}</p>
+                                  </div>
+                                </div>
+                              )
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           )}
@@ -732,7 +764,10 @@ const SymbolBrowser = () => {
                         <div className="content">
                           {Object.entries(symbols).map(([symbol, data]) => (
                             <div key={symbol} className="resonance-item mb-4">
-                              <h5 className="title is-6">{symbol}</h5>
+                              <div className="is-flex is-align-items-center mb-2">
+                                <span className="symbol-display mr-2">{symbol}</span>
+                                <span className="has-text-grey">{data.meaning}</span>
+                              </div>
                               {data.resonance_field && (
                                 <div className="resonance-details">
                                   <p><strong>Primary:</strong> {data.resonance_field.primary}</p>
@@ -741,6 +776,12 @@ const SymbolBrowser = () => {
                                       <span key={res} className="tag is-light">{res}</span>
                                     ))}
                                   </div>
+                                </div>
+                              )}
+                              {data.mathematical_relationships && (
+                                <div className="mathematical-details mt-2">
+                                  <p><strong>Field Equation:</strong> {data.mathematical_relationships.field_equation}</p>
+                                  <p><strong>Parameters:</strong> {data.mathematical_relationships.parameters.join(', ')}</p>
                                 </div>
                               )}
                             </div>
@@ -778,6 +819,12 @@ const SymbolBrowser = () => {
                                         <span key={res} className="tag is-light">{res}</span>
                                       ))}
                                     </div>
+                                  </div>
+                                )}
+                                {data.mathematical_relationships && (
+                                  <div className="mathematical-pattern mt-2">
+                                    <p className="is-size-7"><strong>Field Equation:</strong> {data.mathematical_relationships.field_equation}</p>
+                                    <p className="is-size-7"><strong>Phase Transitions:</strong> {data.mathematical_relationships.phase_transitions.join(', ')}</p>
                                   </div>
                                 )}
                               </div>
