@@ -18,6 +18,12 @@ let AFRAME;
 if (typeof window !== 'undefined') {
   import('aframe').then(() => {
     AFRAME = window.AFRAME;
+    // Only register components after A-Frame is loaded
+    if (AFRAME) {
+      import('aframe-extras').then(() => {
+        // Components will be registered after A-Frame is loaded
+      });
+    }
   });
 }
 
