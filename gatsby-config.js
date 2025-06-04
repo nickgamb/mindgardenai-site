@@ -76,11 +76,18 @@ module.exports = {
           {
             resolve: "gatsby-remark-katex",
             options: {
-              // Only apply to blog posts and exclude blogroll
+              // Only process math in blog post content, not in excerpts or blogroll
               filter: (node) => {
-                const isBlogPost = node.fileAbsolutePath.includes('/blog/');
-                const isNotBlogroll = !node.fileAbsolutePath.includes('BlogRoll');
-                return isBlogPost && isNotBlogroll;
+                // Only process if it's a blog post file
+                if (!node.fileAbsolutePath.includes('/blog/')) return false;
+                
+                // Don't process if it's being used in an excerpt or blogroll
+                if (node.internal.type === 'MarkdownExcerpt') return false;
+                if (node.internal.type === 'MarkdownRemark' && node.frontmatter?.templateKey === 'blog-post') {
+                  // Only process the full content, not excerpts
+                  return node.internal.content === node.rawMarkdownBody;
+                }
+                return false;
               },
               strict: false,
               throwOnError: false,
