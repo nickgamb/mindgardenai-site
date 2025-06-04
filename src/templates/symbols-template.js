@@ -16,11 +16,12 @@ import CathedralGlyph from "../components/SacredGlyph";
 
 export default function SymbolsTemplate({ data }) {
   const { markdownRemark: post } = data;
+  const bannerImage = "/img/MindGarden_Banner.png";
 
   return (
     <Layout>
       <FullWidthImage 
-        img={post.frontmatter.image || "/img/MindGarden_Banner.png"}
+        img={bannerImage}
         title={post.frontmatter.title} 
         subheading={post.frontmatter.subheading}
         height={400}
@@ -94,7 +95,12 @@ export const pageQuery = graphql`
       frontmatter {
         title
         subheading
-        image
+        image {
+          publicURL
+          childImageSharp {
+            gatsbyImageData(width: 1200)
+          }
+        }
       }
     }
   }
