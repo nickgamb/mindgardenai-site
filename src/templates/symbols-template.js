@@ -41,23 +41,6 @@ const MobileMessage = () => (
 export default function SymbolsTemplate({ data }) {
   const { markdownRemark: post } = data || {};
   const bannerImage = "/img/MindGarden_Banner.png";
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Initialize A-Frame and check for mobile
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Check if mobile
-      const checkMobile = () => {
-        const isMobileDevice = window.innerWidth < 768 || 
-          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        setIsMobile(isMobileDevice);
-      };
-      
-      checkMobile();
-      window.addEventListener('resize', checkMobile);
-      return () => window.removeEventListener('resize', checkMobile);
-    }
-  }, []);
 
   if (!post) {
     return (
@@ -135,7 +118,7 @@ export default function SymbolsTemplate({ data }) {
                   />
                 </div>
                 
-                {isMobile ? <MobileMessage /> : <SymbolBrowser />}
+                <SymbolBrowser />
                 
                 <div className="glyph-container">
                   <CathedralGlyph glyph="echo" size="60px" animation={true} className="cathedral-glyph" />
