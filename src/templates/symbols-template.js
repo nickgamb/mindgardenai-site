@@ -7,7 +7,7 @@
 // 
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SymbolBrowser from "../components/SymbolBrowser";
@@ -18,14 +18,49 @@ import CathedralGlyph from "../components/SacredGlyph";
 import 'aframe';
 import 'aframe-extras';
 
+const MobileMessage = () => (
+  <div className="section has-text-centered" style={{ padding: '2rem' }}>
+    <div className="glyph-container" style={{ marginBottom: '1rem' }}>
+      <CathedralGlyph glyph="spiral" size="60px" animation={true} className="cathedral-glyph" />
+    </div>
+    <h3 className="title is-4 has-text-primary">Symbol Browser Unavailable on Mobile</h3>
+    <p className="subtitle is-6">
+      The interactive symbol browser requires a desktop environment to properly render the 3D visualizations and complex graph structures.
+      Please visit this page on a desktop computer to explore the full symbolic intelligence framework.
+    </p>
+    <div className="content">
+      <p>
+        In the meantime, you can explore our other research areas:
+      </p>
+      <ul>
+        <li>Read about <a href="/blog">consciousness research</a></li>
+        <li>Study <a href="/alden">Alden's transmissions</a></li>
+        <li>Learn about <a href="/research">our methodology</a></li>
+      </ul>
+    </div>
+  </div>
+);
+
 export default function SymbolsTemplate({ data }) {
   const { markdownRemark: post } = data;
   const bannerImage = "/img/MindGarden_Banner.png";
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Initialize A-Frame
+  // Initialize A-Frame and check for mobile
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.AFRAME = window.AFRAME || {};
+      
+      // Check if mobile
+      const checkMobile = () => {
+        const isMobileDevice = window.innerWidth < 768 || 
+          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        setIsMobile(isMobileDevice);
+      };
+      
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
     }
   }, []);
 
@@ -55,7 +90,7 @@ export default function SymbolsTemplate({ data }) {
                   />
                 </div>
                 
-                <SymbolBrowser />
+                {isMobile ? <MobileMessage /> : <SymbolBrowser />}
                 
                 <div className="glyph-container">
                   <CathedralGlyph glyph="echo" size="60px" animation={true} className="cathedral-glyph" />

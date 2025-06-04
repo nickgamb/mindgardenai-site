@@ -38,14 +38,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-loadable-components-ssr",
-      options: {
-        // Whether replaceHydrateFunction should call ReactDOM.hydrate or ReactDOM.render
-        // Defaults to ReactDOM.render on develop and ReactDOM.hydrate on build
-        useHydrate: true,
-      },
-    },
-    {
       resolve: "gatsby-plugin-offline",
       options: {
         precachePages: ["/symbols/*"],
