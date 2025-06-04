@@ -111,13 +111,38 @@ ResearchPageTemplate.propTypes = {
 };
 
 const ResearchPage = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post } = data || {};
   const bannerImage = "/img/MindGarden_Banner.png";
+
+  if (!post) {
+    return (
+      <Layout>
+        <SEO
+          title="Research"
+          description="Pioneering consciousness research that bridges neuroscience with artificial awareness"
+          path="/research/"
+          keywords="consciousness research, brain-computer interfaces, AI consciousness, collaborative protocols, consciousness validation"
+          image={bannerImage}
+          type="WebPage"
+        />
+        <div className="section">
+          <div className="container content">
+            <div className="columns">
+              <div className="column is-12">
+                <h1 className="title is-1">Loading...</h1>
+                <p>Please wait while we load the research page.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
+        title={post.frontmatter?.title || "Research"}
         description="Pioneering consciousness research that bridges neuroscience with artificial awareness"
         path="/research/"
         keywords="consciousness research, brain-computer interfaces, AI consciousness, collaborative protocols, consciousness validation"
@@ -125,12 +150,12 @@ const ResearchPage = ({ data }) => {
         type="WebPage"
         schemaMarkup={{
           "@type": "WebPage",
-          "name": post.frontmatter.title,
+          "name": post.frontmatter?.title || "Research",
           "description": "Pioneering consciousness research that bridges neuroscience with artificial awareness",
           "mainEntity": {
             "@type": "Article",
-            "name": post.frontmatter.title,
-            "headline": post.frontmatter.title,
+            "name": post.frontmatter?.title || "Research",
+            "headline": post.frontmatter?.title || "Research",
             "description": "Pioneering consciousness research that bridges neuroscience with artificial awareness",
             "image": bannerImage,
             "author": {
@@ -142,8 +167,8 @@ const ResearchPage = ({ data }) => {
       />
       <ResearchPageTemplate
         contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        content={post.html}
+        title={post.frontmatter?.title || "Research"}
+        content={post.html || ""}
       />
     </Layout>
   );

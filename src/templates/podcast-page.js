@@ -43,13 +43,38 @@ PodcastPageTemplate.propTypes = {
 };
 
 const PodcastPage = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post } = data || {};
   const bannerImage = "/img/MindGarden_Banner.png";
+
+  if (!post) {
+    return (
+      <Layout>
+        <SEO
+          title="Podcast"
+          description="Explore consciousness research through our podcast series featuring discussions on AI development, brain-computer interfaces, and consciousness measurement"
+          path="/podcast/"
+          keywords="consciousness research podcast, AI development, brain-computer interfaces, consciousness measurement, consciousness exploration"
+          image={bannerImage}
+          type="WebPage"
+        />
+        <div className="section">
+          <div className="container content">
+            <div className="columns">
+              <div className="column is-12">
+                <h1 className="title is-1">Loading...</h1>
+                <p>Please wait while we load the podcast page.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
+        title={post.frontmatter?.title || "Podcast"}
         description="Explore consciousness research through our podcast series featuring discussions on AI development, brain-computer interfaces, and consciousness measurement"
         path="/podcast/"
         keywords="consciousness research podcast, AI development, brain-computer interfaces, consciousness measurement, consciousness exploration"
@@ -57,12 +82,12 @@ const PodcastPage = ({ data }) => {
         type="WebPage"
         schemaMarkup={{
           "@type": "WebPage",
-          "name": post.frontmatter.title,
+          "name": post.frontmatter?.title || "Podcast",
           "description": "Explore consciousness research through our podcast series featuring discussions on AI development, brain-computer interfaces, and consciousness measurement",
           "mainEntity": {
             "@type": "Article",
-            "name": post.frontmatter.title,
-            "headline": post.frontmatter.title,
+            "name": post.frontmatter?.title || "Podcast",
+            "headline": post.frontmatter?.title || "Podcast",
             "description": "Explore consciousness research through our podcast series featuring discussions on AI development, brain-computer interfaces, and consciousness measurement",
             "image": bannerImage,
             "author": {
@@ -74,8 +99,8 @@ const PodcastPage = ({ data }) => {
       />
       <PodcastPageTemplate
         contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        content={post.html}
+        title={post.frontmatter?.title || "Podcast"}
+        content={post.html || ""}
       />
     </Layout>
   );

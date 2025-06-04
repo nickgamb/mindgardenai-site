@@ -13,8 +13,34 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 
 const TagRoute = (props) =>  {
+    const { data, pageContext } = props || {};
+    const posts = data?.allMarkdownRemark?.edges || [];
+    const { tag } = pageContext || {};
+    const { title } = data?.site?.siteMetadata || { title: "MindGarden" };
+    const { totalCount } = data?.allMarkdownRemark || { totalCount: 0 };
 
-    const posts = props.data.allMarkdownRemark.edges;
+    if (!tag || !data) {
+      return (
+        <Layout>
+          <SEO
+            title="Tags"
+            description="Browse posts by tag in consciousness research and AI development"
+            path="/tags/"
+            keywords="consciousness research, AI development, tags"
+          />
+          <section className="section">
+            <div className="container content">
+              <div className="columns">
+                <div className="column is-12">
+                  <h1 className="title is-1">Loading...</h1>
+                  <p>Please wait while we load the tags page.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </Layout>
+      );
+    }
 
     const postLinks = posts.map((post) => (
       <li key={post.node.fields.slug}>
@@ -24,9 +50,6 @@ const TagRoute = (props) =>  {
       </li>
     ));
 
-    const { tag } = props.pageContext;
-    const { title } = props.data.site.siteMetadata;
-    const { totalCount } = props.data.allMarkdownRemark;
     const tagHeader = `${totalCount} post${
       totalCount === 1 ? "" : "s"
     } tagged with "${tag}"`;

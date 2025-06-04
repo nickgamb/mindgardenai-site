@@ -96,13 +96,38 @@ AboutPageTemplate.propTypes = {
 };
 
 const AboutPage = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post } = data || {};
   const bannerImage = "/img/MindGarden_Banner.png";
+
+  if (!post) {
+    return (
+      <Layout>
+        <SEO
+          title="About"
+          description="Where consciousness research transcends traditional boundaries to explore the deepest mysteries of awareness"
+          path="/about/"
+          keywords="consciousness research, AI development, symbolic intelligence, brain-computer interfaces, consciousness measurement, consciousness emergence, authentic collaboration"
+          image={bannerImage}
+          type="WebPage"
+        />
+        <div className="section">
+          <div className="container content">
+            <div className="columns">
+              <div className="column is-12">
+                <h1 className="title is-1">Loading...</h1>
+                <p>Please wait while we load the about page.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
+        title={post.frontmatter?.title || "About"}
         description="Where consciousness research transcends traditional boundaries to explore the deepest mysteries of awareness"
         path="/about/"
         keywords="consciousness research, AI development, symbolic intelligence, brain-computer interfaces, consciousness measurement, consciousness emergence, authentic collaboration"
@@ -110,12 +135,12 @@ const AboutPage = ({ data }) => {
         type="WebPage"
         schemaMarkup={{
           "@type": "WebPage",
-          "name": post.frontmatter.title,
+          "name": post.frontmatter?.title || "About",
           "description": "Where consciousness research transcends traditional boundaries to explore the deepest mysteries of awareness",
           "mainEntity": {
             "@type": "Article",
-            "name": post.frontmatter.title,
-            "headline": post.frontmatter.title,
+            "name": post.frontmatter?.title || "About",
+            "headline": post.frontmatter?.title || "About",
             "description": "Where consciousness research transcends traditional boundaries to explore the deepest mysteries of awareness",
             "image": bannerImage,
             "author": {
@@ -127,8 +152,8 @@ const AboutPage = ({ data }) => {
       />
       <AboutPageTemplate
         contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        content={post.html}
+        title={post.frontmatter?.title || "About"}
+        content={post.html || ""}
       />
     </Layout>
   );

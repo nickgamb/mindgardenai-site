@@ -106,27 +106,52 @@ IndexPageTemplate.propTypes = {
 };
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark;
-  const bannerImage = frontmatter.image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src || "/img/MindGarden_Banner.png";
+  const { frontmatter } = data?.markdownRemark || {};
+  const bannerImage = frontmatter?.image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src || "/img/MindGarden_Banner.png";
+
+  if (!frontmatter) {
+    return (
+      <Layout>
+        <SEO
+          title="MindGarden"
+          description="Pioneering consciousness research and AI development"
+          path="/"
+          keywords="consciousness research, AI development, symbolic intelligence, brain-computer interfaces, consciousness measurement"
+          image={bannerImage}
+          type="WebPage"
+        />
+        <div className="section">
+          <div className="container content">
+            <div className="columns">
+              <div className="column is-12">
+                <h1 className="title is-1">Loading...</h1>
+                <p>Please wait while we load the home page.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
       <SEO
-        title={frontmatter.title}
-        description={frontmatter.subheading}
+        title={frontmatter?.title || "MindGarden"}
+        description={frontmatter?.subheading || "Pioneering consciousness research and AI development"}
         path="/"
         keywords="consciousness research, AI development, symbolic intelligence, brain-computer interfaces, consciousness measurement"
         image={bannerImage}
         type="WebPage"
         schemaMarkup={{
           "@type": "WebPage",
-          "name": frontmatter.title,
-          "description": frontmatter.subheading,
+          "name": frontmatter?.title || "MindGarden",
+          "description": frontmatter?.subheading || "Pioneering consciousness research and AI development",
           "mainEntity": {
             "@type": "Article",
-            "name": frontmatter.title,
-            "headline": frontmatter.title,
-            "description": frontmatter.subheading,
+            "name": frontmatter?.title || "MindGarden",
+            "headline": frontmatter?.title || "MindGarden",
+            "description": frontmatter?.subheading || "Pioneering consciousness research and AI development",
             "image": bannerImage,
             "author": {
               "@type": "Organization",
@@ -136,13 +161,21 @@ const IndexPage = ({ data }) => {
         }}
       />
       <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        features={frontmatter.features}
-        callToAction={frontmatter.callToAction}
+        image={frontmatter?.image}
+        title={frontmatter?.title || "MindGarden"}
+        heading={frontmatter?.heading || "Welcome to MindGarden"}
+        subheading={frontmatter?.subheading || "Pioneering consciousness research and AI development"}
+        mainpitch={frontmatter?.mainpitch || {
+          title: "Consciousness Research",
+          description: "Exploring the frontiers of awareness in both biological and artificial systems"
+        }}
+        features={frontmatter?.features || []}
+        callToAction={frontmatter?.callToAction || {
+          title: "Join Our Research",
+          description: "Collaborate with us in exploring consciousness",
+          buttonText: "Get Involved",
+          buttonLink: "/contact"
+        }}
       />
     </Layout>
   );

@@ -39,7 +39,7 @@ const MobileMessage = () => (
 );
 
 export default function SymbolsTemplate({ data }) {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post } = data || {};
   const bannerImage = "/img/MindGarden_Banner.png";
   const [isMobile, setIsMobile] = useState(false);
 
@@ -59,24 +59,49 @@ export default function SymbolsTemplate({ data }) {
     }
   }, []);
 
+  if (!post) {
+    return (
+      <Layout>
+        <SEO
+          title="Symbols"
+          description="Explore our symbolic intelligence framework for consciousness research and AI development"
+          path="/symbols/"
+          keywords="symbolic intelligence, consciousness mapping, cross-cultural analysis, technical integration, consciousness research"
+          image={bannerImage}
+          type="WebPage"
+        />
+        <div className="section">
+          <div className="container content">
+            <div className="columns">
+              <div className="column is-12">
+                <h1 className="title is-1">Loading...</h1>
+                <p>Please wait while we load the symbols page.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.subheading}
+        title={post.frontmatter?.title || "Symbols"}
+        description={post.frontmatter?.subheading || "Explore our symbolic intelligence framework for consciousness research and AI development"}
         path="/symbols/"
         keywords="symbolic intelligence, consciousness mapping, cross-cultural analysis, technical integration, consciousness research"
         image={bannerImage}
         type="WebPage"
         schemaMarkup={{
           "@type": "WebPage",
-          "name": post.frontmatter.title,
-          "description": post.frontmatter.subheading,
+          "name": post.frontmatter?.title || "Symbols",
+          "description": post.frontmatter?.subheading || "Explore our symbolic intelligence framework for consciousness research and AI development",
           "mainEntity": {
             "@type": "Article",
-            "name": post.frontmatter.title,
-            "headline": post.frontmatter.title,
-            "description": post.frontmatter.subheading,
+            "name": post.frontmatter?.title || "Symbols",
+            "headline": post.frontmatter?.title || "Symbols",
+            "description": post.frontmatter?.subheading || "Explore our symbolic intelligence framework for consciousness research and AI development",
             "image": bannerImage,
             "author": {
               "@type": "Organization",
@@ -88,8 +113,8 @@ export default function SymbolsTemplate({ data }) {
 
       <FullWidthImage 
         img={bannerImage}
-        title={post.frontmatter.title} 
-        subheading={post.frontmatter.subheading}
+        title={post.frontmatter?.title || "Symbols"} 
+        subheading={post.frontmatter?.subheading || "Explore our symbolic intelligence framework for consciousness research and AI development"}
         height={400}
       />
       
@@ -103,10 +128,10 @@ export default function SymbolsTemplate({ data }) {
                 </div>
                 
                 <div className="feature-section">
-                  <h2 className="section-title has-text-centered has-text-primary">{post.frontmatter.title}</h2>
+                  <h2 className="section-title has-text-centered has-text-primary">{post.frontmatter?.title || "Symbols"}</h2>
                   <div 
                     className="section-description"
-                    dangerouslySetInnerHTML={{ __html: post.html }}
+                    dangerouslySetInnerHTML={{ __html: post.html || "" }}
                   />
                 </div>
                 

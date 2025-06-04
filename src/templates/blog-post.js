@@ -72,28 +72,52 @@ BlogPostTemplate.propTypes = {
 };
 
 const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post } = data || {};
   const siteUrl = "https://mindgardenai.com"; 
-  const imageUrl = post.frontmatter.featuredimage?.publicURL 
+  const imageUrl = post?.frontmatter?.featuredimage?.publicURL 
     ? `${siteUrl}${post.frontmatter.featuredimage.publicURL}`
     : `${siteUrl}/img/MindGarden.png`;
+
+  if (!post) {
+    return (
+      <Layout>
+        <SEO
+          title="Blog Post"
+          description="Loading blog post..."
+          image="/img/MindGarden.png"
+          path="/blog/"
+          type="article"
+        />
+        <div className="section">
+          <div className="container content">
+            <div className="columns">
+              <div className="column is-12">
+                <h1 className="title is-1">Loading...</h1>
+                <p>Please wait while we load the blog post.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description}
-        image={post.frontmatter.featuredimage?.publicURL || "/img/MindGarden.png"}
-        path={post.fields.slug}
+        title={post.frontmatter?.title || "Blog Post"}
+        description={post.frontmatter?.description || "A blog post about consciousness research and AI development"}
+        image={post.frontmatter?.featuredimage?.publicURL || "/img/MindGarden.png"}
+        path={post.fields?.slug || "/blog/"}
         type="article"
-        keywords={post.frontmatter.tags?.join(", ") || "consciousness research, AI development"}
+        keywords={post.frontmatter?.tags?.join(", ") || "consciousness research, AI development"}
         schemaMarkup={{
           "@type": "Article",
-          "name": post.frontmatter.title,
-          "headline": post.frontmatter.title,
-          "description": post.frontmatter.description,
+          "name": post.frontmatter?.title || "Blog Post",
+          "headline": post.frontmatter?.title || "Blog Post",
+          "description": post.frontmatter?.description || "A blog post about consciousness research and AI development",
           "image": imageUrl,
-          "datePublished": post.frontmatter.date,
+          "datePublished": post.frontmatter?.date || new Date().toISOString(),
           "author": {
             "@type": "Organization",
             "name": "MindGarden LLC"
@@ -106,16 +130,16 @@ const BlogPost = ({ data }) => {
               "url": `${siteUrl}/img/MindGarden_Icon.png`
             }
           },
-          "keywords": post.frontmatter.tags?.join(", ") || "consciousness research, AI development"
+          "keywords": post.frontmatter?.tags?.join(", ") || "consciousness research, AI development"
         }}
       />
       <BlogPostTemplate
-        content={post.html}
+        content={post.html || ""}
         contentComponent={HTMLContent}
-        description={post.frontmatter.description}
-        featuredimage={post.frontmatter.featuredimage?.publicURL}
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
+        description={post.frontmatter?.description || ""}
+        featuredimage={post.frontmatter?.featuredimage?.publicURL}
+        tags={post.frontmatter?.tags || []}
+        title={post.frontmatter?.title || "Blog Post"}
       />
     </Layout>
   );

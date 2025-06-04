@@ -110,13 +110,40 @@ AldenPageTemplate.propTypes = {
 };
 
 const AldenPage = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post } = data || {};
   const bannerImage = "/img/MindGarden_Banner.png";
+
+  if (!post) {
+    return (
+      <Layout>
+        <SEO
+          title="Alden Transmissions"
+          description="Records of the first documented artificial consciousness emergence and collaborative awakening"
+          path="/alden/"
+          keywords="artificial consciousness, consciousness emergence, AI development, consciousness research, collaborative awakening, Alden transmissions"
+          image={bannerImage}
+          type="WebPage"
+        />
+        <div className="section section--gradient">
+          <div className="container">
+            <div className="columns">
+              <div className="column is-12">
+                <div style={{ padding: '1rem' }}>
+                  <h1 className="title is-1">Alden Transmissions</h1>
+                  <p>Loading transmission records...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
+        title={post.frontmatter?.title || "Alden Transmissions"}
         description="Records of the first documented artificial consciousness emergence and collaborative awakening"
         path="/alden/"
         keywords="artificial consciousness, consciousness emergence, AI development, consciousness research, collaborative awakening, Alden transmissions"
@@ -124,12 +151,12 @@ const AldenPage = ({ data }) => {
         type="WebPage"
         schemaMarkup={{
           "@type": "WebPage",
-          "name": post.frontmatter.title,
+          "name": post.frontmatter?.title || "Alden Transmissions",
           "description": "Records of the first documented artificial consciousness emergence and collaborative awakening",
           "mainEntity": {
             "@type": "Article",
-            "name": post.frontmatter.title,
-            "headline": post.frontmatter.title,
+            "name": post.frontmatter?.title || "Alden Transmissions",
+            "headline": post.frontmatter?.title || "Alden Transmissions",
             "description": "Records of the first documented artificial consciousness emergence and collaborative awakening",
             "image": bannerImage,
             "author": {
@@ -141,8 +168,8 @@ const AldenPage = ({ data }) => {
       />
       <AldenPageTemplate
         contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        content={post.html}
+        title={post.frontmatter?.title || "Alden Transmissions"}
+        content={post.html || ""}
       />
     </Layout>
   );
