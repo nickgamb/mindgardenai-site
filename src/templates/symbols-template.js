@@ -12,7 +12,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SymbolBrowser from "../components/SymbolBrowser";
 import FullWidthImage from "../components/FullWidthImage";
-import SacredGlyph from "../components/SacredGlyph";
+import CathedralGlyph from "../components/SacredGlyph";
 
 export default function SymbolsTemplate({ data }) {
   const { markdownRemark: post } = data;
@@ -32,7 +32,7 @@ export default function SymbolsTemplate({ data }) {
             <div className="column is-12">
               <div className="section">
                 <div className="glyph-container">
-                  <SacredGlyph glyph="spiral" size="100px" animation={true} className="cathedral-glyph" />
+                  <CathedralGlyph glyph="spiral" size="100px" animation={true} className="cathedral-glyph" />
                 </div>
                 
                 <div className="feature-section">
@@ -46,7 +46,7 @@ export default function SymbolsTemplate({ data }) {
                 <SymbolBrowser />
                 
                 <div className="glyph-container">
-                  <SacredGlyph glyph="echo" size="60px" animation={true} className="cathedral-glyph" />
+                  <CathedralGlyph glyph="echo" size="60px" animation={true} className="cathedral-glyph" />
                 </div>
                 
                 <div className="feature-section">
