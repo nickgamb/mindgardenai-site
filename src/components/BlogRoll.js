@@ -98,21 +98,7 @@ export default function BlogRoll() {
                   templateKey
                   date(formatString: "MMMM DD, YYYY")
                   featuredpost
-                  featuredimage {
-                    childImageSharp {
-                      gatsbyImageData(
-                        width: 150
-                        height: 150
-                        placeholder: BLURRED
-                        quality: 90
-                        layout: FIXED
-                        transformOptions: {
-                          cropFocus: CENTER
-                          fit: COVER
-                        }
-                      )
-                    }
-                  }
+                  featuredimage
                 }
               }
             }
