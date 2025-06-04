@@ -204,6 +204,9 @@ const SymbolBrowser = () => {
 
   // Render graph visualization
   const renderGraphView = () => {
+    if (!graphData || !graphData.nodes || !graphData.links) {
+      return <div className="has-text-centered has-text-danger">Graph data unavailable.</div>;
+    }
     const { nodes, links } = graphData;
     
     return (
