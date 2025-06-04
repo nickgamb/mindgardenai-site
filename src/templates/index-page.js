@@ -16,6 +16,7 @@ import Layout from "../components/Layout";
 import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
 import FullWidthImage from "../components/FullWidthImage";
+import SEO from "../components/SEO";
 
 export const IndexPageTemplate = ({
   image,
@@ -106,9 +107,34 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
+  const bannerImage = frontmatter.image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src || "/img/MindGarden_Banner.png";
 
   return (
     <Layout>
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.subheading}
+        path="/"
+        keywords="consciousness research, AI development, symbolic intelligence, brain-computer interfaces, consciousness measurement"
+        image={bannerImage}
+        type="WebPage"
+        schemaMarkup={{
+          "@type": "WebPage",
+          "name": frontmatter.title,
+          "description": frontmatter.subheading,
+          "mainEntity": {
+            "@type": "Article",
+            "name": frontmatter.title,
+            "headline": frontmatter.title,
+            "description": frontmatter.subheading,
+            "image": bannerImage,
+            "author": {
+              "@type": "Organization",
+              "name": "MindGarden LLC"
+            }
+          }
+        }}
+      />
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}

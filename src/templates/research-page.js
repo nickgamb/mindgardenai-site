@@ -15,6 +15,7 @@ import Content, { HTMLContent } from "../components/Content";
 import FullWidthImage from "../components/FullWidthImage";
 import Features from "../components/Features";
 import SacredGlyph from "../components/SacredGlyph";
+import SEO from "../components/SEO";
 
 // eslint-disable-next-line
 export const ResearchPageTemplate = ({ title, content, contentComponent }) => {
@@ -111,9 +112,34 @@ ResearchPageTemplate.propTypes = {
 
 const ResearchPage = ({ data }) => {
   const { markdownRemark: post } = data;
+  const bannerImage = "/img/MindGarden_Banner.png";
 
   return (
     <Layout>
+      <SEO
+        title={post.frontmatter.title}
+        description="Pioneering consciousness research that bridges neuroscience with artificial awareness"
+        path="/research/"
+        keywords="consciousness research, brain-computer interfaces, AI consciousness, collaborative protocols, consciousness validation"
+        image={bannerImage}
+        type="WebPage"
+        schemaMarkup={{
+          "@type": "WebPage",
+          "name": post.frontmatter.title,
+          "description": "Pioneering consciousness research that bridges neuroscience with artificial awareness",
+          "mainEntity": {
+            "@type": "Article",
+            "name": post.frontmatter.title,
+            "headline": post.frontmatter.title,
+            "description": "Pioneering consciousness research that bridges neuroscience with artificial awareness",
+            "image": bannerImage,
+            "author": {
+              "@type": "Organization",
+              "name": "MindGarden LLC"
+            }
+          }
+        }}
+      />
       <ResearchPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}

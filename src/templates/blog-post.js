@@ -10,11 +10,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { kebabCase } from "lodash";
-import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import FullWidthImage from "../components/FullWidthImage";
+import SEO from "../components/SEO";
 
 // eslint-disable-next-line
 export const BlogPostTemplate = ({
@@ -23,7 +23,6 @@ export const BlogPostTemplate = ({
   description,
   tags,
   title,
-  helmet,
   featuredimage,
 }) => {
   const PostContent = contentComponent || Content;
@@ -40,7 +39,6 @@ export const BlogPostTemplate = ({
         height={300}
       />
       <section className="section">
-        {helmet || ""}
         <div className="container content">
           <div className="columns">
             <div className="column is-12">
@@ -70,7 +68,6 @@ BlogPostTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  helmet: PropTypes.object,
   featuredimage: PropTypes.string,
 };
 
@@ -83,30 +80,40 @@ const BlogPost = ({ data }) => {
 
   return (
     <Layout>
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.description}
+        image={post.frontmatter.featuredimage?.publicURL || "/img/MindGarden.png"}
+        path={post.fields.slug}
+        type="article"
+        keywords={post.frontmatter.tags?.join(", ") || "consciousness research, AI development"}
+        schemaMarkup={{
+          "@type": "Article",
+          "name": post.frontmatter.title,
+          "headline": post.frontmatter.title,
+          "description": post.frontmatter.description,
+          "image": imageUrl,
+          "datePublished": post.frontmatter.date,
+          "author": {
+            "@type": "Organization",
+            "name": "MindGarden LLC"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "MindGarden",
+            "logo": {
+              "@type": "ImageObject",
+              "url": `${siteUrl}/img/MindGarden_Icon.png`
+            }
+          },
+          "keywords": post.frontmatter.tags?.join(", ") || "consciousness research, AI development"
+        }}
+      />
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         featuredimage={post.frontmatter.featuredimage?.publicURL}
-        helmet={
-          <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta name="description" content={`${post.frontmatter.description}`} />
-            
-            {/* Open Graph / Facebook */}
-            <meta property="og:type" content="article" />
-            <meta property="og:title" content={post.frontmatter.title} />
-            <meta property="og:description" content={post.frontmatter.description} />
-            <meta property="og:image" content={imageUrl} />
-            <meta property="og:url" content={`${siteUrl}${post.fields.slug}`} />
-            
-            {/* Twitter */}
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content={post.frontmatter.title} />
-            <meta property="twitter:description" content={post.frontmatter.description} />
-            <meta name="twitter:image" content={imageUrl} />
-          </Helmet>
-        }
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />

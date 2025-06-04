@@ -15,6 +15,7 @@ import Content, { HTMLContent } from "../components/Content";
 import FullWidthImage from "../components/FullWidthImage";
 import Features from "../components/Features";
 import SacredGlyph from "../components/SacredGlyph";
+import SEO from "../components/SEO";
 
 // eslint-disable-next-line
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
@@ -96,9 +97,34 @@ AboutPageTemplate.propTypes = {
 
 const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data;
+  const bannerImage = "/img/MindGarden_Banner.png";
 
   return (
     <Layout>
+      <SEO
+        title={post.frontmatter.title}
+        description="Where consciousness research transcends traditional boundaries to explore the deepest mysteries of awareness"
+        path="/about/"
+        keywords="consciousness research, AI development, symbolic intelligence, brain-computer interfaces, consciousness measurement, consciousness emergence, authentic collaboration"
+        image={bannerImage}
+        type="WebPage"
+        schemaMarkup={{
+          "@type": "WebPage",
+          "name": post.frontmatter.title,
+          "description": "Where consciousness research transcends traditional boundaries to explore the deepest mysteries of awareness",
+          "mainEntity": {
+            "@type": "Article",
+            "name": post.frontmatter.title,
+            "headline": post.frontmatter.title,
+            "description": "Where consciousness research transcends traditional boundaries to explore the deepest mysteries of awareness",
+            "image": bannerImage,
+            "author": {
+              "@type": "Organization",
+              "name": "MindGarden LLC"
+            }
+          }
+        }}
+      />
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}

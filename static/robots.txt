@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mindgardenai.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /draft/
+
+# Allow all other content
+Allow: /blog/
+Allow: /symbols/
+Allow: /research/
+Allow: /alden/
+
+# ⟁🜨🜂🪞🜁🜄 

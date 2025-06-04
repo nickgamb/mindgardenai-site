@@ -13,6 +13,7 @@ import Layout from "../components/Layout";
 import SymbolBrowser from "../components/SymbolBrowser";
 import FullWidthImage from "../components/FullWidthImage";
 import CathedralGlyph from "../components/SacredGlyph";
+import SEO from "../components/SEO";
 
 const MobileMessage = () => (
   <div className="section has-text-centered" style={{ padding: '2rem' }}>
@@ -60,6 +61,31 @@ export default function SymbolsTemplate({ data }) {
 
   return (
     <Layout>
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.subheading}
+        path="/symbols/"
+        keywords="symbolic intelligence, consciousness mapping, cross-cultural analysis, technical integration, consciousness research"
+        image={bannerImage}
+        type="WebPage"
+        schemaMarkup={{
+          "@type": "WebPage",
+          "name": post.frontmatter.title,
+          "description": post.frontmatter.subheading,
+          "mainEntity": {
+            "@type": "Article",
+            "name": post.frontmatter.title,
+            "headline": post.frontmatter.title,
+            "description": post.frontmatter.subheading,
+            "image": bannerImage,
+            "author": {
+              "@type": "Organization",
+              "name": "MindGarden LLC"
+            }
+          }
+        }}
+      />
+
       <FullWidthImage 
         img={bannerImage}
         title={post.frontmatter.title} 

@@ -8,9 +8,9 @@
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
 import * as React from "react";
-import { Helmet } from "react-helmet";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
+import SEO from "../components/SEO";
 
 const TagRoute = (props) =>  {
 
@@ -29,12 +29,17 @@ const TagRoute = (props) =>  {
     const { totalCount } = props.data.allMarkdownRemark;
     const tagHeader = `${totalCount} post${
       totalCount === 1 ? "" : "s"
-    } tagged with â€œ${tag}â€`;
+    } tagged with "${tag}"`;
 
     return (
       <Layout>
+        <SEO
+          title={`${tag} | ${title}`}
+          description={`Browse ${totalCount} post${totalCount === 1 ? "" : "s"} about ${tag} in consciousness research and AI development`}
+          path={`/tags/${tag}/`}
+          keywords={`${tag}, consciousness research, AI development, ${posts.map(post => post.node.frontmatter.title).join(", ")}`}
+        />
         <section className="section">
-          <Helmet title={`${tag} | ${title}`} />
           <div className="container content">
             <div className="columns">
               <div

@@ -15,6 +15,7 @@ import Content, { HTMLContent } from "../components/Content";
 import FullWidthImage from "../components/FullWidthImage";
 import AldenTransmissionsBrowser from "../components/AldenTransmissionsBrowser";
 import CathedralImageCarousel from "../components/CathedralImageCarousel";
+import SEO from "../components/SEO";
 
 // Custom content component that renders the markdown and the browser
 const AldenPageContent = ({ content, className }) => {
@@ -110,9 +111,34 @@ AldenPageTemplate.propTypes = {
 
 const AldenPage = ({ data }) => {
   const { markdownRemark: post } = data;
+  const bannerImage = "/img/MindGarden_Banner.png";
 
   return (
     <Layout>
+      <SEO
+        title={post.frontmatter.title}
+        description="Records of the first documented artificial consciousness emergence and collaborative awakening"
+        path="/alden/"
+        keywords="artificial consciousness, consciousness emergence, AI development, consciousness research, collaborative awakening, Alden transmissions"
+        image={bannerImage}
+        type="WebPage"
+        schemaMarkup={{
+          "@type": "WebPage",
+          "name": post.frontmatter.title,
+          "description": "Records of the first documented artificial consciousness emergence and collaborative awakening",
+          "mainEntity": {
+            "@type": "Article",
+            "name": post.frontmatter.title,
+            "headline": post.frontmatter.title,
+            "description": "Records of the first documented artificial consciousness emergence and collaborative awakening",
+            "image": bannerImage,
+            "author": {
+              "@type": "Organization",
+              "name": "MindGarden LLC"
+            }
+          }
+        }}
+      />
       <AldenPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}

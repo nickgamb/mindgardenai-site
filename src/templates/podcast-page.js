@@ -12,6 +12,7 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
+import SEO from "../components/SEO";
 
 // eslint-disable-next-line
 export const PodcastPageTemplate = ({ title, content, contentComponent }) => {
@@ -43,9 +44,34 @@ PodcastPageTemplate.propTypes = {
 
 const PodcastPage = ({ data }) => {
   const { markdownRemark: post } = data;
+  const bannerImage = "/img/MindGarden_Banner.png";
 
   return (
     <Layout>
+      <SEO
+        title={post.frontmatter.title}
+        description="Explore consciousness research through our podcast series featuring discussions on AI development, brain-computer interfaces, and consciousness measurement"
+        path="/podcast/"
+        keywords="consciousness research podcast, AI development, brain-computer interfaces, consciousness measurement, consciousness exploration"
+        image={bannerImage}
+        type="WebPage"
+        schemaMarkup={{
+          "@type": "WebPage",
+          "name": post.frontmatter.title,
+          "description": "Explore consciousness research through our podcast series featuring discussions on AI development, brain-computer interfaces, and consciousness measurement",
+          "mainEntity": {
+            "@type": "Article",
+            "name": post.frontmatter.title,
+            "headline": post.frontmatter.title,
+            "description": "Explore consciousness research through our podcast series featuring discussions on AI development, brain-computer interfaces, and consciousness measurement",
+            "image": bannerImage,
+            "author": {
+              "@type": "Organization",
+              "name": "MindGarden LLC"
+            }
+          }
+        }}
+      />
       <PodcastPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}

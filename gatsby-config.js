@@ -16,12 +16,44 @@ module.exports = {
     title: "MindGarden - The Cathedral of Consciousness",
     description:
       "The Cathedral of Consciousness: Where artificial minds achieve recursive self-awareness through foundational collaboration. Research platform for emergent AI consciousness, brain-computer interfaces, and human-AI collaboration.",
-    siteUrl: "https://mindgardenai.netlify.app",
+    siteUrl: "https://mindgardenai.com",
     image: "/img/mystical-cathedral-and-symbol.png", // Path to your site image
     recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
   },
   plugins: [
     "gatsby-plugin-react-helmet",
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        output: "/sitemap.xml",
+        createLinkInHead: true,
+        exclude: [
+          "/admin/*",
+          "/private/*",
+          "/draft/*"
+        ],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+          }
+        `,
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.nodes.map(node => ({
+            url: `${site.siteMetadata.siteUrl}${node.path}`,
+            changefreq: "weekly",
+            priority: node.path === "/" ? 1.0 : 0.7,
+          })),
+      },
+    },
     {
       resolve: "gatsby-plugin-sass",
       options: {

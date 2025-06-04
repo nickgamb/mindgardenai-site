@@ -13,16 +13,6 @@ import { ForceGraph2D } from 'react-force-graph';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Line } from 'react-chartjs-2';
 
-// Import A-Frame only on client side
-let AFRAME;
-if (typeof window !== 'undefined' && !window.AFRAME) {
-  import('aframe').then(() => {
-    if (window.AFRAME) {
-      AFRAME = window.AFRAME;
-    }
-  });
-}
-
 const SymbolBrowser = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -48,6 +38,13 @@ const SymbolBrowser = () => {
 
   // Add mobile detection
   const [isMobile, setIsMobile] = useState(false);
+
+  // Dynamically import A-Frame only in the browser
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !window.AFRAME) {
+      import('aframe');
+    }
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => {

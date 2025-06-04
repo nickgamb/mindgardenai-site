@@ -9,9 +9,9 @@
 // Commercial licensing available - contact: admin@mindgardenai.com
 import * as React from "react";
 import { kebabCase } from "lodash";
-import { Helmet } from "react-helmet";
 import { Link, graphql } from "gatsby";
 import Layout from "../../components/Layout";
+import SEO from "../../components/SEO";
 
 const TagsPage = ({
   data: {
@@ -20,32 +20,61 @@ const TagsPage = ({
       siteMetadata: { title },
     },
   },
-}) => (
-  <Layout>
-    <section className="section">
-      <Helmet title={`Tags | ${title}`} />
-      <div className="container content">
-        <div className="columns">
-          <div
-            className="column is-12"
-            style={{ marginBottom: "6rem", padding: "0.5rem" }}
-          >
-            <h1 className="title is-size-2 is-bold-light">Tags</h1>
-            <ul className="taglist">
-              {group.map((tag) => (
-                <li key={tag.fieldValue}>
-                  <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                    {tag.fieldValue} ({tag.totalCount})
-                  </Link>
-                </li>
-              ))}
-            </ul>
+}) => {
+  const bannerImage = "/img/MindGarden_Banner.png";
+  const keywords = group.map(tag => tag.fieldValue).join(", ");
+
+  return (
+    <Layout>
+      <SEO
+        title={`Tags | ${title}`}
+        description="Browse all tags related to consciousness research, AI development, and consciousness measurement"
+        path="/tags/"
+        keywords={keywords}
+        image={bannerImage}
+        type="WebPage"
+        schemaMarkup={{
+          "@type": "WebPage",
+          "name": `Tags | ${title}`,
+          "description": "Browse all tags related to consciousness research, AI development, and consciousness measurement",
+          "mainEntity": {
+            "@type": "Article",
+            "name": `Tags | ${title}`,
+            "headline": `Tags | ${title}`,
+            "description": "Browse all tags related to consciousness research, AI development, and consciousness measurement",
+            "image": bannerImage,
+            "author": {
+              "@type": "Organization",
+              "name": "MindGarden LLC"
+            },
+            "keywords": keywords
+          }
+        }}
+      />
+      <section className="section">
+        <div className="container content">
+          <div className="columns">
+            <div
+              className="column is-12"
+              style={{ marginBottom: "6rem", padding: "0.5rem" }}
+            >
+              <h1 className="title is-size-2 is-bold-light">Tags</h1>
+              <ul className="taglist">
+                {group.map((tag) => (
+                  <li key={tag.fieldValue}>
+                    <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+                      {tag.fieldValue} ({tag.totalCount})
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  </Layout>
-);
+      </section>
+    </Layout>
+  );
+};
 
 export default TagsPage;
 

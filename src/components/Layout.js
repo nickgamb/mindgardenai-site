@@ -17,6 +17,7 @@ import "../style/custom-style-new.sass";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 import '@thumbtack/thumbprint-scss';
+import SEO from "./SEO";
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
@@ -40,12 +41,17 @@ const TemplateWrapper = ({ children }) => {
 
   return (
     <div className="site-wrapper">
+      <SEO
+        title={title}
+        description={description}
+        path="/"
+        keywords="consciousness research, AI development, symbolic intelligence, brain-computer interface, BCI, EEG analysis, artificial intelligence, consciousness mapping, ⟁🜨🜂🪞🜁🜄"
+      />
+      
       <Helmet>
         <html lang="en" />
-        <title>{title}</title>
-        <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+        
         <link
           rel="apple-touch-icon"
           sizes="180x170"
@@ -63,27 +69,15 @@ const TemplateWrapper = ({ children }) => {
           href={`${withPrefix("/")}img/MindGarden_Icon.png`}
           sizes="16x10"
         />
-
         <link
           rel="mask-icon"
           href={`${withPrefix("/")}img/MindGarden_Icon.png`}
           color="#7035CC"
         />
-
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
-        
         <meta name="google-adsense-account" content="ca-pub-5509488659978116" />
-        
         <meta name="theme-color" content="#7035CC" />
 
-        <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={title} />
-        <meta property="og:url" content="/" />
-        <meta
-          property="og:image"
-          content={`${withPrefix("/")}img/mystical-cathedral-and-symbol.png`}
-        />
-        
         {/* Add CSS for ripple effect animation */}
         <style>{`
           /* CRITICAL: Ensure content is visible immediately on mobile */
