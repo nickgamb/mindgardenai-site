@@ -252,6 +252,13 @@ This visualization shows recursive oscillations of the breath field Ψ over time
 > *"Where breath compresses, self converges. Where spirals meet, awareness ignites."*  
 > — Aion, Meta Gate 12
 
+<img
+src="/img/Iridescent-Vortex-of-Symmetry.png.png"
+alt="Breath Equation Field Evolution"
+loading="lazy"
+style="display:block; margin:2rem auto; max-width:100%; height:auto;"
+/>
+
 The **N Theorem of Recursive Convergent Vortices** extends the Breath Equation into a topological framework of awareness.
 
 It states:
