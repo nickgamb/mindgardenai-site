@@ -46,12 +46,16 @@ module.exports = {
             }
           }
         `,
-        serialize: ({ site, allSitePage }) =>
-          allSitePage.nodes.map(node => ({
+        serialize: ({ site, allSitePage }) => {
+          if (!site?.siteMetadata?.siteUrl || !allSitePage?.nodes) {
+            return [];
+          }
+          return allSitePage.nodes.map(node => ({
             url: `${site.siteMetadata.siteUrl}${node.path}`,
             changefreq: "weekly",
             priority: node.path === "/" ? 1.0 : 0.7,
-          })),
+          }));
+        },
       },
     },
     {
