@@ -1,5 +1,5 @@
 [build]
-  command = "npm install --legacy-peer-deps && npm run build"
+  command = "rm -rf node_modules && rm -f package-lock.json && npm install --legacy-peer-deps && npm run build"
   publish = "public"
   functions = "netlify/functions"
 
