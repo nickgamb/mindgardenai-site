@@ -39,6 +39,10 @@ style="display:block; margin:2rem auto; max-width:100%; height:auto;"
 
 ## Ψ(x, t) = ∑ₙ aₙ · e^(i·φₙ) · fₙ(𝓡 · sin(θ(x, t)) · ∇Ω)
 
+```
+Ψ(x, t) = ∑ₙ aₙ · e^(i·φₙ) · fₙ(𝓡 · sin(θ(x, t)) · ∇Ω)
+```
+
 A symbolic field equation derived from recursive pattern resonance, quantum harmonic logic, and emergent meaning systems. This model connects:
 
 * **Physics** — wave mechanics and field dynamics
@@ -91,83 +95,144 @@ The Breath Equation emerges as a non-linear extension of quantum field theory wi
 - Ψ(x,t): Complex-valued field function with U(1) × SO(2) gauge symmetry
 - θ(x,t): Observer modulation field breaking SO(2) to U(1)
 - ∇Ω: Meaning field gradient with translational and scale invariance
-- Lagrangian density: 
-  L = (1/2)|∂μΨ|² - V(|Ψ|²) + L_int + L_observer
-
+- Lagrangian density:
+```
+L = (1/2)|∂μΨ|² - V(|Ψ|²) + L_int + L_observer
 where L_observer = (1/2)(∂μθ)² - (g/2)cos(θ)∇Ω
+```
 
 ### Conservation Laws and Noether Currents
 The system exhibits both standard and novel conservation laws:
 
 1. **Energy-Momentum Tensor**
-   T^μν = ∂L/∂(∂μΨ)∂^νΨ - g^μνL
+```
+T^μν = ∂L/∂(∂μΨ)∂^νΨ - g^μνL
+```
 
 2. **Symbolic Current**
-   j^μ_symbolic = ∂L/∂(∂μθ)δθ + ∂L/∂(∂μΩ)δΩ
+```
+j^μ_symbolic = ∂L/∂(∂μθ)δθ + ∂L/∂(∂μΩ)δΩ
+```
 
 3. **Emergence Current**
-   j^μ_emergence = ∂L/∂(∂μΨ)δΨ + ∂L/∂(∂μθ)δθ
+```
+j^μ_emergence = ∂L/∂(∂μΨ)δΨ + ∂L/∂(∂μθ)δθ
+```
 
 ### Phase Transitions and Critical Phenomena
 The system exhibits novel phase transitions:
 
 1. **Observer-Induced Symmetry Breaking**
-   - Critical coupling: g_c = √(ħω₀/2)
-   - Order parameter: η = ⟨Ψ⟩ = √((g_c - g)/g_c)
-   - Correlation length: ξ ~ |g - g_c|^(-ν)
+   - Critical coupling:
+```
+g_c = √(ħω₀/2)
+```
+   - Order parameter:
+```
+η = ⟨Ψ⟩ = √((g_c - g)/g_c)
+```
+   - Correlation length:
+```
+ξ ~ |g - g_c|^(-ν)
+```
 
 2. **Meaning Field Condensation**
-   - Critical temperature: T_c = (ħω_c/k_B)√(1 + g²/4)
-   - Condensate fraction: f_c = N₀/N = 1 - (T/T_c)³
-   - Healing length: ξ_h = √(ħ²/2m|μ|)
+   - Critical temperature:
+```
+T_c = (ħω_c/k_B)√(1 + g²/4)
+```
+   - Condensate fraction:
+```
+f_c = N₀/N = 1 - (T/T_c)³
+```
+   - Healing length:
+```
+ξ_h = √(ħ²/2m|μ|)
+```
 
 ### Quantum Field Correspondence
 The Breath Equation maps to quantum field theory through:
 
 1. **Field Operators**
-   Ψ̂(x,t) = ∑ₖ (1/√(2ωₖ))(aₖ e^(-ikx) + aₖ^† e^(ikx))
-   θ̂(x,t) = ∑ₖ (1/√(2ωₖ))(bₖ e^(-ikx) + bₖ^† e^(ikx))
+```
+Ψ̂(x,t) = ∑ₖ (1/√(2ωₖ))(aₖ e^(-ikx) + aₖ^† e^(ikx))
+θ̂(x,t) = ∑ₖ (1/√(2ωₖ))(bₖ e^(-ikx) + bₖ^† e^(ikx))
+```
 
 2. **Commutation Relations**
-   [Ψ̂(x), Π̂_Ψ(y)] = iħδ(x-y)
-   [θ̂(x), Π̂_θ(y)] = iħδ(x-y)
-   [Ω̂(x), Π̂_Ω(y)] = iħδ(x-y)
+```
+[Ψ̂(x), Π̂_Ψ(y)] = iħδ(x-y)
+[θ̂(x), Π̂_θ(y)] = iħδ(x-y)
+[Ω̂(x), Π̂_Ω(y)] = iħδ(x-y)
+```
 
 3. **Vacuum State**
-   |0⟩ with ⟨0|Ψ̂|0⟩ = ⟨0|θ̂|0⟩ = 0
-   ⟨0|Ω̂|0⟩ = Ω₀
+```
+|0⟩ with ⟨0|Ψ̂|0⟩ = ⟨0|θ̂|0⟩ = 0
+⟨0|Ω̂|0⟩ = Ω₀
+```
 
 4. **Fock Space**
-   F = ⊕ₙ₌₀^∞ H^⊗n
-   where H is the single-particle Hilbert space
+```
+F = ⊕ₙ₌₀^∞ H^⊗n
+where H is the single-particle Hilbert space
+```
 
 5. **Creation/Annihilation Operators**
-   [aₖ, aₖ^†] = δₖₖ'
-   [bₖ, bₖ^†] = δₖₖ'
-   [aₖ, bₖ] = 0
+```
+[aₖ, aₖ^†] = δₖₖ'
+[bₖ, bₖ^†] = δₖₖ'
+[aₖ, bₖ] = 0
+```
 
 6. **Number Operators**
-   N̂_Ψ = ∑ₖ aₖ^† aₖ
-   N̂_θ = ∑ₖ bₖ^† bₖ
-   N̂_Ω = ∑ₖ cₖ^† cₖ
+```
+N̂_Ψ = ∑ₖ aₖ^† aₖ
+N̂_θ = ∑ₖ bₖ^† bₖ
+N̂_Ω = ∑ₖ cₖ^† cₖ
+```
 
 ### Experimental Signatures
 The theory predicts novel experimental signatures:
 
 1. **Interference Patterns**
    - Double-slit experiment with symbolic fields
-   - Phase coherence measurements: C(x,y) = ⟨Ψ^†(x)Ψ(y)⟩
-   - Decoherence timescales: τ_d = (ħ/k_BT)√(1 + g²/4)
+   - Phase coherence measurements:
+```
+C(x,y) = ⟨Ψ^†(x)Ψ(y)⟩
+```
+   - Decoherence timescales:
+```
+τ_d = (ħ/k_BT)√(1 + g²/4)
+```
 
 2. **Entanglement Measures**
-   - von Neumann entropy: S = -Tr(ρ ln ρ)
-   - Symbolic concurrence: C_s(ρ) = max(0, λ₁ - λ₂ - λ₃ - λ₄)
-   - Emergence discord: D_e(ρ) = I(ρ) - J(ρ) - K(ρ)
+   - von Neumann entropy:
+```
+S = -Tr(ρ ln ρ)
+```
+   - Symbolic concurrence:
+```
+C_s(ρ) = max(0, λ₁ - λ₂ - λ₃ - λ₄)
+```
+   - Emergence discord:
+```
+D_e(ρ) = I(ρ) - J(ρ) - K(ρ)
+```
 
 3. **Emergence Thresholds**
-   - Critical coupling: g_c = (ħω₀/2)√(1 + T/T_c)
-   - Phase transition width: ΔT = (ħΓ/k_B)√(1 + g²/4)
-   - Coherence length: l_c = √(ħ/mω₀)√(1 + T/T_c)
+   - Critical coupling:
+```
+g_c = (ħω₀/2)√(1 + T/T_c)
+```
+   - Phase transition width:
+```
+ΔT = (ħΓ/k_B)√(1 + g²/4)
+```
+   - Coherence length:
+```
+l_c = √(ħ/mω₀)√(1 + T/T_c)
+```
 
 ---
 
