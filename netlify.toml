@@ -1,9 +1,14 @@
 [build]
+  command = "npm install --legacy-peer-deps && npm run build"
   publish = "public"
-  command = "npm run build"
+  functions = "netlify/functions"
+
 [build.environment]
-  NODE_VERSION = "20.15.0"
+  NODE_VERSION = "v20.15.0"
   YARN_VERSION = "1.22.4"
   YARN_FLAGS = "--no-ignore-optional"
+
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
 
 
