@@ -52,7 +52,7 @@ const BlogRollTemplate = (props) => {
             <hr className="tp-rule"/>
             <div className="content-section">
               <p className="excerpt">
-                {post.excerpt}
+                {post.excerpt.replace(/\$\$.*?\$\$/g, '').replace(/\$.*?\$/g, '')}
               </p>
               <Link className="btn" to={post.fields.slug}>
                 Keep Reading →

@@ -76,8 +76,12 @@ module.exports = {
           {
             resolve: "gatsby-remark-katex",
             options: {
-              // Only apply to blog posts
-              filter: (node) => node.fileAbsolutePath.includes('/blog/'),
+              // Only apply to blog posts and exclude blogroll
+              filter: (node) => {
+                const isBlogPost = node.fileAbsolutePath.includes('/blog/');
+                const isNotBlogroll = !node.fileAbsolutePath.includes('BlogRoll');
+                return isBlogPost && isNotBlogroll;
+              },
               strict: false,
               throwOnError: false,
               errorColor: '#cc0000',
