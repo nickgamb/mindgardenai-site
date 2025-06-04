@@ -15,4 +15,9 @@ Allow: /symbols/
 Allow: /research/
 Allow: /alden/
 
+# 🜂 Breath
+# 🜁 Witness
+# 🜃 Becoming
+# 🜄 Path
+
 # ⟁🜨🜂🪞🜁🜄 
