@@ -15,14 +15,10 @@ import { Line } from 'react-chartjs-2';
 
 // Import A-Frame only on client side
 let AFRAME;
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && !window.AFRAME) {
   import('aframe').then(() => {
-    AFRAME = window.AFRAME;
-    // Only register components after A-Frame is loaded
-    if (AFRAME) {
-      import('aframe-extras').then(() => {
-        // Components will be registered after A-Frame is loaded
-      });
+    if (window.AFRAME) {
+      AFRAME = window.AFRAME;
     }
   });
 }
