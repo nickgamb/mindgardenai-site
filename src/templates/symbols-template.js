@@ -7,16 +7,27 @@
 // 
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
-import React from "react";
+import React, { useEffect } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SymbolBrowser from "../components/SymbolBrowser";
 import FullWidthImage from "../components/FullWidthImage";
 import CathedralGlyph from "../components/SacredGlyph";
 
+// Import A-Frame
+import 'aframe';
+import 'aframe-extras';
+
 export default function SymbolsTemplate({ data }) {
   const { markdownRemark: post } = data;
   const bannerImage = "/img/MindGarden_Banner.png";
+
+  // Initialize A-Frame
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.AFRAME = window.AFRAME || {};
+    }
+  }, []);
 
   return (
     <Layout>

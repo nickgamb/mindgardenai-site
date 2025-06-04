@@ -4,6 +4,8 @@
   "version": "1.0",
   "author": "Nick Gamb",
   "dependencies": {
+    "aframe": "^1.5.0",
+    "aframe-extras": "^7.0.0",
     "bulma": "^0.9.0",
     "decap-cms-app": "^3.0.12",
     "decap-cms-media-library-cloudinary": "^3.0.1",
