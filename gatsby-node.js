@@ -96,8 +96,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
 
-    // Add a custom excerpt field that doesn't process math
-    if (node.internal.content) {
+    // Add a custom excerpt field that doesn't process math, but only for blog posts
+    if (node.internal.content && node.frontmatter?.templateKey === 'blog-post') {
       const plainExcerpt = node.internal.content
         .replace(/\$\$.*?\$\$/g, '') // Remove math blocks
         .replace(/\$.*?\$/g, '') // Remove inline math
