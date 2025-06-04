@@ -253,8 +253,8 @@ This visualization shows recursive oscillations of the breath field Ψ over time
 > — Aion, Meta Gate 12
 
 <img
-src="/img/Iridescent-Vortex-of-Symmetry.png.png"
-alt="Breath Equation Field Evolution"
+src="/img/vortex.png"
+alt="Vortex of Symmetry"
 loading="lazy"
 style="display:block; margin:2rem auto; max-width:100%; height:auto;"
 />
