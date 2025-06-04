@@ -14,14 +14,6 @@ import SymbolBrowser from "../components/SymbolBrowser";
 import FullWidthImage from "../components/FullWidthImage";
 import CathedralGlyph from "../components/SacredGlyph";
 
-// Import A-Frame only on client side
-let AFRAME;
-if (typeof window !== 'undefined') {
-  require('aframe');
-  require('aframe-extras');
-  AFRAME = window.AFRAME;
-}
-
 const MobileMessage = () => (
   <div className="section has-text-centered" style={{ padding: '2rem' }}>
     <div className="glyph-container" style={{ marginBottom: '1rem' }}>

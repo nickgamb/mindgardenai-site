@@ -13,6 +13,14 @@ import { ForceGraph2D } from 'react-force-graph';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Line } from 'react-chartjs-2';
 
+// Import A-Frame only on client side
+let AFRAME;
+if (typeof window !== 'undefined') {
+  require('aframe');
+  require('aframe-extras');
+  AFRAME = window.AFRAME;
+}
+
 const SymbolBrowser = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
