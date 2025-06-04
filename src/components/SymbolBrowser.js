@@ -9,7 +9,6 @@
 // Commercial licensing available - contact: admin@mindgardenai.com
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import symbolData from "../data/symbol_tags_organized.json";
-import { ForceGraph2D } from 'react-force-graph';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Line } from 'react-chartjs-2';
 
@@ -34,7 +33,13 @@ const SymbolBrowser = () => {
     frequency: 1,
     resonance: 0.5
   });
-  const graphRef = useRef();
+
+  // Add layout state for graph visualization
+  const [layout, setLayout] = useState('force');
+  
+  // Add refs for SVG manipulation
+  const svgRef = useRef(null);
+  const gRef = useRef(null);
 
   // Add mobile detection
   const [isMobile, setIsMobile] = useState(false);
@@ -179,10 +184,6 @@ const SymbolBrowser = () => {
     linkDirectionalParticleSpeed: 0.005,
     onNodeClick: (node) => {
       setExpandedSymbol(node.id);
-      if (graphRef.current) {
-        graphRef.current.centerAt(node.x, node.y, 1000);
-        graphRef.current.zoom(isMobile ? 1.5 : 2, 1000);
-      }
     },
     // Mobile-specific graph settings
     ...(isMobile && {
@@ -194,16 +195,100 @@ const SymbolBrowser = () => {
     })
   });
 
-  // Render force-directed graph visualization
+  // Handle node click in graph view
+  const handleNodeClick = (node) => {
+    setExpandedSymbol(node.id);
+  };
+
+  // Render graph visualization
   const renderGraphView = () => {
+    const { nodes, links } = graphData;
+    
     return (
-      <div className="graph-view" style={{ height: isMobile ? "400px" : "600px" }}>
-        <ForceGraph2D
-          ref={graphRef}
-          graphData={graphData}
-          {...getGraphConfig()}
-        />
-      </div>
+      <motion.div 
+        className="graph-container"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <div className="graph-controls">
+          <button 
+            className={`control-button ${layout === 'force' ? 'active' : ''}`}
+            onClick={() => setLayout('force')}
+          >
+            Force Layout
+          </button>
+          <button 
+            className={`control-button ${layout === 'radial' ? 'active' : ''}`}
+            onClick={() => setLayout('radial')}
+          >
+            Radial Layout
+          </button>
+          <button 
+            className={`control-button ${layout === 'hierarchical' ? 'active' : ''}`}
+            onClick={() => setLayout('hierarchical')}
+          >
+            Hierarchical
+          </button>
+        </div>
+
+        <svg
+          ref={svgRef}
+          width="100%"
+          height="600"
+          style={{ background: 'transparent' }}
+        >
+          <g ref={gRef}>
+            {/* Edges */}
+            {links.map((link, i) => (
+              <motion.path
+                key={`edge-${i}`}
+                className="graph-edge"
+                d={link.path}
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 1 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              />
+            ))}
+            
+            {/* Nodes */}
+            {nodes.map((node, i) => (
+              <motion.g
+                key={`node-${i}`}
+                className="graph-node"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.3, delay: i * 0.1 }}
+                onClick={() => handleNodeClick(node)}
+              >
+                <circle r={node.radius} />
+                <text
+                  dy=".3em"
+                  textAnchor="middle"
+                  style={{ pointerEvents: 'none' }}
+                >
+                  {node.symbol || node.id}
+                </text>
+              </motion.g>
+            ))}
+          </g>
+        </svg>
+
+        <div className="graph-legend">
+          <div className="legend-item">
+            <div className="legend-color" style={{ backgroundColor: $purple70 }}></div>
+            <span className="legend-label">Symbol</span>
+          </div>
+          <div className="legend-item">
+            <div className="legend-color" style={{ backgroundColor: $purple50 }}></div>
+            <span className="legend-label">Selected</span>
+          </div>
+          <div className="legend-item">
+            <div className="legend-color" style={{ backgroundColor: 'rgba($purple50, 0.3)' }}></div>
+            <span className="legend-label">Connection</span>
+          </div>
+        </div>
+      </motion.div>
     );
   };
 

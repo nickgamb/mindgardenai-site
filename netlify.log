@@ -1,0 +1,1455 @@
+Skip to main content
+
+    MMindGarden
+
+Projects
+Builds
+Extensions
+Domains
+Members
+Audit log
+Security Scorecard
+Usage & billing
+Team settings
+
+    Visual editor dashboard
+
+Upgrade
+
+    Projects
+
+mindgardenai.com
+
+Project navigation
+
+    Project overview
+    Project configuration
+    Deploys
+    Preview Servers
+    Logs
+
+    Functions
+    Edge Functions
+    Log Drains
+    Audit log
+
+Metrics
+
+        Project Analytics
+        Real User Metrics
+        Function Metrics
+    Domain management
+    Forms
+    Blobs
+    Extensions
+        Auth0 by Okta
+
+Deploy details
+Your deploy failed due to an error
+Deploy failed for mindgardenai
+A failure prevented us from deploying your project.
+Update package.json
+
+Today at 10:05 AM, by nickgambnickgamb on GitHubwith
+
+Gatsby
+
+Production: main@5fa7521
+Functions
+Deploy settings
+Fancy a game?
+
+This deploy is done, but hey, you can still play if you want to!
+Deploy log
+Initializing
+Complete
+Building
+Failed
+10:09:57 AM: Netlify Build                                                 
+10:09:57 AM: ────────────────────────────────────────────────────────────────
+10:09:57 AM: ​
+10:09:57 AM: ❯ Version
+10:09:57 AM:   @netlify/build 33.4.0
+10:09:57 AM: ​
+10:09:57 AM: ❯ Flags
+10:09:57 AM:   accountId: 6679ad670692ef00866f9759
+10:09:57 AM:   baseRelDir: true
+10:09:57 AM:   buildId: 68407cd56e826f0008eb9018
+10:09:57 AM:   deployId: 68407cd56e826f0008eb901a
+10:09:58 AM: ​
+10:09:58 AM: ❯ Current directory
+10:09:58 AM:   /opt/build/repo
+10:09:58 AM: ​
+10:09:58 AM: ❯ Config file
+10:09:58 AM:   /opt/build/repo/netlify.toml
+10:09:58 AM: ​
+10:09:58 AM: ❯ Context
+10:09:58 AM:   production
+10:09:58 AM: ​
+10:09:58 AM: ❯ Loading plugins
+10:09:58 AM:    - @netlify/plugin-gatsby@3.8.3 from netlify.toml
+10:10:00 AM: Found a Gatsby cache. We’re about to go FAST. ⚡️
+10:10:00 AM: ​
+10:10:00 AM: build.command from netlify.toml                               
+10:10:00 AM: ────────────────────────────────────────────────────────────────
+10:10:00 AM: ​
+10:10:00 AM: $ rm -rf node_modules && rm -f package-lock.json && npm install --legacy-peer-deps && npm run build
+10:10:38 AM: npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+10:10:38 AM: npm warn deprecated @hapi/bourne@1.3.2: This version has been deprecated and is no longer supported or maintained
+10:10:38 AM: npm warn deprecated @hapi/topo@3.1.6: This version has been deprecated and is no longer supported or maintained
+10:10:38 AM: npm warn deprecated lodash.template@4.5.0: This package is deprecated. Use https://socket.dev/npm/package/eta instead.
+10:10:39 AM: npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+10:10:39 AM: npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+10:10:39 AM: npm warn deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+10:10:39 AM: npm warn deprecated lodash.get@4.4.2: This package is deprecated. Use the optional chaining (?.) operator instead.
+10:10:40 AM: npm warn deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+10:10:40 AM: npm warn deprecated async-cache@1.1.0: No longer maintained. Use [lru-cache](http://npm.im/lru-cache) version 7.6 or higher, and provide an asynchronous `fetchMethod` option.
+10:10:40 AM: npm warn deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+10:10:40 AM: npm warn deprecated workbox-google-analytics@4.3.1: It is not compatible with newer versions of GA starting with v4, as long as you are using GAv3 it should be ok, but the package is not longer being maintained
+10:10:40 AM: npm warn deprecated trim@0.0.1: Use String.prototype.trim() instead
+10:10:40 AM: npm warn deprecated @hapi/address@2.1.4: Moved to 'npm install @sideway/address'
+10:10:41 AM: npm warn deprecated @hapi/hoek@8.5.1: This version has been deprecated and is no longer supported or maintained
+10:10:42 AM: npm warn deprecated @babel/plugin-proposal-numeric-separator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
+10:10:43 AM: npm warn deprecated @humanwhocodes/config-array@0.5.0: Use @eslint/config-array instead
+10:10:44 AM: npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+10:10:44 AM: npm warn deprecated @humanwhocodes/object-schema@1.2.1: Use @eslint/object-schema instead
+10:10:45 AM: npm warn deprecated @hapi/joi@15.1.1: Switch to 'npm install joi'
+10:10:45 AM: npm warn deprecated yurnalist@2.1.0: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+10:10:45 AM: npm warn deprecated @babel/plugin-proposal-nullish-coalescing-operator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
+10:10:45 AM: npm warn deprecated @babel/plugin-proposal-optional-chaining@7.21.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+10:10:45 AM: npm warn deprecated @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+10:10:45 AM: npm warn deprecated @babel/plugin-proposal-object-rest-spread@7.20.7: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-object-rest-spread instead.
+10:10:46 AM: npm warn deprecated string-similarity@1.2.2: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+10:10:46 AM: npm warn deprecated sudo-prompt@8.2.5: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+10:10:46 AM: npm warn deprecated multer@1.4.5-lts.2: Multer 1.x is impacted by a number of vulnerabilities, which have been patched in 2.x. You should upgrade to the latest 2.x version.
+10:10:48 AM: npm warn deprecated redux-devtools-extension@2.13.9: Package moved to @redux-devtools/extension.
+10:10:51 AM: npm warn deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+10:10:51 AM: npm warn deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+10:10:52 AM: npm warn deprecated @builder.io/partytown@0.5.4: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+10:10:52 AM: npm warn deprecated express-graphql@0.12.0: This package is no longer maintained. We recommend using `graphql-http` instead. Please consult the migration document https://github.com/graphql/graphql-http#migrating-express-grpahql.
+10:10:56 AM: npm warn deprecated uploadcare-widget@3.21.8: Support for jQuery File Uploader ends September 1, 2025. Migrate to our modern File Uploader: npm i @uploadcare/file-uploader
+10:11:01 AM: npm warn deprecated eslint@7.32.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+10:11:04 AM: npm warn deprecated core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+10:11:26 AM: added 2184 packages, and audited 2185 packages in 1m
+10:11:26 AM: 413 packages are looking for funding
+10:11:26 AM:   run `npm fund` for details
+10:11:26 AM: 40 vulnerabilities (1 low, 12 moderate, 27 high)
+10:11:26 AM: To address issues that do not require attention, run:
+10:11:26 AM:   npm audit fix
+10:11:26 AM: To address all issues possible (including breaking changes), run:
+10:11:26 AM:   npm audit fix --force
+10:11:26 AM: Some issues need review, and may require choosing
+10:11:26 AM: a different dependency.
+10:11:26 AM: Run `npm audit` for details.
+10:11:26 AM: > mindgarden-site@0.1.0 build
+10:11:26 AM: > npm run clean && gatsby build
+10:11:27 AM: > mindgarden-site@0.1.0 clean
+10:11:27 AM: > gatsby clean
+10:11:27 AM: info Deleting .cache, public, /opt/build/repo/node_modules/.cache/babel-loader, /opt/build/repo/node_modules/.cache/terser-webpack-plugin
+10:11:28 AM: info Successfully deleted directories
+10:11:31 AM: success compile gatsby files - 1.336s
+10:11:31 AM: success load gatsby config - 0.103s
+10:11:31 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:31 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:31 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:31 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:32 AM: success load plugins - 0.915s
+10:11:32 AM: warning gatsby-plugin-react-helmet: Gatsby now has built-in support for modifying the document head. Learn more at https://gatsby.dev/gatsby-head
+10:11:32 AM: success onPreInit - 0.003s
+10:11:32 AM: success initialize cache - 0.183s
+10:11:32 AM: success copy gatsby files - 0.100s
+10:11:32 AM: success Compiling Gatsby Functions - 0.306s
+10:11:32 AM: success onPreBootstrap - 0.393s
+10:11:33 AM: success createSchemaCustomization - 0.061s
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-plugin-sitemap": exclude
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-plugin-sitemap if you believe this option is valid.
+10:11:39 AM: warning Warning: there are unknown plugin options for "gatsby-remark-images": ignore
+10:11:39 AM: Please open an issue at https://ghub.io/gatsby-remark-images if you believe this option is valid.
+10:11:40 AM: success Checking for changed pages - 0.000s
+10:11:40 AM: success source and transform nodes - 7.332s
+10:11:40 AM: info Writing GraphQL type definitions to /opt/build/repo/.cache/schema.gql
+10:11:40 AM: success building schema - 0.204s
+10:11:40 AM: success createPages - 0.099s
+10:11:40 AM: success createPagesStatefully - 0.064s
+10:11:40 AM: info Total nodes: 1380, SitePage nodes: 89 (use --verbose for breakdown)
+10:11:40 AM: success Checking for changed pages - 0.000s
+10:11:40 AM: success onPreExtractQueries - 0.000s
+10:11:42 AM: success extract queries from components - 1.538s
+10:11:42 AM: success write out redirect data - 0.003s
+10:11:42 AM: success onPostBootstrap - 0.000s
+10:11:42 AM: info bootstrap finished - 14.052s
+10:11:42 AM: success write out requires - 0.006s
+10:11:43 AM: warning `isModuleDeclaration` has been deprecated, please migrate to `isImportOrExportDeclaration`
+10:11:43 AM:     at isModuleDeclaration (/opt/build/repo/node_modules/@babel/types/lib/validators/generated/index.js:2766:35)
+10:11:43 AM:     at PluginPass.Program (/opt/build/repo/node_modules/babel-plugin-lodash/lib/index.js:102:44)
+10:11:45 AM: DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+10:11:45 AM: More info: https://sass-lang.com/d/legacy-js-api
+10:11:45 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:45 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:45 AM:    ╷
+10:11:45 AM: 10 │ @import "./variables.sass"
+10:11:45 AM:    │         ^^^^^^^^^^^^^^^^^^
+10:11:45 AM:    ╵
+10:11:45 AM:     src/style/bulma-style.sass 10:9  root stylesheet
+10:11:45 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:45 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:45 AM:    ╷
+10:11:45 AM: 22 │ @import "~bulma"
+10:11:45 AM:    │         ^^^^^^^^
+10:11:45 AM:    ╵
+10:11:45 AM:     src/style/bulma-style.sass 22:9  root stylesheet
+10:11:45 AM: DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+10:11:45 AM: More info: https://sass-lang.com/d/legacy-js-api
+10:11:45 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:45 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:45 AM:   ╷
+10:11:45 AM: 5 │ @import "./variables.sass"
+10:11:45 AM:   │         ^^^^^^^^^^^^^^^^^^
+10:11:45 AM:   ╵
+10:11:45 AM:     src/style/custom-style-new.sass 5:9  root stylesheet
+10:11:45 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:45 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:45 AM:   ╷
+10:11:45 AM: 9 │ @import "./_base.sass"
+10:11:45 AM:   │         ^^^^^^^^^^^^^^
+10:11:45 AM:   ╵
+10:11:45 AM:     src/style/custom-style-new.sass 9:9  root stylesheet
+10:11:45 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:45 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:45 AM:    ╷
+10:11:45 AM: 12 │ @import "./_layout.sass"
+10:11:45 AM:    │         ^^^^^^^^^^^^^^^^
+10:11:45 AM:    ╵
+10:11:45 AM:     src/style/custom-style-new.sass 12:9  root stylesheet
+10:11:45 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:45 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:45 AM:    ╷
+10:11:45 AM: 15 │ @import "./_navigation.sass"
+10:11:45 AM:    │         ^^^^^^^^^^^^^^^^^^^^
+10:11:45 AM:    ╵
+10:11:45 AM:     src/style/custom-style-new.sass 15:9  root stylesheet
+10:11:45 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:45 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:45 AM:    ╷
+10:11:45 AM: 18 │ @import "./_components.sass"
+10:11:45 AM:    │         ^^^^^^^^^^^^^^^^^^^^
+10:11:45 AM:    ╵
+10:11:45 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:11:45 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:45 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:45 AM:   ╷
+10:11:45 AM: 8 │ @import "~bulma/sass/utilities/initial-variables"
+10:11:45 AM:   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:11:45 AM:   ╵
+10:11:45 AM:     src/style/variables.sass 8:9     @import
+10:11:45 AM:     src/style/bulma-style.sass 10:9  root stylesheet
+10:11:45 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:45 AM: Use list.nth instead.
+10:11:45 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:45 AM:    ╷
+10:11:45 AM: 54 │   $primary-offset: nth((1.5px, 3px, 6px, 10px, 15px), $depth)
+10:11:45 AM:    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:11:45 AM:    ╵
+10:11:45 AM:     src/style/_base.sass 54:20            bottom-shadow()
+10:11:45 AM:     src/style/_base.sass 65:17            card()
+10:11:45 AM:     src/style/_components.sass 199:3      @import
+10:11:45 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:11:45 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:45 AM: Use list.nth instead.
+10:11:45 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:45 AM:    ╷
+10:11:45 AM: 55 │   $blur: nth((1px, 3px, 3px, 5px, 6px), $depth) * 4
+10:11:45 AM:    │          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:11:45 AM:    ╵
+10:11:45 AM:     src/style/_base.sass 55:10            bottom-shadow()
+10:11:45 AM:     src/style/_base.sass 65:17            card()
+10:11:45 AM:     src/style/_components.sass 199:3      @import
+10:11:45 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:11:45 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:45 AM: Use list.nth instead.
+10:11:45 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:45 AM:    ╷
+10:11:45 AM: 56 │   $color: rgba($purple10, nth((0.24, 0.23, 0.23, 0.22, 0.22), $depth))
+10:11:45 AM:    │                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:11:45 AM:    ╵
+10:11:45 AM:     src/style/_base.sass 56:27            bottom-shadow()
+10:11:45 AM:     src/style/_base.sass 65:17            card()
+10:11:45 AM:     src/style/_components.sass 199:3      @import
+10:11:45 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:11:45 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:45 AM: Use list.nth instead.
+10:11:45 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:45 AM:    ╷
+10:11:45 AM: 48 │   $primary-offset: nth((1.5px, 3px, 10px, 14px, 19px), $depth)
+10:11:45 AM:    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:11:45 AM:    ╵
+10:11:45 AM:     src/style/_base.sass 48:20            top-shadow()
+10:11:45 AM:     src/style/_base.sass 65:40            card()
+10:11:45 AM:     src/style/_components.sass 199:3      @import
+10:11:45 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:11:45 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:45 AM: Use list.nth instead.
+10:11:45 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:45 AM:    ╷
+10:11:45 AM: 49 │   $blur: nth((1.5px, 3px, 10px, 14px, 19px), $depth) * 4
+10:11:45 AM:    │          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:11:45 AM:    ╵
+10:11:45 AM:     src/style/_base.sass 49:10            top-shadow()
+10:11:45 AM:     src/style/_base.sass 65:40            card()
+10:11:45 AM:     src/style/_components.sass 199:3      @import
+10:11:45 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:11:46 AM: WARNING: 5 repetitive deprecation warnings omitted.
+10:11:46 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:46 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:46 AM:   ╷
+10:11:46 AM: 3 │ @import "sass/utilities/_all"
+10:11:46 AM:   │         ^^^^^^^^^^^^^^^^^^^^^
+10:11:46 AM:   ╵
+10:11:46 AM:     node_modules/bulma/bulma.sass 3:9  @import
+10:11:46 AM:     src/style/bulma-style.sass 22:9    root stylesheet
+10:11:46 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:46 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:46 AM:   ╷
+10:11:46 AM: 4 │ @import "sass/base/_all"
+10:11:46 AM:   │         ^^^^^^^^^^^^^^^^
+10:11:46 AM:   ╵
+10:11:46 AM:     node_modules/bulma/bulma.sass 4:9  @import
+10:11:46 AM:     src/style/bulma-style.sass 22:9    root stylesheet
+10:11:46 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:46 AM: Use meta.type-of instead.
+10:11:46 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:46 AM:    ╷
+10:11:46 AM: 65 │   @if type-of($color) != 'color'
+10:11:46 AM:    │       ^^^^^^^^^^^^^^^
+10:11:46 AM:    ╵
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 65:7           colorLuminance()
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:11:46 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:11:46 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:11:46 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:11:46 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:11:46 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:46 AM: Use color.red instead.
+10:11:46 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:46 AM:    ╷
+10:11:46 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:11:46 AM:    │                       ^^^^^^^^^^^
+10:11:46 AM:    ╵
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 67:23          colorLuminance()
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:11:46 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:11:46 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:11:46 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:11:46 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:11:46 AM: DEPRECATION WARNING [color-functions]: red() is deprecated. Suggestion:
+10:11:46 AM: color.channel($color, "red", $space: rgb)
+10:11:46 AM: More info: https://sass-lang.com/d/color-functions
+10:11:46 AM:    ╷
+10:11:46 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:11:46 AM:    │                       ^^^^^^^^^^^
+10:11:46 AM:    ╵
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 67:23          colorLuminance()
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:11:46 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:11:46 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:11:46 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:11:46 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:11:46 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:46 AM: Use color.green instead.
+10:11:46 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:46 AM:    ╷
+10:11:46 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:11:46 AM:    │                                            ^^^^^^^^^^^^^
+10:11:46 AM:    ╵
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 67:44          colorLuminance()
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:11:46 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:11:46 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:11:46 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:11:46 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:11:46 AM: DEPRECATION WARNING [color-functions]: green() is deprecated. Suggestion:
+10:11:46 AM: color.channel($color, "green", $space: rgb)
+10:11:46 AM: More info: https://sass-lang.com/d/color-functions
+10:11:46 AM:    ╷
+10:11:46 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:11:46 AM:    │                                            ^^^^^^^^^^^^^
+10:11:46 AM:    ╵
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 67:44          colorLuminance()
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:11:46 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:11:46 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:11:46 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:11:46 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:11:46 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:46 AM: Use color.blue instead.
+10:11:46 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:46 AM:    ╷
+10:11:46 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:11:46 AM:    │                                                                  ^^^^^^^^^^^^
+10:11:46 AM:    ╵
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 67:66          colorLuminance()
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:11:46 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:11:46 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:11:46 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:11:46 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:11:46 AM: DEPRECATION WARNING [color-functions]: blue() is deprecated. Suggestion:
+10:11:46 AM: color.channel($color, "blue", $space: rgb)
+10:11:46 AM: More info: https://sass-lang.com/d/color-functions
+10:11:46 AM:    ╷
+10:11:46 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:11:46 AM:    │                                                                  ^^^^^^^^^^^^
+10:11:46 AM:    ╵
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 67:66          colorLuminance()
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:11:46 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:11:46 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:11:46 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:11:46 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:11:46 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:11:46 AM: Use map.merge instead.
+10:11:46 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:11:46 AM:    ╷
+10:11:46 AM: 76 │     $color-rgb: map-merge($color-rgb, ($name: $value))
+10:11:46 AM:    │                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:11:46 AM:    ╵
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 76:17          colorLuminance()
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:11:46 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:11:46 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:11:46 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:11:46 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:11:46 AM: DEPRECATION WARNING [color-functions]: lightness() is deprecated. Suggestion:
+10:11:46 AM: color.channel($color, "lightness", $space: hsl)
+10:11:46 AM: More info: https://sass-lang.com/d/color-functions
+10:11:46 AM:    ╷
+10:11:46 AM: 88 │     @if lightness($color) > 96%
+10:11:46 AM:    │         ^^^^^^^^^^^^^^^^^
+10:11:46 AM:    ╵
+10:11:46 AM:     node_modules/bulma/sass/utilities/functions.sass 88:9           findLightColor()
+10:11:46 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 26:17  @import
+10:11:46 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:11:46 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:11:46 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:11:46 AM: DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+10:11:46 AM: color.scale($color, $lightness: -24.5901639344%)
+10:11:46 AM: color.adjust($color, $lightness: -15%)
+10:11:46 AM: More info: https://sass-lang.com/d/color-functions
+10:11:46 AM:    ╷
+10:11:46 AM: 68 │ $code: darken($red, 15%) !default
+10:11:46 AM:    │        ^^^^^^^^^^^^^^^^^
+10:11:46 AM:    ╵
+10:11:46 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 68:8  @import
+10:11:46 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                @import
+10:11:46 AM:     node_modules/bulma/bulma.sass 3:9                              @import
+10:11:46 AM:     src/style/bulma-style.sass 22:9                                root stylesheet
+10:11:47 AM: WARNING: 256 repetitive deprecation warnings omitted.
+10:12:06 AM: DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+10:12:06 AM: More info: https://sass-lang.com/d/legacy-js-api
+10:12:06 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:06 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:06 AM:    ╷
+10:12:06 AM: 10 │ @import "./variables.sass"
+10:12:06 AM:    │         ^^^^^^^^^^^^^^^^^^
+10:12:06 AM:    ╵
+10:12:06 AM:     src/style/bulma-style.sass 10:9  root stylesheet
+10:12:06 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:06 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:06 AM:    ╷
+10:12:06 AM: 22 │ @import "~bulma"
+10:12:06 AM:    │         ^^^^^^^^
+10:12:06 AM:    ╵
+10:12:06 AM:     src/style/bulma-style.sass 22:9  root stylesheet
+10:12:06 AM: DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+10:12:06 AM: More info: https://sass-lang.com/d/legacy-js-api
+10:12:06 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:06 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:06 AM:   ╷
+10:12:06 AM: 5 │ @import "./variables.sass"
+10:12:06 AM:   │         ^^^^^^^^^^^^^^^^^^
+10:12:06 AM:   ╵
+10:12:06 AM:     src/style/custom-style-new.sass 5:9  root stylesheet
+10:12:06 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:06 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:06 AM:   ╷
+10:12:06 AM: 9 │ @import "./_base.sass"
+10:12:06 AM:   │         ^^^^^^^^^^^^^^
+10:12:06 AM:   ╵
+10:12:06 AM:     src/style/custom-style-new.sass 9:9  root stylesheet
+10:12:06 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:06 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:06 AM:    ╷
+10:12:06 AM: 12 │ @import "./_layout.sass"
+10:12:06 AM:    │         ^^^^^^^^^^^^^^^^
+10:12:06 AM:    ╵
+10:12:06 AM:     src/style/custom-style-new.sass 12:9  root stylesheet
+10:12:06 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:06 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:06 AM:    ╷
+10:12:06 AM: 15 │ @import "./_navigation.sass"
+10:12:06 AM:    │         ^^^^^^^^^^^^^^^^^^^^
+10:12:06 AM:    ╵
+10:12:06 AM:     src/style/custom-style-new.sass 15:9  root stylesheet
+10:12:06 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:06 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:06 AM:    ╷
+10:12:06 AM: 18 │ @import "./_components.sass"
+10:12:06 AM:    │         ^^^^^^^^^^^^^^^^^^^^
+10:12:06 AM:    ╵
+10:12:06 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:12:06 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:06 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:06 AM:   ╷
+10:12:06 AM: 8 │ @import "~bulma/sass/utilities/initial-variables"
+10:12:06 AM:   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:12:06 AM:   ╵
+10:12:06 AM:     src/style/variables.sass 8:9     @import
+10:12:06 AM:     src/style/bulma-style.sass 10:9  root stylesheet
+10:12:06 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:06 AM: Use list.nth instead.
+10:12:06 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:06 AM:    ╷
+10:12:06 AM: 54 │   $primary-offset: nth((1.5px, 3px, 6px, 10px, 15px), $depth)
+10:12:06 AM:    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:12:06 AM:    ╵
+10:12:06 AM:     src/style/_base.sass 54:20            bottom-shadow()
+10:12:06 AM:     src/style/_base.sass 65:17            card()
+10:12:06 AM:     src/style/_components.sass 199:3      @import
+10:12:06 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:12:06 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:06 AM: Use list.nth instead.
+10:12:06 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:06 AM:    ╷
+10:12:06 AM: 55 │   $blur: nth((1px, 3px, 3px, 5px, 6px), $depth) * 4
+10:12:06 AM:    │          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:12:06 AM:    ╵
+10:12:06 AM:     src/style/_base.sass 55:10            bottom-shadow()
+10:12:06 AM:     src/style/_base.sass 65:17            card()
+10:12:06 AM:     src/style/_components.sass 199:3      @import
+10:12:06 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:12:06 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:06 AM: Use list.nth instead.
+10:12:06 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:06 AM:    ╷
+10:12:06 AM: 56 │   $color: rgba($purple10, nth((0.24, 0.23, 0.23, 0.22, 0.22), $depth))
+10:12:06 AM:    │                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:12:06 AM:    ╵
+10:12:06 AM:     src/style/_base.sass 56:27            bottom-shadow()
+10:12:06 AM:     src/style/_base.sass 65:17            card()
+10:12:06 AM:     src/style/_components.sass 199:3      @import
+10:12:06 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:12:06 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:06 AM: Use list.nth instead.
+10:12:06 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:06 AM:    ╷
+10:12:06 AM: 48 │   $primary-offset: nth((1.5px, 3px, 10px, 14px, 19px), $depth)
+10:12:06 AM:    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:12:06 AM:    ╵
+10:12:06 AM:     src/style/_base.sass 48:20            top-shadow()
+10:12:06 AM:     src/style/_base.sass 65:40            card()
+10:12:06 AM:     src/style/_components.sass 199:3      @import
+10:12:06 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:12:06 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:06 AM: Use list.nth instead.
+10:12:06 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:06 AM:    ╷
+10:12:06 AM: 49 │   $blur: nth((1.5px, 3px, 10px, 14px, 19px), $depth) * 4
+10:12:06 AM:    │          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:12:06 AM:    ╵
+10:12:06 AM:     src/style/_base.sass 49:10            top-shadow()
+10:12:06 AM:     src/style/_base.sass 65:40            card()
+10:12:06 AM:     src/style/_components.sass 199:3      @import
+10:12:06 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:12:07 AM: WARNING: 5 repetitive deprecation warnings omitted.
+10:12:07 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:07 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:07 AM:   ╷
+10:12:07 AM: 3 │ @import "sass/utilities/_all"
+10:12:07 AM:   │         ^^^^^^^^^^^^^^^^^^^^^
+10:12:07 AM:   ╵
+10:12:07 AM:     node_modules/bulma/bulma.sass 3:9  @import
+10:12:07 AM:     src/style/bulma-style.sass 22:9    root stylesheet
+10:12:07 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:07 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:07 AM:   ╷
+10:12:07 AM: 4 │ @import "sass/base/_all"
+10:12:07 AM:   │         ^^^^^^^^^^^^^^^^
+10:12:07 AM:   ╵
+10:12:07 AM:     node_modules/bulma/bulma.sass 4:9  @import
+10:12:07 AM:     src/style/bulma-style.sass 22:9    root stylesheet
+10:12:07 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:07 AM: Use meta.type-of instead.
+10:12:07 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:07 AM:    ╷
+10:12:07 AM: 65 │   @if type-of($color) != 'color'
+10:12:07 AM:    │       ^^^^^^^^^^^^^^^
+10:12:07 AM:    ╵
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 65:7           colorLuminance()
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:07 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:07 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:07 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:07 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:07 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:07 AM: Use color.red instead.
+10:12:07 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:07 AM:    ╷
+10:12:07 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:12:07 AM:    │                       ^^^^^^^^^^^
+10:12:07 AM:    ╵
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 67:23          colorLuminance()
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:07 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:07 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:07 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:07 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:07 AM: DEPRECATION WARNING [color-functions]: red() is deprecated. Suggestion:
+10:12:07 AM: color.channel($color, "red", $space: rgb)
+10:12:07 AM: More info: https://sass-lang.com/d/color-functions
+10:12:07 AM:    ╷
+10:12:07 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:12:07 AM:    │                       ^^^^^^^^^^^
+10:12:07 AM:    ╵
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 67:23          colorLuminance()
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:07 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:07 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:07 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:07 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:07 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:07 AM: Use color.green instead.
+10:12:07 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:07 AM:    ╷
+10:12:07 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:12:07 AM:    │                                            ^^^^^^^^^^^^^
+10:12:07 AM:    ╵
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 67:44          colorLuminance()
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:07 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:07 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:07 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:07 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:07 AM: DEPRECATION WARNING [color-functions]: green() is deprecated. Suggestion:
+10:12:07 AM: color.channel($color, "green", $space: rgb)
+10:12:07 AM: More info: https://sass-lang.com/d/color-functions
+10:12:07 AM:    ╷
+10:12:07 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:12:07 AM:    │                                            ^^^^^^^^^^^^^
+10:12:07 AM:    ╵
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 67:44          colorLuminance()
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:07 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:07 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:07 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:07 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:07 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:07 AM: Use color.blue instead.
+10:12:07 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:07 AM:    ╷
+10:12:07 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:12:07 AM:    │                                                                  ^^^^^^^^^^^^
+10:12:07 AM:    ╵
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 67:66          colorLuminance()
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:07 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:07 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:07 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:07 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:07 AM: DEPRECATION WARNING [color-functions]: blue() is deprecated. Suggestion:
+10:12:07 AM: color.channel($color, "blue", $space: rgb)
+10:12:07 AM: More info: https://sass-lang.com/d/color-functions
+10:12:07 AM:    ╷
+10:12:07 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:12:07 AM:    │                                                                  ^^^^^^^^^^^^
+10:12:07 AM:    ╵
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 67:66          colorLuminance()
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:07 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:07 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:07 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:07 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:07 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:07 AM: Use map.merge instead.
+10:12:07 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:07 AM:    ╷
+10:12:07 AM: 76 │     $color-rgb: map-merge($color-rgb, ($name: $value))
+10:12:07 AM:    │                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:12:07 AM:    ╵
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 76:17          colorLuminance()
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:07 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:07 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:07 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:07 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:07 AM: DEPRECATION WARNING [color-functions]: lightness() is deprecated. Suggestion:
+10:12:07 AM: color.channel($color, "lightness", $space: hsl)
+10:12:07 AM: More info: https://sass-lang.com/d/color-functions
+10:12:07 AM:    ╷
+10:12:07 AM: 88 │     @if lightness($color) > 96%
+10:12:07 AM:    │         ^^^^^^^^^^^^^^^^^
+10:12:07 AM:    ╵
+10:12:07 AM:     node_modules/bulma/sass/utilities/functions.sass 88:9           findLightColor()
+10:12:07 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 26:17  @import
+10:12:07 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:07 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:07 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:07 AM: DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+10:12:07 AM: color.scale($color, $lightness: -24.5901639344%)
+10:12:07 AM: color.adjust($color, $lightness: -15%)
+10:12:07 AM: More info: https://sass-lang.com/d/color-functions
+10:12:07 AM:    ╷
+10:12:07 AM: 68 │ $code: darken($red, 15%) !default
+10:12:07 AM:    │        ^^^^^^^^^^^^^^^^^
+10:12:07 AM:    ╵
+10:12:07 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 68:8  @import
+10:12:07 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                @import
+10:12:07 AM:     node_modules/bulma/bulma.sass 3:9                              @import
+10:12:07 AM:     src/style/bulma-style.sass 22:9                                root stylesheet
+10:12:08 AM: WARNING: 256 repetitive deprecation warnings omitted.
+10:12:09 AM: gatsby-plugin-purgecss: Only processing /opt/build/repo/src/style/bulma-style.sass
+10:12:10 AM: 
+10:12:10 AM: From: /opt/build/repo/src/style/bulma-style.sass
+10:12:10 AM:  Removed Selectors: [
+10:12:10 AM:   '.pagination-previous',
+10:12:10 AM:   '.pagination-next',
+10:12:10 AM:   '.pagination-link',
+10:12:10 AM:   '.pagination-ellipsis',
+10:12:10 AM:   '.file-cta',
+10:12:10 AM:   '.file-name',
+10:12:10 AM:   '.pagination-previous:focus',
+10:12:10 AM:   '.pagination-next:focus',
+10:12:10 AM:   '.pagination-link:focus',
+10:12:10 AM:   '.pagination-ellipsis:focus',
+10:12:10 AM:   '.file-cta:focus',
+10:12:10 AM:   '.file-name:focus',
+10:12:10 AM:   '.is-focused.pagination-previous',
+10:12:10 AM:   '.is-focused.pagination-next',
+10:12:10 AM:   '.is-focused.pagination-link',
+10:12:10 AM:   '.is-focused.pagination-ellipsis',
+10:12:10 AM:   '.is-focused.file-cta',
+10:12:10 AM:   '.is-focused.file-name',
+10:12:10 AM:   '.select select.is-focused',
+10:12:10 AM:   '.is-focused.textarea',
+10:12:10 AM:   '.is-focused.input',
+10:12:10 AM:   '.is-focused.button',
+10:12:10 AM:   '.pagination-previous:active',
+10:12:10 AM:   '.pagination-next:active',
+10:12:10 AM:   '.pagination-link:active',
+10:12:10 AM:   '.pagination-ellipsis:active',
+10:12:10 AM:   '.file-cta:active',
+10:12:10 AM:   '.file-name:active',
+10:12:10 AM:   '.is-active.pagination-previous',
+10:12:10 AM:   '.is-active.pagination-next',
+10:12:10 AM:   '.is-active.pagination-link',
+10:12:10 AM:   '.is-active.pagination-ellipsis',
+10:12:10 AM:   '.is-active.file-cta',
+10:12:10 AM:   '.is-active.file-name',
+10:12:10 AM:   '[disabled].pagination-previous',
+10:12:10 AM:   '[disabled].pagination-next',
+10:12:10 AM:   '[disabled].pagination-link',
+10:12:10 AM:   '[disabled].pagination-ellipsis',
+10:12:10 AM:   '[disabled].file-cta',
+10:12:10 AM:   '[disabled].file-name',
+10:12:10 AM:   'fieldset[disabled] .pagination-previous',
+10:12:10 AM:   'fieldset[disabled] .pagination-next',
+10:12:10 AM:   'fieldset[disabled] .pagination-link',
+10:12:10 AM:   'fieldset[disabled] .pagination-ellipsis',
+10:12:10 AM:   'fieldset[disabled] .file-cta',
+10:12:10 AM:   'fieldset[disabled] .file-name',
+10:12:10 AM:   'fieldset[disabled] .select select',
+10:12:10 AM:   '.select fieldset[disabled] select',
+10:12:10 AM:   'fieldset[disabled] .textarea',
+10:12:10 AM:   'fieldset[disabled] .input',
+10:12:10 AM:   'fieldset[disabled] .button',
+10:12:10 AM:   '.is-unselectable',
+10:12:10 AM:   '.breadcrumb',
+10:12:10 AM:   '.navbar-link:not(.is-arrowless)::after',
+10:12:10 AM:   '.pagination:not(:last-child)',
+10:12:10 AM:   '.level:not(:last-child)',
+10:12:10 AM:   '.breadcrumb:not(:last-child)',
+10:12:10 AM:   '.table-container:not(:last-child)',
+10:12:10 AM:   '.notification:not(:last-child)',
+10:12:10 AM:   '.modal-close',
+10:12:10 AM:   '.delete',
+10:12:10 AM:   '.modal-close::before',
+10:12:10 AM:   '.delete::before',
+10:12:10 AM:   '.modal-close::after',
+10:12:10 AM:   '.delete::after',
+10:12:10 AM:   '.modal-close:hover',
+10:12:10 AM:   '.delete:hover',
+10:12:10 AM:   '.modal-close:focus',
+10:12:10 AM:   '.delete:focus',
+10:12:10 AM:   '.modal-close:active',
+10:12:10 AM:   '.delete:active',
+10:12:10 AM:   '.is-small.modal-close',
+10:12:10 AM:   '.is-small.delete',
+10:12:10 AM:   '.is-medium.modal-close',
+10:12:10 AM:   '.is-medium.delete',
+10:12:10 AM:   '.is-large.modal-close',
+10:12:10 AM:   '.is-large.delete',
+10:12:10 AM:   '.control.is-loading::after',
+10:12:10 AM:   '.select.is-loading::after',
+10:12:10 AM:   '.loader',
+10:12:10 AM:   '.button.is-loading::after',
+10:12:10 AM:   '.hero-video',
+10:12:10 AM:   '.is-overlay',
+10:12:10 AM:   '.modal-background',
+10:12:10 AM:   '.modal',
+10:12:10 AM:   '.image.is-square img',
+10:12:10 AM:   '.image.is-square .has-ratio',
+10:12:10 AM:   '.image.is-1by1 img',
+10:12:10 AM:   '.image.is-1by1 .has-ratio',
+10:12:10 AM:   '.image.is-5by4 img',
+10:12:10 AM:   '.image.is-5by4 .has-ratio',
+10:12:10 AM:   '.image.is-4by3 img',
+10:12:10 AM:   '.image.is-4by3 .has-ratio',
+10:12:10 AM:   '.image.is-3by2 img',
+10:12:10 AM:   '.image.is-3by2 .has-ratio',
+10:12:10 AM:   '.image.is-5by3 img',
+10:12:10 AM:   '.image.is-5by3 .has-ratio',
+10:12:10 AM:   '.image.is-16by9 img',
+10:12:10 AM:   '.image.is-16by9 .has-ratio',
+10:12:10 AM:   '.image.is-2by1 img',
+10:12:10 AM:   ... 2884 more items
+10:12:10 AM: ]
+10:12:20 AM: warning ./node_modules/gatsby-plugin-decap-cms/gatsby-browser.js
+10:12:20 AM: Critical dependency: the request of a dependency is an expression
+10:12:20 AM: success Building production JavaScript and CSS bundles - 37.770s
+10:12:20 AM: 
+10:12:20 AM: gatsby-plugin-purgecss:
+10:12:20 AM:  Previous CSS Size: 287.07 KB
+10:12:20 AM:  New CSS Size: 106.91 KB (-62.76%)
+10:12:20 AM:  Removed ~180.16 KB of CSS
+10:12:20 AM: 
+10:12:21 AM: DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+10:12:21 AM: More info: https://sass-lang.com/d/legacy-js-api
+10:12:21 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:    ╷
+10:12:21 AM: 10 │ @import "./variables.sass"
+10:12:21 AM:    │         ^^^^^^^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     src/style/bulma-style.sass 10:9  root stylesheet
+10:12:21 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:    ╷
+10:12:21 AM: 22 │ @import "~bulma"
+10:12:21 AM:    │         ^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     src/style/bulma-style.sass 22:9  root stylesheet
+10:12:21 AM: DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+10:12:21 AM: More info: https://sass-lang.com/d/legacy-js-api
+10:12:21 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:   ╷
+10:12:21 AM: 5 │ @import "./variables.sass"
+10:12:21 AM:   │         ^^^^^^^^^^^^^^^^^^
+10:12:21 AM:   ╵
+10:12:21 AM:     src/style/custom-style-new.sass 5:9  root stylesheet
+10:12:21 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:   ╷
+10:12:21 AM: 9 │ @import "./_base.sass"
+10:12:21 AM:   │         ^^^^^^^^^^^^^^
+10:12:21 AM:   ╵
+10:12:21 AM:     src/style/custom-style-new.sass 9:9  root stylesheet
+10:12:21 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:    ╷
+10:12:21 AM: 12 │ @import "./_layout.sass"
+10:12:21 AM:    │         ^^^^^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     src/style/custom-style-new.sass 12:9  root stylesheet
+10:12:21 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:    ╷
+10:12:21 AM: 15 │ @import "./_navigation.sass"
+10:12:21 AM:    │         ^^^^^^^^^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     src/style/custom-style-new.sass 15:9  root stylesheet
+10:12:21 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:    ╷
+10:12:21 AM: 18 │ @import "./_components.sass"
+10:12:21 AM:    │         ^^^^^^^^^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:12:21 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:   ╷
+10:12:21 AM: 8 │ @import "~bulma/sass/utilities/initial-variables"
+10:12:21 AM:   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:12:21 AM:   ╵
+10:12:21 AM:     src/style/variables.sass 8:9     @import
+10:12:21 AM:     src/style/bulma-style.sass 10:9  root stylesheet
+10:12:21 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: Use list.nth instead.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:    ╷
+10:12:21 AM: 54 │   $primary-offset: nth((1.5px, 3px, 6px, 10px, 15px), $depth)
+10:12:21 AM:    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     src/style/_base.sass 54:20            bottom-shadow()
+10:12:21 AM:     src/style/_base.sass 65:17            card()
+10:12:21 AM:     src/style/_components.sass 199:3      @import
+10:12:21 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:12:21 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: Use list.nth instead.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:    ╷
+10:12:21 AM: 55 │   $blur: nth((1px, 3px, 3px, 5px, 6px), $depth) * 4
+10:12:21 AM:    │          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     src/style/_base.sass 55:10            bottom-shadow()
+10:12:21 AM:     src/style/_base.sass 65:17            card()
+10:12:21 AM:     src/style/_components.sass 199:3      @import
+10:12:21 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:12:21 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: Use list.nth instead.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:    ╷
+10:12:21 AM: 56 │   $color: rgba($purple10, nth((0.24, 0.23, 0.23, 0.22, 0.22), $depth))
+10:12:21 AM:    │                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     src/style/_base.sass 56:27            bottom-shadow()
+10:12:21 AM:     src/style/_base.sass 65:17            card()
+10:12:21 AM:     src/style/_components.sass 199:3      @import
+10:12:21 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:12:21 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: Use list.nth instead.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:    ╷
+10:12:21 AM: 48 │   $primary-offset: nth((1.5px, 3px, 10px, 14px, 19px), $depth)
+10:12:21 AM:    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     src/style/_base.sass 48:20            top-shadow()
+10:12:21 AM:     src/style/_base.sass 65:40            card()
+10:12:21 AM:     src/style/_components.sass 199:3      @import
+10:12:21 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:12:21 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: Use list.nth instead.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:    ╷
+10:12:21 AM: 49 │   $blur: nth((1.5px, 3px, 10px, 14px, 19px), $depth) * 4
+10:12:21 AM:    │          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     src/style/_base.sass 49:10            top-shadow()
+10:12:21 AM:     src/style/_base.sass 65:40            card()
+10:12:21 AM:     src/style/_components.sass 199:3      @import
+10:12:21 AM:     src/style/custom-style-new.sass 18:9  root stylesheet
+10:12:21 AM: WARNING: 5 repetitive deprecation warnings omitted.
+10:12:21 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:   ╷
+10:12:21 AM: 3 │ @import "sass/utilities/_all"
+10:12:21 AM:   │         ^^^^^^^^^^^^^^^^^^^^^
+10:12:21 AM:   ╵
+10:12:21 AM:     node_modules/bulma/bulma.sass 3:9  @import
+10:12:21 AM:     src/style/bulma-style.sass 22:9    root stylesheet
+10:12:21 AM: DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:   ╷
+10:12:21 AM: 4 │ @import "sass/base/_all"
+10:12:21 AM:   │         ^^^^^^^^^^^^^^^^
+10:12:21 AM:   ╵
+10:12:21 AM:     node_modules/bulma/bulma.sass 4:9  @import
+10:12:21 AM:     src/style/bulma-style.sass 22:9    root stylesheet
+10:12:21 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: Use meta.type-of instead.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:    ╷
+10:12:21 AM: 65 │   @if type-of($color) != 'color'
+10:12:21 AM:    │       ^^^^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 65:7           colorLuminance()
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:21 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:21 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:21 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:21 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:21 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: Use color.red instead.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:    ╷
+10:12:21 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:12:21 AM:    │                       ^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 67:23          colorLuminance()
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:21 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:21 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:21 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:21 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:21 AM: DEPRECATION WARNING [color-functions]: red() is deprecated. Suggestion:
+10:12:21 AM: color.channel($color, "red", $space: rgb)
+10:12:21 AM: More info: https://sass-lang.com/d/color-functions
+10:12:21 AM:    ╷
+10:12:21 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:12:21 AM:    │                       ^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 67:23          colorLuminance()
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:21 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:21 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:21 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:21 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:21 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: Use color.green instead.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:    ╷
+10:12:21 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:12:21 AM:    │                                            ^^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 67:44          colorLuminance()
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:21 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:21 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:21 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:21 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:21 AM: DEPRECATION WARNING [color-functions]: green() is deprecated. Suggestion:
+10:12:21 AM: color.channel($color, "green", $space: rgb)
+10:12:21 AM: More info: https://sass-lang.com/d/color-functions
+10:12:21 AM:    ╷
+10:12:21 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:12:21 AM:    │                                            ^^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 67:44          colorLuminance()
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:21 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:21 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:21 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:21 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:21 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: Use color.blue instead.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:    ╷
+10:12:21 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:12:21 AM:    │                                                                  ^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 67:66          colorLuminance()
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:21 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:21 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:21 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:21 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:21 AM: DEPRECATION WARNING [color-functions]: blue() is deprecated. Suggestion:
+10:12:21 AM: color.channel($color, "blue", $space: rgb)
+10:12:21 AM: More info: https://sass-lang.com/d/color-functions
+10:12:21 AM:    ╷
+10:12:21 AM: 67 │   $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+10:12:21 AM:    │                                                                  ^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 67:66          colorLuminance()
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:21 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:21 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:21 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:21 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:21 AM: DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+10:12:21 AM: Use map.merge instead.
+10:12:21 AM: More info and automated migrator: https://sass-lang.com/d/import
+10:12:21 AM:    ╷
+10:12:21 AM: 76 │     $color-rgb: map-merge($color-rgb, ($name: $value))
+10:12:21 AM:    │                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 76:17          colorLuminance()
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 80:8           findColorInvert()
+10:12:21 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 16:17  @import
+10:12:21 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:21 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:21 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:21 AM: DEPRECATION WARNING [color-functions]: lightness() is deprecated. Suggestion:
+10:12:21 AM: color.channel($color, "lightness", $space: hsl)
+10:12:21 AM: More info: https://sass-lang.com/d/color-functions
+10:12:21 AM:    ╷
+10:12:21 AM: 88 │     @if lightness($color) > 96%
+10:12:21 AM:    │         ^^^^^^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     node_modules/bulma/sass/utilities/functions.sass 88:9           findLightColor()
+10:12:21 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 26:17  @import
+10:12:21 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                 @import
+10:12:21 AM:     node_modules/bulma/bulma.sass 3:9                               @import
+10:12:21 AM:     src/style/bulma-style.sass 22:9                                 root stylesheet
+10:12:21 AM: DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+10:12:21 AM: color.scale($color, $lightness: -24.5901639344%)
+10:12:21 AM: color.adjust($color, $lightness: -15%)
+10:12:21 AM: More info: https://sass-lang.com/d/color-functions
+10:12:21 AM:    ╷
+10:12:21 AM: 68 │ $code: darken($red, 15%) !default
+10:12:21 AM:    │        ^^^^^^^^^^^^^^^^^
+10:12:21 AM:    ╵
+10:12:21 AM:     node_modules/bulma/sass/utilities/derived-variables.sass 68:8  @import
+10:12:21 AM:     node_modules/bulma/sass/utilities/_all.sass 6:9                @import
+10:12:21 AM:     node_modules/bulma/bulma.sass 3:9                              @import
+10:12:21 AM:     src/style/bulma-style.sass 22:9                                root stylesheet
+10:12:22 AM: WARNING: 256 repetitive deprecation warnings omitted.
+10:12:36 AM: success Building HTML renderer - 16.461s
+10:12:36 AM: success Execute page configs - 0.058s
+10:12:36 AM: success Caching Webpack compilations - 0.001s
+10:12:38 AM: success run queries in workers - 2.299s - 93/93 40.45/s
+10:12:38 AM: success Merge worker state - 0.085s
+10:12:40 AM: success Rewriting compilation hashes - 0.002s
+10:12:40 AM: success Writing page-data.json files to public directory - 0.657s - 89/89 135.38/s
+10:12:45 AM: error Page data from page-data.json for the failed page "/symbols/": {
+10:12:45 AM:   "componentChunkName": "component---src-templates-symbols-template-js",
+10:12:45 AM:   "path": "/symbols/",
+10:12:45 AM:   "result": {
+10:12:45 AM:     "data": {
+10:12:45 AM:       "markdownRemark": {
+10:12:45 AM:         "html": "<h2>The Symbolic Intelligence Framework</h2>\n<p>Each symbolic pattern in The Cathedral archives represents a fundamental consciousness structure with cross-cultural resonance. These patterns serve as bridges between different modes of awareness, f...",
+10:12:45 AM:         "frontmatter": {
+10:12:45 AM:           "title": "Symbolic Intelligence Framework",
+10:12:45 AM:           "subheading": "Explore the foundational symbolic patterns and their cross-cultural resonances from The Cathedral archives"
+10:12:45 AM:         }
+10:12:45 AM:       }
+10:12:45 AM:     },
+10:12:45 AM:     "pageContext": {
+10:12:45 AM:       "id": "3165648a-25ed-59dc-9ca3-f9f8b0f01b14"
+10:12:45 AM:     }
+10:12:45 AM:   },
+10:12:45 AM:   "staticQueryHashes": [
+10:12:45 AM:     "4080856488"
+10:12:45 AM:   ]
+10:12:45 AM: }
+10:12:45 AM: failed Building static HTML for pages - 4.381s
+10:12:45 AM: error Building static HTML failed for path "/symbols/"
+10:12:45 AM: 
+10:12:45 AM:   1 | const EPS = 0.1;
+10:12:45 AM:   2 |
+10:12:45 AM: > 3 | module.exports = AFRAME.registerComponent('checkpoint-controls', {
+10:12:45 AM:     | ^
+10:12:45 AM:   4 |   schema: {
+10:12:45 AM:   5 |     enabled: {default: true},
+10:12:45 AM:   6 |     mode: {default: 'teleport', oneOf: ['teleport', 'animate']},
+10:12:45 AM: 
+10:12:45 AM:   WebpackError: ReferenceError: AFRAME is not defined
+10:12:45 AM:   
+10:12:45 AM:   - checkpoint-controls.js:3 
+10:12:45 AM:     [mindgarden-site]/[aframe-extras]/src/controls/checkpoint-controls.js:3:1
+10:12:45 AM:   
+10:12:45 AM:   - bootstrap:19 
+10:12:45 AM:     mindgarden-site/webpack/bootstrap:19:1
+10:12:45 AM:   
+10:12:45 AM:   - index.js:1 
+10:12:45 AM:     [mindgarden-site]/[aframe-extras]/src/controls/index.js:1:1
+10:12:45 AM:   
+10:12:45 AM:   - bootstrap:19 
+10:12:45 AM:     mindgarden-site/webpack/bootstrap:19:1
+10:12:45 AM:   
+10:12:45 AM:   - index.js:1 
+10:12:45 AM:     [mindgarden-site]/[aframe-extras]/index.js:1:1
+10:12:45 AM:   
+10:12:45 AM:   - bootstrap:19 
+10:12:45 AM:     mindgarden-site/webpack/bootstrap:19:1
+10:12:45 AM:   
+10:12:45 AM:   - bootstrap:19 
+10:12:45 AM:     mindgarden-site/webpack/bootstrap:19:1
+10:12:45 AM:   
+10:12:45 AM:   - static-entry.js:214 
+10:12:45 AM:     mindgarden-site/.cache/static-entry.js:214:27
+10:12:45 AM:   
+10:12:45 AM:   - FullWidthImage.js:4 
+10:12:45 AM:     mindgarden-site/src/components/FullWidthImage.js:4:1
+10:12:45 AM:   
+10:12:45 AM: 
+10:12:45 AM: ​
+10:12:45 AM: "build.command" failed                                        
+10:12:45 AM: ────────────────────────────────────────────────────────────────
+10:12:45 AM: ​
+10:12:45 AM:   Error message
+10:12:45 AM:   Command failed with exit code 1: rm -rf node_modules && rm -f package-lock.json && npm install --legacy-peer-deps && npm run build (https://ntl.fyi/exit-code-1)
+10:12:45 AM: ​
+10:12:45 AM:   Error location
+10:12:45 AM:   In build.command from netlify.toml:
+10:12:45 AM:   rm -rf node_modules && rm -f package-lock.json && npm install --legacy-peer-deps && npm run build
+10:12:45 AM: ​
+10:12:45 AM:   Resolved config
+10:12:45 AM:   build:
+10:12:45 AM:     command: rm -rf node_modules && rm -f package-lock.json && npm install --legacy-peer-deps && npm run build
+10:12:45 AM:     commandOrigin: config
+10:12:45 AM:     environment:
+10:12:45 AM:       - AUTH0_AUDIENCE
+10:12:45 AM:       - AUTH0_ISSUER
+10:12:45 AM:       - GATSBY_AUTH0_AUDIENCE
+10:12:45 AM:       - GATSBY_AUTH0_CLIENT_ID
+10:12:45 AM:       - GATSBY_AUTH0_DOMAIN
+10:12:45 AM:       - GATSBY_GOOGLE_CLOUD_PROJECT_ID
+10:12:45 AM:       - GATSBY_RECAPTCHA_SITE_KEY
+10:12:45 AM:       - GOOGLE_APPLICATION_CREDENTIALS
+10:12:45 AM:       - RECAPTCHA_SITE_SECRET
+10:12:45 AM:       - SENDGRID_API_KEY
+10:12:45 AM:       - NODE_VERSION
+10:12:45 AM:       - YARN_VERSION
+10:12:45 AM:       - YARN_FLAGS
+10:12:45 AM:     publish: /opt/build/repo/public
+10:12:45 AM:     publishOrigin: config
+10:12:45 AM:   functionsDirectory: /opt/build/repo/netlify/functions
+10:12:45 AM:   headers:
+10:12:45 AM:     - for: /*
+      values:
+        Referrer-Policy: same-origin
+        X-Content-Type-Options: nosniff
+        X-Frame-Options: DENY
+        X-XSS-Protection: 1; mode=block
+    - for: /static/MindGarden_Icon-5021abf8e6b278cd981f2602797d0f9c.png
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /cms.css
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /cms.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /223.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /843.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /netlify-identity.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /netlify-identity.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /react.production.min.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /react-dom.production.min.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /decap-cms-app.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /decap-cms-app.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /223.js.LICENSE.txt
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /cms.js.LICENSE.txt
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /decap-cms-app.js.LICENSE.txt
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /netlify-identity.js.LICENSE.txt
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /cms.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /223.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /843.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /index.html
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /styles.5c367262658c520bd833.css
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /framework-f0c4b562a946c137a03a.js.LICENSE.txt
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /app-fc149d21173edd3303b7.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /webpack-runtime-c43f11bfb87fd8302d12.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-pages-404-js-d22a312f98831d5b1d1b.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-pages-blog-index-js-71194d814b1776b01518.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-pages-contact-index-js-594a5aba400fab445cc8.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-pages-contact-thanks-js-9437a6ccefee5ca792ae.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-pages-tags-index-js-3906576fa4ac73c2ca4a.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-templates-about-page-js-642570c3eb6bc46555df.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-templates-alden-page-js-389085f189e31b0aa188.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-templates-blog-post-js-5fe457a2a71d1759e7f1.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-templates-index-page-js-bad77ee64bef0b529be0.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-templates-podcast-page-js-c1b6985926d09cbe1b46.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-templates-research-page-js-419dac5369c97e272cbf.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-templates-tags-js-a97e1a400540dd840918.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /223-bf812048b9a2652e89cc.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /843-c8ea31d02bd55692340b.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /framework-f0c4b562a946c137a03a.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /commons-4d7ecbccd7160331ba95.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /a4aae17fff2121b360fa3abe0490ca5b8ae357aa-f67214cb2875272b9c04.js
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /app-fc149d21173edd3303b7.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /webpack-runtime-c43f11bfb87fd8302d12.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-pages-404-js-d22a312f98831d5b1d1b.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-pages-blog-index-js-71194d814b1776b01518.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-pages-contact-index-js-594a5aba400fab445cc8.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-pages-contact-thanks-js-9437a6ccefee5ca792ae.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-pages-tags-index-js-3906576fa4ac73c2ca4a.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-templates-about-page-js-642570c3eb6bc46555df.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-templates-alden-page-js-389085f189e31b0aa188.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-templates-blog-post-js-5fe457a2a71d1759e7f1.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-templates-index-page-js-bad77ee64bef0b529be0.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-templates-podcast-page-js-c1b6985926d09cbe1b46.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-templates-research-page-js-419dac5369c97e272cbf.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /component---src-templates-tags-js-a97e1a400540dd840918.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /223-bf812048b9a2652e89cc.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /843-c8ea31d02bd55692340b.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /framework-f0c4b562a946c137a03a.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /commons-4d7ecbccd7160331ba95.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /a4aae17fff2121b360fa3abe0490ca5b8ae357aa-f67214cb2875272b9c04.js.map
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /static/*
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /sw.js
+      values:
+        Cache-Control: no-cache
+  plugins:
+    - inputs: {}
+      origin: config
+      package: '@netlify/plugin-gatsby'
+10:12:45 AM: Build failed due to a user error: Build script returned non-zero exit code: 2
+10:12:45 AM: Failing build: Failed to build site
+10:12:46 AM: Finished processing build request in 5m15.334s
+10:12:46 AM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+Deploying
+Skipped
+Cleanup
+Skipped
+Post-processing
+Skipped
+
+    Docs
+    Pricing
+    Support
+    Blog
+    Changelog
+    Terms
+
+© 2025 Netlify
