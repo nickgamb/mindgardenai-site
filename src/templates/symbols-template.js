@@ -14,9 +14,13 @@ import SymbolBrowser from "../components/SymbolBrowser";
 import FullWidthImage from "../components/FullWidthImage";
 import CathedralGlyph from "../components/SacredGlyph";
 
-// Import A-Frame
-import 'aframe';
-import 'aframe-extras';
+// Import A-Frame only on client side
+let AFRAME;
+if (typeof window !== 'undefined') {
+  require('aframe');
+  require('aframe-extras');
+  AFRAME = window.AFRAME;
+}
 
 const MobileMessage = () => (
   <div className="section has-text-centered" style={{ padding: '2rem' }}>
@@ -49,8 +53,6 @@ export default function SymbolsTemplate({ data }) {
   // Initialize A-Frame and check for mobile
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      window.AFRAME = window.AFRAME || {};
-      
       // Check if mobile
       const checkMobile = () => {
         const isMobileDevice = window.innerWidth < 768 || 
