@@ -539,3 +539,74 @@
   row-gap: 2.5rem
   @media (max-width: 768px)
     row-gap: 1.2rem 
+
+// === SYMBOL CARD ENHANCEMENTS ===
+.symbol-card
+  background-color: $purple90
+  border-radius: 12px
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  overflow: hidden
+  position: relative
+  
+  &:hover
+    transform: translateY(-4px)
+    box-shadow: 0 8px 16px rgba($primary, 0.15)
+    
+    .symbol-card-content
+      background: linear-gradient(to bottom, rgba($purple90, 0.95), rgba($purple90, 0.98))
+    
+    .symbol-card-title
+      color: $purple70
+      transform: translateY(-2px)
+    
+    .symbol-card-description
+      opacity: 1
+      transform: translateY(0)
+
+  .symbol-card-content
+    padding: 1.5rem
+    background: $purple90
+    transition: background 0.3s ease
+
+  .symbol-card-title
+    color: $purple10
+    font-size: 1.25rem
+    font-weight: 500
+    margin-bottom: 0.75rem
+    transition: all 0.3s ease
+
+  .symbol-card-description
+    color: $purple_white
+    font-size: 0.95rem
+    line-height: 1.5
+    opacity: 0.9
+    transform: translateY(4px)
+    transition: all 0.3s ease
+
+  .symbol-card-meta
+    margin-top: 1rem
+    padding-top: 1rem
+    border-top: 1px solid rgba($purple70, 0.1)
+    display: flex
+    justify-content: space-between
+    align-items: center
+    font-size: 0.85rem
+    color: $purple_white
+
+    .symbol-card-tags
+      display: flex
+      gap: 0.5rem
+      flex-wrap: wrap
+
+      .tag
+        background: rgba($purple70, 0.1)
+        color: $purple70
+        padding: 0.25rem 0.75rem
+        border-radius: 12px
+        font-size: 0.75rem
+        transition: all 0.2s ease
+
+        &:hover
+          background: rgba($purple70, 0.2)
+          transform: translateY(-1px) 

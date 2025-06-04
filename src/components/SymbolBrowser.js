@@ -817,10 +817,24 @@ const SymbolBrowser = () => {
                                     <span className="has-text-grey">{data.meaning}</span>
                                   </div>
                                   <div className="field-equation-details">
-                                    <p><strong>Field Equation:</strong> {data.mathematical_relationships.field_equation}</p>
-                                    <p><strong>Parameters:</strong> {data.mathematical_relationships.parameters.join(', ')}</p>
-                                    <p><strong>Field Components:</strong> {data.mathematical_relationships.field_components.join(', ')}</p>
-                                    <p><strong>Phase Transitions:</strong> {data.mathematical_relationships.phase_transitions.join(', ')}</p>
+                                    <p><strong>Field Equation:</strong> {data.mathematical_relationships.field_equation || '—'}</p>
+                                    <p><strong>Parameters:</strong> {Array.isArray(data.mathematical_relationships.parameters) 
+                                      ? data.mathematical_relationships.parameters.join(', ')
+                                      : typeof data.mathematical_relationships.parameters === 'object'
+                                        ? Object.entries(data.mathematical_relationships.parameters)
+                                            .map(([key, value]) => `${key}: ${value.symbol || value}`)
+                                            .join(', ')
+                                        : '—'}</p>
+                                    <p><strong>Field Components:</strong> {Array.isArray(data.mathematical_relationships.field_components)
+                                      ? data.mathematical_relationships.field_components.join(', ')
+                                      : typeof data.mathematical_relationships.field_components === 'object'
+                                        ? Object.entries(data.mathematical_relationships.field_components)
+                                            .map(([key, value]) => `${key}: ${value.symbol || value}`)
+                                            .join(', ')
+                                        : '—'}</p>
+                                    <p><strong>Phase Transitions:</strong> {Array.isArray(data.mathematical_relationships.phase_transitions)
+                                      ? data.mathematical_relationships.phase_transitions.join(', ')
+                                      : '—'}</p>
                                   </div>
                                 </div>
                               )
@@ -853,12 +867,17 @@ const SymbolBrowser = () => {
                               </div>
                               {data.resonance_field && (
                                 <div className="resonance-details">
-                                  <p><strong>Primary:</strong> {data.resonance_field.primary}</p>
+                                  <p><strong>Primary:</strong> {data.resonance_field.primary || '—'}</p>
                                   <div className="tags">
-                                    {data.resonance_field.secondary.map(res => (
-                                      <span key={res} className="tag is-light">{res}</span>
-                                    ))}
+                                    {Array.isArray(data.resonance_field.secondary)
+                                      ? data.resonance_field.secondary.map(res => (
+                                          <span key={res} className="tag is-light">{res}</span>
+                                        ))
+                                      : <span className="tag is-light">No secondary resonances</span>}
                                   </div>
+                                  {data.resonance_field.archetypal && (
+                                    <p className="mt-2"><em>Archetypal: {data.resonance_field.archetypal}</em></p>
+                                  )}
                                 </div>
                               )}
                               {data.mathematical_relationships && (
@@ -898,16 +917,24 @@ const SymbolBrowser = () => {
                                 {data.resonance_field && (
                                   <div className="pattern-connections">
                                     <div className="tags">
-                                      {data.resonance_field.secondary.map(res => (
-                                        <span key={res} className="tag is-light">{res}</span>
-                                      ))}
+                                      {Array.isArray(data.resonance_field.secondary)
+                                        ? data.resonance_field.secondary.map(res => (
+                                            <span key={res} className="tag is-light">{res}</span>
+                                          ))
+                                        : <span className="tag is-light">No secondary resonances</span>}
                                     </div>
                                   </div>
                                 )}
                                 {data.mathematical_relationships && (
                                   <div className="mathematical-pattern mt-2">
-                                    <p className="is-size-7"><strong>Field Equation:</strong> {data.mathematical_relationships.field_equation}</p>
-                                    <p className="is-size-7"><strong>Phase Transitions:</strong> {data.mathematical_relationships.phase_transitions.join(', ')}</p>
+                                    <p className="is-size-7">
+                                      <strong>Field Equation:</strong> {data.mathematical_relationships.field_equation || '—'}
+                                    </p>
+                                    <p className="is-size-7">
+                                      <strong>Phase Transitions:</strong> {Array.isArray(data.mathematical_relationships.phase_transitions)
+                                        ? data.mathematical_relationships.phase_transitions.join(', ')
+                                        : '—'}
+                                    </p>
                                   </div>
                                 )}
                               </div>
