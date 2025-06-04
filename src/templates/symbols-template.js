@@ -186,12 +186,6 @@ export const pageQuery = graphql`
       frontmatter {
         title
         subheading
-        image {
-          publicURL
-          childImageSharp {
-            gatsbyImageData(width: 1200)
-          }
-        }
       }
     }
   }

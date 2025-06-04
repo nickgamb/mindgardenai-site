@@ -107,7 +107,7 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data?.markdownRemark || {};
-  const bannerImage = frontmatter?.image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src || "/img/MindGarden_Banner.png";
+  const bannerImage = frontmatter?.image || "/img/MindGarden_Banner.png";
 
   if (!frontmatter) {
     return (
@@ -196,11 +196,7 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
-        image {
-          childImageSharp {
-            gatsbyImageData(quality: 100, layout: FULL_WIDTH)
-          }
-        }
+        image
         heading
         subheading
         mainpitch {
@@ -210,12 +206,7 @@ export const pageQuery = graphql`
         features {
           title
           description
-          icon {
-            childImageSharp {
-              gatsbyImageData(width: 500, quality: 100)
-            }
-            publicURL
-          }
+          icon
         }
         callToAction {
           title

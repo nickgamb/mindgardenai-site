@@ -74,9 +74,8 @@ BlogPostTemplate.propTypes = {
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data || {};
   const siteUrl = "https://mindgardenai.com"; 
-  const imageUrl = post?.frontmatter?.featuredimage?.publicURL 
-    ? `${siteUrl}${post.frontmatter.featuredimage.publicURL}`
-    : `${siteUrl}/img/MindGarden.png`;
+  const image = post.frontmatter?.featuredimage;
+  const imageUrl = image || "/img/MindGarden.png";
 
   if (!post) {
     return (
@@ -107,7 +106,7 @@ const BlogPost = ({ data }) => {
       <SEO
         title={post.frontmatter?.title || "Blog Post"}
         description={post.frontmatter?.description || "A blog post about consciousness research and AI development"}
-        image={post.frontmatter?.featuredimage?.publicURL || "/img/MindGarden.png"}
+        image={imageUrl}
         path={post.fields?.slug || "/blog/"}
         type="article"
         keywords={post.frontmatter?.tags?.join(", ") || "consciousness research, AI development"}
@@ -137,7 +136,7 @@ const BlogPost = ({ data }) => {
         content={post.html || ""}
         contentComponent={HTMLContent}
         description={post.frontmatter?.description || ""}
-        featuredimage={post.frontmatter?.featuredimage?.publicURL}
+        featuredimage={post.frontmatter?.featuredimage}
         tags={post.frontmatter?.tags || []}
         title={post.frontmatter?.title || "Blog Post"}
       />
@@ -166,12 +165,7 @@ export const pageQuery = graphql`
         title
         description
         tags
-        featuredimage {
-          publicURL
-          childImageSharp {
-            gatsbyImageData(width: 1200)
-          }
-        }
+        featuredimage
       }
     }
   }
