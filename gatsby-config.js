@@ -81,8 +81,7 @@ module.exports = {
                 // Use KaTeX for blog posts
                 if (node.fileAbsolutePath?.includes('/blog/') && 
                     node.internal.type === 'MarkdownRemark' && 
-                    node.frontmatter?.templateKey === 'blog-post' &&
-                    node.internal.content === node.rawMarkdownBody) {
+                    node.frontmatter?.templateKey === 'blog-post') {
                   return true;
                 }
                 
@@ -95,6 +94,14 @@ module.exports = {
               strict: false,
               throwOnError: false,
               errorColor: '#cc0000',
+              displayMode: true,
+              output: 'html',
+              delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+              ]
             },
           },
           {
