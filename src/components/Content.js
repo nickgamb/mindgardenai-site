@@ -12,13 +12,13 @@ import PropTypes from "prop-types";
 
 export const HTMLContent = ({ content, className }) => (
   <div 
-    className={className}
+    className={`${className} math-content`}
     dangerouslySetInnerHTML={{ __html: content }} 
   />
 );
 
 const Content = ({ content, className }) => (
-  <div className={className}>{content}</div>
+  <div className={`${className} math-content`}>{content}</div>
 );
 
 Content.propTypes = {
