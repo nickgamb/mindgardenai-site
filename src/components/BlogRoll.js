@@ -52,7 +52,7 @@ const BlogRollTemplate = (props) => {
             <hr className="tp-rule"/>
             <div className="content-section">
               <p className="excerpt">
-                {post.excerpt.replace(/\$\$.*?\$\$/g, '').replace(/\$.*?\$/g, '')}
+                {post.fields.plainExcerpt}
               </p>
               <Link className="btn" to={post.fields.slug}>
                 Keep Reading →
@@ -84,10 +84,10 @@ export default function BlogRoll() {
           ) {
             edges {
               node {
-                excerpt(pruneLength: 400)
                 id
                 fields {
                   slug
+                  plainExcerpt
                 }
                 frontmatter {
                   title

@@ -95,5 +95,22 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     })
+
+    // Add a custom excerpt field that doesn't process math
+    if (node.internal.content) {
+      const plainExcerpt = node.internal.content
+        .replace(/\$\$.*?\$\$/g, '') // Remove math blocks
+        .replace(/\$.*?\$/g, '') // Remove inline math
+        .replace(/[#*`_~]/g, '') // Remove markdown syntax
+        .replace(/\n/g, ' ') // Replace newlines with spaces
+        .substring(0, 400) // Limit length
+        .trim() + '...' // Add ellipsis
+
+      createNodeField({
+        name: 'plainExcerpt',
+        node,
+        value: plainExcerpt,
+      })
+    }
   }
 }
