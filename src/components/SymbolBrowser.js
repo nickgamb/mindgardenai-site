@@ -17,9 +17,7 @@ import { Line } from 'react-chartjs-2';
 let AFRAME;
 if (typeof window !== 'undefined') {
   import('aframe').then(() => {
-    import('aframe-extras').then(() => {
-      AFRAME = window.AFRAME;
-    });
+    AFRAME = window.AFRAME;
   });
 }
 
