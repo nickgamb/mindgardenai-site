@@ -147,7 +147,7 @@ module.exports = {
       options: {
         output: '/sitemap.xml',
         createLinkInHead: true,
-        exclude: [
+        excludes: [
           '/admin/*',
           '/private/*',
           '/api/*',
