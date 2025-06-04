@@ -12,58 +12,55 @@ import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
 
-
 const BlogRollTemplate = (props) => {
-  
   const { edges: posts } = props.data.allMarkdownRemark;
 
   return (
     <div className="columns is-multiline">
-      {posts &&
-        posts.map(({ node: post }) => (
-          <div className="is-parent column is-6" key={post.id}>
-            <article
-              className={`blog-list-item tile is-child box ${
-                post.frontmatter.featuredpost ? 'is-featured' : ''
-              }`}
-            >
-              <header className="blog-item-header">
-                {post?.frontmatter?.featuredimage && (
-                  <div className="featured-thumbnail">
-                    <PreviewCompatibleImage
-                      imageInfo={{
-                        image: post.frontmatter.featuredimage,
-                        alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                      }}
-                    />
-                  </div>
-                )}
-                <div className="post-meta">
-                  <h3 className="post-title">
-                    <Link
-                      className="title has-text-primary is-underlined is-size-4"
-                      to={post.fields.slug}
-                    >
-                      {post.frontmatter.title}
-                    </Link>
-                  </h3>
-                  <p className="post-date subtitle is-size-5">
-                    {post.frontmatter.date}
-                  </p>
+      {posts.map(({ node: post }) => (
+        <div className="is-parent column is-6" key={post.id}>
+          <article
+            className={`blog-list-item tile is-child box ${
+              post.frontmatter.featuredpost ? 'is-featured' : ''
+            }`}
+          >
+            <header className="blog-item-header">
+              {post?.frontmatter?.featuredimage && (
+                <div className="featured-thumbnail">
+                  <PreviewCompatibleImage
+                    imageInfo={{
+                      image: post.frontmatter.featuredimage,
+                      alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                    }}
+                  />
                 </div>
-              </header>
-              <hr className="tp-rule"/>
-              <div className="content-section">
-                <p className="excerpt">
-                  {post.excerpt}
+              )}
+              <div className="post-meta">
+                <h3 className="post-title">
+                  <Link
+                    className="title has-text-primary is-underlined is-size-4"
+                    to={post.fields.slug}
+                  >
+                    {post.frontmatter.title}
+                  </Link>
+                </h3>
+                <p className="post-date subtitle is-size-5">
+                  {post.frontmatter.date}
                 </p>
-                <Link className="btn" to={post.fields.slug}>
-                  Keep Reading →
-                </Link>
               </div>
-            </article>
-          </div>
-        ))}
+            </header>
+            <hr className="tp-rule"/>
+            <div className="content-section">
+              <p className="excerpt">
+                {post.excerpt}
+              </p>
+              <Link className="btn" to={post.fields.slug}>
+                Keep Reading →
+              </Link>
+            </div>
+          </article>
+        </div>
+      ))}
     </div>
   )
 }
@@ -75,7 +72,6 @@ BlogRoll.propTypes = {
     }),
   }),
 }
-
 
 export default function BlogRoll() {
   return (

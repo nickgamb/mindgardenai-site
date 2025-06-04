@@ -78,6 +78,9 @@ module.exports = {
             options: {
               // Only apply to blog posts
               filter: (node) => node.fileAbsolutePath.includes('/blog/'),
+              strict: false,
+              throwOnError: false,
+              errorColor: '#cc0000',
             },
           },
           {
