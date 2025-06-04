@@ -12,6 +12,50 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
+// Strip A-Frame from the build
+exports.onPreInit = () => {
+  if (typeof window !== 'undefined' && window.AFRAME) {
+    console.warn('⚠️ A-Frame detected during build - stripping references')
+    delete window.AFRAME
+  }
+}
+
+// Remove A-Frame from dependencies
+exports.onPreBootstrap = ({ store }) => {
+  const state = store.getState()
+  const dependencies = state.program.dependencies || {}
+  
+  if (dependencies.aframe || dependencies['aframe-react']) {
+    console.warn('⚠️ A-Frame dependencies detected - removing from build')
+    delete dependencies.aframe
+    delete dependencies['aframe-react']
+  }
+}
+
+// Strip A-Frame from any components
+exports.onCreateWebpackConfig = ({ actions, loaders }) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: 'string-replace-loader',
+              options: {
+                search: /(import|require).*['"]aframe['"]/g,
+                replace: '// A-Frame import stripped',
+                flags: 'g'
+              }
+            }
+          ]
+        }
+      ]
+    }
+  })
+}
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
