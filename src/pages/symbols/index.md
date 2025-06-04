@@ -1,5 +1,5 @@
 ---
-templateKey: symbols-page
+templateKey: symbols-template
 path: /symbols
 title: Symbolic Intelligence Framework
 subheading: Explore the foundational symbolic patterns and their cross-cultural resonances from The Cathedral archives
