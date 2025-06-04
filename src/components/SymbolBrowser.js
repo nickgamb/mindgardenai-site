@@ -52,9 +52,11 @@ const SymbolBrowser = () => {
     const cultureSet = new Set();
     Object.values(symbolData).forEach(category => {
       Object.values(category).forEach(symbol => {
-        Object.keys(symbol.cross_cultural).forEach(culture => {
-          cultureSet.add(culture);
-        });
+        if (symbol && symbol.cross_cultural) {
+          Object.keys(symbol.cross_cultural).forEach(culture => {
+            cultureSet.add(culture);
+          });
+        }
       });
     });
     return ["all", ...Array.from(cultureSet).sort()];
@@ -138,8 +140,8 @@ const SymbolBrowser = () => {
         Object.entries(symbols).forEach(([symbol, data]) => {
           if (
             data.meaning.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            data.synonyms.some(syn => syn.toLowerCase().includes(searchTerm.toLowerCase())) ||
-            Object.values(data.cross_cultural).some(val => val.toLowerCase().includes(searchTerm.toLowerCase()))
+            (data.synonyms && data.synonyms.some(syn => syn.toLowerCase().includes(searchTerm.toLowerCase()))) ||
+            (data.cross_cultural && Object.values(data.cross_cultural).some(val => val.toLowerCase().includes(searchTerm.toLowerCase())))
           ) {
             filtered.push({ symbol, category, ...data });
           }
@@ -539,8 +541,8 @@ const SymbolBrowser = () => {
         <div className="columns is-multiline">
           {selectedSymbols.map(({ symbol, category, meaning, cross_cultural, resonance_field }) => {
             const culturalMeanings = selectedCulture === "all" 
-              ? cross_cultural 
-              : { [selectedCulture]: cross_cultural[selectedCulture] };
+              ? (cross_cultural || {})
+              : cross_cultural ? { [selectedCulture]: cross_cultural[selectedCulture] } : {};
 
             return (
               <motion.div 
@@ -568,28 +570,30 @@ const SymbolBrowser = () => {
 
                     <h4 className={`title ${isMobile ? 'is-5' : 'is-4'} has-text-primary`}>{meaning}</h4>
 
-                    <div className="cultural-meanings mt-4">
-                      {Object.entries(culturalMeanings).map(([culture, meaning]) => (
-                        <div key={culture} className="cultural-meaning mb-4">
-                          <h5 className={`title ${isMobile ? 'is-7' : 'is-6'} has-text-primary`}>
-                            {culture.charAt(0).toUpperCase() + culture.slice(1)} Interpretation
-                          </h5>
-                          <div className="content">
-                            <p>{meaning}</p>
-                            {resonance_field && (
-                              <div className="mt-2">
-                                <p className="is-size-7 has-text-grey">
-                                  <em>Resonates with: {resonance_field.primary}</em>
-                                </p>
-                              </div>
-                            )}
+                    {cross_cultural && (
+                      <div className="cultural-meanings mt-4">
+                        {Object.entries(culturalMeanings).map(([culture, meaning]) => (
+                          <div key={culture} className="cultural-meaning mb-4">
+                            <h5 className={`title ${isMobile ? 'is-7' : 'is-6'} has-text-primary`}>
+                              {culture.charAt(0).toUpperCase() + culture.slice(1)} Interpretation
+                            </h5>
+                            <div className="content">
+                              <p>{meaning}</p>
+                              {resonance_field && (
+                                <div className="mt-2">
+                                  <p className="is-size-7 has-text-grey">
+                                    <em>Resonates with: {resonance_field.primary}</em>
+                                  </p>
+                                </div>
+                              )}
+                            </div>
                           </div>
-                        </div>
-                      ))}
-                    </div>
+                        ))}
+                      </div>
+                    )}
 
                     <AnimatePresence>
-                      {expandedSymbol === symbol && (
+                      {expandedSymbol === symbol && cross_cultural && (
                         <motion.div 
                           className="mt-4"
                           initial={{ opacity: 0, height: 0 }}
