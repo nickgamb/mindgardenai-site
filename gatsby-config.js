@@ -231,18 +231,20 @@ module.exports = {
   ],
   flags: {
     FAST_DEV: true,
-  },
-  webpack: {
-    configure: (webpackConfig) => {
-      webpackConfig.resolve.fallback = {
-        ...webpackConfig.resolve.fallback,
+  }
+};
+
+// Add webpack configuration using Gatsby's onCreateWebpackConfig
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      fallback: {
         fs: false,
         stream: false,
         "stream/web": false,
-      };
-      return webpackConfig;
+      },
     },
-  },
+  });
 };
 
 
