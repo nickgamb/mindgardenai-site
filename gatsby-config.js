@@ -229,6 +229,20 @@ module.exports = {
     }, // must be after other CSS plugins
     "gatsby-plugin-netlify", // make sure to keep it last in the array
   ],
+  flags: {
+    FAST_DEV: true,
+  },
+  webpack: {
+    configure: (webpackConfig) => {
+      webpackConfig.resolve.fallback = {
+        ...webpackConfig.resolve.fallback,
+        fs: false,
+        stream: false,
+        "stream/web": false,
+      };
+      return webpackConfig;
+    },
+  },
 };
 
 
