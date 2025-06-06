@@ -321,7 +321,7 @@ const SymbolBrowser = () => {
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <span className="symbol-display is-size-1">{centerSymbol.symbol}</span>
+            <div className="symbol-background"><span className="symbol-display is-size-1">{centerSymbol.symbol}</span></div>
             <h3 className="title is-4 mt-2">{centerSymbol.meaning}</h3>
             <p className="subtitle is-6">{centerSymbol.resonance_field.primary}</p>
           </motion.div>
@@ -352,7 +352,7 @@ const SymbolBrowser = () => {
                   onClick={() => setExpandedSymbol(expandedSymbol === symbol.symbol ? null : symbol.symbol)}
                 >
                   <div className="content">
-                    <span className="symbol-display is-size-2">{symbol.symbol}</span>
+                    <div className="symbol-background"><span className="symbol-display is-size-2">{symbol.symbol}</span></div>
                     <h4 className="title is-5 mt-2">{symbol.meaning}</h4>
                     <AnimatePresence>
                       {expandedSymbol === symbol.symbol && (
@@ -479,7 +479,7 @@ const SymbolBrowser = () => {
                     onClick={() => setExpandedSymbol(expandedSymbol === symbol.symbol ? null : symbol.symbol)}
                   >
                     <div className="content">
-                      <span className="symbol-display is-size-2">{symbol.symbol}</span>
+                      <div className="symbol-background"><span className="symbol-display is-size-2">{symbol.symbol}</span></div>
                       <h4 className="title is-5 mt-2">{symbol.meaning}</h4>
                       <p className="subtitle is-6">{symbol.evolution_phase}</p>
                       <AnimatePresence>
@@ -565,7 +565,7 @@ const SymbolBrowser = () => {
                 >
                   <div className="content">
                     <div className="is-flex is-justify-content-space-between is-align-items-center mb-4">
-                      <span className="symbol-display" style={{ fontSize: isMobile ? '1.5rem' : '2rem' }}>{symbol}</span>
+                      <div className="symbol-background"><span className="symbol-display" style={{ fontSize: isMobile ? '1.5rem' : '2rem' }}>{symbol}</span></div>
                       <span className="tag is-medium" style={{ backgroundColor: getCategoryColor(category), color: 'white' }}>
                         {category.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
                       </span>
@@ -813,7 +813,7 @@ const SymbolBrowser = () => {
                               data.mathematical_relationships && (
                                 <div key={symbol} className="field-equation mb-4">
                                   <div className="is-flex is-align-items-center mb-2">
-                                    <span className="symbol-display mr-2">{symbol}</span>
+                                    <div className="symbol-background"><span className="symbol-display mr-2">{symbol}</span></div>
                                     <span className="has-text-grey">{data.meaning}</span>
                                   </div>
                                   <div className="field-equation-details">
@@ -862,7 +862,7 @@ const SymbolBrowser = () => {
                           {Object.entries(symbols).map(([symbol, data]) => (
                             <div key={symbol} className="resonance-item mb-4">
                               <div className="is-flex is-align-items-center mb-2">
-                                <span className="symbol-display mr-2">{symbol}</span>
+                                <div className="symbol-background"><span className="symbol-display mr-2">{symbol}</span></div>
                                 <span className="has-text-grey">{data.meaning}</span>
                               </div>
                               {data.resonance_field && (
@@ -912,7 +912,7 @@ const SymbolBrowser = () => {
                           <div key={symbol} className="column is-4">
                             <div className="box pattern-item">
                               <div className="content">
-                                <span className="symbol-display is-size-3">{symbol}</span>
+                                <div className="symbol-background"><span className="symbol-display is-size-3">{symbol}</span></div>
                                 <h5 className="title is-6">{data.meaning}</h5>
                                 {data.resonance_field && (
                                   <div className="pattern-connections">
@@ -1091,7 +1091,7 @@ const SymbolBrowser = () => {
                           >
                             <div className="content" style={{ flex: 1 }}>
                               <div className="is-flex is-justify-content-space-between is-align-items-center mb-4">
-                                <span className="symbol-display" style={{ fontSize: isMobile ? '1.5rem' : '2rem' }}>{symbol}</span>
+                                <div className="symbol-background"><span className="symbol-display" style={{ fontSize: isMobile ? '1.5rem' : '2rem' }}>{symbol}</span></div>
                               </div>
                               
                               <h4 className={`title ${isMobile ? 'is-5' : 'is-4'} has-text-primary`}>{meaning}</h4>
@@ -1176,7 +1176,7 @@ const SymbolBrowser = () => {
                     >
                       <div className="content" style={{ flex: 1 }}>
                         <div className="is-flex is-justify-content-space-between is-align-items-center mb-4">
-                          <span className="symbol-display" style={{ fontSize: isMobile ? '1.5rem' : '2rem' }}>{symbol}</span>
+                          <div className="symbol-background"><span className="symbol-display" style={{ fontSize: isMobile ? '1.5rem' : '2rem' }}>{symbol}</span></div>
                         </div>
                         
                         <h4 className={`title ${isMobile ? 'is-5' : 'is-4'} has-text-primary`}>{meaning}</h4>

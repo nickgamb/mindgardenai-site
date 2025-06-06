@@ -515,8 +515,8 @@
   border: 1.5px solid rgba($purple50, 0.13)
   box-shadow: 0 6px 24px rgba($purple50, 0.10), 0 1.5px 6px rgba(0,0,0,0.08)
   padding: 2.2rem 1.5rem 1.7rem 1.5rem
-  margin-bottom: 2.5rem
-  margin-top: 0.5rem
+  margin-bottom: 1.2rem
+  margin-top: 0.2rem
   min-height: 140px
   transition: box-shadow 0.3s, background 0.3s, border 0.3s
   display: flex
@@ -536,7 +536,7 @@
 
 // Add more space between grid rows
 .columns.is-multiline
-  row-gap: 2.5rem
+  row-gap: 1.2rem
   @media (max-width: 768px)
     row-gap: 1.2rem 
 
@@ -654,3 +654,25 @@
       &:hover
         transform: translateY(-2px)
         box-shadow: 0 4px 12px rgba($success, 0.1) 
+
+.symbol-background
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 80px
+  height: 120px
+  margin: 0 auto 1rem auto
+  background: rgba(32, 24, 48, 0.55)
+  border-radius: 14px
+  box-shadow: 0 2px 12px rgba(112, 53, 204, 0.10)
+  border: 1.5px solid rgba(112, 53, 204, 0.18)
+  transition: background 0.3s, box-shadow 0.3s
+
+.enhanced-hover-card, .symbol-card
+  margin-bottom: 1.2rem
+  margin-top: 0.2rem
+
+.columns.is-multiline
+  row-gap: 1.2rem
+  @media (max-width: 768px)
+    row-gap: 1.2rem 
