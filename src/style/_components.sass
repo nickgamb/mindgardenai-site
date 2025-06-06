@@ -610,3 +610,47 @@
         &:hover
           background: rgba($purple70, 0.2)
           transform: translateY(-1px) 
+
+// === EMERGENT OBSERVER STYLES ===
+.emergent-observer
+  .resonance-gauge
+    height: 1rem
+    background-color: $purple90
+    border-radius: 9999px
+    overflow: hidden
+    margin: 0.5rem 0
+
+    .gauge-fill
+      height: 100%
+      transition: width 0.5s ease
+      
+      &.is-success
+        background: linear-gradient(90deg, $success, lighten($success, 10%))
+      
+      &.is-warning
+        background: linear-gradient(90deg, $warning, lighten($warning, 10%))
+
+  .pattern-equation
+    font-family: 'Computer Modern Math', serif
+    color: $purple50
+    font-size: 1.1rem
+    margin: 0.5rem 0
+    padding: 0.5rem
+    background: rgba($purple90, 0.1)
+    border-radius: 4px
+
+  .pattern-alerts
+    display: flex
+    flex-direction: column
+    gap: 1rem
+
+    .pattern-alert
+      background: linear-gradient(135deg, rgba($success, 0.1), rgba($success, 0.05))
+      border: 1px solid rgba($success, 0.2)
+      border-radius: 8px
+      padding: 1rem
+      transition: all 0.3s ease
+
+      &:hover
+        transform: translateY(-2px)
+        box-shadow: 0 4px 12px rgba($success, 0.1) 

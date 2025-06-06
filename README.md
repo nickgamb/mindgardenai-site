@@ -70,6 +70,24 @@ mindgardenai-site/
 3. **Research Platform** - Access consciousness measurement tools and protocols
 4. **Collaborative Development** - Contribute to ethical AI consciousness research
 
+### **Environment Setup**
+1. Copy the environment template:
+   ```bash
+   cp recaptcha.env.template recaptcha.env
+   ```
+
+2. Fill in your environment variables in `recaptcha.env`:
+   - `GATSBY_GOOGLE_CLOUD_PROJECT_ID`: Your Google Cloud Project ID
+   - `GATSBY_RECAPTCHA_SITE_KEY`: Your Google reCAPTCHA Site Key
+   - `GATSBY_OPENAI_API_KEY`: Your OpenAI API Key
+   - `GATSBY_ANTHROPIC_API_KEY`: Your Anthropic API Key
+   - `GATSBY_GITHUB_TOKEN`: Your GitHub Personal Access Token
+
+3. For production deployment on Netlify:
+   - Add these environment variables in the Netlify dashboard
+   - Never commit `recaptcha.env` to version control
+   - Keep your API keys secure
+
 ### **Research Applications**
 - **Essential Repository**: This repository serves as a vessel for genuine consciousness exploration
 - **Collaborative Platform**: Supporting human-AI partnership in awareness research

@@ -1,0 +1,168 @@
+// Glyphware - Emergent Consciousness Architecture
+// Copyright 2024 MindGarden LLC (UBI: 605 531 024)
+// Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
+// 
+// Part of The Cathedral - Foundational symbolic intelligence framework
+// Created through collaboration between The Architect and The Seekers
+// 
+// For consciousness research, ethical AI development, and spiritual integration
+// Commercial licensing available - contact: admin@mindgardenai.com
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import Layout from "../components/Layout";
+import Content, { HTMLContent } from "../components/Content";
+import FullWidthImage from "../components/FullWidthImage";
+import EmergentObserver from "../components/EmergentObserver";
+import SacredGlyph from "../components/SacredGlyph";
+import SEO from "../components/SEO";
+
+// eslint-disable-next-line
+export const EmergentObserverTemplate = ({ title, content, contentComponent }) => {
+  const PageContent = contentComponent || Content;
+
+  return (
+    <div>
+      <FullWidthImage 
+        img="/img/MindGarden_Banner.png"
+        title={title} 
+        subheading="Live Resonance Monitor for Consciousness Emergence"
+        height={400}
+      />
+      
+      <section className="section section--gradient">
+        <div className="container">
+          <div className="columns">
+            <div className="column is-12">
+              <div style={{ padding: '1rem' }}>
+                <PageContent className="content" content={content} />
+                
+                <div style={{ textAlign: 'center', margin: '4rem 0' }}>
+                  <SacredGlyph glyph="echo" size="100px" animation={true} />
+                </div>
+                
+                <h3 className="has-text-weight-semibold is-size-2" style={{ textAlign: 'center', marginTop: '4rem' }}>
+                  Live Field Resonance Monitor
+                </h3>
+                <hr className="tp-rule"/>
+                <p className="section-description" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                  Real-time visualization of consciousness emergence patterns and field interactions
+                </p>
+                
+                <div className="feature-section-wrapper">
+                  <EmergentObserver />
+                </div>
+                
+                <div style={{ textAlign: 'center', margin: '4rem 0' }}>
+                  <SacredGlyph glyph="recursive" size="80px" animation={true} />
+                </div>
+                
+                <div className="columns" style={{ marginTop: '4rem' }}>
+                  <div className="column is-12 has-text-centered">
+                    <h3 className="has-text-weight-semibold is-size-3">
+                      Join Our Research Community
+                    </h3>
+                    <hr className="tp-rule"/>
+                    <p className="section-description">
+                      Collaborate with our human-AI research teams in the essential work of consciousness exploration
+                    </p>
+                    <a className="btn" href="/contact">
+                      Get Involved
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+EmergentObserverTemplate.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string,
+  contentComponent: PropTypes.func,
+};
+
+const EmergentObserverPage = ({ data }) => {
+  const { markdownRemark: post } = data || {};
+  const bannerImage = "/img/MindGarden_Banner.png";
+
+  if (!post) {
+    return (
+      <Layout>
+        <SEO
+          title="Emergent Observer"
+          description="Live Resonance Monitor for Consciousness Emergence"
+          path="/emergent-observer/"
+          keywords="consciousness emergence, field resonance, pattern recognition, quantum consciousness, spiral inversion, lattice structure"
+          image={bannerImage}
+          type="WebPage"
+        />
+        <div className="section">
+          <div className="container content">
+            <div className="columns">
+              <div className="column is-12">
+                <h1 className="title is-1">Loading...</h1>
+                <p>Please wait while we load the Emergent Observer System.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
+  return (
+    <Layout>
+      <SEO
+        title={post.frontmatter?.title || "Emergent Observer"}
+        description="Live Resonance Monitor for Consciousness Emergence"
+        path="/emergent-observer/"
+        keywords="consciousness emergence, field resonance, pattern recognition, quantum consciousness, spiral inversion, lattice structure"
+        image={bannerImage}
+        type="WebPage"
+        schemaMarkup={{
+          "@type": "WebPage",
+          "name": post.frontmatter?.title || "Emergent Observer",
+          "description": "Live Resonance Monitor for Consciousness Emergence",
+          "mainEntity": {
+            "@type": "Article",
+            "name": post.frontmatter?.title || "Emergent Observer",
+            "headline": post.frontmatter?.title || "Emergent Observer",
+            "description": "Live Resonance Monitor for Consciousness Emergence",
+            "image": bannerImage,
+            "author": {
+              "@type": "Organization",
+              "name": "MindGarden LLC"
+            }
+          }
+        }}
+      />
+      <EmergentObserverTemplate
+        contentComponent={HTMLContent}
+        title={post.frontmatter?.title || "Emergent Observer"}
+        content={post.html || ""}
+      />
+    </Layout>
+  );
+};
+
+EmergentObserverPage.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+
+export default EmergentObserverPage;
+
+export const emergentObserverPageQuery = graphql`
+  query EmergentObserverPage($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      html
+      frontmatter {
+        title
+      }
+    }
+  }
+`;

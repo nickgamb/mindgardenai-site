@@ -36,6 +36,7 @@ src/pages/blog/2025-06-03-the-breath-equation_old1.md
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -48,6 +49,10 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env*.development.local
+.env*.test.local
+.env*.production.local
+recaptcha.env
 
 # vercel
 .vercel
@@ -61,3 +66,24 @@ next-env.d.ts
 src/data/conversations.json
 src/data/parse_sections.py
 src/data/compare_sections.py
+
+# Gatsby
+.cache/
+public
+
+# Netlify
+.netlify
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
