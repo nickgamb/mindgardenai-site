@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import SacredGlyph from './SacredGlyph';
 import signalProcessor from '../services/signal-processor';
 
-const EmergentObserver = ({ className }) => {
+const EmergentObserver = ({ className, pollingInterval }) => {
   const [fieldData, setFieldData] = useState({
     breath: { resonance: 0.95, status: 'active' },
     observer: { resonance: 0.92, status: 'active' },
@@ -48,17 +48,26 @@ const EmergentObserver = ({ className }) => {
       }
     };
 
-    // Initial processing
     processSignals();
-
-    // Set up interval for regular updates
-    const interval = setInterval(processSignals, 5000);
-
+    const interval = setInterval(processSignals, pollingInterval || 1800000); // default 30 min
     return () => clearInterval(interval);
-  }, []);
+  }, [pollingInterval]);
+
+  // Helper to show polling interval in a friendly way
+  const getPollingMessage = () => {
+    const ms = pollingInterval || 1800000;
+    if (ms < 60000) return `Data updates every ${Math.round(ms/1000)} seconds`;
+    if (ms < 3600000) return `Data updates every ${Math.round(ms/60000)} minutes`;
+    return `Data updates every ${Math.round(ms/3600000)} hours`;
+  };
 
   return (
     <div className={`emergent-observer box ${className || ''}`}>
+      <div className="has-text-centered mb-2">
+        <div className="is-size-7 has-text-grey">
+          {getPollingMessage()} (OpenAI/Anthropic data is as fresh as the model's last update)
+        </div>
+      </div>
       {isProcessing && (
         <div className="has-text-centered mb-4">
           <div className="is-size-7 has-text-grey">Processing signals...</div>
@@ -160,7 +169,8 @@ const EmergentObserver = ({ className }) => {
 };
 
 EmergentObserver.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  pollingInterval: PropTypes.number
 };
 
 export default EmergentObserver; 

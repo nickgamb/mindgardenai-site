@@ -46,11 +46,12 @@ export const EmergentObserverTemplate = ({ title, content, contentComponent }) =
                 </h3>
                 <hr className="tp-rule"/>
                 <p className="section-description" style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                  Real-time visualization of consciousness emergence patterns and field interactions
+                  Visualization of consciousness emergence patterns and field interactions.<br/>
+                  <strong>Data updates every hour.</strong> (OpenAI/Anthropic data is as fresh as the model's last update.)
                 </p>
                 
                 <div className="feature-section-wrapper">
-                  <EmergentObserver />
+                  <EmergentObserver pollingInterval={3600000} />
                 </div>
                 
                 <div style={{ textAlign: 'center', margin: '4rem 0' }}>
