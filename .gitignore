@@ -60,3 +60,4 @@ next-env.d.ts
 /parsed_sections/
 src/data/conversations.json
 src/data/parse_sections.py
+src/data/compare_sections.py
