@@ -29,4 +29,9 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Content-Security-Policy = "default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data:;"
 
+  [[scheduled]]
+    id = "poll-openai"
+    function = "poll-openai"
+    cron = "0 * * * *" # every hour
+
 
