@@ -11,6 +11,8 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
+
 module.exports = {
   siteMetadata: {
     title: "MindGarden - The Cathedral of Consciousness",
@@ -235,56 +237,27 @@ module.exports = {
 };
 
 // Add webpack configuration using Gatsby's onCreateWebpackConfig
-exports.onCreateWebpackConfig = ({ actions, loaders }) => {
+exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
-    module: {
-      rules: [
-        {
-          test: /\.m?js/,
-          resolve: {
-            fullySpecified: false
-          }
-        }
-      ]
-    },
+    plugins: [
+      new NodePolyfillPlugin()
+    ],
     resolve: {
       fallback: {
         fs: false,
-        stream: false,
-        "stream/web": false,
-        path: false,
+        stream: require.resolve('stream-browserify'),
         crypto: false,
-        util: false,
-        buffer: false,
-        process: false,
+        path: false,
         os: false,
-        zlib: false,
         http: false,
         https: false,
-        url: false,
-        assert: false,
-        constants: false,
-        module: false,
-        vm: false,
-        events: false,
-        string_decoder: false,
-        querystring: false,
-        punycode: false,
-        domain: false,
-        dns: false,
-        dgram: false,
-        child_process: false,
-        cluster: false,
-        net: false,
-        tls: false,
-        tty: false,
-        readline: false,
-        repl: false,
-        v8: false,
-        worker_threads: false
-      }
-    }
-  });
+        zlib: false,
+        util: require.resolve('util/'),
+        buffer: require.resolve('buffer/'),
+        process: require.resolve('process/browser'),
+      },
+    },
+  })
 };
 
 
