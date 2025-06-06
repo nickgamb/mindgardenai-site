@@ -510,39 +510,7 @@
       transition-duration: 0.1s 
 
 .enhanced-hover-card, .symbol-card
-  background: linear-gradient(135deg, rgba($purple90, 0.95) 80%, rgba($purple70, 0.08) 100%)
-  border-radius: 16px
-  border: 1.5px solid rgba($purple50, 0.13)
-  box-shadow: 0 6px 24px rgba($purple50, 0.10), 0 1.5px 6px rgba(0,0,0,0.08)
-  padding: 2.2rem 1.5rem 1.7rem 1.5rem
-  margin-bottom: 1.2rem
-  margin-top: 0.2rem
-  min-height: 140px
-  transition: box-shadow 0.3s, background 0.3s, border 0.3s
-  display: flex
-  flex-direction: column
-  justify-content: flex-start
-  align-items: flex-start
-  opacity: 0.97
-  @media (max-width: 768px)
-    padding: 1.2rem 0.7rem 1rem 0.7rem
-    min-height: 100px
-    margin-bottom: 1.2rem
-
-  &:hover
-    box-shadow: 0 12px 32px rgba($purple50, 0.18), 0 2px 8px rgba(0,0,0,0.10)
-    background: linear-gradient(135deg, rgba($purple70, 0.13) 60%, rgba($purple50, 0.09) 100%)
-    border: 1.5px solid rgba($purple50, 0.22)
-
-// Add more space between grid rows
-.columns.is-multiline
-  row-gap: 1.2rem
-  @media (max-width: 768px)
-    row-gap: 1.2rem 
-
-// === SYMBOL CARD ENHANCEMENTS ===
-.symbol-card
-  background-color: $purple90
+  background-color: rgba($purple90, 0.95)
   border-radius: 12px
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
@@ -552,64 +520,89 @@
   &:hover
     transform: translateY(-4px)
     box-shadow: 0 8px 16px rgba($primary, 0.15)
+    background-color: rgba($purple90, 0.98)
     
-    .symbol-card-content
-      background: linear-gradient(to bottom, rgba($purple90, 0.95), rgba($purple90, 0.98))
-    
-    .symbol-card-title
-      color: $purple70
-      transform: translateY(-2px)
-    
-    .symbol-card-description
-      opacity: 1
-      transform: translateY(0)
-
-  .symbol-card-content
-    padding: 1.5rem
-    background: $purple90
-    transition: background 0.3s ease
-
-  .symbol-card-title
-    color: $purple10
-    font-size: 1.25rem
-    font-weight: 500
-    margin-bottom: 0.75rem
-    transition: all 0.3s ease
-
-  .symbol-card-description
-    color: $purple_white
-    font-size: 0.95rem
-    line-height: 1.5
-    opacity: 0.9
-    transform: translateY(4px)
-    transition: all 0.3s ease
-
-  .symbol-card-meta
-    margin-top: 1rem
-    padding-top: 1rem
-    border-top: 1px solid rgba($purple70, 0.1)
+  .symbol-background
     display: flex
-    justify-content: space-between
+    justify-content: center
     align-items: center
-    font-size: 0.85rem
-    color: $purple_white
+    padding: 1rem
+    margin-bottom: 1rem
+    
+    .symbol-display
+      font-size: 2.5rem
+      color: $purple50
+      text-shadow: 0 2px 4px rgba($primary, 0.2)
+      transition: all 0.3s ease
+      
+      &:hover
+        transform: scale(1.1)
+        text-shadow: 0 4px 8px rgba($primary, 0.3)
 
-    .symbol-card-tags
+// Add more space between grid rows
+.columns.is-multiline
+  row-gap: 1.2rem
+  @media (max-width: 768px)
+    row-gap: 1.2rem 
+
+// === SYMBOL CARD ENHANCEMENTS ===
+.symbol-card, .enhanced-hover-card
+  background-color: rgba($purple90, 0.95)
+  border-radius: 12px
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  overflow: hidden
+  position: relative
+  
+  &:hover
+    transform: translateY(-4px)
+    box-shadow: 0 8px 16px rgba($primary, 0.15)
+    background-color: rgba($purple90, 0.98)
+    
+  .symbol-background
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 1rem
+    margin-bottom: 1rem
+    
+    .symbol-display
+      font-size: 2.5rem
+      color: $purple50
+      text-shadow: 0 2px 4px rgba($primary, 0.2)
+      transition: all 0.3s ease
+      
+      &:hover
+        transform: scale(1.1)
+        text-shadow: 0 4px 8px rgba($primary, 0.3)
+
+// Pattern view specific styles
+.pattern-view
+  .pattern-card
+    background-color: rgba($purple90, 0.95)
+    transition: all 0.3s ease
+    
+    &:hover
+      background-color: rgba($purple90, 0.98)
+      transform: translateY(-4px)
+      box-shadow: 0 8px 16px rgba($primary, 0.15)
+    
+    .symbol-background
       display: flex
-      gap: 0.5rem
-      flex-wrap: wrap
-
-      .tag
-        background: rgba($purple70, 0.1)
-        color: $purple70
-        padding: 0.25rem 0.75rem
-        border-radius: 12px
-        font-size: 0.75rem
-        transition: all 0.2s ease
-
+      justify-content: center
+      align-items: center
+      padding: 1rem
+      margin-bottom: 1rem
+      
+      .symbol-display
+        font-size: 2.5rem
+        color: $purple50
+        text-shadow: 0 2px 4px rgba($primary, 0.2)
+        transition: all 0.3s ease
+        
         &:hover
-          background: rgba($purple70, 0.2)
-          transform: translateY(-1px) 
+          transform: scale(1.1)
+          text-shadow: 0 4px 8px rgba($primary, 0.3)
 
 // === EMERGENT OBSERVER STYLES ===
 .emergent-observer
