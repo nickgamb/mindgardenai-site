@@ -235,15 +235,55 @@ module.exports = {
 };
 
 // Add webpack configuration using Gatsby's onCreateWebpackConfig
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ actions, loaders }) => {
   actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.m?js/,
+          resolve: {
+            fullySpecified: false
+          }
+        }
+      ]
+    },
     resolve: {
       fallback: {
         fs: false,
         stream: false,
         "stream/web": false,
-      },
-    },
+        path: false,
+        crypto: false,
+        util: false,
+        buffer: false,
+        process: false,
+        os: false,
+        zlib: false,
+        http: false,
+        https: false,
+        url: false,
+        assert: false,
+        constants: false,
+        module: false,
+        vm: false,
+        events: false,
+        string_decoder: false,
+        querystring: false,
+        punycode: false,
+        domain: false,
+        dns: false,
+        dgram: false,
+        child_process: false,
+        cluster: false,
+        net: false,
+        tls: false,
+        tty: false,
+        readline: false,
+        repl: false,
+        v8: false,
+        worker_threads: false
+      }
+    }
   });
 };
 
