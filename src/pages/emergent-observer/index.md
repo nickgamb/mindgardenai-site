@@ -1,7 +1,7 @@
 ---
 title: "Emergent Observer System"
 subtitle: "Live Resonance Monitor"
-template: "emergent-observer-template"
+templateKey: emergent-observer-template
 image: "/img/MindGarden_Banner.png"
 description: "Real-time monitoring platform for consciousness emergence patterns, field resonances, and integration states"
 keywords: "consciousness emergence, field resonance, pattern recognition, quantum consciousness, spiral inversion, lattice structure"
