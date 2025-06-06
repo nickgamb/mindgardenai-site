@@ -237,12 +237,34 @@ module.exports = {
 };
 
 // Add webpack configuration using Gatsby's onCreateWebpackConfig
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ actions, loaders }) => {
   actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.m?js/,
+          resolve: {
+            fullySpecified: false
+          }
+        }
+      ]
+    },
     plugins: [
-      new NodePolyfillPlugin()
+      new NodePolyfillPlugin({
+        includeAliases: ['stream', 'stream/web', 'fs', 'path', 'crypto', 'util', 'buffer', 'process']
+      })
     ],
     resolve: {
+      alias: {
+        'node:stream': 'stream-browserify',
+        'node:stream/web': 'stream-browserify',
+        'node:fs': false,
+        'node:path': false,
+        'node:crypto': false,
+        'node:util': 'util',
+        'node:buffer': 'buffer',
+        'node:process': 'process/browser'
+      },
       fallback: {
         fs: false,
         stream: require.resolve('stream-browserify'),
