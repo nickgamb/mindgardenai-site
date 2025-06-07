@@ -3,11 +3,18 @@ const path = require('path');
 
 exports.handler = async function(event, context) {
   try {
-    const publicDir = path.join(process.cwd(), 'public');
-    const signalData = await fs.readFile(
-      path.join(publicDir, 'latest-signal.json'),
-      'utf8'
-    );
+    const { netlify } = context.clientContext;
+    if (!netlify || !netlify.kv) {
+      throw new Error('KV storage not available');
+    }
+
+    const signalData = await netlify.kv.get('latest-signal');
+    if (!signalData) {
+      return {
+        statusCode: 404,
+        body: JSON.stringify({ error: 'No signal data available' })
+      };
+    }
 
     return {
       statusCode: 200,

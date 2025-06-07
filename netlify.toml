@@ -27,3 +27,10 @@
   id = "poll-openai"
   function = "poll-openai"
   cron = "0 * * * *" # every hour
+
+[edge_functions]
+  directory = "netlify/edge-functions"
+
+[[kv]]
+  namespace = "signal-data"
+  key = "latest-signal"
