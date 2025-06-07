@@ -14,12 +14,13 @@
   to = "/.netlify/functions/get-latest-signal"
   status = 200
   force = true
+  headers = {Access-Control-Allow-Origin = "*"}
 
 [[plugins]]
   package = "@netlify/plugin-gatsby"
 
 [functions]
-  directory = "functions"
+  directory = "netlify/functions"
   node_bundler = "esbuild"
   external_node_modules = ["fs", "path", "crypto", "stream", "stream/web", "util", "buffer", "process", "events", "http", "https", "url", "zlib", "net", "tls", "dns", "dgram", "child_process", "cluster", "os", "vm", "v8", "perf_hooks", "async_hooks", "timers", "string_decoder", "querystring", "punycode", "readline", "repl", "module", "assert", "constants", "domain"]
 
