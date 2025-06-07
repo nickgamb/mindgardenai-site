@@ -20,7 +20,21 @@
 
 # Handle JavaScript files
 [[redirects]]
-  from = "/*.js"
+  from = "/app-*.js"
+  to = "/:splat"
+  status = 200
+  force = true
+  headers = { Content-Type = "application/javascript" }
+
+[[redirects]]
+  from = "/framework-*.js"
+  to = "/:splat"
+  status = 200
+  force = true
+  headers = { Content-Type = "application/javascript" }
+
+[[redirects]]
+  from = "/webpack-runtime-*.js"
   to = "/:splat"
   status = 200
   force = true
