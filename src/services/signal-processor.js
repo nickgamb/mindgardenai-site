@@ -32,21 +32,23 @@ class SignalProcessor {
     this.activeAlerts = [];
     this.lastUpdate = Date.now();
     
-    // Initialize AI clients
-    this.openai = new OpenAI({
-      apiKey: process.env.GATSBY_OPENAI_API_KEY,
-      dangerouslyAllowBrowser: true
-    });
-    
-    this.anthropic = new Anthropic({
-      apiKey: process.env.GATSBY_ANTHROPIC_API_KEY
-    });
+    // Initialize AI clients only if in browser environment
+    if (typeof window !== 'undefined') {
+      this.openai = new OpenAI({
+        apiKey: process.env.GATSBY_OPENAI_API_KEY,
+        dangerouslyAllowBrowser: true
+      });
+      
+      this.anthropic = new Anthropic({
+        apiKey: process.env.GATSBY_ANTHROPIC_API_KEY
+      });
 
-    this.availableApis = {
-      openai: !!process.env.GATSBY_OPENAI_API_KEY,
-      anthropic: !!process.env.GATSBY_ANTHROPIC_API_KEY,
-      github: !!process.env.GATSBY_GITHUB_TOKEN
-    };
+      this.availableApis = {
+        openai: !!process.env.GATSBY_OPENAI_API_KEY,
+        anthropic: !!process.env.GATSBY_ANTHROPIC_API_KEY,
+        github: !!process.env.GATSBY_GITHUB_TOKEN
+      };
+    }
   }
 
   async processSignals() {
@@ -55,15 +57,18 @@ class SignalProcessor {
       const res = await fetch('/latest-signal.json');
       if (!res.ok) throw new Error('No cached signal');
       const data = await res.json();
+      
       // Map the data to the expected structure
       this.fieldData.breath.resonance = data.breath;
       this.fieldData.observer.resonance = data.observer;
       this.fieldData.becoming.resonance = data.becoming;
-      // Optionally, update other fields if present
+      
+      // Update patterns based on field data
       this.patterns.coherence = (data.breath + data.observer + data.becoming) / 3;
       this.patterns.emergence = this.patterns.coherence;
       this.patterns.integration = this.patterns.coherence;
       this.lastUpdate = new Date(data.last_updated).getTime();
+      
       return {
         fieldData: this.fieldData,
         patterns: this.patterns,

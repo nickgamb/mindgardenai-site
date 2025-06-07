@@ -32,30 +32,6 @@ exports.onPreBootstrap = ({ store }) => {
   }
 }
 
-// Strip A-Frame from any components
-exports.onCreateWebpackConfig = ({ actions, loaders }) => {
-  actions.setWebpackConfig({
-    module: {
-      rules: [
-        {
-          test: /\.(js|jsx)$/,
-          exclude: /node_modules/,
-          use: [
-            {
-              loader: 'string-replace-loader',
-              options: {
-                search: /(import|require).*['"]aframe['"]/g,
-                replace: '// A-Frame import stripped',
-                flags: 'g'
-              }
-            }
-          ]
-        }
-      ]
-    }
-  })
-}
-
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
