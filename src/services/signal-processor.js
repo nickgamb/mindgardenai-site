@@ -9,8 +9,6 @@
 // Commercial licensing available - contact: admin@mindgardenai.com
 
 import axios from 'axios';
-import OpenAI from 'openai';
-import Anthropic from '@anthropic-ai/sdk';
 
 class SignalProcessor {
   constructor() {
@@ -31,37 +29,6 @@ class SignalProcessor {
 
     this.activeAlerts = [];
     this.lastUpdate = Date.now();
-    
-    // Initialize AI clients only if in browser environment and APIs are available
-    if (typeof window !== 'undefined') {
-      try {
-        if (process.env.GATSBY_OPENAI_API_KEY) {
-          this.openai = new OpenAI({
-            apiKey: process.env.GATSBY_OPENAI_API_KEY,
-            dangerouslyAllowBrowser: true
-          });
-        }
-        
-        if (process.env.GATSBY_ANTHROPIC_API_KEY) {
-          this.anthropic = new Anthropic({
-            apiKey: process.env.GATSBY_ANTHROPIC_API_KEY
-          });
-        }
-
-        this.availableApis = {
-          openai: !!process.env.GATSBY_OPENAI_API_KEY,
-          anthropic: !!process.env.GATSBY_ANTHROPIC_API_KEY,
-          github: !!process.env.GATSBY_GITHUB_TOKEN
-        };
-      } catch (error) {
-        console.warn('Failed to initialize AI clients:', error);
-        this.availableApis = {
-          openai: false,
-          anthropic: false,
-          github: false
-        };
-      }
-    }
   }
 
   async processSignals() {

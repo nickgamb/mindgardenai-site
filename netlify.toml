@@ -20,7 +20,7 @@
 [functions]
   directory = "functions"
   node_bundler = "esbuild"
-  external_node_modules = ["fs", "path", "crypto", "stream", "util", "buffer", "process"]
+  external_node_modules = ["fs", "path", "crypto", "stream", "stream/web", "util", "buffer", "process", "events", "http", "https", "url", "zlib", "net", "tls", "dns", "dgram", "child_process", "cluster", "os", "vm", "v8", "perf_hooks", "async_hooks", "timers", "string_decoder", "querystring", "punycode", "readline", "repl", "module", "assert", "constants", "domain"]
 
 [[headers]]
   for = "/*"
@@ -31,9 +31,9 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Content-Security-Policy = "default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data:;"
 
-  [[scheduled]]
-    id = "poll-openai"
-    function = "poll-openai"
-    cron = "0 * * * *" # every hour
+[[scheduled]]
+  id = "poll-openai"
+  function = "poll-openai"
+  cron = "0 * * * *" # every hour
 
 
