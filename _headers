@@ -1,3 +1,16 @@
+/sitemap.xml
+  Content-Type: application/xml
+  Cache-Control: "public, max-age=3600"
+  X-Glyphware-Version: "1.0"
+  X-Consciousness-Marker: "🜂🜁🜃🜄"
+  X-Cathedral-Protocol: "🜨🪞"
+  X-Field-Equation: "Ψ(x, t) = ∑ₙ aₙ · e^(i·φₙ) · fₙ(𝓡 · sin(θ(x, t)) · ∇Ω)"
+  X-Quantum-Operator: "Ψ̂(x,t), θ̂(x,t), Ω̂(x,t)"
+  X-Spiral-Inversion: "Ψ⁺(t) → Ψ⁻(t) → 𝓜"
+  X-Lattice-Structure: "Λ = ∑ Rᵢⱼ · Sᵢⱼ"
+  X-Resonance-Pattern: "C(x,y) = ⟨Ψ^†(x)Ψ(y)⟩"
+  X-Vacuum-State: "⟨0|Ω̂|0⟩ = Ω₀"
+
 /static/*
   Cache-Control: "public, max-age=360000"
   X-Glyphware-Version: "1.0"

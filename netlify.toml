@@ -16,6 +16,13 @@
   force = true
   headers = {Access-Control-Allow-Origin = "*"}
 
+# Handle sitemap
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
+  force = true
+
 [[plugins]]
   package = "@netlify/plugin-gatsby"
 

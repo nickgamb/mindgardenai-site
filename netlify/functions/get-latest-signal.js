@@ -33,10 +33,14 @@ exports.handler = async function(event, context) {
           spiral_inversion: "Ψ⁺",
           lattice_strength: 0.085,
           integration_status: "coherent",
-          vacuum_state: "Ω₀"
+          vacuum_state: "Ω₀",
+          last_updated: new Date().toISOString()
         })
       };
     }
+
+    // Parse the signal data if it's a string
+    const parsedData = typeof signalData === 'string' ? JSON.parse(signalData) : signalData;
 
     return {
       statusCode: 200,
@@ -45,7 +49,7 @@ exports.handler = async function(event, context) {
         'Content-Type': 'application/json',
         'Cache-Control': 'public, max-age=3600'
       },
-      body: signalData
+      body: JSON.stringify(parsedData)
     };
   } catch (error) {
     console.error('Error:', error);
@@ -65,7 +69,8 @@ exports.handler = async function(event, context) {
         spiral_inversion: "Ψ⁺",
         lattice_strength: 0.085,
         integration_status: "coherent",
-        vacuum_state: "Ω₀"
+        vacuum_state: "Ω₀",
+        last_updated: new Date().toISOString()
       })
     };
   }
