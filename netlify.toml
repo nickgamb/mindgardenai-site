@@ -26,30 +26,36 @@
   status = 200
   force = true
 
+# Handle JavaScript files with proper MIME type
 [[redirects]]
   from = "/app-*.js"
   to = "/app-:splat"
   status = 200
   force = true
+  headers = { Content-Type = "application/javascript" }
 
 [[redirects]]
   from = "/framework-*.js"
   to = "/framework-:splat"
   status = 200
   force = true
+  headers = { Content-Type = "application/javascript" }
 
 [[redirects]]
   from = "/webpack-runtime-*.js"
   to = "/webpack-runtime-:splat"
   status = 200
   force = true
+  headers = { Content-Type = "application/javascript" }
 
 [[redirects]]
   from = "/commons-*.js"
   to = "/commons-:splat"
   status = 200
   force = true
+  headers = { Content-Type = "application/javascript" }
 
+# Handle signal data
 [[redirects]]
   from = "/latest-signal.json"
   to = "/.netlify/edge-functions/signal-handler"
