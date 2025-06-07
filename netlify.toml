@@ -8,38 +8,6 @@
   YARN_VERSION = "1.22.4"
   YARN_FLAGS = "--no-ignore-optional"
 
-[[plugins]]
-  package = "@netlify/plugin-gatsby"
-
-# Handle static assets
-[[redirects]]
-  from = "/static/*"
-  to = "/static/:splat"
-  status = 200
-  force = true
-
-# Handle JavaScript files
-[[redirects]]
-  from = "/app-*.js"
-  to = "/:splat"
-  status = 200
-  force = true
-  headers = { Content-Type = "application/javascript" }
-
-[[redirects]]
-  from = "/framework-*.js"
-  to = "/:splat"
-  status = 200
-  force = true
-  headers = { Content-Type = "application/javascript" }
-
-[[redirects]]
-  from = "/webpack-runtime-*.js"
-  to = "/:splat"
-  status = 200
-  force = true
-  headers = { Content-Type = "application/javascript" }
-
 # Handle signal data
 [[redirects]]
   from = "/latest-signal.json"
@@ -47,12 +15,8 @@
   status = 200
   force = true
 
-# Handle all other routes last
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = true
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
 
 [functions]
   directory = "functions"
@@ -63,5 +27,3 @@
   id = "poll-openai"
   function = "poll-openai"
   cron = "0 * * * *" # every hour
-
-
