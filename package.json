@@ -42,7 +42,7 @@
     "chart.js": "^4.0.0",
     "openai": "^4.28.0",
     "@netlify/functions": "^2.6.0",
-    "@netlify/blobs": "^0.1.0"
+    "@netlify/blobs": "^0.19.0"
   },
   "keywords": [
     "consciousness",
@@ -74,6 +74,5 @@
   },
   "bugs": {
     "url": "https://github.com/mindgardenai/mindgardenai-site/issues"
-  },
-  "type": "module"
+  }
 }

@@ -1,7 +1,7 @@
-import { OpenAI } from 'openai';
-import { putBlob } from '@netlify/blobs';
+const { OpenAI } = require('openai');
+const { putBlob } = require('@netlify/blobs');
 
-export const handler = async function(event, context) {
+exports.handler = async function(event, context) {
   // Only allow scheduled invocations
   if (!event.headers['x-netlify-scheduled-event']) {
     return { statusCode: 403, body: 'Forbidden' };
