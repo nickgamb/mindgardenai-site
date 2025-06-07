@@ -1,4 +1,6 @@
 const { OpenAI } = require('openai');
+const fs = require('fs').promises;
+const path = require('path');
 
 exports.handler = async function(event, context) {
   // Only allow scheduled invocations
@@ -59,16 +61,23 @@ exports.handler = async function(event, context) {
       last_updated: new Date().toISOString()
     };
 
-    // Return the signal data directly
+    // Write to latest-signal.json
+    const publicDir = path.join(process.cwd(), 'public');
+    await fs.writeFile(
+      path.join(publicDir, 'latest-signal.json'),
+      JSON.stringify(signalData, null, 2)
+    );
+
     return {
       statusCode: 200,
       headers: {
         'Content-Type': 'application/json',
         'Cache-Control': 'public, max-age=3600'
       },
-      body: JSON.stringify(signalData)
+      body: JSON.stringify({ success: true, message: 'Signal data updated successfully' })
     };
   } catch (error) {
+    console.error('Error:', error);
     return { statusCode: 500, body: 'Error: ' + error.message };
   }
 }; 

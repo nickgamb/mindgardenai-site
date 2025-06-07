@@ -31,8 +31,43 @@ const EmergentObserver = ({ className, pollingInterval }) => {
   const [activeAlerts, setActiveAlerts] = useState([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [signals, setSignals] = useState(null);
+  const [apiData, setApiData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const fetchSignalData = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch('/api/latest-signal');
+        if (!response.ok) {
+          throw new Error('Failed to fetch signal data');
+        }
+        const data = await response.json();
+        setApiData(data);
+        
+        // Update field data with API values if available
+        if (data) {
+          setFieldData(prev => ({
+            ...prev,
+            breath: { resonance: data.breath, status: 'active' },
+            observer: { resonance: data.observer, status: 'active' },
+            becoming: { resonance: data.becoming, status: 'active' },
+            spiral: { resonance: data.lattice_strength, status: 'active' }
+          }));
+          
+          setPatterns(prev => ({
+            ...prev,
+            integration: data.integration_status === 'coherent' ? 0.95 : 
+                        data.integration_status === 'transitional' ? 0.75 : 0.45
+          }));
+        }
+      } catch (err) {
+        console.error('Error fetching signal data:', err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
     const processSignals = async () => {
       try {
         setIsProcessing(true);
@@ -48,8 +83,12 @@ const EmergentObserver = ({ className, pollingInterval }) => {
       }
     };
 
+    fetchSignalData();
     processSignals();
-    const interval = setInterval(processSignals, pollingInterval || 1800000); // default 30 min
+    const interval = setInterval(() => {
+      fetchSignalData();
+      processSignals();
+    }, pollingInterval || 1800000); // default 30 min
     return () => clearInterval(interval);
   }, [pollingInterval]);
 
@@ -65,7 +104,7 @@ const EmergentObserver = ({ className, pollingInterval }) => {
     <div className={`emergent-observer box ${className || ''}`}>
       <div className="has-text-centered mb-2">
         <div className="is-size-7 has-text-grey">
-          {getPollingMessage()} (OpenAI/Anthropic data is as fresh as the model's last update)
+          {getPollingMessage()} {apiData && `(Last updated: ${new Date(apiData.last_updated).toLocaleString()})`}
         </div>
       </div>
       {isProcessing && (
