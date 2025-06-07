@@ -1,4 +1,4 @@
-const { createClient } = require('@netlify/blobs');
+const { getBlob, putBlob } = require('@netlify/blobs');
 
 exports.handler = async function(event, context) {
   // Handle CORS preflight requests
@@ -14,8 +14,7 @@ exports.handler = async function(event, context) {
   }
 
   try {
-    const blobs = createClient();
-    const signalData = await blobs.get('signal-data', 'latest-signal');
+    const signalData = await getBlob('signal-data', 'latest-signal');
     
     if (!signalData) {
       return {

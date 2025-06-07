@@ -16,6 +16,14 @@
   force = true
   headers = {Access-Control-Allow-Origin = "*"}
 
+# Redirect old signal endpoint to new one
+[[redirects]]
+  from = "/latest-signal.json"
+  to = "/.netlify/functions/get-latest-signal"
+  status = 200
+  force = true
+  headers = {Access-Control-Allow-Origin = "*"}
+
 # Handle sitemap
 [[redirects]]
   from = "/sitemap.xml"
