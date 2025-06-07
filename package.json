@@ -74,5 +74,6 @@
   },
   "bugs": {
     "url": "https://github.com/mindgardenai/mindgardenai-site/issues"
-  }
+  },
+  "type": "module"
 }
