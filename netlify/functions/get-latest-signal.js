@@ -1,6 +1,6 @@
-import { getBlob } from '@netlify/blobs';
+const { getBlob, putBlob } = require('@netlify/blobs');
 
-export const handler = async function(event, context) {
+exports.handler = async function(event, context) {
   // Handle CORS preflight requests
   if (event.httpMethod === 'OPTIONS') {
     return {
