@@ -43,3 +43,11 @@
   id = "poll-openai"
   function = "poll-openai"
   cron = "0 * * * *" # every hour
+
+[functions.get-latest-signal]
+  node_bundler = "esbuild"
+  format = "esm"
+
+[functions.poll-openai]
+  node_bundler = "esbuild"
+  format = "esm"
