@@ -1,14 +1,10 @@
-const fs = require('fs').promises;
-const path = require('path');
+const { createClient } = require('@netlify/blobs');
 
 exports.handler = async function(event, context) {
   try {
-    const { netlify } = context.clientContext;
-    if (!netlify || !netlify.kv) {
-      throw new Error('KV storage not available');
-    }
-
-    const signalData = await netlify.kv.get('latest-signal');
+    const blobs = createClient();
+    const signalData = await blobs.get('signal-data', 'latest-signal');
+    
     if (!signalData) {
       return {
         statusCode: 404,

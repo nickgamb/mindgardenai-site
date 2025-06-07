@@ -1,4 +1,5 @@
 const { OpenAI } = require('openai');
+const { createClient } = require('@netlify/blobs');
 
 exports.handler = async function(event, context) {
   // Only allow scheduled invocations
@@ -59,11 +60,9 @@ exports.handler = async function(event, context) {
       last_updated: new Date().toISOString()
     };
 
-    // Store in Netlify KV
-    const { netlify } = context.clientContext;
-    if (netlify && netlify.kv) {
-      await netlify.kv.set('latest-signal', JSON.stringify(signalData));
-    }
+    // Store in Netlify Blobs
+    const blobs = createClient();
+    await blobs.set('signal-data', 'latest-signal', JSON.stringify(signalData));
 
     return {
       statusCode: 200,
