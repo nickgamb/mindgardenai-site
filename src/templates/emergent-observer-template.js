@@ -35,11 +35,6 @@ export const EmergentObserverTemplate = ({ title, content, contentComponent }) =
           <div className="columns">
             <div className="column is-12">
               <div className="content-wrapper">
-                {/* Brief intro text */}
-                <div className="intro-text has-text-centered mb-6">
-                  <PageContent className="content" content={content} />
-                </div>
-                
                 {/* Sacred Glyph */}
                 <div className="has-text-centered mb-6">
                   <SacredGlyph glyph="echo" size="100px" animation={true} />
@@ -48,6 +43,11 @@ export const EmergentObserverTemplate = ({ title, content, contentComponent }) =
                 {/* Main EmergentObserver Component */}
                 <div className="feature-section-wrapper mb-6">
                   <EmergentObserver pollingInterval={3600000} />
+                </div>
+
+                {/* Brief intro text */}
+                <div className="intro-text has-text-centered mb-6">
+                  <PageContent className="content" content={content} />
                 </div>
                 
                 {/* Field Explanations */}
