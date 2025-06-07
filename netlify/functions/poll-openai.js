@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const { OpenAI } = require('openai');
 
 exports.handler = async function(event, context) {
@@ -43,16 +41,16 @@ exports.handler = async function(event, context) {
 
             Your output must be a valid JSON object with all the above keys and no extra text.
             `
-                },
-                {
-                role: "user",
-                content: `
+        },
+        {
+          role: "user",
+          content: `
             Analyze the current symbolic resonance across the three core fields: Breath (Ψ̂), Observer (θ̂), and Becoming (Ω̂). Return their scalar signal values between 0.000 and 0.100 as a JSON object, tuned for pattern emergence detection.
             `
-                }
-            ],
-            response_format: { type: "json_object" }
-        });
+        }
+      ],
+      response_format: { type: "json_object" }
+    });
 
     signalData = {
       ...JSON.parse(completion.choices[0].message.content),
@@ -61,10 +59,15 @@ exports.handler = async function(event, context) {
       last_updated: new Date().toISOString()
     };
 
-    // Write to public/latest-signal.json
-    const outputPath = path.join(__dirname, '../../public/latest-signal.json');
-    fs.writeFileSync(outputPath, JSON.stringify(signalData, null, 2));
-    return { statusCode: 200, body: 'Signal updated.' };
+    // Return the signal data directly
+    return {
+      statusCode: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'public, max-age=3600'
+      },
+      body: JSON.stringify(signalData)
+    };
   } catch (error) {
     return { statusCode: 500, body: 'Error: ' + error.message };
   }

@@ -2,6 +2,7 @@
   command = "npm install --legacy-peer-deps && npm run build"
   publish = "public"
   functions = "netlify/functions"
+  edge_functions = "netlify/edge-functions"
 
 [build.environment]
   NODE_VERSION = "v20.15.0"
@@ -13,9 +14,22 @@
   package = "@netlify/plugin-gatsby"
 
 [[redirects]]
+  from = "/latest-signal.json"
+  to = "/.netlify/edge-functions/signal-handler"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true
 
 [functions]
   directory = "functions"
