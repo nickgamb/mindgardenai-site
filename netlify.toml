@@ -47,9 +47,7 @@
 [functions.get-latest-signal]
   node_bundler = "esbuild"
   format = "esm"
-  included_files = ["package.json"]
 
 [functions.poll-openai]
   node_bundler = "esbuild"
   format = "esm"
-  included_files = ["package.json"]
