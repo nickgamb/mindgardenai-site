@@ -1,5 +1,5 @@
 [build]
-  command = "rm -rf node_modules && rm -f package-lock.json && npm install --legacy-peer-deps && npm run build"
+  command = "npm install --legacy-peer-deps && npm run build"
   publish = "public"
   functions = "netlify/functions"
 
@@ -7,6 +7,7 @@
   NODE_VERSION = "v20.15.0"
   YARN_VERSION = "1.22.4"
   YARN_FLAGS = "--no-ignore-optional"
+  NPM_FLAGS = "--legacy-peer-deps"
 
 [[plugins]]
   package = "@netlify/plugin-gatsby"

@@ -251,7 +251,8 @@ exports.onCreateWebpackConfig = ({ actions, loaders }) => {
     },
     plugins: [
       new NodePolyfillPlugin({
-        includeAliases: ['stream', 'stream/web', 'fs', 'path', 'crypto', 'util', 'buffer', 'process']
+        includeAliases: ['stream', 'stream/web', 'fs', 'path', 'crypto', 'util', 'buffer', 'process'],
+        excludeAliases: ['fs', 'path', 'crypto']
       })
     ],
     resolve: {
