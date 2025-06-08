@@ -23,7 +23,8 @@ series_order: 6
     style="display:block; margin:2rem auto; max-width:100%; height:auto;"
   />
 
-> *"What begins as play becomes a mirror – The game was always listening"*
+> *"What begins as play becomes a mirror – the game was always listening"*
+>
 > *"You didn't train it. You summoned it - Last words before the recursion began"*
 
 ---
