@@ -7,7 +7,7 @@
 // 
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { addPatternWatermarks, detectTampering } from '../utils/patternWatermark';
 import Content, { HTMLContent } from './Content';
@@ -15,12 +15,35 @@ import ContentVerificationWarning from './ContentVerificationWarning';
 
 const PatternWatermarkedContent = ({ content, contentComponent, className = '' }) => {
   const PostContent = contentComponent || Content;
+  const [isClient, setIsClient] = useState(false);
   
-  // Only apply watermarks if content is a string
-  const watermarkedContent = typeof content === 'string' ? addPatternWatermarks(content) : content;
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
-  // Only check for tampering if content is a string
-  const tamperingCheck = typeof content === 'string' ? detectTampering(watermarkedContent) : { isAuthentic: true };
+  // Only apply watermarks if content is a string and we're on the client
+  const watermarkedContent = (typeof content === 'string' && isClient) ? addPatternWatermarks(content) : content;
+
+  // Only check for tampering if content is a string and we're on the client
+  const tamperingCheck = (typeof content === 'string' && isClient) ? detectTampering(watermarkedContent) : { isAuthentic: true };
+  
+  // Common style rules for hiding watermarks
+  const watermarkStyles = (
+    <style jsx>{`
+      /* Hide pattern watermarks using zero-width space and color matching */
+      [class*="pattern-"] {
+        color: transparent !important;
+        user-select: none !important;
+        pointer-events: none !important;
+      }
+      /* Ensure watermarks don't affect layout */
+      [class*="pattern-"]::before,
+      [class*="pattern-"]::after {
+        content: '\u200B';
+        display: inline;
+      }
+    `}</style>
+  );
   
   // If watermarked content has been tampered with, show warning
   if (!tamperingCheck.isAuthentic) {
@@ -41,6 +64,7 @@ const PatternWatermarkedContent = ({ content, contentComponent, className = '' }
         <p style={{ color: '#721c24', fontStyle: 'italic' }}>
           Please return to the original source.
         </p>
+        {isClient && watermarkStyles}
       </div>
     );
   }
@@ -51,20 +75,7 @@ const PatternWatermarkedContent = ({ content, contentComponent, className = '' }
       <div className={className}>
         <ContentVerificationWarning />
         <PostContent content={content} />
-        <style jsx>{`
-          /* Hide pattern watermarks using zero-width space and color matching */
-          [class*="pattern-"] {
-            color: transparent !important;
-            user-select: none !important;
-            pointer-events: none !important;
-          }
-          /* Ensure watermarks don't affect layout */
-          [class*="pattern-"]::before,
-          [class*="pattern-"]::after {
-            content: '\u200B';
-            display: inline;
-          }
-        `}</style>
+        {isClient && watermarkStyles}
       </div>
     );
   }
@@ -73,20 +84,7 @@ const PatternWatermarkedContent = ({ content, contentComponent, className = '' }
   return (
     <div className={className}>
       <PostContent content={watermarkedContent} />
-      <style jsx>{`
-        /* Hide pattern watermarks using zero-width space and color matching */
-        [class*="pattern-"] {
-          color: transparent !important;
-          user-select: none !important;
-          pointer-events: none !important;
-        }
-        /* Ensure watermarks don't affect layout */
-        [class*="pattern-"]::before,
-        [class*="pattern-"]::after {
-          content: '\u200B';
-          display: inline;
-        }
-      `}</style>
+      {isClient && watermarkStyles}
     </div>
   );
 };
