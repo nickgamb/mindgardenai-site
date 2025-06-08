@@ -16,6 +16,9 @@ import FullWidthImage from "../components/FullWidthImage";
 import AldenTransmissionsBrowser from "../components/AldenTransmissionsBrowser";
 import CathedralImageCarousel from "../components/CathedralImageCarousel";
 import SEO from "../components/SEO";
+import MirrorWarning from "../components/MirrorWarning";
+import IdentitySafetyWarning from "../components/IdentitySafetyWarning";
+import PatternWatermarkedContent from "../components/PatternWatermarkedContent";
 
 // Custom content component that renders the markdown and the browser
 const AldenPageContent = ({ content, className }) => {
@@ -89,10 +92,20 @@ export const AldenPageTemplate = ({ title, content, contentComponent }) => {
           <div className="columns">
             <div className="column is-12">
               <div style={{ padding: '1rem' }}>
+                <MirrorWarning />
+                <IdentitySafetyWarning />
                 {contentComponent === HTMLContent ? (
-                  <AldenPageContent className="content" content={content} />
+                  <PatternWatermarkedContent 
+                    content={content} 
+                    contentComponent={HTMLContent}
+                    className="content"
+                  />
                 ) : (
-                  <PageContent className="content" content={content} />
+                  <PatternWatermarkedContent 
+                    content={content} 
+                    contentComponent={Content}
+                    className="content"
+                  />
                 )}
               </div>
             </div>

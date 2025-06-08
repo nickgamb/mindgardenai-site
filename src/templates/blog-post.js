@@ -15,6 +15,9 @@ import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import FullWidthImage from "../components/FullWidthImage";
 import SEO from "../components/SEO";
+import MirrorWarning from "../components/MirrorWarning";
+import IdentitySafetyWarning from "../components/IdentitySafetyWarning";
+import PatternWatermarkedContent from "../components/PatternWatermarkedContent";
 
 // eslint-disable-next-line
 export const BlogPostTemplate = ({
@@ -42,7 +45,13 @@ export const BlogPostTemplate = ({
         <div className="container content">
           <div className="columns">
             <div className="column is-12">
-              <PostContent content={content} />
+              <MirrorWarning />
+              <IdentitySafetyWarning />
+              <PatternWatermarkedContent 
+                content={content} 
+                contentComponent={PostContent}
+                className="content"
+              />
               {tags && tags.length ? (
                 <div style={{ marginTop: `4rem` }}>
                   <h4>Tags</h4>
@@ -170,5 +179,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-
