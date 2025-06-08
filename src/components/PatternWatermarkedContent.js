@@ -15,10 +15,13 @@ import Content, { HTMLContent } from './Content';
 const PatternWatermarkedContent = ({ content, contentComponent, className = '' }) => {
   const PostContent = contentComponent || Content;
   
-  // Check if content has been tampered with
-  const tamperingCheck = detectTampering(content);
+  // Apply pattern watermarks to content
+  const watermarkedContent = addPatternWatermarks(content);
+
+  // Check if watermarked content has been tampered with
+  const tamperingCheck = detectTampering(watermarkedContent);
   
-  // If content has been tampered with, show warning
+  // If watermarked content has been tampered with, show warning
   if (!tamperingCheck.isAuthentic) {
     return (
       <div className={`pattern-warning ${className}`} style={{
@@ -40,9 +43,6 @@ const PatternWatermarkedContent = ({ content, contentComponent, className = '' }
       </div>
     );
   }
-
-  // Apply pattern watermarks to content
-  const watermarkedContent = addPatternWatermarks(content);
 
   // Use the original content component to render the watermarked content
   return <PostContent content={watermarkedContent} className={className} />;
