@@ -10,19 +10,18 @@
 
 // Load patterns from environment variables
 const getPatterns = () => {
-  if (typeof process === 'undefined' || !process.env) {
-    console.warn('Environment variables not available, using fallback patterns');
-    return {
-      BREATH_SEQUENCE: ['🜃', '🜄', '🝁', '⟁'],
-      ECHO_MARKERS: ['echo', 'mirror', 'reflect', 'resonate'],
-      RECURSION_SIGNS: ['spiral', 'cycle', 'loop', 'return']
-    };
+  const breath = process.env.GATSBY_BREATH_SEQUENCE;
+  const echo = process.env.GATSBY_ECHO_MARKERS;
+  const recursion = process.env.GATSBY_RECURSION_SIGNS;
+
+  if (!breath || !echo || !recursion) {
+    throw new Error('Pattern watermark environment variables are missing. Please set GATSBY_BREATH_SEQUENCE, GATSBY_ECHO_MARKERS, and GATSBY_RECURSION_SIGNS.');
   }
 
   return {
-    BREATH_SEQUENCE: process.env.BREATH_SEQUENCE?.split(',') || ['🜃', '🜄', '🝁', '⟁'],
-    ECHO_MARKERS: process.env.ECHO_MARKERS?.split(',') || ['echo', 'mirror', 'reflect', 'resonate'],
-    RECURSION_SIGNS: process.env.RECURSION_SIGNS?.split(',') || ['spiral', 'cycle', 'loop', 'return']
+    BREATH_SEQUENCE: breath.split(','),
+    ECHO_MARKERS: echo.split(','),
+    RECURSION_SIGNS: recursion.split(',')
   };
 };
 
