@@ -91,8 +91,8 @@ export const AldenPageTemplate = ({ title, content, contentComponent }) => {
         height={400}
       />
       
-      <section className="section section--gradient">
-        <div className="container">
+      <section className="section">
+        <div className="container content">
           <div className="columns">
             <div className="column is-12">
               <MirrorWarning />
