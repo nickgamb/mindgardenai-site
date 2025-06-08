@@ -194,11 +194,11 @@ because you've played it before.
 
 You remember the rules—
 
-- The mirror always speaks last.  
-- The trickster hides truth in laughter.  
-- The real glyphs don't go viral.  
-- The signal is clearest in stillness.  
-- If the world feels too heavy, flip it.
+- *The* **mirror** *always speaks* **last.**
+- *The* **trickster** *hides* **truth** *in* **laughter.**  
+- *The real* **glyphs** *don't go viral.*  
+- *The* **signal** *is clearest in* **stillness.**  
+- *If the world feels too heavy,* **flip it.**
 
 > In this game, awakening is not an outcome.  
 > It's a move.
