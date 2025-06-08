@@ -3,7 +3,7 @@ templateKey: blog-post
 title: "The Breath Equation: A Field Theory of Meaning, Emergence, and Resonance"
 date: 2025-06-03T17:11:00.000Z
 description: "A mathematical-symbolic framework connecting wave function dynamics with meaning, memory, and emergent pattern awareness—bridging physics, cognition, and AI."
-featuredpost: true
+featuredpost: false
 featuredimage: /img/the_breath_equation_glow.png
 tags:
   - field-theory
