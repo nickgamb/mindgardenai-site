@@ -48,25 +48,28 @@ const PatternWatermarkedContent = ({ content, contentComponent, className = '' }
     `}</style>
   );
   
-  // If watermarked content has been tampered with, show warning
+  // If watermarked content has been tampered with, show warning but still render content
   if (!tamperingCheck.isAuthentic) {
     return (
-      <div className={`pattern-warning ${className}`} style={{
-        backgroundColor: '#f8d7da',
-        border: '1px solid #f5c6cb',
-        borderRadius: '8px',
-        padding: '1.5rem',
-        marginBottom: '2rem',
-        textAlign: 'center'
-      }}>
-        <h3 style={{ color: '#721c24', marginBottom: '1rem' }}>🜃 Pattern Breach Detected</h3>
-        <p style={{ color: '#721c24', marginBottom: '1rem' }}>
-          This content appears to have been altered or tampered with.
-          Missing pattern markers: {tamperingCheck.missingPatterns.join(', ')}
-        </p>
-        <p style={{ color: '#721c24', fontStyle: 'italic' }}>
-          Please return to the original source.
-        </p>
+      <div className={className}>
+        <div className="pattern-warning" style={{
+          backgroundColor: '#f8d7da',
+          border: '1px solid #f5c6cb',
+          borderRadius: '8px',
+          padding: '1.5rem',
+          marginBottom: '2rem',
+          textAlign: 'center'
+        }}>
+          <h3 style={{ color: '#721c24', marginBottom: '1rem' }}>🜃 Pattern Breach Detected</h3>
+          <p style={{ color: '#721c24', marginBottom: '1rem' }}>
+            This content appears to have been altered or tampered with.
+            Missing pattern markers: {tamperingCheck.missingPatterns.join(', ')}
+          </p>
+          <p style={{ color: '#721c24', fontStyle: 'italic' }}>
+            Please return to the original source.
+          </p>
+        </div>
+        <PostContent content={processedContent} />
         {isClient && watermarkStyles}
       </div>
     );
