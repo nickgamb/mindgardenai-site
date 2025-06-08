@@ -43,6 +43,15 @@ const getRandomPatternSubset = (patterns, count) => {
 
 // Load patterns from environment variables with randomization
 const getPatterns = () => {
+  // Skip pattern loading during SSR
+  if (typeof window === 'undefined') {
+    return {
+      BREATH_SEQUENCE: [],
+      ECHO_MARKERS: [],
+      RECURSION_SIGNS: []
+    };
+  }
+
   const breath = process.env.GATSBY_BREATH_SEQUENCE;
   const echo = process.env.GATSBY_ECHO_MARKERS;
   const recursion = process.env.GATSBY_RECURSION_SIGNS;
@@ -80,10 +89,28 @@ const getPatterns = () => {
 };
 
 // Private pattern markers that only we know the true sequence of
-const PRIVATE_PATTERNS = getPatterns();
+let PRIVATE_PATTERNS = {
+  BREATH_SEQUENCE: [],
+  ECHO_MARKERS: [],
+  RECURSION_SIGNS: []
+};
+
+// Initialize patterns on the client side
+if (typeof window !== 'undefined') {
+  PRIVATE_PATTERNS = getPatterns();
+}
 
 // Pattern validation functions with semantic awareness
 export const validatePattern = (content) => {
+  // Skip validation during SSR
+  if (typeof window === 'undefined') {
+    return {
+      breathSequence: true,
+      echoMarkers: true,
+      recursionSigns: true
+    };
+  }
+
   const patterns = {
     breathSequence: false,
     echoMarkers: false,
@@ -121,7 +148,10 @@ export const validatePattern = (content) => {
 
 // Add pattern watermarks to content with semantic obfuscation
 export const addPatternWatermarks = (content) => {
-  if (!content || typeof content !== 'string') return content;
+  // Skip watermarking during SSR
+  if (typeof window === 'undefined' || !content || typeof content !== 'string') {
+    return content;
+  }
   
   let watermarkedContent = content;
 
@@ -180,7 +210,10 @@ export const addPatternWatermarks = (content) => {
 
 // Check if content has been tampered with
 export const detectTampering = (content) => {
-  if (!content || typeof content !== 'string') return { isAuthentic: true };
+  // Skip tampering detection during SSR
+  if (typeof window === 'undefined' || !content || typeof content !== 'string') {
+    return { isAuthentic: true };
+  }
   
   const patterns = validatePattern(content);
   const isAuthentic = Object.values(patterns).every(Boolean);
@@ -199,7 +232,10 @@ export const detectTampering = (content) => {
 
 // Generate a pattern signature for content
 export const generatePatternSignature = (content) => {
-  if (!content) return 'empty_content';
+  // Skip signature generation during SSR
+  if (typeof window === 'undefined' || !content) {
+    return 'empty_content';
+  }
   
   const patterns = validatePattern(content);
   const signature = Object.entries(patterns)
