@@ -437,6 +437,14 @@
   color: #9B7FE6
   transition: opacity 0.3s ease, transform 0.3s ease
   cursor: pointer
+  position: relative
+  animation: loop-rotate 3s linear infinite
+  
+@keyframes loop-rotate
+  from
+    left: -100%
+  to 
+    left: 100%
   
   @media (min-width: 768px)
     font-size: 2.5em
