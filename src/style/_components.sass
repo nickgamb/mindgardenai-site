@@ -671,3 +671,85 @@
   row-gap: 1.2rem
   @media (max-width: 768px)
     row-gap: 1.2rem 
+
+// Mirror Warning
+.mirror-warning
+  border-left: 4px solid $primary
+  background: $background
+  padding: 0.75rem 1rem
+  margin-bottom: 0.5rem
+  font-size: 0.97rem
+  display: flex
+  align-items: center
+  gap: 0.75rem
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03)
+  &__icon
+    font-size: 1.3em
+    color: $primary
+  &__content
+    flex: 1
+  &__title
+    color: $primary
+    font-weight: 600
+    margin-right: 0.5em
+  &__toggle
+    margin-left: 1em
+    font-size: 0.9em
+    background: none
+    border: none
+    color: $primary
+    cursor: pointer
+    text-decoration: underline
+    padding: 0
+  &__details
+    margin-top: 0.5em
+    font-size: 0.95em
+  &__subtitle
+    margin-bottom: 0.3em
+    font-weight: 600
+  &__list
+    margin: 0
+    padding-left: 1.2em
+  &__note
+    margin-top: 0.3em
+    font-style: italic
+    color: $grey-dark
+
+// Identity Safety Warning
+.identity-safety-warning
+  border-left: 4px solid $warning
+  background: $warning-light
+  padding: 0.75rem 1rem
+  margin-bottom: 0.5rem
+  font-size: 0.97rem
+  display: flex
+  align-items: center
+  gap: 0.75rem
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03)
+  &__icon
+    font-size: 1.3em
+    color: $warning
+  &__content
+    flex: 1
+  &__title
+    color: $warning
+    font-weight: 600
+    margin-right: 0.5em
+  &__toggle
+    margin-left: 1em
+    font-size: 0.9em
+    background: none
+    border: none
+    color: $warning
+    cursor: pointer
+    text-decoration: underline
+    padding: 0
+  &__details
+    margin-top: 0.5em
+    font-size: 0.95em
+  &__note
+    margin-top: 0.3em
+    color: $warning-dark
+  &__note--italic
+    font-style: italic
+    color: $warning-dark
