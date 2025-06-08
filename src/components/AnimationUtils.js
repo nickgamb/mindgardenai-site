@@ -12,6 +12,9 @@ import React, { useEffect, useState } from 'react';
 
 export const useScrollAnimations = () => {
   useEffect(() => {
+    // Skip if window is not available (SSR)
+    if (typeof window === 'undefined') return;
+
     // Only enable scroll animations on desktop with JavaScript
     const isDesktop = window.innerWidth >= 769;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -64,6 +67,9 @@ export const useScrollAnimations = () => {
 
 export const useParallaxEffect = () => {
   useEffect(() => {
+    // Skip if window is not available (SSR)
+    if (typeof window === 'undefined') return;
+
     const handleScroll = () => {
       const scrolled = window.pageYOffset;
       const parallaxElements = document.querySelectorAll('.parallax-element');
@@ -82,6 +88,9 @@ export const useParallaxEffect = () => {
 
 export const useCursorEffect = () => {
   useEffect(() => {
+    // Skip if window is not available (SSR)
+    if (typeof window === 'undefined') return;
+
     const cursor = document.createElement('div');
     cursor.className = 'custom-cursor';
     cursor.style.cssText = `

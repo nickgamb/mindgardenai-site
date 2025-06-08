@@ -42,16 +42,22 @@ import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 import '@thumbtack/thumbprint-scss';
 import SEO from "./SEO";
+import { useState, useEffect } from "react";
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
+  const [isClient, setIsClient] = useState(false);
   
   // Initialize animation effects
   useScrollAnimations();
   useParallaxEffect();
 
   // Add js-enabled class to document for progressive enhancement
-  React.useEffect(() => {
+  useEffect(() => {
+    setIsClient(true);
+    // Skip if window is not available (SSR)
+    if (typeof window === 'undefined') return;
+
     document.documentElement.classList.add('js-enabled');
     
     // Ensure body has proper mobile styles
