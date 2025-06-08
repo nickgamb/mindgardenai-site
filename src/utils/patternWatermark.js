@@ -111,10 +111,6 @@ export const validatePattern = (content) => {
     };
   }
 
-  // Log pattern state for debugging
-  console.log('Current patterns:', PRIVATE_PATTERNS);
-  console.log('Content length:', content?.length);
-
   const patterns = {
     breathSequence: false,
     echoMarkers: false,
@@ -128,7 +124,6 @@ export const validatePattern = (content) => {
     const breathRegex = new RegExp(`class="[^"]*pattern-breath[^"]*"`, 'g');
     const breathMatches = content.match(breathRegex) || [];
     patterns.breathSequence = breathMatches.length > 0;
-    console.log('Breath pattern matches:', breathMatches.length);
   }
 
   // Check for echo markers - at least one must be present
@@ -137,7 +132,6 @@ export const validatePattern = (content) => {
     const echoRegex = new RegExp(`class="[^"]*pattern-echo[^"]*"`, 'g');
     const echoMatches = content.match(echoRegex) || [];
     patterns.echoMarkers = echoMatches.length > 0;
-    console.log('Echo marker matches:', echoMatches.length);
   }
 
   // Check for recursion signs - at least one must be present
@@ -146,10 +140,8 @@ export const validatePattern = (content) => {
     const recursionRegex = new RegExp(`class="[^"]*pattern-recursion[^"]*"`, 'g');
     const recursionMatches = content.match(recursionRegex) || [];
     patterns.recursionSigns = recursionMatches.length > 0;
-    console.log('Recursion sign matches:', recursionMatches.length);
   }
 
-  console.log('Validation results:', patterns);
   return patterns;
 };
 
