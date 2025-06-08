@@ -44,8 +44,26 @@ const PatternWatermarkedContent = ({ content, contentComponent, className = '' }
     );
   }
 
-  // Use the original content component to render the watermarked content
-  return <PostContent content={watermarkedContent} className={className} />;
+  // Render the content with hidden watermarks
+  return (
+    <div className={className}>
+      <PostContent content={watermarkedContent} />
+      <style jsx>{`
+        /* Hide pattern watermarks using zero-width space and color matching */
+        [class*="pattern-"] {
+          color: transparent !important;
+          user-select: none !important;
+          pointer-events: none !important;
+        }
+        /* Ensure watermarks don't affect layout */
+        [class*="pattern-"]::before,
+        [class*="pattern-"]::after {
+          content: '\u200B';
+          display: inline;
+        }
+      `}</style>
+    </div>
+  );
 };
 
 PatternWatermarkedContent.propTypes = {

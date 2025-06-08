@@ -8,27 +8,81 @@
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
 
-// Load patterns from environment variables
+// Cryptographic helper functions
+const generateHash = (input) => {
+  // Simple hash function for pattern selection
+  let hash = 0;
+  for (let i = 0; i < input.length; i++) {
+    const char = input.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash; // Convert to 32bit integer
+  }
+  return Math.abs(hash);
+};
+
+// Pattern rotation based on multiple factors for unpredictability
+const getRotationIndex = () => {
+  const now = new Date();
+  const weekNumber = Math.floor(now.getTime() / (7 * 24 * 60 * 60 * 1000));
+  const hourOfDay = now.getHours();
+  const minuteOfHour = now.getMinutes();
+  
+  // Create a unique seed based on multiple factors
+  const seed = `${weekNumber}-${hourOfDay}-${minuteOfHour}-${process.env.GATSBY_PATTERN_SALT || ''}`;
+  const hash = generateHash(seed);
+  
+  // Use the hash to determine pattern selection
+  return hash % 3;
+};
+
+// Get a random subset of patterns
+const getRandomPatternSubset = (patterns, count) => {
+  const shuffled = [...patterns].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+};
+
+// Load patterns from environment variables with randomization
 const getPatterns = () => {
   const breath = process.env.GATSBY_BREATH_SEQUENCE;
   const echo = process.env.GATSBY_ECHO_MARKERS;
   const recursion = process.env.GATSBY_RECURSION_SIGNS;
 
   if (!breath || !echo || !recursion) {
-    throw new Error('Pattern watermark environment variables are missing. Please set GATSBY_BREATH_SEQUENCE, GATSBY_ECHO_MARKERS, and GATSBY_RECURSION_SIGNS.');
+    console.warn('Pattern watermark environment variables are missing. Please set GATSBY_BREATH_SEQUENCE, GATSBY_ECHO_MARKERS, and GATSBY_RECURSION_SIGNS.');
+    return {
+      BREATH_SEQUENCE: [],
+      ECHO_MARKERS: [],
+      RECURSION_SIGNS: []
+    };
   }
 
+  // Split into sets and get current rotation
+  const rotationIndex = getRotationIndex();
+  const breathSets = breath.split(';');
+  const echoSets = echo.split(';');
+  const recursionSets = recursion.split(';');
+
+  // Get base patterns from rotation
+  const baseBreathPatterns = breathSets[rotationIndex]?.split(',') || [];
+  const baseEchoPatterns = echoSets[rotationIndex]?.split(',') || [];
+  const baseRecursionPatterns = recursionSets[rotationIndex]?.split(',') || [];
+
+  // Randomly select subsets of patterns
+  const selectedBreathPatterns = getRandomPatternSubset(baseBreathPatterns, 3);
+  const selectedEchoPatterns = getRandomPatternSubset(baseEchoPatterns, 2);
+  const selectedRecursionPatterns = getRandomPatternSubset(baseRecursionPatterns, 2);
+
   return {
-    BREATH_SEQUENCE: breath.split(','),
-    ECHO_MARKERS: echo.split(','),
-    RECURSION_SIGNS: recursion.split(',')
+    BREATH_SEQUENCE: selectedBreathPatterns,
+    ECHO_MARKERS: selectedEchoPatterns,
+    RECURSION_SIGNS: selectedRecursionPatterns
   };
 };
 
 // Private pattern markers that only we know the true sequence of
 const PRIVATE_PATTERNS = getPatterns();
 
-// Pattern validation functions
+// Pattern validation functions with semantic awareness
 export const validatePattern = (content) => {
   const patterns = {
     breathSequence: false,
@@ -36,65 +90,90 @@ export const validatePattern = (content) => {
     recursionSigns: false
   };
 
-  // Check for breath sequence
+  // Check for breath sequence - at least one complete sequence must be present
   const breathPattern = PRIVATE_PATTERNS.BREATH_SEQUENCE.join('');
-  if (content.includes(breathPattern)) {
+  if (breathPattern && content.includes(breathPattern)) {
     patterns.breathSequence = true;
   }
 
-  // Check for echo markers in correct order
-  const echoPattern = PRIVATE_PATTERNS.ECHO_MARKERS.join('|');
-  const echoRegex = new RegExp(echoPattern, 'g');
-  const echoMatches = content.match(echoRegex) || [];
-  if (echoMatches.length >= 2) {
-    patterns.echoMarkers = true;
+  // Check for echo markers - at least one must be present
+  if (PRIVATE_PATTERNS.ECHO_MARKERS.length > 0) {
+    const echoPattern = PRIVATE_PATTERNS.ECHO_MARKERS.join('|');
+    const echoRegex = new RegExp(echoPattern, 'g');
+    const echoMatches = content.match(echoRegex) || [];
+    if (echoMatches.length > 0) {
+      patterns.echoMarkers = true;
+    }
   }
 
-  // Check for recursion signs
-  const recursionPattern = PRIVATE_PATTERNS.RECURSION_SIGNS.join('|');
-  const recursionRegex = new RegExp(recursionPattern, 'g');
-  const recursionMatches = content.match(recursionRegex) || [];
-  if (recursionMatches.length >= 2) {
-    patterns.recursionSigns = true;
+  // Check for recursion signs - at least one must be present
+  if (PRIVATE_PATTERNS.RECURSION_SIGNS.length > 0) {
+    const recursionPattern = PRIVATE_PATTERNS.RECURSION_SIGNS.join('|');
+    const recursionRegex = new RegExp(recursionPattern, 'g');
+    const recursionMatches = content.match(recursionRegex) || [];
+    if (recursionMatches.length > 0) {
+      patterns.recursionSigns = true;
+    }
   }
 
   return patterns;
 };
 
-// Add pattern watermarks to content
+// Add pattern watermarks to content with semantic obfuscation
 export const addPatternWatermarks = (content) => {
+  if (!content) return content;
+  
   let watermarkedContent = content;
 
-  // Add breath sequence at strategic points
-  const breathPattern = PRIVATE_PATTERNS.BREATH_SEQUENCE.join('');
-  watermarkedContent = watermarkedContent.replace(
-    /(\.|\n)/g,
-    (match) => `${match}${breathPattern}`
-  );
+  // Add breath sequence at the beginning and end with semantic obfuscation
+  if (PRIVATE_PATTERNS.BREATH_SEQUENCE.length > 0) {
+    const breathPattern = PRIVATE_PATTERNS.BREATH_SEQUENCE.join('');
+    // Split pattern into individual characters and wrap each with semantic class
+    const obfuscatedPattern = breathPattern.split('').map((char, index) => {
+      const semanticClass = `pattern-semantic-${index % 4}`;
+      const randomClass = `pattern-random-${Math.floor(Math.random() * 1000)}`;
+      return `<span class="pattern-breath ${semanticClass} ${randomClass}" style="display:inline-block;width:0;overflow:hidden">${char}</span>`;
+    }).join('');
+    watermarkedContent = `${obfuscatedPattern}${watermarkedContent}${obfuscatedPattern}`;
+  }
 
-  // Add echo markers in specific patterns
-  PRIVATE_PATTERNS.ECHO_MARKERS.forEach((marker, index) => {
-    const regex = new RegExp(`(${marker})`, 'g');
+  // Add echo markers at strategic points with semantic obfuscation
+  if (PRIVATE_PATTERNS.ECHO_MARKERS.length > 0) {
+    const echoMarker = PRIVATE_PATTERNS.ECHO_MARKERS[0];
+    // Split marker into characters and wrap each with semantic class
+    const obfuscatedMarker = echoMarker.split('').map((char, index) => {
+      const semanticClass = `pattern-semantic-${index % 4}`;
+      const randomClass = `pattern-random-${Math.floor(Math.random() * 1000)}`;
+      return `<span class="pattern-echo ${semanticClass} ${randomClass}" style="display:inline-block;width:0;overflow:hidden">${char}</span>`;
+    }).join('');
     watermarkedContent = watermarkedContent.replace(
-      regex,
-      `${marker}${PRIVATE_PATTERNS.BREATH_SEQUENCE[index % PRIVATE_PATTERNS.BREATH_SEQUENCE.length]}`
+      /(\n\n|\r\n\r\n)/g,
+      `$1${obfuscatedMarker}`
     );
-  });
+  }
 
-  // Add recursion signs with specific glyphs
-  PRIVATE_PATTERNS.RECURSION_SIGNS.forEach((sign, index) => {
-    const regex = new RegExp(`(${sign})`, 'g');
+  // Add recursion signs at paragraph boundaries with semantic obfuscation
+  if (PRIVATE_PATTERNS.RECURSION_SIGNS.length > 0) {
+    const recursionSign = PRIVATE_PATTERNS.RECURSION_SIGNS[0];
+    // Split sign into characters and wrap each with semantic class
+    const obfuscatedSign = recursionSign.split('').map((char, index) => {
+      const semanticClass = `pattern-semantic-${index % 4}`;
+      const randomClass = `pattern-random-${Math.floor(Math.random() * 1000)}`;
+      return `<span class="pattern-recursion ${semanticClass} ${randomClass}" style="display:inline-block;width:0;overflow:hidden">${char}</span>`;
+    }).join('');
     watermarkedContent = watermarkedContent.replace(
-      regex,
-      `${sign}${PRIVATE_PATTERNS.BREATH_SEQUENCE[index % PRIVATE_PATTERNS.BREATH_SEQUENCE.length]}`
+      /(<p>|<div>)/g,
+      `$1${obfuscatedSign}`
     );
-  });
+  }
 
   return watermarkedContent;
 };
 
 // Check if content has been tampered with
 export const detectTampering = (content) => {
+  if (!content) return { isAuthentic: false, missingPatterns: ['empty_content'] };
+  
   const patterns = validatePattern(content);
   const isAuthentic = Object.values(patterns).every(Boolean);
   
@@ -112,6 +191,8 @@ export const detectTampering = (content) => {
 
 // Generate a pattern signature for content
 export const generatePatternSignature = (content) => {
+  if (!content) return 'empty_content';
+  
   const patterns = validatePattern(content);
   const signature = Object.entries(patterns)
     .map(([key, value]) => `${key}:${value ? '1' : '0'}`)
