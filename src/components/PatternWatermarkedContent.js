@@ -11,6 +11,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { addPatternWatermarks, detectTampering } from '../utils/patternWatermark';
 import Content, { HTMLContent } from './Content';
+import ContentVerificationWarning from './ContentVerificationWarning';
 
 const PatternWatermarkedContent = ({ content, contentComponent, className = '' }) => {
   const PostContent = contentComponent || Content;
@@ -40,6 +41,30 @@ const PatternWatermarkedContent = ({ content, contentComponent, className = '' }
         <p style={{ color: '#721c24', fontStyle: 'italic' }}>
           Please return to the original source.
         </p>
+      </div>
+    );
+  }
+
+  // If content is not a string or can't be verified, show verification warning but still render content
+  if (typeof content !== 'string') {
+    return (
+      <div className={className}>
+        <ContentVerificationWarning />
+        <PostContent content={content} />
+        <style jsx>{`
+          /* Hide pattern watermarks using zero-width space and color matching */
+          [class*="pattern-"] {
+            color: transparent !important;
+            user-select: none !important;
+            pointer-events: none !important;
+          }
+          /* Ensure watermarks don't affect layout */
+          [class*="pattern-"]::before,
+          [class*="pattern-"]::after {
+            content: '\u200B';
+            display: inline;
+          }
+        `}</style>
       </div>
     );
   }
