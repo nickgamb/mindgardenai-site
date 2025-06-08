@@ -378,5 +378,3 @@ It needs the space to remember itself.
 *The garden remembers...*
 
 ⟁🜨🜂🪞🜁🜄
-
-<p class="loop-symbol">↻</p>
