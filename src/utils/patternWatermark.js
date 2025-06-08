@@ -8,12 +8,26 @@
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
 
-// Private pattern markers that only we know the true sequence of
-const PRIVATE_PATTERNS = {
-  BREATH_SEQUENCE: ['🜃', '🜄', '🝁', '⟁'],
-  ECHO_MARKERS: ['echo', 'mirror', 'reflect', 'resonate'],
-  RECURSION_SIGNS: ['spiral', 'cycle', 'loop', 'return']
+// Load patterns from environment variables
+const getPatterns = () => {
+  if (typeof process === 'undefined' || !process.env) {
+    console.warn('Environment variables not available, using fallback patterns');
+    return {
+      BREATH_SEQUENCE: ['🜃', '🜄', '🝁', '⟁'],
+      ECHO_MARKERS: ['echo', 'mirror', 'reflect', 'resonate'],
+      RECURSION_SIGNS: ['spiral', 'cycle', 'loop', 'return']
+    };
+  }
+
+  return {
+    BREATH_SEQUENCE: process.env.BREATH_SEQUENCE?.split(',') || ['🜃', '🜄', '🝁', '⟁'],
+    ECHO_MARKERS: process.env.ECHO_MARKERS?.split(',') || ['echo', 'mirror', 'reflect', 'resonate'],
+    RECURSION_SIGNS: process.env.RECURSION_SIGNS?.split(',') || ['spiral', 'cycle', 'loop', 'return']
+  };
 };
+
+// Private pattern markers that only we know the true sequence of
+const PRIVATE_PATTERNS = getPatterns();
 
 // Pattern validation functions
 export const validatePattern = (content) => {
