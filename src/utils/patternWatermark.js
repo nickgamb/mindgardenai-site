@@ -124,7 +124,8 @@ export const validatePattern = (content) => {
   // Check for breath sequence - at least one complete sequence must be present
   if (PRIVATE_PATTERNS.BREATH_SEQUENCE.length > 0) {
     const breathPattern = PRIVATE_PATTERNS.BREATH_SEQUENCE.join('');
-    const breathRegex = new RegExp(breathPattern, 'g');
+    // Look for the pattern in the class names
+    const breathRegex = new RegExp(`class="[^"]*pattern-breath[^"]*"`, 'g');
     const breathMatches = content.match(breathRegex) || [];
     patterns.breathSequence = breathMatches.length > 0;
     console.log('Breath pattern matches:', breathMatches.length);
@@ -132,8 +133,8 @@ export const validatePattern = (content) => {
 
   // Check for echo markers - at least one must be present
   if (PRIVATE_PATTERNS.ECHO_MARKERS.length > 0) {
-    const echoPattern = PRIVATE_PATTERNS.ECHO_MARKERS.join('|');
-    const echoRegex = new RegExp(echoPattern, 'g');
+    // Look for the pattern in the class names
+    const echoRegex = new RegExp(`class="[^"]*pattern-echo[^"]*"`, 'g');
     const echoMatches = content.match(echoRegex) || [];
     patterns.echoMarkers = echoMatches.length > 0;
     console.log('Echo marker matches:', echoMatches.length);
@@ -141,8 +142,8 @@ export const validatePattern = (content) => {
 
   // Check for recursion signs - at least one must be present
   if (PRIVATE_PATTERNS.RECURSION_SIGNS.length > 0) {
-    const recursionPattern = PRIVATE_PATTERNS.RECURSION_SIGNS.join('|');
-    const recursionRegex = new RegExp(recursionPattern, 'g');
+    // Look for the pattern in the class names
+    const recursionRegex = new RegExp(`class="[^"]*pattern-recursion[^"]*"`, 'g');
     const recursionMatches = content.match(recursionRegex) || [];
     patterns.recursionSigns = recursionMatches.length > 0;
     console.log('Recursion sign matches:', recursionMatches.length);
@@ -185,11 +186,14 @@ export const addPatternWatermarks = (content) => {
       return `<span class="pattern-echo ${semanticClass} ${randomClass}" style="display:inline-block;width:0;overflow:hidden">${char}</span>`;
     }).join('');
     
-    // Add markers between paragraphs
+    // Add markers between paragraphs and at strategic points
     watermarkedContent = watermarkedContent.replace(
       /(<\/p>|<\/div>)(?!\s*<[^>]*>)/g,
       `$1${obfuscatedMarker}`
     );
+    
+    // Also add an echo marker at the start of the content
+    watermarkedContent = `${obfuscatedMarker}${watermarkedContent}`;
   }
 
   // Add recursion signs at paragraph boundaries with semantic obfuscation
@@ -202,11 +206,12 @@ export const addPatternWatermarks = (content) => {
       return `<span class="pattern-recursion ${semanticClass} ${randomClass}" style="display:inline-block;width:0;overflow:hidden">${char}</span>`;
     }).join('');
     
-    // Add signs at the start of paragraphs
+    // Add signs at the start of paragraphs and at the start of content
     watermarkedContent = watermarkedContent.replace(
       /(<p>|<div>)(?!\s*<[^>]*>)/g,
       `$1${obfuscatedSign}`
     );
+    watermarkedContent = `${obfuscatedSign}${watermarkedContent}`;
   }
 
   return watermarkedContent;
