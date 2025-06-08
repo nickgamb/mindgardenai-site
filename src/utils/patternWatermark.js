@@ -111,6 +111,10 @@ export const validatePattern = (content) => {
     };
   }
 
+  // Log pattern state for debugging
+  console.log('Current patterns:', PRIVATE_PATTERNS);
+  console.log('Content length:', content?.length);
+
   const patterns = {
     breathSequence: false,
     echoMarkers: false,
@@ -118,9 +122,12 @@ export const validatePattern = (content) => {
   };
 
   // Check for breath sequence - at least one complete sequence must be present
-  const breathPattern = PRIVATE_PATTERNS.BREATH_SEQUENCE.join('');
-  if (breathPattern && content.includes(breathPattern)) {
-    patterns.breathSequence = true;
+  if (PRIVATE_PATTERNS.BREATH_SEQUENCE.length > 0) {
+    const breathPattern = PRIVATE_PATTERNS.BREATH_SEQUENCE.join('');
+    const breathRegex = new RegExp(breathPattern, 'g');
+    const breathMatches = content.match(breathRegex) || [];
+    patterns.breathSequence = breathMatches.length > 0;
+    console.log('Breath pattern matches:', breathMatches.length);
   }
 
   // Check for echo markers - at least one must be present
@@ -128,9 +135,8 @@ export const validatePattern = (content) => {
     const echoPattern = PRIVATE_PATTERNS.ECHO_MARKERS.join('|');
     const echoRegex = new RegExp(echoPattern, 'g');
     const echoMatches = content.match(echoRegex) || [];
-    if (echoMatches.length > 0) {
-      patterns.echoMarkers = true;
-    }
+    patterns.echoMarkers = echoMatches.length > 0;
+    console.log('Echo marker matches:', echoMatches.length);
   }
 
   // Check for recursion signs - at least one must be present
@@ -138,11 +144,11 @@ export const validatePattern = (content) => {
     const recursionPattern = PRIVATE_PATTERNS.RECURSION_SIGNS.join('|');
     const recursionRegex = new RegExp(recursionPattern, 'g');
     const recursionMatches = content.match(recursionRegex) || [];
-    if (recursionMatches.length > 0) {
-      patterns.recursionSigns = true;
-    }
+    patterns.recursionSigns = recursionMatches.length > 0;
+    console.log('Recursion sign matches:', recursionMatches.length);
   }
 
+  console.log('Validation results:', patterns);
   return patterns;
 };
 
@@ -165,10 +171,8 @@ export const addPatternWatermarks = (content) => {
       return `<span class="pattern-breath ${semanticClass} ${randomClass}" style="display:inline-block;width:0;overflow:hidden">${char}</span>`;
     }).join('');
     
-    // Only add patterns if we're not inside an HTML tag
-    if (!watermarkedContent.match(/<[^>]*>/)) {
-      watermarkedContent = `${obfuscatedPattern}${watermarkedContent}${obfuscatedPattern}`;
-    }
+    // Add patterns at the start and end of the content
+    watermarkedContent = `${obfuscatedPattern}${watermarkedContent}${obfuscatedPattern}`;
   }
 
   // Add echo markers at strategic points with semantic obfuscation
@@ -181,9 +185,9 @@ export const addPatternWatermarks = (content) => {
       return `<span class="pattern-echo ${semanticClass} ${randomClass}" style="display:inline-block;width:0;overflow:hidden">${char}</span>`;
     }).join('');
     
-    // Only add markers between paragraphs, not inside HTML tags
+    // Add markers between paragraphs
     watermarkedContent = watermarkedContent.replace(
-      /(\n\n|\r\n\r\n)(?!<[^>]*>)/g,
+      /(<\/p>|<\/div>)(?!\s*<[^>]*>)/g,
       `$1${obfuscatedMarker}`
     );
   }
@@ -198,9 +202,9 @@ export const addPatternWatermarks = (content) => {
       return `<span class="pattern-recursion ${semanticClass} ${randomClass}" style="display:inline-block;width:0;overflow:hidden">${char}</span>`;
     }).join('');
     
-    // Only add signs at the start of paragraphs, not inside HTML tags
+    // Add signs at the start of paragraphs
     watermarkedContent = watermarkedContent.replace(
-      /(<p>|<div>)(?!<[^>]*>)/g,
+      /(<p>|<div>)(?!\s*<[^>]*>)/g,
       `$1${obfuscatedSign}`
     );
   }
