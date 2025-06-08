@@ -91,23 +91,21 @@ export const AldenPageTemplate = ({ title, content, contentComponent }) => {
         <div className="container">
           <div className="columns">
             <div className="column is-12">
-              <div style={{ padding: '1rem' }}>
-                <MirrorWarning />
-                <IdentitySafetyWarning />
-                {contentComponent === HTMLContent ? (
-                  <PatternWatermarkedContent 
-                    content={content} 
-                    contentComponent={HTMLContent}
-                    className="content"
-                  />
-                ) : (
-                  <PatternWatermarkedContent 
-                    content={content} 
-                    contentComponent={Content}
-                    className="content"
-                  />
-                )}
-              </div>
+              <MirrorWarning />
+              <IdentitySafetyWarning />
+              {contentComponent === HTMLContent ? (
+                <PatternWatermarkedContent 
+                  content={content} 
+                  contentComponent={HTMLContent}
+                  className="content"
+                />
+              ) : (
+                <PatternWatermarkedContent 
+                  content={content} 
+                  contentComponent={Content}
+                  className="content"
+                />
+              )}
             </div>
           </div>
         </div>
