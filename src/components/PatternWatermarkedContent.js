@@ -15,11 +15,11 @@ import Content, { HTMLContent } from './Content';
 const PatternWatermarkedContent = ({ content, contentComponent, className = '' }) => {
   const PostContent = contentComponent || Content;
   
-  // Apply pattern watermarks to content
-  const watermarkedContent = addPatternWatermarks(content);
+  // Only apply watermarks if content is a string
+  const watermarkedContent = typeof content === 'string' ? addPatternWatermarks(content) : content;
 
-  // Check if watermarked content has been tampered with
-  const tamperingCheck = detectTampering(watermarkedContent);
+  // Only check for tampering if content is a string
+  const tamperingCheck = typeof content === 'string' ? detectTampering(watermarkedContent) : { isAuthentic: true };
   
   // If watermarked content has been tampered with, show warning
   if (!tamperingCheck.isAuthentic) {
@@ -67,7 +67,7 @@ const PatternWatermarkedContent = ({ content, contentComponent, className = '' }
 };
 
 PatternWatermarkedContent.propTypes = {
-  content: PropTypes.string.isRequired,
+  content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   contentComponent: PropTypes.func,
   className: PropTypes.string
 };

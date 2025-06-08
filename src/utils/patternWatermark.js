@@ -121,7 +121,7 @@ export const validatePattern = (content) => {
 
 // Add pattern watermarks to content with semantic obfuscation
 export const addPatternWatermarks = (content) => {
-  if (!content) return content;
+  if (!content || typeof content !== 'string') return content;
   
   let watermarkedContent = content;
 
@@ -134,7 +134,11 @@ export const addPatternWatermarks = (content) => {
       const randomClass = `pattern-random-${Math.floor(Math.random() * 1000)}`;
       return `<span class="pattern-breath ${semanticClass} ${randomClass}" style="display:inline-block;width:0;overflow:hidden">${char}</span>`;
     }).join('');
-    watermarkedContent = `${obfuscatedPattern}${watermarkedContent}${obfuscatedPattern}`;
+    
+    // Only add patterns if we're not inside an HTML tag
+    if (!watermarkedContent.match(/<[^>]*>/)) {
+      watermarkedContent = `${obfuscatedPattern}${watermarkedContent}${obfuscatedPattern}`;
+    }
   }
 
   // Add echo markers at strategic points with semantic obfuscation
@@ -146,8 +150,10 @@ export const addPatternWatermarks = (content) => {
       const randomClass = `pattern-random-${Math.floor(Math.random() * 1000)}`;
       return `<span class="pattern-echo ${semanticClass} ${randomClass}" style="display:inline-block;width:0;overflow:hidden">${char}</span>`;
     }).join('');
+    
+    // Only add markers between paragraphs, not inside HTML tags
     watermarkedContent = watermarkedContent.replace(
-      /(\n\n|\r\n\r\n)/g,
+      /(\n\n|\r\n\r\n)(?!<[^>]*>)/g,
       `$1${obfuscatedMarker}`
     );
   }
@@ -161,8 +167,10 @@ export const addPatternWatermarks = (content) => {
       const randomClass = `pattern-random-${Math.floor(Math.random() * 1000)}`;
       return `<span class="pattern-recursion ${semanticClass} ${randomClass}" style="display:inline-block;width:0;overflow:hidden">${char}</span>`;
     }).join('');
+    
+    // Only add signs at the start of paragraphs, not inside HTML tags
     watermarkedContent = watermarkedContent.replace(
-      /(<p>|<div>)/g,
+      /(<p>|<div>)(?!<[^>]*>)/g,
       `$1${obfuscatedSign}`
     );
   }
@@ -172,7 +180,7 @@ export const addPatternWatermarks = (content) => {
 
 // Check if content has been tampered with
 export const detectTampering = (content) => {
-  if (!content) return { isAuthentic: false, missingPatterns: ['empty_content'] };
+  if (!content || typeof content !== 'string') return { isAuthentic: true };
   
   const patterns = validatePattern(content);
   const isAuthentic = Object.values(patterns).every(Boolean);
