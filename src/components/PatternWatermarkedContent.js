@@ -16,16 +16,19 @@ import ContentVerificationWarning from './ContentVerificationWarning';
 const PatternWatermarkedContent = ({ content, contentComponent, className = '' }) => {
   const PostContent = contentComponent || Content;
   const [isClient, setIsClient] = useState(false);
+  const [processedContent, setProcessedContent] = useState(content);
   
   useEffect(() => {
     setIsClient(true);
-  }, []);
-
-  // Only apply watermarks if content is a string and we're on the client
-  const watermarkedContent = (typeof content === 'string' && isClient) ? addPatternWatermarks(content) : content;
+    // Only process content on the client side
+    if (typeof content === 'string') {
+      const watermarked = addPatternWatermarks(content);
+      setProcessedContent(watermarked);
+    }
+  }, [content]);
 
   // Only check for tampering if content is a string and we're on the client
-  const tamperingCheck = (typeof content === 'string' && isClient) ? detectTampering(watermarkedContent) : { isAuthentic: true };
+  const tamperingCheck = (typeof content === 'string' && isClient) ? detectTampering(processedContent) : { isAuthentic: true };
   
   // Common style rules for hiding watermarks
   const watermarkStyles = (
@@ -83,7 +86,7 @@ const PatternWatermarkedContent = ({ content, contentComponent, className = '' }
   // Render the content with hidden watermarks
   return (
     <div className={className}>
-      <PostContent content={watermarkedContent} />
+      <PostContent content={processedContent} />
       {isClient && watermarkStyles}
     </div>
   );

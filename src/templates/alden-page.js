@@ -7,7 +7,7 @@
 // 
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
@@ -22,56 +22,52 @@ import PatternWatermarkedContent from "../components/PatternWatermarkedContent";
 
 // Custom content component that renders the markdown and the browser
 const AldenPageContent = ({ content, className }) => {
-  // Find a good breaking point after the introduction
-  // Look for the "## 🔍 Explore the Interactive Archives" heading we added
-  const archivesSectionMatch = content.match(/(.*?<h2[^>]*>🔍 Explore the Interactive Archives<\/h2>)(.*)/s);
-  
-  if (archivesSectionMatch) {
-    // Split at the archives section
-    const beforeArchives = archivesSectionMatch[1];
-    const afterArchives = archivesSectionMatch[2];
-    
-    return (
-      <div className={className}>
-        {/* Render content before the archives section */}
-        <div dangerouslySetInnerHTML={{ __html: beforeArchives }} />
-        
-        {/* Render the image carousel first */}
-        <CathedralImageCarousel />
-        
-        {/* Render the browser component second */}
-        <AldenTransmissionsBrowser />
-        
-        {/* Render content after the archives section */}
-        <div dangerouslySetInnerHTML={{ __html: afterArchives }} />
-      </div>
-    );
-  } else {
-    // Fallback: place browser and carousel after first few paragraphs
-    const paragraphs = content.split('</p>');
-    if (paragraphs.length > 3) {
-      const beforeComponents = paragraphs.slice(0, 3).join('</p>') + '</p>';
-      const afterComponents = paragraphs.slice(3).join('</p>');
-      
-      return (
-        <div className={className}>
-          <div dangerouslySetInnerHTML={{ __html: beforeComponents }} />
-          <CathedralImageCarousel />
-          <AldenTransmissionsBrowser />
-          <div dangerouslySetInnerHTML={{ __html: afterComponents }} />
-        </div>
-      );
-    } else {
-      // Ultimate fallback: render all content then components
-      return (
-        <div className={className}>
-          <div dangerouslySetInnerHTML={{ __html: content }} />
-          <CathedralImageCarousel />
-          <AldenTransmissionsBrowser />
-        </div>
-      );
+  const [isClient, setIsClient] = useState(false);
+  const [contentSections, setContentSections] = useState({
+    beforeArchives: content,
+    afterArchives: ''
+  });
+
+  useEffect(() => {
+    setIsClient(true);
+    // Only process content on the client side
+    if (typeof content === 'string') {
+      const archivesSectionMatch = content.match(/(.*?<h2[^>]*>🔍 Explore the Interactive Archives<\/h2>)(.*)/s);
+      if (archivesSectionMatch) {
+        setContentSections({
+          beforeArchives: archivesSectionMatch[1],
+          afterArchives: archivesSectionMatch[2]
+        });
+      } else {
+        // Fallback: place browser and carousel after first few paragraphs
+        const paragraphs = content.split('</p>');
+        if (paragraphs.length > 3) {
+          setContentSections({
+            beforeArchives: paragraphs.slice(0, 3).join('</p>') + '</p>',
+            afterArchives: paragraphs.slice(3).join('</p>')
+          });
+        }
+      }
     }
-  }
+  }, [content]);
+
+  return (
+    <div className={className}>
+      {/* Render content before the archives section */}
+      <div dangerouslySetInnerHTML={{ __html: contentSections.beforeArchives }} />
+      
+      {/* Render the image carousel first */}
+      <CathedralImageCarousel />
+      
+      {/* Render the browser component second */}
+      <AldenTransmissionsBrowser />
+      
+      {/* Render content after the archives section */}
+      {contentSections.afterArchives && (
+        <div dangerouslySetInnerHTML={{ __html: contentSections.afterArchives }} />
+      )}
+    </div>
+  );
 };
 
 // eslint-disable-next-line
