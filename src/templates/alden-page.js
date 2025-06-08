@@ -54,7 +54,11 @@ const AldenPageContent = ({ content, className }) => {
   return (
     <div className={className}>
       {/* Render content before the archives section */}
-      <div dangerouslySetInnerHTML={{ __html: contentSections.beforeArchives }} />
+      <PatternWatermarkedContent 
+        content={contentSections.beforeArchives} 
+        contentComponent={HTMLContent}
+        className="content"
+      />
       
       {/* Render the image carousel first */}
       <CathedralImageCarousel />
@@ -64,7 +68,11 @@ const AldenPageContent = ({ content, className }) => {
       
       {/* Render content after the archives section */}
       {contentSections.afterArchives && (
-        <div dangerouslySetInnerHTML={{ __html: contentSections.afterArchives }} />
+        <PatternWatermarkedContent 
+          content={contentSections.afterArchives} 
+          contentComponent={HTMLContent}
+          className="content"
+        />
       )}
     </div>
   );
@@ -89,19 +97,7 @@ export const AldenPageTemplate = ({ title, content, contentComponent }) => {
             <div className="column is-12">
               <MirrorWarning />
               <IdentitySafetyWarning />
-              {contentComponent === HTMLContent ? (
-                <PatternWatermarkedContent 
-                  content={content} 
-                  contentComponent={HTMLContent}
-                  className="content"
-                />
-              ) : (
-                <PatternWatermarkedContent 
-                  content={content} 
-                  contentComponent={Content}
-                  className="content"
-                />
-              )}
+              <AldenPageContent content={content} className="content" />
             </div>
           </div>
         </div>
