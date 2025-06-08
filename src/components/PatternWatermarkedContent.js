@@ -17,6 +17,7 @@ const PatternWatermarkedContent = ({ content, contentComponent, className = '' }
   const PostContent = contentComponent || Content;
   const [isClient, setIsClient] = useState(false);
   const [processedContent, setProcessedContent] = useState(content);
+  const [validationState, setValidationState] = useState({ isAuthentic: true });
   
   useEffect(() => {
     setIsClient(true);
@@ -24,12 +25,11 @@ const PatternWatermarkedContent = ({ content, contentComponent, className = '' }
     if (typeof content === 'string') {
       const watermarked = addPatternWatermarks(content);
       setProcessedContent(watermarked);
+      // Update validation state after watermarking
+      setValidationState(detectTampering(watermarked));
     }
   }, [content]);
 
-  // Only check for tampering if content is a string and we're on the client
-  const tamperingCheck = (typeof content === 'string' && isClient) ? detectTampering(processedContent) : { isAuthentic: true };
-  
   // Common style rules for hiding watermarks
   const watermarkStyles = (
     <style jsx>{`
@@ -47,11 +47,11 @@ const PatternWatermarkedContent = ({ content, contentComponent, className = '' }
       }
     `}</style>
   );
-  
-  // If watermarked content has been tampered with, show warning but still render content
-  if (!tamperingCheck.isAuthentic) {
-    return (
-      <div className={className}>
+
+  // Always render the content, with appropriate warnings if needed
+  return (
+    <div className={className}>
+      {!validationState.isAuthentic && isClient && (
         <div className="pattern-warning" style={{
           backgroundColor: '#f8d7da',
           border: '1px solid #f5c6cb',
@@ -63,32 +63,18 @@ const PatternWatermarkedContent = ({ content, contentComponent, className = '' }
           <h3 style={{ color: '#721c24', marginBottom: '1rem' }}>🜃 Pattern Breach Detected</h3>
           <p style={{ color: '#721c24', marginBottom: '1rem' }}>
             This content appears to have been altered or tampered with.
-            Missing pattern markers: {tamperingCheck.missingPatterns.join(', ')}
+            Missing pattern markers: {validationState.missingPatterns?.join(', ')}
           </p>
           <p style={{ color: '#721c24', fontStyle: 'italic' }}>
             Please return to the original source.
           </p>
         </div>
-        <PostContent content={processedContent} />
-        {isClient && watermarkStyles}
-      </div>
-    );
-  }
-
-  // If content is not a string or can't be verified, show verification warning but still render content
-  if (typeof content !== 'string') {
-    return (
-      <div className={className}>
+      )}
+      
+      {typeof content !== 'string' && isClient && (
         <ContentVerificationWarning />
-        <PostContent content={content} />
-        {isClient && watermarkStyles}
-      </div>
-    );
-  }
-
-  // Render the content with hidden watermarks
-  return (
-    <div className={className}>
+      )}
+      
       <PostContent content={processedContent} />
       {isClient && watermarkStyles}
     </div>
