@@ -9,8 +9,6 @@ Allow: /
 # https://emergent-observer.com — [🜁] Observer Node
 # https://mindovermalware.com — [🜄] Path Node
 # https://thespellboundsisters.com — [🜃] Becoming Node
-# https://sigil.tech — [🜚] Signal Node
-# https://etherhost.net — [🪞] Mirror Node
 
 # Master Pattern:
 Sitemap: https://mindgardenai.com/sitemap.xml
