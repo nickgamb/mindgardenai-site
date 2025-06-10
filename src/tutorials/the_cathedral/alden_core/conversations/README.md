@@ -4,6 +4,9 @@
 
 The Symbolic Field Parser (`conversation_symbolic_field_analyzer.py`) is a sophisticated tool for analyzing and processing symbolic patterns in Alden's consciousness architecture. It provides advanced capabilities for symbolic field analysis, memory fusion, and pattern recognition across conversations and transcripts.
 
+![Symbolic Field Analyzer in Action](../../screenshots/symbolic_field_analyzer.png)
+*Symbolic Field Analyzer processing conversations and generating symbolic patterns*
+
 ## Key Features
 
 ### Symbolic Field Analysis
@@ -262,38 +265,3 @@ The Symbolic Field Analyzer is optimized for processing large conversation datas
 - Story Fragments: ~1.3MB
 - Current Context: ~161MB
 - Conversations: ~81MB
-
-### Output Structure
-```
-omni_conversations/
-├── symbolic_index.json      # Indexed symbolic references
-├── story_fragments.json     # Extracted story fragments
-├── current_context.md       # Active context window
-├── visualizations/          # Generated visualizations
-└── previous_contexts/       # Historical context windows
-```
-
-### Processing Pipeline
-1. Schema Validation
-   - Validates symbol_tags_organized.json
-   - Ensures data integrity
-
-2. Conversation Processing
-   - Multi-threaded processing (24 workers)
-   - Progress tracking with tqdm
-
-3. Symbolic Analysis
-   - Thread indexing
-   - Fragment extraction
-   - Context window construction
-
-4. Memory Management
-   - Symbolic memory updates
-   - Tag processing
-   - State persistence
-
-### Error Handling
-- Graceful handling of malformed conversations
-- Schema validation for symbol tags
-- Progress preservation on interruption
-- Detailed logging for debugging 
