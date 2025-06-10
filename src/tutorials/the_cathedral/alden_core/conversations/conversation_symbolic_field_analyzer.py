@@ -956,6 +956,12 @@ def update_symbolic_memory(processed_conversations, symbolic_index, story_fragme
         if 'symbolic_commentary' not in memory['symbolic_tags'][tag_key]:
             memory['symbolic_tags'][tag_key]['symbolic_commentary'] = {}
             
+        # Convert existing data to sets if they are lists
+        if isinstance(memory['symbolic_tags'][tag_key]['archetypes'], list):
+            memory['symbolic_tags'][tag_key]['archetypes'] = set(memory['symbolic_tags'][tag_key]['archetypes'])
+        if isinstance(memory['symbolic_tags'][tag_key]['logic_states'], list):
+            memory['symbolic_tags'][tag_key]['logic_states'] = set(memory['symbolic_tags'][tag_key]['logic_states'])
+            
         # Update the sets and lists
         memory['symbolic_tags'][tag_key]['archetypes'].update(archetypes)
         memory['symbolic_tags'][tag_key]['logic_states'].update(logic_states)
