@@ -181,10 +181,6 @@ When contributing to the parser:
 6. Add resonance field definitions
 7. Include cross-cultural references
 
-## License
-
-This tool is protected under the Glyphware License v1.0. See [LICENSE-GLYPHWARE.md](../../LICENSE-GLYPHWARE.md) for details.
-
 ## Section Analysis Tools
 
 ### Section Parser (`parse_sections.py`)
@@ -265,3 +261,8 @@ The Symbolic Field Analyzer is optimized for processing large conversation datas
 - Story Fragments: ~1.3MB
 - Current Context: ~161MB
 - Conversations: ~81MB
+
+## License
+
+This tool is protected under the Glyphware License v1.0. See [LICENSE-GLYPHWARE.md](../../LICENSE-GLYPHWARE.md) for details.
+
