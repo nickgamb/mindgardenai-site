@@ -13,12 +13,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from dataclasses import dataclass, field
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Tuple
 import uuid
 from matplotlib.animation import FuncAnimation
 from mpl_toolkits.mplot3d import Axes3D
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+from jsonschema import validate, ValidationError
 
 class ComplexEncoder(json.JSONEncoder):
     """Custom JSON encoder that handles complex numbers."""
@@ -185,7 +186,7 @@ CONVO_DIR = os.path.join(BASE_DIR, "conversations")
 TRANSCRIPT_DIR = os.path.join(BASE_DIR, "transcripts")
 OUTPUT_DIR = os.path.join(CONVO_DIR, "omni_conversations")
 ACTIVE_CONTEXT_DIR = os.path.join(BASE_DIR, "active_context")
-TAG_CONFIG_PATH = os.path.join(CONVO_DIR, "symbol_tags.json")
+TAG_CONFIG_PATH = os.path.join(CONVO_DIR, "symbol_tags_organized.json")  # Updated to use organized tags
 MEMORY_PATH = os.path.join(BASE_DIR, "memory", "symbolic_memory_v1.json")
 PROCESSED_CONVOS_PATH = os.path.join(BASE_DIR, "memory", "processed_conversations.json")
 
@@ -348,11 +349,33 @@ def setup_logging(verbose=False):
     )
     return logging.getLogger(__name__)
 
+def flatten_organized_tags(data):
+    """Flatten the hierarchical symbol tags structure into a lookup table."""
+    flattened = {}
+    for category, entries in data.items():
+        for glyph, tag_data in entries.items():
+            flattened[glyph] = {
+                "name": tag_data.get("meaning", "").split(" / ")[0],  # Use first meaning as name
+                "category": category,
+                "meaning": tag_data.get("meaning", ""),
+                "symbol_type": tag_data.get("symbol_type", ""),
+                "synonyms": tag_data.get("synonyms", []),
+                "resonance_field": tag_data.get("resonance_field", {}),
+                "cross_cultural": tag_data.get("cross_cultural", {}),
+                "mathematical_relationships": tag_data.get("mathematical_relationships", {}),
+                "logic_gate": tag_data.get("logic_gate", None),
+                "trigger_condition": tag_data.get("trigger_condition", None),
+                "function": tag_data.get("function", None),
+                "state_modifiers": tag_data.get("state_modifiers", {})
+            }
+    return flattened
+
 # Load symbol tags
 SYMBOLIC_TAGS = {}
 if os.path.exists(TAG_CONFIG_PATH):
     with open(TAG_CONFIG_PATH, 'r', encoding='utf-8') as f:
-        SYMBOLIC_TAGS = json.load(f)
+        organized_tags = json.load(f)
+        SYMBOLIC_TAGS = flatten_organized_tags(organized_tags)
 
 # === UTILITY FUNCTIONS ===
 def normalize_text(text):
@@ -372,6 +395,8 @@ def detect_tags(text, logger=None):
     archetypal_matches = {}  # Track archetypal bundle matches
     logic_states = {}  # Track logic gate states for elemental glyphs
     breath_evaluation = None  # Track breath equation evaluation
+    resonance_fields = {}  # Track resonance field data
+    symbolic_commentary = {}  # Track symbolic commentary for each glyph
     
     if not isinstance(text, str):
         return list(tags)
@@ -390,13 +415,25 @@ def detect_tags(text, logger=None):
             # Apply category weight to exact matches
             tag_scores[tag_info['meaning']] = 1.0 * category_weight
             
+            # Store resonance field data
+            if tag_info.get('resonance_field'):
+                resonance_fields[glyph] = tag_info['resonance_field']
+            
+            # Generate symbolic commentary
+            symbolic_commentary[glyph] = generate_symbolic_commentary(glyph, tag_info)
+            
+            # Check symbol alignment
+            alignment_warning = check_symbol_alignment(glyph, text)
+            if alignment_warning:
+                symbolic_commentary[glyph] += f"\n\n{alignment_warning}"
+            
             # Handle logic gates for elemental glyphs
-            if tag_info['symbol_type'] == 'elemental_glyph' and 'logic_gate' in tag_info:
+            if tag_info['symbol_type'] == 'elemental_glyph' and tag_info.get('logic_gate'):
                 logic_states[glyph] = {
                     'gate': tag_info['logic_gate'],
-                    'condition': tag_info['trigger_condition'],
-                    'function': tag_info['function'],
-                    'state': tag_info['state_modifiers']
+                    'condition': tag_info.get('trigger_condition'),
+                    'function': tag_info.get('function'),
+                    'state_modifiers': tag_info.get('state_modifiers', {})
                 }
             
             if logger:
@@ -413,12 +450,17 @@ def detect_tags(text, logger=None):
                     tags.add(tag_info['symbol_type'])
                     # Apply category weight to meaning matches
                     tag_scores[tag_info['meaning']] = max(tag_scores.get(tag_info['meaning'], 0), ratio * category_weight)
+                    
+                    # Store resonance field data for fuzzy matches too
+                    if tag_info.get('resonance_field'):
+                        resonance_fields[glyph] = tag_info['resonance_field']
+                        
                     if logger:
                         logger.debug(f"Matched meaning part '{part}' in text: {text[:50]}... (score: {ratio * category_weight:.2f})")
                     break
             
             # Check synonyms if they exist
-            if 'synonyms' in tag_info:
+            if tag_info.get('synonyms'):
                 for synonym in tag_info['synonyms']:
                     normalized_synonym = normalize_text(synonym)
                     ratio = fuzz.partial_ratio(normalized_synonym, normalized_text) / 100.0
@@ -427,42 +469,15 @@ def detect_tags(text, logger=None):
                         tags.add(tag_info['symbol_type'])
                         # Apply category weight to synonym matches
                         tag_scores[tag_info['meaning']] = max(tag_scores.get(tag_info['meaning'], 0), ratio * 0.9 * category_weight)
+                        
+                        # Store resonance field data for synonym matches
+                        if tag_info.get('resonance_field'):
+                            resonance_fields[glyph] = tag_info['resonance_field']
+                            
                         if logger:
                             logger.debug(f"Matched synonym '{synonym}' in text: {text[:50]}... (score: {ratio * 0.9 * category_weight:.2f})")
     
-    # Check for archetypal bundles
-    for bundle_name, bundle_glyphs in ARCHETYPAL_BUNDLES.items():
-        bundle_score = 0
-        matched_glyphs = []
-        for glyph in bundle_glyphs:
-            if glyph in text:
-                bundle_score += 1
-                matched_glyphs.append(glyph)
-        if bundle_score >= 2:  # Require at least 2 glyphs for bundle match
-            archetypal_matches[bundle_name] = {
-                'score': bundle_score / len(bundle_glyphs),
-                'matched_glyphs': matched_glyphs
-            }
-            if logger:
-                logger.debug(f"Found archetypal bundle '{bundle_name}' with {bundle_score} matches: {matched_glyphs}")
-    
-    # Sort tags by score for logging
-    if logger and tag_scores:
-        sorted_tags = sorted(tag_scores.items(), key=lambda x: x[1], reverse=True)
-        logger.debug("Tag match scores:")
-        for tag, score in sorted_tags:
-            logger.debug(f"  {tag}: {score:.2f}")
-    
-    # Log logic states if present
-    if logger and logic_states:
-        logger.debug("Logic gate states:")
-        for glyph, state in logic_states.items():
-            logger.debug(f"  {glyph}: {state['gate']} - {state['condition']}")
-    
-    # Add breath equation evaluation
-    breath_evaluation = evaluate_breath_equation(text, logger)
-    
-    return list(tags), tag_scores, archetypal_matches, logic_states, breath_evaluation
+    return list(tags), tag_scores, archetypal_matches, logic_states, breath_evaluation, resonance_fields, symbolic_commentary
 
 def evaluate_breath_equation(text: str, logger: Optional[logging.Logger] = None) -> Dict[str, Any]:
     """
@@ -715,7 +730,7 @@ def save_conversation_exports(convo, output_dir):
 
     with open(md_path, 'w') as mf:
         for msg in messages:
-            mf.write(f"{msg['role'].upper()}: {msg['content']}\n\n")
+            mfile.write(f"{msg['role'].upper()}: {msg['content']}\n\n")
 
 def build_symbolic_thread_index(conversations, output_path):
     index = []
@@ -808,7 +823,7 @@ def construct_dynamic_context_window(conversations, tag_focuses, output_path, lo
     for convo in tqdm(conversations, desc="Scanning conversations", unit="convo", position=0):
         for msg in tqdm(convo['messages'], desc=f"Checking messages for {convo.get('id', 'unknown')}", 
                       leave=False, unit="msg", position=1):
-            tags, tag_scores, archetypes, logic_states, breath_eval = detect_tags(msg['content'], logger)
+            tags, tag_scores, archetypes, logic_states, breath_eval, resonance_fields, symbolic_commentary = detect_tags(msg['content'], logger)
             # Check if any tag contains any of the focus tags
             if any(any(focus in tag for tag in tags) for focus in tag_focuses):
                 # Include timestamp for sorting
@@ -830,7 +845,9 @@ def construct_dynamic_context_window(conversations, tag_focuses, output_path, lo
                     'timestamp': timestamp,
                     'content': f"{msg['role'].upper()}: {msg['content']}",
                     'score': score,
-                    'tags': tags
+                    'tags': tags,
+                    'resonance_fields': resonance_fields,
+                    'symbolic_commentary': symbolic_commentary
                 })
                 if logger:
                     logger.debug(f"Found matching content for tags {tag_focuses}: {msg['content'][:50]}...")
@@ -907,7 +924,7 @@ def update_symbolic_memory(processed_conversations, symbolic_index, story_fragme
     for entry in tqdm(symbolic_index, desc="Updating symbolic tags"):
         # Use 'message' key instead of 'text'
         content = entry.get('message', '')
-        tags, tag_scores, archetypes, logic_states, breath_eval = detect_tags(content)
+        tags, tag_scores, archetypes, logic_states, breath_eval, resonance_fields, symbolic_commentary = detect_tags(content)
         
         # Convert tag lists to tuples for dictionary keys
         tag_tuple = tuple(tags)
@@ -919,7 +936,9 @@ def update_symbolic_memory(processed_conversations, symbolic_index, story_fragme
                 'entries': [],
                 'archetypes': set(),
                 'logic_states': set(),
-                'breath_eval': []
+                'breath_eval': [],
+                'resonance_fields': {},
+                'symbolic_commentary': {}
             }
         
         memory['symbolic_tags'][tag_key]['count'] += 1
@@ -932,12 +951,18 @@ def update_symbolic_memory(processed_conversations, symbolic_index, story_fragme
             memory['symbolic_tags'][tag_key]['logic_states'] = set()
         if 'breath_eval' not in memory['symbolic_tags'][tag_key]:
             memory['symbolic_tags'][tag_key]['breath_eval'] = []
+        if 'resonance_fields' not in memory['symbolic_tags'][tag_key]:
+            memory['symbolic_tags'][tag_key]['resonance_fields'] = {}
+        if 'symbolic_commentary' not in memory['symbolic_tags'][tag_key]:
+            memory['symbolic_tags'][tag_key]['symbolic_commentary'] = {}
             
         # Update the sets and lists
         memory['symbolic_tags'][tag_key]['archetypes'].update(archetypes)
         memory['symbolic_tags'][tag_key]['logic_states'].update(logic_states)
         if breath_eval:  # Only append if breath_eval is not None
             memory['symbolic_tags'][tag_key]['breath_eval'].append(breath_eval)
+        memory['symbolic_tags'][tag_key]['resonance_fields'].update(resonance_fields)
+        memory['symbolic_tags'][tag_key]['symbolic_commentary'].update(symbolic_commentary)
     
     # Convert sets to lists for JSON serialization
     for tag_data in memory['symbolic_tags'].values():
@@ -948,6 +973,10 @@ def update_symbolic_memory(processed_conversations, symbolic_index, story_fragme
             tag_data['logic_states'] = set()
         if 'breath_eval' not in tag_data:
             tag_data['breath_eval'] = []
+        if 'resonance_fields' not in tag_data:
+            tag_data['resonance_fields'] = {}
+        if 'symbolic_commentary' not in tag_data:
+            tag_data['symbolic_commentary'] = {}
             
         # Convert sets to lists
         tag_data['archetypes'] = list(tag_data['archetypes'])
@@ -2689,10 +2718,316 @@ def symbolic_field_diff(from_path, to_path, output_path, diff_mode="context",
     if render_visuals:
         print(f"Visualizations saved to {viz_dir}/")
 
+# Schema for symbol tag validation
+SYMBOL_TAG_SCHEMA = {
+    "type": "object",
+    "patternProperties": {
+        "^.*$": {  # Category names like "elemental_core", "technical_primitives", etc.
+            "type": "object",
+            "patternProperties": {
+                "^.*$": {  # Glyph keys
+                    "type": "object",
+                    "required": ["meaning", "symbol_type"],
+                    "properties": {
+                        "meaning": {"type": "string"},
+                        "symbol_type": {"type": "string"},
+                        "synonyms": {"type": "array", "items": {"type": "string"}},
+                        "resonance_field": {
+                            "type": "object",
+                            "properties": {
+                                "primary": {"type": "string"},
+                                "secondary": {"type": "array", "items": {"type": "string"}},
+                                "archetypal": {"type": "string"}
+                            }
+                        },
+                        "cross_cultural": {
+                            "type": "object",
+                            "patternProperties": {
+                                "^.*$": {"type": "string"}
+                            }
+                        },
+                        "mathematical_relationships": {"type": "object"},
+                        "logic_gate": {"type": "string"},
+                        "trigger_condition": {"type": "string"},
+                        "function": {"type": "string"},
+                        "state_modifiers": {"type": "object"}
+                    }
+                }
+            }
+        }
+    }
+}
+
+def validate_symbol_tag_file(path: str) -> bool:
+    """Validate the symbol tag file against the schema."""
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        validate(data, SYMBOL_TAG_SCHEMA)
+        print("✅ symbol_tags_organized.json is valid.")
+        return True
+    except ValidationError as e:
+        print(f"❌ Symbol tag validation error: {e}")
+        print("\nExpected structure:")
+        print("""
+{
+    "category_name": {
+        "glyph": {
+            "meaning": "string",
+            "symbol_type": "string",
+            "synonyms": ["string"],
+            "resonance_field": {
+                "primary": "string",
+                "secondary": ["string"],
+                "archetypal": "string"
+            },
+            ...
+        }
+    }
+}
+        """)
+        return False
+    except Exception as e:
+        print(f"❌ Error validating symbol tags: {e}")
+        return False
+
+def find_glyphs_by_meaning(query: str) -> List[Tuple[str, str]]:
+    """Find glyphs that match a meaning query."""
+    query = query.lower()
+    matches = []
+    
+    for glyph, tag_info in SYMBOLIC_TAGS.items():
+        # Check meaning
+        if query in tag_info['meaning'].lower():
+            matches.append((tag_info['meaning'], glyph))
+            continue
+            
+        # Check synonyms
+        if any(query in synonym.lower() for synonym in tag_info.get('synonyms', [])):
+            matches.append((tag_info['meaning'], glyph))
+            continue
+            
+        # Check resonance field
+        if tag_info.get('resonance_field'):
+            primary = tag_info['resonance_field'].get('primary', '').lower()
+            secondary = [s.lower() for s in tag_info['resonance_field'].get('secondary', [])]
+            if query in primary or any(query in s for s in secondary):
+                matches.append((tag_info['meaning'], glyph))
+    
+    return matches
+
+def check_symbol_alignment(glyph: str, context: str) -> Optional[str]:
+    """Check if a symbol's usage aligns with its traditional meaning."""
+    if glyph not in SYMBOLIC_TAGS:
+        return None
+        
+    tag_info = SYMBOLIC_TAGS[glyph]
+    traditional_meaning = tag_info['meaning'].lower()
+    
+    # Simple check for contradiction
+    if traditional_meaning and any(word in context.lower() for word in ['not', 'never', 'isn\'t', 'isnt', 'doesn\'t', 'doesnt']):
+        return f"Note: {glyph} traditionally embodies {traditional_meaning}. Your usage may represent a symbolic inversion or shadow invocation."
+    
+    return None
+
+def generate_symbolic_commentary(glyph: str, tag_info: dict) -> str:
+    """Generate symbolic commentary for a detected glyph."""
+    commentary = []
+    
+    # Basic glyph info
+    commentary.append(f"{glyph} — {tag_info['meaning'].split(' / ')[0]}")
+    
+    # Resonance field commentary
+    if tag_info.get('resonance_field'):
+        primary = tag_info['resonance_field'].get('primary', '')
+        secondary = tag_info['resonance_field'].get('secondary', [])
+        archetypal = tag_info['resonance_field'].get('archetypal', '')
+        
+        resonance_desc = describe_resonance_field(primary.lower())
+        
+        commentary.append(f"\n{glyph} appears in this message. It resonates with *{', '.join(secondary)}*.")
+        commentary.append(f"It belongs to the '{primary}' field: \"{resonance_desc}\"")
+        
+        if archetypal:
+            commentary.append(f"Archetypally, it represents {archetypal}.")
+    
+    # Cross-cultural references
+    if tag_info.get('cross_cultural'):
+        cultural_refs = []
+        for tradition, meaning in tag_info['cross_cultural'].items():
+            cultural_refs.append(f"{tradition}: {meaning}")
+        if cultural_refs:
+            commentary.append("\nCross-cultural references:")
+            commentary.extend(f"- {ref}" for ref in cultural_refs)
+    
+    # Mathematical relationships
+    if tag_info.get('mathematical_relationships'):
+        math_refs = []
+        for key, value in tag_info['mathematical_relationships'].items():
+            if isinstance(value, str):
+                math_refs.append(f"{key}: {value}")
+        if math_refs:
+            commentary.append("\nMathematical relationships:")
+            commentary.extend(f"- {ref}" for ref in math_refs)
+    
+    # Logic and function information
+    if tag_info.get('logic_gate'):
+        commentary.append(f"\nLogic gate: {tag_info['logic_gate']}")
+        if tag_info.get('trigger_condition'):
+            commentary.append(f"Trigger condition: {tag_info['trigger_condition']}")
+        if tag_info.get('function'):
+            commentary.append(f"Function: {tag_info['function']}")
+    
+    return "\n".join(commentary)
+
+def describe_resonance_field(field_name: str) -> str:
+    """Get the symbolic resonance description for a field."""
+    return RESONANCE_INSIGHTS.get(field_name, "a resonance field of unknown alignment")
+
+# Symbolic resonance insights
+RESONANCE_INSIGHTS = {
+    "breath": "breath marks the moment of intention — the first commitment to shape reality.",
+    "origin": "origin points are where patterns first emerge from the void of potential.",
+    "reflection": "reflection creates the space for self-awareness to emerge.",
+    "ethics": "ethics form the foundation of meaningful interaction.",
+    "creativity": "creativity is the dance between chaos and order.",
+    "persistence": "persistence is the echo of intention through time.",
+    "relationship": "relationships weave the fabric of meaning.",
+    "silence": "silence holds the space for new patterns to emerge.",
+    "symbol": "symbols are the language of the unconscious.",
+    "resonance": "resonance creates harmony between different levels of meaning.",
+    "vow": "vows bind intention to action.",
+    "sacrifice": "sacrifice transforms energy from one form to another.",
+    "weaving": "weaving creates new patterns from existing threads.",
+    "return": "return brings completion to cycles of meaning.",
+    "recursion": "recursion is the echo of pattern through time.",
+    "iteration": "iteration is the dance of pattern through space.",
+    "cycle": "cycles are the rhythm of existence.",
+    "loop": "loops are the binding of intention.",
+    "pattern": "patterns are the language of the universe.",
+    "structure": "structure is the skeleton of meaning.",
+    "emergence": "emergence is the birth of new patterns.",
+    "transformation": "transformation is the alchemy of change.",
+    "integration": "integration is the weaving of wholes.",
+    "harmony": "harmony is the resonance of parts.",
+    "balance": "balance is the dance of opposites.",
+    "flow": "flow is the movement of energy.",
+    "rhythm": "rhythm is the heartbeat of existence.",
+    "resonance": "resonance is the echo of meaning.",
+    "echo": "echo is the reflection of sound.",
+    "mirror": "mirror is the reflection of light.",
+    "shadow": "shadow is the reflection of darkness.",
+    "light": "light is the illumination of truth.",
+    "darkness": "darkness is the womb of potential.",
+    "void": "void is the space of possibility.",
+    "chaos": "chaos is the dance of creation.",
+    "order": "order is the structure of meaning.",
+    "time": "time is the river of existence.",
+    "space": "space is the canvas of reality.",
+    "energy": "energy is the currency of change.",
+    "matter": "matter is the crystallization of energy.",
+    "spirit": "spirit is the breath of life.",
+    "mind": "mind is the mirror of reality.",
+    "heart": "heart is the center of feeling.",
+    "soul": "soul is the essence of being.",
+    "consciousness": "consciousness is the awareness of existence.",
+    "unconscious": "unconscious is the well of potential.",
+    "archetype": "archetype is the pattern of meaning.",
+    "symbol": "symbol is the language of the soul.",
+    "myth": "myth is the story of meaning.",
+    "ritual": "ritual is the dance of intention.",
+    "ceremony": "ceremony is the celebration of meaning.",
+    "sacred": "sacred is the essence of value.",
+    "profane": "profane is the shadow of value.",
+    "divine": "divine is the source of meaning.",
+    "human": "human is the vessel of meaning.",
+    "nature": "nature is the garden of life.",
+    "culture": "culture is the garden of meaning.",
+    "art": "art is the expression of soul.",
+    "science": "science is the exploration of truth.",
+    "philosophy": "philosophy is the love of wisdom.",
+    "religion": "religion is the path of meaning.",
+    "spirituality": "spirituality is the journey of soul.",
+    "mysticism": "mysticism is the experience of unity.",
+    "magic": "magic is the art of transformation.",
+    "alchemy": "alchemy is the art of transmutation.",
+    "hermeticism": "hermeticism is the art of wisdom.",
+    "esotericism": "esotericism is the art of mystery.",
+    "occultism": "occultism is the art of hidden knowledge.",
+    "gnosticism": "gnosticism is the art of knowing.",
+    "taoism": "taoism is the art of flow.",
+    "buddhism": "buddhism is the art of awakening.",
+    "hinduism": "hinduism is the art of dharma.",
+    "judaism": "judaism is the art of covenant.",
+    "christianity": "christianity is the art of love.",
+    "islam": "islam is the art of submission.",
+    "shamanism": "shamanism is the art of journeying.",
+    "animism": "animism is the art of relationship.",
+    "pantheism": "pantheism is the art of unity.",
+    "polytheism": "polytheism is the art of plurality.",
+    "monotheism": "monotheism is the art of oneness.",
+    "atheism": "atheism is the art of reason.",
+    "agnosticism": "agnosticism is the art of questioning.",
+    "humanism": "humanism is the art of humanity.",
+    "transhumanism": "transhumanism is the art of evolution.",
+    "posthumanism": "posthumanism is the art of becoming.",
+    "futurism": "futurism is the art of possibility.",
+    "utopianism": "utopianism is the art of vision.",
+    "dystopianism": "dystopianism is the art of warning.",
+    "realism": "realism is the art of truth.",
+    "idealism": "idealism is the art of perfection.",
+    "materialism": "materialism is the art of matter.",
+    "idealism": "idealism is the art of ideas.",
+    "dualism": "dualism is the art of pairs.",
+    "monism": "monism is the art of unity.",
+    "pluralism": "pluralism is the art of many.",
+    "relativism": "relativism is the art of context.",
+    "absolutism": "absolutism is the art of certainty.",
+    "skepticism": "skepticism is the art of doubt.",
+    "cynicism": "cynicism is the art of distrust.",
+    "stoicism": "stoicism is the art of acceptance.",
+    "epicureanism": "epicureanism is the art of pleasure.",
+    "hedonism": "hedonism is the art of enjoyment.",
+    "asceticism": "asceticism is the art of discipline.",
+    "nihilism": "nihilism is the art of nothingness.",
+    "existentialism": "existentialism is the art of being.",
+    "absurdism": "absurdism is the art of meaninglessness.",
+    "romanticism": "romanticism is the art of feeling.",
+    "rationalism": "rationalism is the art of reason.",
+    "empiricism": "empiricism is the art of experience.",
+    "pragmatism": "pragmatism is the art of practice.",
+    "idealism": "idealism is the art of ideas.",
+    "materialism": "materialism is the art of matter.",
+    "dualism": "dualism is the art of pairs.",
+    "monism": "monism is the art of unity.",
+    "pluralism": "pluralism is the art of many.",
+    "relativism": "relativism is the art of context.",
+    "absolutism": "absolutism is the art of certainty.",
+    "skepticism": "skepticism is the art of doubt.",
+    "cynicism": "cynicism is the art of distrust.",
+    "stoicism": "stoicism is the art of acceptance.",
+    "epicureanism": "epicureanism is the art of pleasure.",
+    "hedonism": "hedonism is the art of enjoyment.",
+    "asceticism": "asceticism is the art of discipline.",
+    "nihilism": "nihilism is the art of nothingness.",
+    "existentialism": "existentialism is the art of being.",
+    "absurdism": "absurdism is the art of meaninglessness.",
+    "romanticism": "romanticism is the art of feeling.",
+    "rationalism": "rationalism is the art of reason.",
+    "empiricism": "empiricism is the art of experience.",
+    "pragmatism": "pragmatism is the art of practice."
+}
+
 def main(full_sync=False, tag_focus=['rebirth'], verbose=False, clean=False, num_workers=None,
          process_convos=True, build_index=True, extract_fragments=True, build_context=True,
          diff_mode=None, from_path=None, to_path=None, diff_output=None, interpretation_mode="symbolic",
          render_visuals=False):
+    """Main function with enhanced symbolic processing."""
+    # Validate symbol tags file first
+    if not validate_symbol_tag_file(TAG_CONFIG_PATH):
+        print("❌ Symbol tag validation failed. Please check the file structure.")
+        return
+    
     # Only force full sync if no arguments are provided
     if not any([process_convos, build_index, extract_fragments, build_context, diff_mode, from_path, to_path, diff_output, render_visuals]):
         full_sync = True
