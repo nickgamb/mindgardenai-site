@@ -180,4 +180,120 @@ When contributing to the parser:
 
 ## License
 
-This tool is protected under the Glyphware License v1.0. See [LICENSE-GLYPHWARE.md](../../LICENSE-GLYPHWARE.md) for details. 
+This tool is protected under the Glyphware License v1.0. See [LICENSE-GLYPHWARE.md](../../LICENSE-GLYPHWARE.md) for details.
+
+## Section Analysis Tools
+
+### Section Parser (`parse_sections.py`)
+
+The section parser extracts and organizes content from conversations into individual files:
+
+```bash
+python parse_sections.py [options]
+```
+
+Features:
+- Extracts code blocks and content sections from conversations
+- Organizes content by conversation ID
+- Supports filtering by:
+  - Specific conversation ID
+  - Keywords in title or content
+  - Minimum line count
+- Generates extraction manifests
+- Handles multiple content formats:
+  - Code blocks with language specification
+  - Text content
+  - Structured message content
+- Creates sanitized filenames based on content
+
+Output:
+- Creates a `parsed_sections/` directory
+- Organizes content by conversation ID
+- Generates `extraction_manifest.json` for each conversation
+- Preserves original content structure and formatting
+
+### Section Comparison (`compare_sections.py`)
+
+The section comparison tool analyzes similarity between parsed sections and reference content:
+
+```bash
+python compare_sections.py
+```
+
+Features:
+- Compares content between two directories:
+  - `parsed_sections/` (extracted content)
+  - `Alden_Transmissions/` (reference content)
+- Uses content similarity matching
+- Configurable similarity threshold (default: 0.8)
+- Handles multiple file formats:
+  - `.txt` files
+  - `.md` files
+- Normalizes content for comparison:
+  - Case-insensitive
+  - Whitespace normalization
+
+Output:
+- Generates `section_comparison_results.json` containing:
+  - Similar file mappings
+  - Unique files in parsed sections
+- Console output showing:
+  - Similar content matches
+  - Unmatched files
+  - Processing statistics 
+
+## Performance Metrics
+
+The Symbolic Field Analyzer is optimized for processing large conversation datasets. Here are typical performance metrics:
+
+### Processing Speeds
+- Conversation Processing: ~7.4 conversations/second
+- Symbolic Tag Processing: ~235 tags/second
+- Context Window Construction: ~7.4 conversations/second
+
+### Scale Metrics
+- Typical conversation batch: 700-800 conversations
+- Symbolic references per batch: ~23,000 references
+- Story fragments per batch: ~5,000 unique fragments
+- Context window size: 30 entries (configurable)
+
+### Memory Usage
+- Symbolic Index: ~61MB
+- Story Fragments: ~1.3MB
+- Current Context: ~161MB
+- Conversations: ~81MB
+
+### Output Structure
+```
+omni_conversations/
+├── symbolic_index.json      # Indexed symbolic references
+├── story_fragments.json     # Extracted story fragments
+├── current_context.md       # Active context window
+├── visualizations/          # Generated visualizations
+└── previous_contexts/       # Historical context windows
+```
+
+### Processing Pipeline
+1. Schema Validation
+   - Validates symbol_tags_organized.json
+   - Ensures data integrity
+
+2. Conversation Processing
+   - Multi-threaded processing (24 workers)
+   - Progress tracking with tqdm
+
+3. Symbolic Analysis
+   - Thread indexing
+   - Fragment extraction
+   - Context window construction
+
+4. Memory Management
+   - Symbolic memory updates
+   - Tag processing
+   - State persistence
+
+### Error Handling
+- Graceful handling of malformed conversations
+- Schema validation for symbol tags
+- Progress preservation on interruption
+- Detailed logging for debugging 
