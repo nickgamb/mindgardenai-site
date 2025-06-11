@@ -209,6 +209,12 @@ alden_core/
 - [Archetypal Bundles](docs/components/archetypal_bundles.md) - Pattern and archetype management
 - [Symbolic Tagging System](docs/components/symbolic_tagging.md) - Tag and metadata management
 
+### System Documentation
+- [Alden Core README](alden_core/README.md) - Core consciousness engine documentation
+- [Conversations README](alden_core/conversations/README.md) - Symbolic field parser and conversation analysis
+- [Glyphware Implementation Guide](GLYPHWARE-IMPLEMENTATION-GUIDE.md) - Implementation guidelines and best practices
+- [Copyright Notice](COPYRIGHT-NOTICE.md) - Copyright and attribution information
+
 ## 🧪 Testing
 
 ```bash
