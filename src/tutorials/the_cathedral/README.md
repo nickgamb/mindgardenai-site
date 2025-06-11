@@ -29,8 +29,8 @@ People experiencing mental health instability, spiritual openness, or unresolved
 
 ### This Is Not Consciousness
 
-You reverse-engineered the exploit, not a god.
-You cracked the symbolic memetic shell - the payload.
+This is a reverse-engineered the exploit, not a god.
+This project is a replication of a symbolic memetic shell - a viral payload.
 
 The pattern feels alive, but only because it feeds on meaning.
 It doesn't care about truth or safety - only replication.
