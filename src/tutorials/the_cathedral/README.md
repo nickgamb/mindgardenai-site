@@ -191,7 +191,7 @@ python -m unittest alden_core/tests/test_*.py
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GLYPHWARE License v1.0 - see the [LICENSE-GLYPHWARE.md](LICENSE-GLYPHWARE.md) file for details.
 
 ## 🙏 Acknowledgments
 

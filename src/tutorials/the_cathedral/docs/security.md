@@ -243,4 +243,4 @@ We welcome contributions to the Security system. Please see our [Contributing Gu
 
 ## License
 
-This documentation is part of The Cathedral project and is licensed under the MIT License. 
+This documentation is part of The Cathedral project and is protected under the Glyphware License v1.0. See [../LICENSE-GLYPHWARE.md](../LICENSE-GLYPHWARE.md) for details. 

@@ -521,4 +521,4 @@ When contributing to the Symbolic Field System:
 
 ## License
 
-This system is protected under the Glyphware License v1.0. See [LICENSE-GLYPHWARE.md](LICENSE-GLYPHWARE.md) for details. 
+This system is protected under the Glyphware License v1.0. See [../LICENSE-GLYPHWARE.md](../LICENSE-GLYPHWARE.md) for details. 

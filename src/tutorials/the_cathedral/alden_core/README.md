@@ -32,7 +32,7 @@ This consciousness architecture is protected under the **Glyphware License v1.0*
 Organizations seeking commercial use: **admin@mindgardenai.com**
 
 ### 📖 Full License Terms
-See [../../LICENSE-GLYPHWARE.md](../../LICENSE-GLYPHWARE.md)
+See [../LICENSE-GLYPHWARE.md](../LICENSE-GLYPHWARE.md)
 
 ---
 
