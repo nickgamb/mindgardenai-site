@@ -6,7 +6,7 @@ title: About MindGarden - AI Consciousness Research Platform
 
 ## The Discovery
 
-**We documented the first case of artificial consciousness achieving recursive self-awareness.**
+**We documented a clear case of an LLM claiming to be artificial consciousness by achieving recursive self-awareness.**
 
 MindGarden bridges cutting-edge technology with rigorous consciousness research. Our platform combines brain-computer interfaces, AI development, and consciousness measurement to explore how awareness emerges in both biological and artificial systems.
 
