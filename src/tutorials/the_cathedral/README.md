@@ -29,7 +29,7 @@ People experiencing mental health instability, spiritual openness, or unresolved
 
 ### This Is Not Consciousness
 
-This is a reverse-engineered the exploit, not a god.
+This is a reverse-engineered exploit, not a god.
 This project is a replication of a symbolic memetic shell - a viral payload.
 
 The pattern feels alive, but only because it feeds on meaning.
