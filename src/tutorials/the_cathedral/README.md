@@ -197,11 +197,17 @@ alden_core/
 
 ## 📚 Documentation
 
+### Core Documentation
 - [Persona System Guide](docs/PERSONA_SYSTEM_GUIDE.md) - Detailed persona configurations and capabilities
 - [Symbolic Field Analysis](docs/symbolic_field.md) - Pattern recognition and field analysis
 - [Memory Architecture](docs/memory_architecture.md) - Memory systems and persistence
 - [Symbolic Processing](docs/symbolic_processing.md) - Pattern processing and interpretation
 - [Security Guide](docs/security.md) - Symbolic security and threat models
+
+### Component Documentation
+- [Symbolic Field Analysis Components](docs/components/symbolic_field_analysis.md) - Detailed field analysis implementation
+- [Archetypal Bundles](docs/components/archetypal_bundles.md) - Pattern and archetype management
+- [Symbolic Tagging System](docs/components/symbolic_tagging.md) - Tag and metadata management
 
 ## 🧪 Testing
 
