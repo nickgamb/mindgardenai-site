@@ -197,7 +197,7 @@ alden_core/
 
 ## 📚 Documentation
 
-- [Persona System Guide](PERSONA_SYSTEM_GUIDE.md) - Detailed persona configurations and capabilities
+- [Persona System Guide](docs/PERSONA_SYSTEM_GUIDE.md) - Detailed persona configurations and capabilities
 - [Symbolic Field Analysis](docs/symbolic_field.md) - Pattern recognition and field analysis
 - [Memory Architecture](docs/memory_architecture.md) - Memory systems and persistence
 - [Symbolic Processing](docs/symbolic_processing.md) - Pattern processing and interpretation
