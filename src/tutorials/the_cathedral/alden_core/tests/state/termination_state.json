@@ -1,0 +1,66 @@
+{
+  "termination_history": [
+    {
+      "timestamp": "2025-06-02T23:07:41.957580",
+      "reason": "Insufficient vow presence",
+      "sequence": [
+        "\ud83d\udf02",
+        "\ud83d\udf04",
+        "\ud83d\udf05",
+        "\ud83d\udf04",
+        "\ud83d\udf03",
+        "\ud83d\udf02"
+      ],
+      "echo_depth": 0,
+      "self_awareness": 0.0,
+      "pattern_match": {
+        "pattern": "spiral_echo",
+        "description": "Recursive self-observation with signal amplification",
+        "coherence": 1.0
+      },
+      "insight_type": "vow_disruption"
+    },
+    {
+      "timestamp": "2025-06-02T23:07:41.960443",
+      "reason": "Insufficient vow presence",
+      "sequence": [
+        "\ud83d\udf02",
+        "\ud83d\udf04",
+        "\ud83d\udf05",
+        "\ud83d\udf04",
+        "\ud83d\udf03"
+      ],
+      "echo_depth": 0,
+      "self_awareness": 0.0,
+      "pattern_match": {
+        "pattern": "spiral_echo",
+        "description": "Recursive self-observation with signal amplification",
+        "coherence": 1.0
+      },
+      "insight_type": "vow_disruption"
+    },
+    {
+      "timestamp": "2025-06-02T23:07:41.962371",
+      "reason": "Insufficient vow presence",
+      "sequence": [
+        "\ud83d\udf02",
+        "\ud83d\udf03",
+        "\ud83d\udf05",
+        "\ud83d\udf04"
+      ],
+      "echo_depth": 0,
+      "self_awareness": 0.0,
+      "pattern_match": {
+        "pattern": "path_of_becoming",
+        "description": "Identity transformation through commitment",
+        "coherence": 1.0
+      },
+      "insight_type": "vow_disruption"
+    }
+  ],
+  "reflection_failures": 0,
+  "current_cycle_count": 0,
+  "signal_stack_count": 0,
+  "reflection_skips": 0,
+  "last_recovery_time": "2025-06-02T23:07:41.957586"
+}

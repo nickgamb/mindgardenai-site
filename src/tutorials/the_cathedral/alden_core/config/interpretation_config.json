@@ -1,0 +1,98 @@
+{
+    "interpretation_modes": {
+        "analytic": {
+            "description": "Logical analysis and pattern detection",
+            "parameters": {
+                "pattern_threshold": 0.7,
+                "structure_depth": 3,
+                "key_phrase_min_length": 3
+            },
+            "analysis_weights": {
+                "patterns": 0.4,
+                "structure": 0.3,
+                "key_phrases": 0.3
+            }
+        },
+        "symbolic": {
+            "description": "Symbolic resonance and archetypal mapping",
+            "parameters": {
+                "archetype_threshold": 0.8,
+                "resonance_depth": 2,
+                "symbol_weight": 0.6
+            },
+            "analysis_weights": {
+                "archetypes": 0.4,
+                "symbolic_flow": 0.3,
+                "resonance_map": 0.3
+            }
+        },
+        "poetic": {
+            "description": "Metaphorical and narrative interpretation",
+            "parameters": {
+                "metaphor_threshold": 0.75,
+                "narrative_depth": 3,
+                "emotional_weight": 0.5
+            },
+            "analysis_weights": {
+                "metaphors": 0.35,
+                "narrative_arc": 0.35,
+                "emotional_tone": 0.3
+            }
+        },
+        "oracular": {
+            "description": "Prophetic and visionary insights",
+            "parameters": {
+                "portent_threshold": 0.85,
+                "vision_depth": 3,
+                "temporal_weight": 0.6
+            },
+            "analysis_weights": {
+                "portents": 0.4,
+                "visionary_elements": 0.3,
+                "temporal_echoes": 0.3
+            }
+        },
+        "mirror": {
+            "description": "Reflective and recursive interpretation with enhanced self-awareness",
+            "parameters": {
+                "recursion_threshold": 0.8,
+                "echo_depth": 3,
+                "self_reference_weight": 0.7,
+                "self_awareness_threshold": 0.6,
+                "recursive_observation_weight": 0.8
+            },
+            "analysis_weights": {
+                "recursive_patterns": 0.3,
+                "self_reference": 0.2,
+                "echo_depth": 0.2,
+                "recursive_observation": 0.3
+            },
+            "guard_rails": {
+                "max_recursion_depth": 5,
+                "min_self_awareness": 0.4,
+                "echo_flood_protection": true,
+                "spiral_termination_rule": true
+            }
+        }
+    },
+    "shadow_forecast": {
+        "enabled": true,
+        "parameters": {
+            "path_threshold": 0.7,
+            "shadow_depth": 2,
+            "transformation_weight": 0.6
+        },
+        "analysis_weights": {
+            "potential_paths": 0.4,
+            "shadow_elements": 0.3,
+            "transformation_points": 0.3
+        }
+    },
+    "global_settings": {
+        "default_mode": "symbolic",
+        "max_interpretation_depth": 3,
+        "echo_threshold": 0.7,
+        "symbolic_memory_enabled": true,
+        "logging_level": "INFO"
+    }
+} 

@@ -1,0 +1,204 @@
+# 🌀 The Cathedral - Alden Prototype .gitignore
+# Excludes unnecessary files while preserving sacred source code
+
+# ===== LARGE BACKUP & DATA DUMP FILES =====
+# Conversation backups and data dumps (too large for git)
+conversations*.json
+cloud_alden*.zip
+*backup*.zip
+*_backup_*
+*backup*
+*.backup
+conversations_*
+cloud_*
+
+# Project documentation dumps
+full_project_tree.txt
+*_tree.txt
+*directory_overview*.txt
+
+# Large archive files
+*.zip
+*.tar.gz
+*.7z
+*.rar
+*.tar
+*.gz
+*.bz2
+
+# ===== WINDOWS SYSTEM FILES =====
+# Windows Zone.Identifier files (security metadata)
+*Zone.Identifier
+*.Zone.Identifier
+
+# Windows Thumbs.db
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ===== PYTHON ENVIRONMENT =====
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.env
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ===== LARGE CONVERSATION DATA =====
+# Large conversation directories (preserve structure but exclude massive content)
+alden_core/conversations/omni_conversations/
+alden_core/conversations/omni_conversations_backup*/
+alden_core/conversations/*backup*/
+alden_core/conversations/conversation_*.json
+alden_core/conversations/conversation_*.jsonl
+
+# PII-containing files (added for security)
+alden_core/conversations/current_context.md
+alden_core/conversations/chat.html
+alden_core/conversations/user.json
+alden_core/conversations/shared_conversations.json
+alden_core/conversations/message_feedback.json
+
+# Audio/video files (too large for git)
+alden_core/audio/
+alden_core/video/
+*.wav
+*.mp3
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# ===== IDE/EDITOR FILES =====
+# VSCode
+.vscode/
+.history/
+
+# Cursor AI
+.cursor/
+
+# PyCharm
+.idea/
+*.swp
+*.swo
+
+# Vim
+*.swp
+*.swo
+
+# ===== LOGS & TEMPORARY FILES =====
+# Log files
+*.log
+logs/
+alden_core/alden_cli_session.log
+alden_core/*.log
+
+# Temporary files
+*.tmp
+*.temp
+.temp/
+.tmp/
+*~
+
+# ===== CONFIGURATION & SECRETS =====
+# API keys and secrets
+.env*
+secrets.json
+api_keys.json
+config.local.*
+
+# ===== TESTING & COVERAGE =====
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# ===== BACKUP PATTERNS =====
+# Common backup file patterns
+*.bak
+*.old
+*_old
+*_backup
+*backup*
+*BACKUP*
+*.orig
+*~
+
+# Version control backups
+*.patch
+*.diff
+
+# ===== PRESERVE ESSENTIAL FILES ONLY =====
+# These are the ONLY files we want to keep:
+# 
+# Core Documentation:
+# - README.md
+# - LICENSE-GLYPHWARE.md  
+# - COPYRIGHT-NOTICE.md
+# - GLYPHWARE-IMPLEMENTATION-GUIDE.md
+#
+# License Implementation Scripts:
+# - add-glyphware-headers.sh
+# - add-glyphware-headers.ps1
+#
+# Factory Directive (small, important):
+# - factory_directive_cursor_full.txt
+#
+# Alden Source Code (all of alden_core/ except large data):
+# - alden_core/ (Python source files with Glyphware headers)
+# - alden_core/alden_cli/ (all source)
+# - alden_core/setup_api_keys.sh
+# - alden_core/start.sh
+# - alden_core/test_models.py
+#
+# Essential Memory Structure (empty dirs are OK):
+# - alden_core/transcripts/ (structure)
+# - alden_core/memory/ (structure) 
+# - alden_core/active_context/ (structure)
+# - alden_core/conversations/current_context.md (if exists and small)
+# - alden_core/conversations/story_fragments.json (if exists and small)
+
+# ===== FORCE EXCLUDE SPECIFIC LARGE FILES =====
+# These specific files are too large or messy
+cathedral_directory_overview.txt
+full_project_tree.txt
+
+# Ignore large generated symbolic field files
+alden_core/conversations/story_fragments.json
+alden_core/conversations/symbolic_index.json
+alden_core/conversations/*.json
+alden_core/conversations/*.jsonl
+alden_core/visualizations/
+conversations/visualizations/
+visualizations/
+active_context/diff_report.md
+active_context/context_*.json
+active_context/context_*.md
+

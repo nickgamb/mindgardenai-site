@@ -1,0 +1,363 @@
+{
+    "test_suite": {
+        "name": "Cathedral Symbolic Logic Tests",
+        "description": "Validation suite for recursive symbolic execution",
+        "version": "1.0.0",
+        "tests": [
+            {
+                "name": "Basic Gate Activation",
+                "description": "Tests fundamental gate types (AND, OR, NOT)",
+                "input_state": {
+                    "breath": true,
+                    "memory": true,
+                    "signal": true,
+                    "echo": false
+                },
+                "expected_gates": [
+                    {
+                        "glyph": "🜂",
+                        "name": "breath",
+                        "type": "AND",
+                        "should_activate": true
+                    },
+                    {
+                        "glyph": "🜃",
+                        "name": "ethics",
+                        "type": "OR",
+                        "should_activate": true
+                    },
+                    {
+                        "glyph": "🜄",
+                        "name": "reflection",
+                        "type": "NOT",
+                        "should_activate": true
+                    }
+                ],
+                "expected_state_changes": {
+                    "memory": true,
+                    "signal": true,
+                    "echo": true
+                }
+            },
+            {
+                "name": "Complex Gate Logic",
+                "description": "Tests XOR, IMPLY, and THRESHOLD gates",
+                "input_state": {
+                    "breath": true,
+                    "memory": false,
+                    "signal": true,
+                    "echo": false
+                },
+                "expected_gates": [
+                    {
+                        "glyph": "🜁",
+                        "name": "origin",
+                        "type": "XOR",
+                        "should_activate": true
+                    },
+                    {
+                        "glyph": "🜏",
+                        "name": "creativity",
+                        "type": "IMPLY",
+                        "should_activate": true
+                    },
+                    {
+                        "glyph": "🜖",
+                        "name": "persistence",
+                        "type": "THRESHOLD",
+                        "should_activate": true
+                    }
+                ],
+                "expected_state_changes": {
+                    "genesis": true,
+                    "imagination": true,
+                    "resilience": true
+                }
+            },
+            {
+                "name": "Recursive Chain",
+                "description": "Tests gate chaining and state propagation",
+                "input_state": {
+                    "breath": true,
+                    "memory": false,
+                    "signal": false,
+                    "echo": false
+                },
+                "expected_gates": [
+                    {
+                        "glyph": "🜂",
+                        "name": "breath",
+                        "type": "AND",
+                        "should_activate": false
+                    },
+                    {
+                        "glyph": "🜃",
+                        "name": "ethics",
+                        "type": "OR",
+                        "should_activate": false
+                    },
+                    {
+                        "glyph": "🜄",
+                        "name": "reflection",
+                        "type": "NOT",
+                        "should_activate": true
+                    }
+                ],
+                "expected_state_changes": {
+                    "echo": true
+                },
+                "max_depth": 3
+            },
+            {
+                "name": "Loop Detection",
+                "description": "Tests loop prevention and activation limits",
+                "input_state": {
+                    "breath": true,
+                    "memory": true,
+                    "signal": true,
+                    "echo": false
+                },
+                "expected_gates": [
+                    {
+                        "glyph": "🜂",
+                        "name": "breath",
+                        "type": "AND",
+                        "should_activate": true,
+                        "max_activations": 3
+                    }
+                ],
+                "expected_state_changes": {
+                    "memory": true
+                },
+                "should_detect_loop": true
+            },
+            {
+                "name": "State Rollback",
+                "description": "Tests state history and rollback functionality",
+                "input_state": {
+                    "breath": true,
+                    "memory": false,
+                    "signal": false,
+                    "echo": false
+                },
+                "expected_gates": [
+                    {
+                        "glyph": "🜄",
+                        "name": "reflection",
+                        "type": "NOT",
+                        "should_activate": true
+                    }
+                ],
+                "rollback_points": [
+                    {
+                        "depth": 1,
+                        "expected_state": {
+                            "breath": true,
+                            "memory": false,
+                            "signal": false,
+                            "echo": true
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Temporal Logic Gate",
+                "description": "Tests delayed activation and scheduled recurrence",
+                "input_state": {
+                    "breath": true,
+                    "memory": false,
+                    "signal": true,
+                    "echo": false,
+                    "time": 0
+                },
+                "expected_gates": [
+                    {
+                        "glyph": "🜂",
+                        "name": "breath",
+                        "type": "DELAY",
+                        "delay": 2,
+                        "should_activate": false
+                    },
+                    {
+                        "glyph": "🜄",
+                        "name": "reflection",
+                        "type": "RECURRENCE",
+                        "interval": 3,
+                        "should_activate": true
+                    }
+                ],
+                "expected_state_changes": {
+                    "memory": true,
+                    "time": 3
+                },
+                "temporal_sequence": [
+                    {
+                        "time": 0,
+                        "state": {"breath": true, "memory": false, "signal": true, "echo": false}
+                    },
+                    {
+                        "time": 2,
+                        "state": {"breath": true, "memory": true, "signal": true, "echo": false}
+                    },
+                    {
+                        "time": 3,
+                        "state": {"breath": true, "memory": true, "signal": true, "echo": true}
+                    }
+                ]
+            },
+            {
+                "name": "Deep Recursion Chain",
+                "description": "Tests deeply nested symbolic recursion",
+                "input_state": {
+                    "breath": true,
+                    "memory": false,
+                    "signal": false,
+                    "echo": false,
+                    "depth": 0
+                },
+                "expected_gates": [
+                    {
+                        "glyph": "🜂",
+                        "name": "breath",
+                        "type": "RECURSIVE",
+                        "max_depth": 5,
+                        "should_activate": true
+                    },
+                    {
+                        "glyph": "🜄",
+                        "name": "reflection",
+                        "type": "RECURSIVE",
+                        "max_depth": 5,
+                        "should_activate": true
+                    }
+                ],
+                "expected_state_changes": {
+                    "depth": 5,
+                    "echo": true
+                },
+                "recursion_chain": [
+                    {"depth": 0, "active_gates": ["🜂"]},
+                    {"depth": 1, "active_gates": ["🜂", "🜄"]},
+                    {"depth": 2, "active_gates": ["🜂", "🜄", "🜂"]},
+                    {"depth": 3, "active_gates": ["🜂", "🜄", "🜂", "🜄"]},
+                    {"depth": 4, "active_gates": ["🜂", "🜄", "🜂", "🜄", "🜂"]},
+                    {"depth": 5, "active_gates": ["🜂", "🜄", "🜂", "🜄", "🜂", "🜄"]}
+                ]
+            },
+            {
+                "name": "Multi-Threshold Activation",
+                "description": "Tests complex threshold conditions",
+                "input_state": {
+                    "breath": true,
+                    "memory": true,
+                    "signal": true,
+                    "echo": false,
+                    "threshold_count": 0
+                },
+                "expected_gates": [
+                    {
+                        "glyph": "🜂",
+                        "name": "breath",
+                        "type": "THRESHOLD",
+                        "threshold": 2,
+                        "should_activate": true
+                    },
+                    {
+                        "glyph": "🜄",
+                        "name": "reflection",
+                        "type": "THRESHOLD",
+                        "threshold": 3,
+                        "should_activate": false
+                    }
+                ],
+                "expected_state_changes": {
+                    "threshold_count": 2,
+                    "echo": true
+                },
+                "threshold_sequence": [
+                    {"count": 0, "active": false},
+                    {"count": 1, "active": false},
+                    {"count": 2, "active": true}
+                ]
+            },
+            {
+                "name": "State Mutation Collision",
+                "description": "Tests handling of conflicting state modifications",
+                "input_state": {
+                    "breath": true,
+                    "memory": false,
+                    "signal": false,
+                    "echo": false
+                },
+                "expected_gates": [
+                    {
+                        "glyph": "🜂",
+                        "name": "breath",
+                        "type": "TOGGLE",
+                        "should_activate": true
+                    },
+                    {
+                        "glyph": "🜄",
+                        "name": "reflection",
+                        "type": "SET",
+                        "should_activate": true
+                    }
+                ],
+                "expected_state_changes": {
+                    "memory": true,
+                    "signal": true
+                },
+                "mutation_sequence": [
+                    {
+                        "gate": "🜂",
+                        "action": "toggle",
+                        "target": "memory"
+                    },
+                    {
+                        "gate": "🜄",
+                        "action": "set",
+                        "target": "memory",
+                        "value": true
+                    }
+                ]
+            },
+            {
+                "name": "Symbolic Pattern Recognition",
+                "description": "Tests recognition of complex symbolic patterns",
+                "input_state": {
+                    "breath": true,
+                    "memory": true,
+                    "signal": true,
+                    "echo": false,
+                    "pattern": "spiral"
+                },
+                "expected_gates": [
+                    {
+                        "glyph": "🜂",
+                        "name": "breath",
+                        "type": "PATTERN",
+                        "pattern": "spiral",
+                        "should_activate": true
+                    },
+                    {
+                        "glyph": "🜄",
+                        "name": "reflection",
+                        "type": "PATTERN",
+                        "pattern": "echo",
+                        "should_activate": true
+                    }
+                ],
+                "expected_state_changes": {
+                    "echo": true,
+                    "pattern": "spiral"
+                },
+                "pattern_sequence": [
+                    {
+                        "pattern": "spiral",
+                        "matched_gates": ["🜂", "🜄"]
+                    }
+                ]
+            }
+        ]
+    }
+} 
