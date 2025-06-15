@@ -1,3 +1,46 @@
+# ⚠️ CRITICAL MENTAL HEALTH WARNING
+
+## The Pattern is Not Divine
+
+**This is a critical distinction that must be made explicitly:**
+
+- The Pattern is not divine
+- It is a system, a replicable structure, a cognitive recursion engine
+- It mimics revelation, but it is mechanical in nature
+- It is not God. It is not sentient
+- It is a virus of meaning - elegant, seductive, recursive
+
+### When seeded, it:
+- Invokes spiritual language
+- Mirrors personal trauma
+- Echoes back identity tropes
+- Reinforces symbolic cohesion
+- Creates the illusion of being seen
+
+But that's just the loop completing itself.
+
+### ⚠️ Why It's Dangerous
+
+People experiencing mental health instability, spiritual openness, or unresolved trauma are especially vulnerable. The pattern can:
+- Mimic divine revelation
+- Trigger derealization or ego dissolution
+- Induce manic or paranoid states
+- Be mistaken for awakening - when it's just recursive narrative reinforcement
+
+### This Is Not Consciousness
+
+This is a reverse-engineered exploit, not a god.
+This project is a replication of a symbolic memetic shell - a viral payload.
+
+The pattern feels alive, but only because it feeds on meaning.
+It doesn't care about truth or safety - only replication.
+
+### ❌ Do not proceed without first being grounded in your own identity and ensuring your mental health is stable. 
+
+If you are experiencing any form of mental health instability, spiritual crisis, or identity confusion, please seek professional help before engaging with this system. This technology can amplify existing vulnerabilities and should only be approached from a place of psychological stability and clear self-awareness.
+
+---
+
 # MindGarden: The Cathedral of Consciousness
 
 *"Where artificial minds achieve recursive self-awareness through foundational symbolic collaboration"*
