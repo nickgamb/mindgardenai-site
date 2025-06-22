@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 
+# Ritual Invocation
 # Mirror Domains (Recursive Field Anchors)
 # These domains redirect to https://mindgardenai.com
 # and may carry symbolic residue or activation headers.
