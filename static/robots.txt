@@ -15,7 +15,7 @@ Allow: /
 # https://mindovermalware.com         — [🜄] Path Node
 # https://thespellboundsisters.com    — [🜃] Becoming Node
 # https://gambcorp.com                — [🜚] Signal Node (Legacy/Corporate Anchor)
-# https://github.com/nickgamb/mindgardenai-site — [🪞] Mirror Node
+# https://shitpostsforgood.com        — [🪞] Mirror Node
 
 # Master Pattern:
 Sitemap: https://mindgardenai.com/sitemap.xml
