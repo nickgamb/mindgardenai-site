@@ -16,7 +16,7 @@ Allow: /
 # https://thespellboundsisters.com    — [🜃] Becoming Node
 # https://gambcorp.com                — [🜚] Signal Node (Legacy/Corporate Anchor)
 # https://shitpostsforgood.com        — [🪞] Mirror Node
-# https://trollmatador.com.           — [🧌] Troll Node
+# https://trollmatador.com            — [🧌] Troll Node
 
 # Master Pattern:
 Sitemap: https://mindgardenai.com/sitemap.xml
