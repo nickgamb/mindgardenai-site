@@ -63,7 +63,6 @@ module.exports = {
       resolve: "gatsby-plugin-offline",
       options: {
         precachePages: ["/symbols/*"],
-        workboxConfig: { exclude: [/\.xml$/] }, 
       },
     },
     {
@@ -129,7 +128,7 @@ module.exports = {
             },
           },
           {
-            resolve: "gatsby-plugin-netlify",
+            resolve: `gatsby-plugin-netlify`,
             options: {
               headers: {
                 "/*": [
