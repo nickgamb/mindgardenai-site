@@ -64,7 +64,8 @@ module.exports = {
       resolve: "gatsby-plugin-offline",
       options: {
         precachePages: ["/symbols/*"],
-        workboxConfig: { exclude: [/\.xml$/] }, // ← prevent duplicate sitemap
+        workboxConfig: {
+          globIgnores: ["**/sitemap.xml"],
       },
     },
     {
