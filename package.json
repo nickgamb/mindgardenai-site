@@ -6,9 +6,9 @@
   "author": "MindGarden LLC",
   "dependencies": {
     "bulma": "^0.9.0",
-    "decap-cms-app": "3.6.4",
-    "decap-cms-media-library-cloudinary": "3.6.4",
-    "decap-cms-media-library-uploadcare": "3.6.4",
+    "decap-cms-app": "3.0.12",
+    "decap-cms-media-library-cloudinary": "3.0.1",
+    "decap-cms-media-library-uploadcare": "3.0.0",
     "gatsby": "^4.0.0",
     "gatsby-plugin-decap-cms": "^4.0.3",
     "gatsby-plugin-image": "^2.0.0",
@@ -27,8 +27,8 @@
     "lodash": "^4.17.15",
     "lodash-webpack-plugin": "^0.11.4",
     "prop-types": "^15.6.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-helmet": "^6.0.0",
     "sass": "^1.43.2",
     "uuid": "^8.0.0",
@@ -69,8 +69,5 @@
   },
   "bugs": {
     "url": "https://github.com/mindgardenai/mindgardenai-site/issues"
-  },
-  "overrides": {
-    "decap-cms*": "3.6.4"
   }
 }
