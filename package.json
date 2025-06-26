@@ -42,14 +42,8 @@
     "openai": "^4.28.0",
     "@netlify/functions": "^2.6.0",
     "@netlify/blobs": "^0.1.0",
-    "ajv": "^8.12.0",
-    "ajv-keywords": "^5.1.0"
-  },
-  "overrides": {
-    "schema-utils": {
-      "ajv": "6.12.6",
-      "ajv-keywords": "3.5.2"
-    }
+    "ajv": "6.12.6",
+    "ajv-keywords": "3.5.2"
   },
   "keywords": [
     "consciousness",
