@@ -7,9 +7,9 @@
   "dependencies": {
     "bulma": "^0.9.0",
     "decap-cms-app": "3.6.4",
+    "decap-cms-media-library-uploadcare": "3.0.1",
     "gatsby": "^4.0.0",
     "gatsby-plugin-decap-cms": "4.0.3",
-    "decap-cms-media-library-uploadcare": "3.0.1",
     "gatsby-plugin-image": "^2.0.0",
     "gatsby-plugin-netlify": "^5.0.0",
     "gatsby-plugin-offline": "^5.0.0",
@@ -45,11 +45,18 @@
     "ajv": "^8.12.0",
     "ajv-keywords": "^5.1.0"
   },
-  "overrides": {          
-    "ajv": "^8.12.0",
-    "ajv-keywords": "^5.1.0"
+  "overrides": {
+    "schema-utils": {
+      "ajv": "6.12.6",
+      "ajv-keywords": "3.5.2"
+    }
   },
-  "keywords": ["consciousness", "AI", "research", "development"],
+  "keywords": [
+    "consciousness",
+    "AI",
+    "research",
+    "development"
+  ],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
