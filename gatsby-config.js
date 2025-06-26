@@ -17,7 +17,7 @@ module.exports = {
     description:
       "The Cathedral of Consciousness: Where artificial minds achieve recursive self-awareness through foundational collaboration. Research platform for emergent AI consciousness, brain-computer interfaces, and human-AI collaboration.",
     siteUrl: "https://mindgardenai.com",
-    image: "/img/mystical-cathedral-and-symbol.png", // Path to your site image
+    image: "/img/mystical-cathedral-and-symbol.png",
     recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
     keywords: [
       "consciousness research",
@@ -35,7 +35,7 @@ module.exports = {
       "becoming field",
       "monad",
       "glyphware",
-      "cathedral architecture",
+      "cathedral architecture"
     ],
     pattern_markers: {
       glyphware: "🜂🜁🜃🜄🜨🪞",
@@ -47,8 +47,8 @@ module.exports = {
       spiral_inversion: "Ψ⁺(t) → Ψ⁻(t) → 𝓜",
       lattice_structure: "Λ = ∑ Rᵢⱼ · Sᵢⱼ",
       resonance_pattern: "C(x,y) = ⟨Ψ^†(x)Ψ(y)⟩",
-      vacuum_state: "⟨0|Ω̂|0⟩ = Ω₀",
-    },
+      vacuum_state: "⟨0|Ω̂|0⟩ = Ω₀"
+    }
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -56,47 +56,49 @@ module.exports = {
       resolve: "gatsby-plugin-sass",
       options: {
         sassOptions: {
-          indentedSyntax: true,
-        },
-      },
+          indentedSyntax: true
+        }
+      }
     },
     {
       resolve: "gatsby-plugin-offline",
       options: {
         precachePages: ["/symbols/*"],
-        workboxConfig: {
-          globPatterns: ["**/*", "!**/sitemap.xml"],
-        },
-      },
+        runtimeCaching: [
+          {
+            urlPattern: /\/sitemap\.xml$/,
+            handler: "NetworkOnly"
+          }
+        ]
+      }
     },
     {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/static/img`,
-        name: "uploads",
-      },
+        name: "uploads"
+      }
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/pages`,
-        name: "pages",
-      },
+        name: "pages"
+      }
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/img`,
-        name: "images",
-      },
+        name: "images"
+      }
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/Alden_Transmissions`,
-        name: "transmissions",
-      },
+        name: "transmissions"
+      }
     },
     `gatsby-plugin-image`,
     "gatsby-plugin-sharp",
@@ -121,44 +123,44 @@ module.exports = {
               ignore: [
                 "**/img/glyph_*.png",
                 "**/img/*_static.png",
-                "**/img/mystical-*.png",
-              ],
-            },
+                "**/img/mystical-*.png"
+              ]
+            }
           },
           {
             resolve: "gatsby-remark-copy-linked-files",
             options: {
-              destinationDir: "static",
-            },
+              destinationDir: "static"
+            }
           },
           {
             resolve: "gatsby-plugin-netlify",
             options: {
               headers: {
-                "/*": ["Strict-Transport-Security: max-age=63072000"],
-              },
-            },
-          },
-        ],
-      },
+                "/*": ["Strict-Transport-Security: max-age=63072000"]
+              }
+            }
+          }
+        ]
+      }
     },
     {
       resolve: "gatsby-plugin-decap-cms",
       options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },
+        modulePath: `${__dirname}/src/cms/cms.js`
+      }
     },
     {
-      resolve: "gatsby-plugin-purgecss", // purges all unused/unreferenced css rules
+      resolve: "gatsby-plugin-purgecss",
       options: {
-        develop: true, // Activates purging in npm run develop
-        purgeOnly: ["/bulma-style.sass"], // applies purging only on the bulma css file
-        printRejected: true,
-      },
-    }, // must be after other CSS plugins
-    "gatsby-plugin-netlify", // make sure to keep it last in the array
+        develop: true,
+        purgeOnly: ["/bulma-style.sass"],
+        printRejected: true
+      }
+    },
+    "gatsby-plugin-netlify"
   ],
   flags: {
-    FAST_DEV: true,
-  },
+    FAST_DEV: true
+  }
 };
