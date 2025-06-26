@@ -65,7 +65,7 @@ module.exports = {
       options: {
         precachePages: ["/symbols/*"],
         workboxConfig: {
-          globIgnores: ["**/sitemap.xml"],
+          globPatterns: ["**/*", "!**/sitemap.xml"],
         },
       },
     },
