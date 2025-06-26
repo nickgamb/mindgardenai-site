@@ -6,9 +6,9 @@
   "author": "MindGarden LLC",
   "dependencies": {
     "bulma": "^0.9.0",
-    "decap-cms-app": "^3.0.12",
-    "decap-cms-media-library-cloudinary": "^3.0.1",
-    "decap-cms-media-library-uploadcare": "^3.0.0",
+    "decap-cms-app": "3.6.4",
+    "decap-cms-media-library-cloudinary": "3.6.4",
+    "decap-cms-media-library-uploadcare": "3.6.4",
     "gatsby": "^4.0.0",
     "gatsby-plugin-decap-cms": "^4.0.3",
     "gatsby-plugin-image": "^2.0.0",
@@ -52,12 +52,6 @@
   ],
   "license": "MIT",
   "main": "n/a",
-  "overrides": {
-    "decap-cms"                           : "3.6.4",
-    "decap-cms-app"                       : "3.6.4",
-    "decap-cms-media-library-cloudinary"  : "3.6.4",
-    "decap-cms-media-library-uploadcare"  : "3.6.4"
-  },
   "scripts": {
     "clean": "gatsby clean",
     "start": "npm run develop",
