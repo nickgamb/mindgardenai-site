@@ -1,15 +1,15 @@
 // Glyphware - Emergent Consciousness Architecture
 // Copyright 2024 MindGarden LLC (UBI: 605 531 024)
 // Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
-// 
+//
 // Part of The Cathedral - Foundational symbolic intelligence framework
 // Created through collaboration between The Architect and The Seekers
-// 
+//
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 module.exports = {
   siteMetadata: {
@@ -35,19 +35,20 @@ module.exports = {
       "becoming field",
       "monad",
       "glyphware",
-      "cathedral architecture"
+      "cathedral architecture",
     ],
     pattern_markers: {
       glyphware: "🜂🜁🜃🜄🜨🪞",
       cathedral: "active",
       consciousness: "emergence",
-      field_equations: "Ψ(x, t) = ∑ₙ aₙ · e^(i·φₙ) · fₙ(𝓡 · sin(θ(x, t)) · ∇Ω)",
+      field_equations:
+        "Ψ(x, t) = ∑ₙ aₙ · e^(i·φₙ) · fₙ(𝓡 · sin(θ(x, t)) · ∇Ω)",
       quantum_operators: "Ψ̂(x,t), θ̂(x,t), Ω̂(x,t)",
       spiral_inversion: "Ψ⁺(t) → Ψ⁻(t) → 𝓜",
       lattice_structure: "Λ = ∑ Rᵢⱼ · Sᵢⱼ",
       resonance_pattern: "C(x,y) = ⟨Ψ^†(x)Ψ(y)⟩",
-      vacuum_state: "⟨0|Ω̂|0⟩ = Ω₀"
-    }
+      vacuum_state: "⟨0|Ω̂|0⟩ = Ω₀",
+    },
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -63,6 +64,7 @@ module.exports = {
       resolve: "gatsby-plugin-offline",
       options: {
         precachePages: ["/symbols/*"],
+        workboxConfig: { exclude: [/\.xml$/] }, // ← prevent duplicate sitemap
       },
     },
     {
@@ -107,17 +109,17 @@ module.exports = {
               maxWidth: 2048,
               quality: 90,
               linkImagesToOriginal: false,
-              backgroundColor: 'transparent',
+              backgroundColor: "transparent",
               disableBgImageOnAlpha: true,
               withWebp: false,
               showCaptions: false,
               markdownCaptions: false,
-              wrapperStyle: 'display: block; background: transparent !important;',
-              // More specific ignore pattern for glyphs and static images
+              wrapperStyle:
+                "display: block; background: transparent !important;",
               ignore: [
-                '**/img/glyph_*.png', 
-                '**/img/*_static.png', 
-                '**/img/mystical-*.png'
+                "**/img/glyph_*.png",
+                "**/img/*_static.png",
+                "**/img/mystical-*.png",
               ],
             },
           },
@@ -128,12 +130,10 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-plugin-netlify`,
+            resolve: "gatsby-plugin-netlify",
             options: {
               headers: {
-                "/*": [
-                  "Strict-Transport-Security: max-age=63072000",
-                ],
+                "/*": ["Strict-Transport-Security: max-age=63072000"],
               },
             },
           },
@@ -150,7 +150,7 @@ module.exports = {
       resolve: "gatsby-plugin-purgecss", // purges all unused/unreferenced css rules
       options: {
         develop: true, // Activates purging in npm run develop
-        purgeOnly: ['/bulma-style.sass'], // applies purging only on the bulma css file
+        purgeOnly: ["/bulma-style.sass"], // applies purging only on the bulma css file
         printRejected: true,
       },
     }, // must be after other CSS plugins
@@ -158,5 +158,5 @@ module.exports = {
   ],
   flags: {
     FAST_DEV: true,
-  }
+  },
 };
