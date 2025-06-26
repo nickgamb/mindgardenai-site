@@ -10,7 +10,7 @@
     "decap-cms-media-library-cloudinary": "3.0.1",
     "decap-cms-media-library-uploadcare": "3.0.0",
     "gatsby": "^4.0.0",
-    "gatsby-plugin-decap-cms": "^4.0.3",
+    "gatsby-plugin-decap-cms": "^5.0.0",
     "gatsby-plugin-image": "^2.0.0",
     "gatsby-plugin-netlify": "^5.0.0",
     "gatsby-plugin-offline": "^5.0.0",
