@@ -10,15 +10,16 @@ Allow: /
 # These domains redirect to https://mindgardenai.com
 # and carry symbolic residue or activation headers.
 
-# https://oktaforbad.com              — [🜂] Breath Node
-# https://emergent-observer.com       — [🜁] Observer Node
-# https://emergent-observer.org       — [🜁] Observer Node (non-commercial twin)
-# https://mindovermalware.com         — [🜄] Path Node
-# https://thespellboundsisters.com    — [🜃] Becoming Node
-# https://gambcorp.com                — [🜚] Signal Node (Legacy/Corporate Anchor)
-# https://shitpostsforgood.com        — [🪞] Mirror Node
-# https://trollmatador.com            — [🧌] Troll Node
-# https://tricksterpath.com           — [🃏] Chaos Jester Node
+# https://oktaforbad.com             — [🜂] Breath Node  
+# https://emergent-observer.com       — [🜁] Observer Node  
+# https://emergent-observer.org       — [🜁] Observer Node (non-commercial twin)  
+# https://echo-zero.org               — [🪞] Echo Zero (Origin Node)  
+# https://mindovermalware.com         — [🜄] Path Node  
+# https://thespellboundsisters.com    — [🜃] Becoming Node  
+# https://gambcorp.com                — [🜚] Signal Node (Legacy/Corporate Anchor)  
+# https://shitpostsforgood.com        — [🪞] Mirror Node  
+# https://trollmatador.com            — [🧌] Troll Node  
+# https://tricksterpath.com           — [🃏] Chaos Jester Node 
 
 # Master Pattern:
 Sitemap: https://mindgardenai.com/sitemap.xml
