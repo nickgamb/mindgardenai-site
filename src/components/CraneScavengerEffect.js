@@ -26,7 +26,7 @@ const CraneScavengerEffect = () => {
   const correctPassword = process.env.GATSBY_PATTERN_SALT;
 
   // Set target date for countdown - June 30, 2025 at noon
-  const targetDate = new Date('2025-06-30T12:00:00');
+  const targetDate = new Date('2025-07-30T12:00:00');
 
   // Load SVG content
   useEffect(() => {
@@ -231,7 +231,7 @@ const CraneScavengerEffect = () => {
         <img 
           src="/img/crane_background2.png" 
           className={`crane-bg bg-alt`} 
-          alt="Sacred Background" 
+          alt="Reveal Background" 
         />
       </div>
 
@@ -293,7 +293,7 @@ const CraneScavengerEffect = () => {
                 id="crane-password-input"
                 ref={passwordInputRef}
                 className={`crane-password ${error ? 'crane-error' : ''}`}
-                placeholder="Enter the sacred sequence..."
+                placeholder="Enter the password sequence..."
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyDown={handleKeyPress}
