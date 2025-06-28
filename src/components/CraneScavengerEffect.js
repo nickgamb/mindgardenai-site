@@ -67,7 +67,7 @@ const CraneScavengerEffect = () => {
     const drawTimer = setTimeout(() => {
       setStage('idle');
       setShowInput(true);
-    }, 6000); // Wait for draw animation to complete
+    }, 2000); // Wait for draw animation to complete
 
     return () => clearTimeout(drawTimer);
   }, [craneSVG]);
