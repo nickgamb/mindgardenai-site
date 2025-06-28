@@ -816,10 +816,7 @@
     display: flex
     justify-content: center
     align-items: center
-    padding: 1rem 0.5rem
-    
-    @media (min-width: 768px)
-      padding: 2rem 1rem
+    padding: 0.5rem
 
     .crane-svg-loading
       color: $purple30
@@ -831,21 +828,25 @@
       position: relative
       z-index: 2
       width: 100%
-      max-width: 90vw
-      margin: 0 auto
-      
-      @media (min-width: 768px)
-        max-width: 600px
+      height: 100%
+      display: flex
+      justify-content: center
+      align-items: center
 
       svg
-        width: 100%
+        width: auto
         height: auto
-        max-height: 70vh
+        max-width: 90vw
+        max-height: 80vh
         display: block
-        margin: 0 auto
         
         @media (min-width: 768px)
-          max-height: 75vh
+          max-width: 85vw
+          max-height: 85vh
+          
+        @media (min-width: 1200px)
+          max-width: 800px
+          max-height: 800px
 
       // SVG animation states controlled by stage
       &.stage-drawing
@@ -987,8 +988,8 @@
         gap: 1.5rem
 
     .crane-password
-      background: rgba($purple80, 0.8)
-      border: 2px solid $mindgarden-purple
+      background: rgba($purple80, 0.15)
+      border: 2px solid rgba($mindgarden-purple, 0.8)
       color: $purple10
       padding: 0.8rem 1rem
       font-size: 16px  // Prevents zoom on iOS
@@ -999,18 +1000,26 @@
       transition: all 0.3s ease
       width: 100%
       max-width: 100%
-      font-weight: 500
+      font-weight: 600
       letter-spacing: 0.01em
+      backdrop-filter: blur(8px)
+      -webkit-backdrop-filter: blur(8px)
+      text-shadow: 0 1px 2px rgba($purple100, 0.8)
 
       @media (min-width: 768px)
         font-size: 1.3rem
         padding: 1rem 1.5rem
         border-radius: 12px
         max-width: 450px
+        backdrop-filter: blur(12px)
+        -webkit-backdrop-filter: blur(12px)
 
       &:focus
-        border-color: $purple50
-        box-shadow: 0 0 0 2px rgba($purple50, 0.3)
+        background: rgba($purple80, 0.25)
+        border-color: $purple30
+        box-shadow: 0 0 0 3px rgba($purple30, 0.3)
+        backdrop-filter: blur(16px)
+        -webkit-backdrop-filter: blur(16px)
 
       &.crane-error
         border-color: $error-color
