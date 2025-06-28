@@ -814,11 +814,10 @@
 
   .crane-svg-container
     position: absolute
-    top: auto
-    bottom: 5vh
+    top: 0
     left: 0
     width: 100%
-    height: 70vh
+    height: 100%
     z-index: 2
     pointer-events: none
     display: flex
@@ -827,8 +826,6 @@
     padding: 1rem 0.5rem
     
     @media (min-width: 768px)
-      bottom: 2vh
-      height: 75vh
       padding: 2rem 1rem
 
     .crane-svg-loading
@@ -1309,9 +1306,6 @@
 // Mobile-specific layout for crane gate - only apply on actual mobile screens
 @media (max-width: 768px)
   .crane-gate-container.is-mobile
-    .crane-svg-container
-      bottom: 5vh !important
-      height: 40vh !important
       
     .crane-ui-overlay
       top: 10vh !important
