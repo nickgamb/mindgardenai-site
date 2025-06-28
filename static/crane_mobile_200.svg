@@ -1,4 +1,5 @@
-<?xml version="1.0" ?><svg xmlns="http://www.w3.org/2000/svg" baseProfile="full" height="400" version="1.1" viewBox="0 0 1024 1024" width="400"><defs><filter height="200%" id="glowPulse" width="200%" x="-50%" y="-50%"><feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="3"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter><style type="text/css">
+<?xml version="1.0" encoding="utf-8"?>
+<svg baseProfile="full" height="300" version="1.1" viewBox="0 0 1024 1024" width="300" xmlns="http://www.w3.org/2000/svg"><defs><filter height="200%" id="glowPulse" width="200%" x="-50%" y="-50%"><feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="3"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter><style type="text/css">
 @keyframes draw {
   to { stroke-dashoffset: 0; }
 }
