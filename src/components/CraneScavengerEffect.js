@@ -182,7 +182,7 @@ const CraneScavengerEffect = () => {
     }
   
     // Mobile optimization - fewer particles on smaller screens
-    //const particleCount = window.innerWidth < 500 ? 40 : 60;
+    const particleCount = window.innerWidth < 500 ? 40 : 60;
     
     // Populate particles
     for (let i = 0; i < particleCount; i++) {
