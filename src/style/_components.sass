@@ -1397,39 +1397,3 @@
     background-position: 0% 50%
   50%
     background-position: 100% 50%
-
-// Force crane animation stages to apply globally
-.crane-svg.stage-drawing .line {
-  stroke: $purple30;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: craneLineDraw 6s forwards;
-  filter: drop-shadow(0 0 4px rgba($purple30, 0.5));
-}
-
-.crane-svg.stage-idle .line {
-  stroke: $purple30;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 0;
-  animation: craneIdleGlow 2s infinite alternate;
-  filter: drop-shadow(0 0 6px rgba($purple30, 0.6));
-}
-
-.crane-svg.stage-explode .line,
-.crane-svg.stage-explode .shard {
-  animation: craneExplodeFly 1.2s ease-out forwards;
-}
-
-.crane-svg {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  will-change: transform;
-}
