@@ -755,24 +755,27 @@
     color: $warning-dark
 
 // === CRANE GATE SCAVENGER HUNT STYLES ===
+// Mobile-first approach following site patterns
 .crane-gate-wrapper
-  width: 100vw
-  height: 100vh
+  width: 100%
+  min-height: 100vh
   overflow: hidden
   position: relative
   box-sizing: border-box
 
 .crane-gate-container
   position: relative
-  width: 100vw
-  height: 100vh
+  width: 100%
+  min-height: 100vh
   overflow: hidden
   background-color: $purple100
   display: flex
   flex-direction: column
-  justify-content: center
-  align-items: center
   box-sizing: border-box
+  padding: 0.5rem
+  
+  @media (min-width: 768px)
+    padding: 1rem
 
   .crane-backgrounds
     position: absolute
@@ -811,20 +814,29 @@
 
   .crane-svg-container
     position: absolute
+    top: 0
+    left: 0
     width: 100%
-    height: 100%
+    height: 70%
     z-index: 2
     pointer-events: none
     display: flex
     justify-content: center
     align-items: center
-    padding: 0.5rem
+    padding: 1rem 0.5rem
+    
+    @media (min-width: 768px)
+      height: 75%
+      padding: 2rem 1rem
 
     .crane-svg-loading
       color: $purple30
-      font-size: 1.2rem
+      font-size: 1rem
       opacity: 0.7
       text-align: center
+      
+      @media (min-width: 768px)
+        font-size: 1.2rem
 
     .crane-svg
       position: relative
@@ -833,22 +845,27 @@
       height: 100%
       display: flex
       justify-content: center
-      align-items: center
+      align-items: flex-start
+      padding-top: 2rem
+      
+      @media (min-width: 768px)
+        align-items: center
+        padding-top: 0
 
       svg
         width: auto
         height: auto
-        max-width: 90vw
-        max-height: 80vh
+        max-width: 85vw
+        max-height: 100%
         display: block
         
         @media (min-width: 768px)
-          max-width: 85vw
-          max-height: 85vh
+          max-width: 70vw
+          max-height: 80%
           
         @media (min-width: 1200px)
-          max-width: 800px
-          max-height: 800px
+          max-width: 600px
+          max-height: 600px
 
       // SVG animation states controlled by stage
       &.stage-drawing
@@ -887,56 +904,62 @@
   .crane-ui-overlay
     z-index: 3
     position: absolute
-    top: 5vh
+    bottom: 5vh
     left: 50%
     transform: translateX(-50%)
     text-align: center
     animation: craneUIFadeIn 1.2s ease-in
     pointer-events: auto
     width: 100%
-    max-width: 90vw
-    padding: 0 1rem
+    max-width: 95vw
+    padding: 0 0.5rem
     box-sizing: border-box
 
     @media (min-width: 768px)
       top: 8vh
+      bottom: auto
       max-width: 700px
       padding: 0 1.5rem
 
     .crane-interface-card
-      background-color: rgba($purple90, 0.15)
-      border: 2px solid rgba($purple50, 0.6)
+      background-color: rgba($purple90, 0.9)
+      border: 1px solid rgba($purple50, 0.3)
       border-radius: 12px
-      padding: 1.5rem 1rem
+      padding: 1.2rem 1rem
       margin: 0 auto
-      backdrop-filter: blur(20px)
-      -webkit-backdrop-filter: blur(20px)
-      box-shadow: 0 8px 32px rgba($primary, 0.2), 0 0 0 1px rgba($purple30, 0.1)
+      backdrop-filter: blur(8px)
+      -webkit-backdrop-filter: blur(8px)
+      box-shadow: 0 4px 12px rgba($primary, 0.15)
       transition: all 0.3s ease
       width: 100%
+      max-width: 100%
       box-sizing: border-box
 
       @media (min-width: 768px)
+        background-color: rgba($purple90, 0.15)
+        border: 2px solid rgba($purple50, 0.6)
         padding: 2.5rem 2rem
         border-radius: 16px
         max-width: 600px
         backdrop-filter: blur(24px)
         -webkit-backdrop-filter: blur(24px)
+        box-shadow: 0 8px 32px rgba($primary, 0.2), 0 0 0 1px rgba($purple30, 0.1)
 
       &:hover
-        background-color: rgba($purple90, 0.98)
-        border-color: rgba($purple50, 0.8)
-        transform: translateY(-2px)
-        box-shadow: 0 12px 40px rgba($primary, 0.3)
+        @media (min-width: 768px)
+          background-color: rgba($purple90, 0.98)
+          border-color: rgba($purple50, 0.8)
+          transform: translateY(-2px)
+          box-shadow: 0 12px 40px rgba($primary, 0.3)
 
     .crane-timer
       display: flex
       flex-direction: column
       align-items: center
-      gap: 0.8rem
-      margin-bottom: 1.5rem
+      gap: 0.6rem
+      margin-bottom: 1rem
       color: $purple50
-      font-size: 1rem
+      font-size: 0.9rem
       font-weight: 500
 
       @media (min-width: 768px)
@@ -948,37 +971,41 @@
         display: flex
         justify-content: center
         align-items: center
-        gap: 0.5rem
+        gap: 0.4rem
         
         @media (min-width: 768px)
           gap: 0.8rem
 
       .countdown-display
-        font-size: 1.2rem
+        font-size: 1.1rem
         font-weight: 700
         color: $purple30
-        text-shadow: 0 0 8px rgba($purple30, 0.6)
-        letter-spacing: 0.02em
+        text-shadow: 0 0 6px rgba($purple30, 0.5)
+        letter-spacing: 0.01em
 
         @media (min-width: 768px)
           font-size: 1.6rem
+          text-shadow: 0 0 8px rgba($purple30, 0.6)
+          letter-spacing: 0.02em
 
         .countdown-icon
-          font-size: 1.3rem
+          font-size: 1.1rem
 
           @media (min-width: 768px)
             font-size: 1.8rem
 
       .elapsed-display
-        font-size: 0.9rem
-        opacity: 0.9
-        font-weight: 500
+        font-size: 0.8rem
+        opacity: 0.8
+        font-weight: 400
 
         @media (min-width: 768px)
           font-size: 1.1rem
+          opacity: 0.9
+          font-weight: 500
 
         .timer-icon
-          font-size: 1rem
+          font-size: 0.9rem
 
           @media (min-width: 768px)
             font-size: 1.3rem
@@ -986,17 +1013,18 @@
     .crane-input-group
       display: flex
       flex-direction: column
-      gap: 1rem
+      gap: 0.8rem
       align-items: center
+      width: 100%
 
       @media (min-width: 768px)
         gap: 1.5rem
 
     .crane-password
-      background: rgba($purple80, 0.15)
-      border: 2px solid rgba($mindgarden-purple, 0.8)
+      background: rgba($purple80, 0.6)
+      border: 1px solid rgba($mindgarden-purple, 0.5)
       color: $purple10
-      padding: 0.8rem 1rem
+      padding: 0.75rem 1rem
       font-size: 16px  // Prevents zoom on iOS
       border-radius: 8px
       outline: none
@@ -1005,31 +1033,42 @@
       transition: all 0.3s ease
       width: 100%
       max-width: 100%
-      font-weight: 600
+      font-weight: 500
       letter-spacing: 0.01em
-      backdrop-filter: blur(8px)
-      -webkit-backdrop-filter: blur(8px)
-      text-shadow: 0 1px 2px rgba($purple100, 0.8)
+      backdrop-filter: blur(4px)
+      -webkit-backdrop-filter: blur(4px)
+      text-shadow: 0 1px 2px rgba($purple100, 0.6)
 
       @media (min-width: 768px)
+        background: rgba($purple80, 0.15)
+        border: 2px solid rgba($mindgarden-purple, 0.8)
         font-size: 1.3rem
         padding: 1rem 1.5rem
         border-radius: 12px
         max-width: 450px
+        font-weight: 600
         backdrop-filter: blur(12px)
         -webkit-backdrop-filter: blur(12px)
+        text-shadow: 0 1px 2px rgba($purple100, 0.8)
 
       &:focus
-        background: rgba($purple80, 0.25)
+        background: rgba($purple80, 0.8)
         border-color: $purple30
-        box-shadow: 0 0 0 3px rgba($purple30, 0.3)
-        backdrop-filter: blur(16px)
-        -webkit-backdrop-filter: blur(16px)
+        box-shadow: 0 0 0 2px rgba($purple30, 0.4)
+        
+        @media (min-width: 768px)
+          background: rgba($purple80, 0.25)
+          box-shadow: 0 0 0 3px rgba($purple30, 0.3)
+          backdrop-filter: blur(16px)
+          -webkit-backdrop-filter: blur(16px)
 
       &.crane-error
         border-color: $error-color
-        background: rgba($error-color, 0.2)
+        background: rgba($error-color, 0.3)
         animation: craneShake 0.5s ease-in-out
+        
+        @media (min-width: 768px)
+          background: rgba($error-color, 0.2)
 
       &::placeholder
         color: rgba($purple10, 0.7)
@@ -1037,7 +1076,7 @@
     .crane-submit
       background: $mindgarden-purple
       color: $purple10
-      padding: 0.8rem 1.5rem
+      padding: 0.75rem 1.5rem
       border: none
       border-radius: 8px
       font-size: 1rem
@@ -1046,10 +1085,12 @@
       transition: all 0.3s ease
       display: inline-flex
       align-items: center
-      gap: 0.6rem
+      justify-content: center
+      gap: 0.5rem
       letter-spacing: 0.01em
-      box-shadow: 0 2px 12px rgba($mindgarden-purple, 0.3)
+      box-shadow: 0 2px 8px rgba($mindgarden-purple, 0.25)
       width: 100%
+      min-height: 44px  // Ensure proper touch target size
 
       @media (min-width: 768px)
         padding: 1rem 2rem
@@ -1058,11 +1099,13 @@
         gap: 0.8rem
         box-shadow: 0 4px 16px rgba($mindgarden-purple, 0.3)
         width: auto
+        min-height: auto
 
       &:hover:not(:disabled)
-        background: lighten($mindgarden-purple, 10%)
-        transform: translateY(-2px)
-        box-shadow: 0 6px 20px rgba($mindgarden-purple, 0.4)
+        @media (min-width: 768px)
+          background: lighten($mindgarden-purple, 10%)
+          transform: translateY(-2px)
+          box-shadow: 0 6px 20px rgba($mindgarden-purple, 0.4)
 
       &:disabled
         opacity: 0.7
@@ -1073,29 +1116,39 @@
 
       .crane-error-message
         color: $error-color
-        margin-top: 1rem
-        font-size: 0.9rem
+        margin-top: 0.8rem
+        font-size: 0.85rem
         display: flex
         align-items: center
         justify-content: center
-        gap: 0.5rem
+        gap: 0.4rem
         animation: craneFadeIn 0.3s ease-in
+        text-align: center
+
+        @media (min-width: 768px)
+          margin-top: 1rem
+          font-size: 0.9rem
+          gap: 0.5rem
 
       .crane-hint
         color: rgba($purple10, 0.8)
-        margin-top: 1rem
-        font-size: 1rem
-        font-weight: 500
+        margin-top: 0.6rem
+        font-size: 0.85rem
+        font-weight: 400
         display: flex
         align-items: center
         justify-content: center
-        gap: 0.6rem
-        opacity: 0.9
+        gap: 0.4rem
+        opacity: 0.8
         animation: craneFadeIn 0.5s ease-in 0.5s both
+        text-align: center
 
-        @media (max-width: 768px)
-          font-size: 0.9rem
-          margin-top: 0.8rem
+        @media (min-width: 768px)
+          margin-top: 1rem
+          font-size: 1rem
+          font-weight: 500
+          gap: 0.6rem
+          opacity: 0.9
 
   .crane-success-overlay
     position: absolute
@@ -1104,44 +1157,58 @@
     transform: translate(-50%, -50%)
     z-index: 4
     text-align: center
+    width: 95%
+    max-width: 500px
 
     .success-message
       background: linear-gradient(135deg, $purple30, $purple50)
       color: $purple10
-      padding: 1.5rem 2rem
+      padding: 1.5rem 1.2rem
       border-radius: 12px
-      font-size: 1.2rem
+      font-size: 1.1rem
       font-weight: 600
       box-shadow: 0 4px 20px rgba($purple30, 0.4)
       animation: cranePulseGlow 2s infinite alternate
       text-align: center
-      max-width: 90vw
+      width: 100%
 
       @media (min-width: 768px)
         padding: 2rem 3rem
         border-radius: 16px
         font-size: 1.5rem
         box-shadow: 0 8px 32px rgba($purple30, 0.4)
-        max-width: none
 
       .success-actions
-        margin-top: 1.5rem
+        margin-top: 1.2rem
+
+        @media (min-width: 768px)
+          margin-top: 1.5rem
 
         .continue-button
           background: linear-gradient(135deg, $purple50, $purple30)
           color: $purple10
-          padding: 0.8rem 2rem
+          padding: 0.75rem 1.5rem
           border: none
-          border-radius: 12px
-          font-size: 1.1rem
+          border-radius: 8px
+          font-size: 1rem
           font-weight: 600
           cursor: pointer
           transition: all 0.3s ease
           box-shadow: 0 4px 16px rgba($purple30, 0.3)
+          min-height: 44px
+          width: 100%
+
+          @media (min-width: 768px)
+            padding: 0.8rem 2rem
+            border-radius: 12px
+            font-size: 1.1rem
+            width: auto
+            min-height: auto
 
           &:hover
-            transform: translateY(-2px)
-            box-shadow: 0 6px 20px rgba($purple30, 0.4)
+            @media (min-width: 768px)
+              transform: translateY(-2px)
+              box-shadow: 0 6px 20px rgba($purple30, 0.4)
 
           &:focus
             outline: 2px solid $purple30
@@ -1250,19 +1317,12 @@
 // Responsive adjustments for crane gate
 @media (max-width: 768px)
   .crane-gate-container
-    .crane-ui-overlay
-      top: 65vh
-      width: 90%
-      left: 50%
-      transform: translateX(-50%)
-
-      .crane-interface-card
-        padding: 1.5rem
-
+    .crane-interface-card
+      padding: 1.2rem 1rem
+      
     .crane-svg-container
       .crane-svg
-        max-width: 90vw
-        padding-top: 5vh
+        padding-top: 1rem
 
 // Global background transition class
 .cathedral-bg-transition
