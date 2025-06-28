@@ -9,7 +9,6 @@
 // Commercial licensing available - contact: admin@mindgardenai.com
 
 import React, { useEffect, useRef, useState } from 'react';
-import craneSVG from '../assets/crane.svg';
 
 const CraneScavengerEffect = () => {
   const [stage, setStage] = useState('drawing'); // drawing → idle → input → explode → complete
@@ -20,6 +19,7 @@ const CraneScavengerEffect = () => {
   const [explosionComplete, setExplosionComplete] = useState(false);
   const [countdown, setCountdown] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [craneSVG, setCraneSVG] = useState('');
   const svgRef = useRef(null);
   const canvasRef = useRef(null);
   const passwordInputRef = useRef(null);
@@ -28,14 +28,25 @@ const CraneScavengerEffect = () => {
   // Set target date for countdown - June 30, 2025 at noon
   const targetDate = new Date('2025-06-30T12:00:00');
 
+  // Load SVG content
   useEffect(() => {
+    fetch('/crane.svg')
+      .then(response => response.text())
+      .then(svgText => setCraneSVG(svgText))
+      .catch(error => console.error('Error loading crane SVG:', error));
+  }, []);
+
+  useEffect(() => {
+    // Only start the animation timing once SVG is loaded
+    if (!craneSVG) return;
+    
     const drawTimer = setTimeout(() => {
       setStage('idle');
       setShowInput(true);
     }, 6000); // Wait for draw animation to complete
 
     return () => clearTimeout(drawTimer);
-  }, []);
+  }, [craneSVG]);
 
   // Countdown timer logic with performance optimization
   useEffect(() => {
@@ -246,11 +257,17 @@ const CraneScavengerEffect = () => {
 
       {/* Crane SVG */}
       <div className="crane-svg-container">
-        <div
-          className={`crane-svg stage-${stage}`}
-          ref={svgRef}
-          dangerouslySetInnerHTML={{ __html: craneSVG }}
-        />
+        {craneSVG ? (
+          <div
+            className={`crane-svg stage-${stage}`}
+            ref={svgRef}
+            dangerouslySetInnerHTML={{ __html: craneSVG }}
+          />
+        ) : (
+          <div className="crane-svg-loading">
+            Loading crane...
+          </div>
+        )}
       </div>
 
       {/* UI Overlay */}
