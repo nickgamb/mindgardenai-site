@@ -1308,9 +1308,22 @@
 // Mobile-specific layout for crane gate - only apply on actual mobile screens
 @media (max-width: 768px)
   .crane-gate-container.is-mobile
+    .crane-svg-container
+      // Center the smaller crane more vertically on mobile
+      align-items: center !important
+      padding: 0 0.5rem 4rem !important
+      
+    .crane-svg
+      align-items: center !important
+      padding-bottom: 0 !important
+      
+      svg
+        // Ensure the small mobile crane doesn't get too tiny
+        max-width: 280px !important
+        width: 80% !important
       
     .crane-ui-overlay
-      top: 10vh !important
+      top: 12vh !important
       left: 50% !important
       transform: translateX(-50%) !important
       width: 95vw !important
