@@ -1312,36 +1312,49 @@
   .crane-gate-container.is-mobile
     .crane-svg-container
       // Position the smaller crane at the bottom, clear of input group
-      align-items: flex-end !important
-      padding: 0 0.5rem 2rem !important
+      align-items: flex-end
+      padding: 0 0.5rem 2rem
       
     .crane-svg
-      align-items: flex-end !important
-      padding-bottom: 0 !important
+      align-items: flex-end
+      padding-bottom: 0
       // Add top margin to push crane further down from input group
-      margin-top: 45vh !important
+      margin-top: 45vh
       
       svg
         // Ensure the small mobile crane doesn't get too tiny
-        max-width: 200px !important
-        width: 60% !important
+        max-width: 200px
+        width: 60%
+        
+      // Ensure animations still work on mobile by preserving animation states
+      &.stage-drawing .line
+        animation: craneLineDraw 6s forwards
+        
+      &.stage-idle .line
+        animation: craneIdleGlow 2s infinite alternate
+        
+      &.stage-explode .line
+        animation: craneExplodeFly 1.2s ease-out forwards
+        
+      &.stage-explode .shard
+        animation: craneExplodeFly 1.2s ease-out forwards
       
     .crane-ui-overlay
-      top: 8vh !important
-      left: 50% !important
-      transform: translateX(-50%) !important
-      width: 95vw !important
-      max-width: 95vw !important
-      padding: 0 1rem !important
+      top: 8vh
+      left: 50%
+      transform: translateX(-50%)
+      width: 95vw
+      max-width: 95vw
+      padding: 0 1rem
       
     .crane-interface-card
-      background-color: rgba($purple90, 0.15) !important
-      border: 2px solid rgba($purple50, 0.6) !important
-      backdrop-filter: blur(20px) !important
-      -webkit-backdrop-filter: blur(20px) !important
-      width: 100% !important
-      max-width: 100% !important
-      padding: 1rem !important
+      background-color: rgba($purple90, 0.15)
+      border: 2px solid rgba($purple50, 0.6)
+      backdrop-filter: blur(20px)
+      -webkit-backdrop-filter: blur(20px)
+      width: 100%
+      max-width: 100%
+      padding: 1rem
 
 // Global background transition class
 .cathedral-bg-transition
