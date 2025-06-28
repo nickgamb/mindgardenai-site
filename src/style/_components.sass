@@ -822,11 +822,12 @@
     pointer-events: none
     display: flex
     justify-content: center
-    align-items: center
-    padding: 1rem 0.5rem
+    align-items: flex-start
+    padding: 2rem 0.5rem 0
     
     @media (min-width: 768px)
-      padding: 2rem 1rem
+      padding: 3rem 1rem 0
+      align-items: flex-start
 
     .crane-svg-loading
       color: $purple30
@@ -845,10 +846,10 @@
       display: flex
       justify-content: center
       align-items: flex-start
-      padding-top: 2rem
+      padding-top: 1rem
       
       @media (min-width: 768px)
-        align-items: center
+        align-items: flex-start
         padding-top: 0
 
       svg
@@ -907,6 +908,7 @@
     box-sizing: border-box
 
     @media (min-width: 768px)
+      top: 60vh
       max-width: 700px
       padding: 0 1.5rem
 

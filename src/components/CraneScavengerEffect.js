@@ -49,19 +49,13 @@ const CraneScavengerEffect = () => {
 
   // Load SVG content
   useEffect(() => {
-    fetch('/crane.svg')
+    // Use different SVG file for mobile
+    const svgPath = isMobile ? '/crane_mobile.svg' : '/crane.svg';
+    
+    fetch(svgPath)
       .then(response => response.text())
       .then(svgText => {
-        // Adjust SVG dimensions based on mobile detection
-        let modifiedSVG = svgText;
-        if (isMobile) {
-          // Scale down significantly for mobile - change from 1024x1024 to 256x256
-          modifiedSVG = svgText
-            .replace(/height="1024"/, 'height="256"')
-            .replace(/width="1024"/, 'width="256"')
-            .replace(/viewBox="[^"]*"/, 'viewBox="0 0 256 256"');
-        }
-        setCraneSVG(modifiedSVG);
+        setCraneSVG(svgText);
       })
       .catch(error => console.error('Error loading crane SVG:', error));
   }, [isMobile]); // Add isMobile as dependency
