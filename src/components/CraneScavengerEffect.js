@@ -22,6 +22,7 @@ const CraneScavengerEffect = () => {
   const [craneSVG, setCraneSVG] = useState('');
   const [isMounted, setIsMounted] = useState(false); // Hydration safety
   const [elapsedTime, setElapsedTime] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const svgRef = useRef(null);
   const canvasRef = useRef(null);
   const passwordInputRef = useRef(null);
@@ -34,6 +35,16 @@ const CraneScavengerEffect = () => {
   useEffect(() => {
     setIsMounted(true);
     setStartTime(Date.now()); // Set start time only on client
+    
+    // Mobile detection
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile(); // Initial check
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   // Load SVG content
@@ -235,7 +246,7 @@ const CraneScavengerEffect = () => {
   // Use state-managed elapsed time (updated in timer effect)
 
   return (
-    <div className={`crane-gate-container stage-${stage}`}>
+    <div className={`crane-gate-container stage-${stage} ${isMobile ? 'is-mobile' : 'is-desktop'}`}>
       {/* Background Images */}
       <div className="crane-backgrounds">
         <img 

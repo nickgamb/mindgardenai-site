@@ -853,6 +853,7 @@
         padding-top: 0
 
       svg
+        width: 100%
         height: auto
         max-width: 100%
         max-height: 100%
@@ -861,10 +862,6 @@
         @media (min-width: 768px)
           max-width: 70vw
           max-height: 80%
-          
-        @media (min-width: 1200px)
-          max-width: 600px
-          max-height: 600px
 
       // SVG animation states controlled by stage
       &.stage-drawing
@@ -1313,15 +1310,39 @@
     opacity: 1
     transform: translateX(-50%) translateY(0)
 
-// Responsive adjustments for crane gate
+// Mobile-specific layout for crane gate - only apply on actual mobile screens
 @media (max-width: 768px)
-  .crane-gate-container
-    .crane-interface-card
-      padding: 1.2rem 1rem
-      
+  .crane-gate-container.is-mobile
     .crane-svg-container
+      height: 50vh !important
+      position: relative !important
+      top: 0 !important
+      left: 0 !important
+      padding: 1rem 0.5rem !important
+      
       .crane-svg
-        padding-top: 1rem
+        align-items: flex-start !important
+        padding-top: 1rem !important
+        
+        svg
+          max-width: 80vw !important
+          max-height: 40vh !important
+
+    .crane-ui-overlay
+      position: relative !important
+      top: auto !important
+      bottom: auto !important
+      left: auto !important
+      transform: none !important
+      width: 100% !important
+      max-width: 100% !important
+      padding: 1rem !important
+      margin-top: 2rem !important
+      
+      .crane-interface-card
+        width: 100% !important
+        max-width: 100% !important
+        padding: 1rem !important
 
 // Global background transition class
 .cathedral-bg-transition
