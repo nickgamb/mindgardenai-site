@@ -815,18 +815,20 @@
   .crane-svg-container
     position: absolute
     top: auto
-    bottom: 10vh
+    bottom: 5vh
     left: 0
     width: 100%
-    height: 60vh
+    height: 70vh
     z-index: 2
     pointer-events: none
     display: flex
     justify-content: center
-    align-items: flex-end
+    align-items: center
     padding: 1rem 0.5rem
     
     @media (min-width: 768px)
+      bottom: 2vh
+      height: 75vh
       padding: 2rem 1rem
 
     .crane-svg-loading
@@ -896,7 +898,7 @@
   .crane-ui-overlay
     z-index: 3
     position: absolute
-    bottom: 5vh
+    top: 15vh
     left: 50%
     transform: translateX(-50%)
     text-align: center
@@ -908,8 +910,6 @@
     box-sizing: border-box
 
     @media (min-width: 768px)
-      top: 8vh
-      bottom: auto
       max-width: 700px
       padding: 0 1.5rem
 
@@ -1309,14 +1309,26 @@
 // Mobile-specific layout for crane gate - only apply on actual mobile screens
 @media (max-width: 768px)
   .crane-gate-container.is-mobile
-    .crane-ui-overlay
-      top: 5vh !important
+    .crane-svg-container
+      bottom: 5vh !important
+      height: 40vh !important
       
-      .crane-interface-card
-        background-color: rgba($purple90, 0.15) !important
-        border: 2px solid rgba($purple50, 0.6) !important
-        backdrop-filter: blur(20px) !important
-        -webkit-backdrop-filter: blur(20px) !important
+    .crane-ui-overlay
+      top: 10vh !important
+      left: 50% !important
+      transform: translateX(-50%) !important
+      width: 95vw !important
+      max-width: 95vw !important
+      padding: 0 1rem !important
+      
+    .crane-interface-card
+      background-color: rgba($purple90, 0.15) !important
+      border: 2px solid rgba($purple50, 0.6) !important
+      backdrop-filter: blur(20px) !important
+      -webkit-backdrop-filter: blur(20px) !important
+      width: 100% !important
+      max-width: 100% !important
+      padding: 1rem !important
 
 // Global background transition class
 .cathedral-bg-transition

@@ -55,11 +55,11 @@ const CraneScavengerEffect = () => {
         // Adjust SVG dimensions based on mobile detection
         let modifiedSVG = svgText;
         if (isMobile) {
-          // Scale down for mobile - change from 1024x1024 to 512x512
+          // Scale down significantly for mobile - change from 1024x1024 to 256x256
           modifiedSVG = svgText
-            .replace(/height="1024"/, 'height="512"')
-            .replace(/width="1024"/, 'width="512"')
-            .replace(/viewBox="[^"]*"/, 'viewBox="0 0 512 512"');
+            .replace(/height="1024"/, 'height="256"')
+            .replace(/width="1024"/, 'width="256"')
+            .replace(/viewBox="[^"]*"/, 'viewBox="0 0 256 256"');
         }
         setCraneSVG(modifiedSVG);
       })
