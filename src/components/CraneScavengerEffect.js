@@ -171,11 +171,12 @@ const CraneScavengerEffect = () => {
     
       draw(ctx) {
         ctx.beginPath();
-        let gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
-        gradient.addColorStop(0, `rgba(240, 250, 255, ${this.opacity})`);
-        gradient.addColorStop(1, `rgba(220, 230, 255, 0)`);
-        ctx.fillStyle = gradient;
+        //let gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+        //gradient.addColorStop(0, `rgba(240, 250, 255, ${this.opacity})`);
+        //gradient.addColorStop(1, `rgba(220, 230, 255, 0)`);
+        //ctx.fillStyle = gradient;
         //ctx.fillStyle = `rgba(200, 200, 200, ${this.opacity})`;
+        ctx.fillStyle = `rgba(220, 230, 255, ${this.opacity})`;  // Soft bluish-white
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
       }
