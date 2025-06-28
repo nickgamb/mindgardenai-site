@@ -756,14 +756,15 @@
 
 // === CRANE GATE SCAVENGER HUNT STYLES ===
 .crane-gate-wrapper
-  width: 100%
+  width: 100vw
   height: 100vh
   overflow: hidden
   position: relative
+  box-sizing: border-box
 
 .crane-gate-container
   position: relative
-  width: 100%
+  width: 100vw
   height: 100vh
   overflow: hidden
   background-color: $purple100
@@ -771,6 +772,7 @@
   flex-direction: column
   justify-content: center
   align-items: center
+  box-sizing: border-box
 
   .crane-backgrounds
     position: absolute
@@ -892,13 +894,14 @@
     animation: craneUIFadeIn 1.2s ease-in
     pointer-events: auto
     width: 100%
-    max-width: 95vw
-    padding: 0 0.5rem
+    max-width: 90vw
+    padding: 0 1rem
+    box-sizing: border-box
 
     @media (min-width: 768px)
       top: 8vh
       max-width: 700px
-      padding: 0 1rem
+      padding: 0 1.5rem
 
     .crane-interface-card
       background-color: rgba($purple90, 0.9)
@@ -911,7 +914,7 @@
       box-shadow: 0 12px 48px rgba($primary, 0.3), 0 0 0 1px rgba($purple30, 0.1)
       transition: all 0.3s ease
       width: 100%
-      max-width: 100%
+      box-sizing: border-box
 
       @media (min-width: 768px)
         padding: 2.5rem 2rem

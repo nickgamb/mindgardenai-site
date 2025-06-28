@@ -14,19 +14,27 @@ const CraneScavengerEffect = () => {
   const [stage, setStage] = useState('drawing'); // drawing → idle → input → explode → complete
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
-  const [startTime, setStartTime] = useState(Date.now());
+  const [startTime, setStartTime] = useState(null); // Initialize as null to prevent hydration mismatch
   const [showInput, setShowInput] = useState(false);
   const [explosionComplete, setExplosionComplete] = useState(false);
-  const [countdown, setCountdown] = useState('');
+  const [countdown, setCountdown] = useState('Loading...');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [craneSVG, setCraneSVG] = useState('');
+  const [isMounted, setIsMounted] = useState(false); // Hydration safety
+  const [elapsedTime, setElapsedTime] = useState(0);
   const svgRef = useRef(null);
   const canvasRef = useRef(null);
   const passwordInputRef = useRef(null);
   const correctPassword = process.env.GATSBY_PATTERN_SALT;
 
-  // Set target date for countdown - June 30, 2025 at noon
-  const targetDate = new Date('2025-07-30T12:00:00');
+  // Set target date for countdown - July 30, 2025 at noon
+  const targetDate = useRef(new Date('2025-07-30T12:00:00')); // Use ref to prevent re-creation
+
+  // Hydration safety - only run client-side code after mounting
+  useEffect(() => {
+    setIsMounted(true);
+    setStartTime(Date.now()); // Set start time only on client
+  }, []);
 
   // Load SVG content
   useEffect(() => {
@@ -48,14 +56,21 @@ const CraneScavengerEffect = () => {
     return () => clearTimeout(drawTimer);
   }, [craneSVG]);
 
-  // Countdown timer logic with performance optimization
+  // Countdown timer logic with performance optimization - only run after hydration
   useEffect(() => {
+    if (!isMounted) return; // Don't run until hydrated
+    
     const updateCountdown = () => {
       // Only update if page is visible (performance optimization)
       if (document.hidden) return;
       
       const now = new Date();
-      const diff = Math.max(0, targetDate - now);
+      const diff = Math.max(0, targetDate.current - now);
+      
+      // Update elapsed time
+      if (startTime) {
+        setElapsedTime(Math.floor((now - startTime) / 1000));
+      }
       
       if (diff === 0) {
         setCountdown('00:00:00');
@@ -91,7 +106,7 @@ const CraneScavengerEffect = () => {
       clearInterval(interval);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [targetDate]);
+  }, [isMounted]);
 
   // Smoke canvas effect
   useEffect(() => {
@@ -217,7 +232,7 @@ const CraneScavengerEffect = () => {
     }
   };
 
-  const secondsElapsed = Math.floor((Date.now() - startTime) / 1000);
+  // Use state-managed elapsed time (updated in timer effect)
 
   return (
     <div className={`crane-gate-container stage-${stage}`}>
@@ -281,7 +296,7 @@ const CraneScavengerEffect = () => {
               </div>
               <div className="elapsed-display">
                 <span className="timer-icon">⏳</span>
-                <span className="timer-text">{secondsElapsed}s</span>
+                <span className="timer-text">{elapsedTime}s</span>
               </div>
             </div>
             
