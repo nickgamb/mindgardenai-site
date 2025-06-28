@@ -145,19 +145,30 @@ const CraneScavengerEffect = () => {
       constructor() {
         this.reset();
       }
+    
       reset() {
         this.x = Math.random() * canvas.width;
         this.y = canvas.height + Math.random() * 50;
-        this.size = Math.random() * 20 + 10;
-        this.opacity = Math.random() * 0.2 + 0.05;
-        this.speedY = Math.random() * -0.5 - 0.2;
-        this.speedX = Math.random() * 0.3 - 0.15;
+    
+        // Smaller size range (e.g., 4px to 8px)
+        this.size = Math.random() * 4 + 4;
+    
+        // Slightly lower opacity for more subtle smoke
+        this.opacity = Math.random() * 0.15 + 0.03;
+    
+        // Keep it drifting upward slowly
+        this.speedY = Math.random() * -0.4 - 0.1;
+    
+        // Slight horizontal wobble
+        this.speedX = Math.random() * 0.2 - 0.1;
       }
+    
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
         if (this.y < -50 || this.opacity <= 0) this.reset();
       }
+    
       draw(ctx) {
         ctx.beginPath();
         ctx.fillStyle = `rgba(200, 200, 200, ${this.opacity})`;
@@ -165,7 +176,7 @@ const CraneScavengerEffect = () => {
         ctx.fill();
       }
     }
-
+  
     // Mobile optimization - fewer particles on smaller screens
     const particleCount = window.innerWidth < 500 ? 40 : 60;
     
