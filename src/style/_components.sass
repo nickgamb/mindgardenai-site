@@ -786,7 +786,7 @@
     left: 0
     width: 100%
     height: 100%
-    object-fit: contain
+    object-fit: cover
     object-position: center
     transition: opacity 1.2s ease
     z-index: 0
@@ -826,14 +826,23 @@
     .crane-svg
       position: relative
       z-index: 2
-      width: 100%
-      max-width: 800px
+      width: 90%
+      max-width: 600px
       margin: 0 auto
-      padding-top: 10vh
+      padding: 5vh 0
+
+      @media (max-width: 768px)
+        width: 95%
+        max-width: 400px
+        padding: 2vh 0
 
       svg
         width: 100%
         height: auto
+        max-height: 80vh
+        
+        @media (max-width: 768px)
+          max-height: 60vh
 
       // SVG animation states controlled by stage
       &.stage-drawing
@@ -878,6 +887,12 @@
     text-align: center
     animation: craneUIFadeIn 1.2s ease-in
     pointer-events: auto
+    width: 90%
+    max-width: 500px
+
+    @media (max-width: 768px)
+      top: 55vh
+      width: 95%
 
     .crane-interface-card
       background-color: rgba($purple90, 0.85)
@@ -885,11 +900,13 @@
       border-radius: 12px
       padding: 2rem
       margin: 0 auto
-      max-width: 500px
       backdrop-filter: blur(12px)
       -webkit-backdrop-filter: blur(12px)
       box-shadow: 0 8px 32px rgba($primary, 0.2)
       transition: all 0.3s ease
+
+      @media (max-width: 768px)
+        padding: 1.5rem
 
       &:hover
         background-color: rgba($purple90, 0.98)
@@ -919,15 +936,27 @@
         color: $purple30
         text-shadow: 0 0 8px rgba($purple30, 0.4)
 
+        @media (max-width: 768px)
+          font-size: 1.1rem
+
         .countdown-icon
           font-size: 1.4rem
+
+          @media (max-width: 768px)
+            font-size: 1.2rem
 
       .elapsed-display
         font-size: 1rem
         opacity: 0.8
 
+        @media (max-width: 768px)
+          font-size: 0.9rem
+
         .timer-icon
           font-size: 1.1rem
+
+          @media (max-width: 768px)
+            font-size: 1rem
 
     .crane-input-group
       display: flex
@@ -946,6 +975,13 @@
       margin: 1rem
       text-align: center
       transition: all 0.3s ease
+      width: 100%
+      max-width: 300px
+
+      @media (max-width: 768px)
+        font-size: 16px  // Prevents zoom on iOS
+        padding: 0.75rem 1rem
+        margin: 0.5rem
 
       &:focus
         border-color: $purple50
