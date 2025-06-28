@@ -772,34 +772,34 @@
   justify-content: center
   align-items: center
 
-      .crane-backgrounds
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
-      height: 100%
-      z-index: 0
+  .crane-backgrounds
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 0
 
-      .crane-bg
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
-        object-fit: cover
-        transition: opacity 1.2s ease
-        z-index: 0
+  .crane-bg
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    object-fit: cover
+    transition: opacity 1.2s ease
+    z-index: 0
 
-        &.hidden
-          opacity: 0
+    &.hidden
+      opacity: 0
 
-        &.visible
-          opacity: 1
-          z-index: 1
+    &.visible
+      opacity: 1
+      z-index: 1
 
-        &.bg-alt
-          opacity: 0
-          z-index: 1
+    &.bg-alt
+      opacity: 0
+      z-index: 1
 
   // Stage-specific background transitions
   &.stage-explode
