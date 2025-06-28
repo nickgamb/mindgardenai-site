@@ -753,3 +753,424 @@
   &__note--italic
     font-style: italic
     color: $warning-dark
+
+// === CRANE GATE SCAVENGER HUNT STYLES ===
+.crane-gate-wrapper
+  width: 100%
+  height: 100vh
+  overflow: hidden
+  position: relative
+
+.crane-gate-container
+  position: relative
+  width: 100%
+  height: 100vh
+  overflow: hidden
+  background-color: $purple100
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+      .crane-backgrounds
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      z-index: 0
+
+      .crane-bg
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        object-fit: cover
+        transition: opacity 1.2s ease
+        z-index: 0
+
+        &.hidden
+          opacity: 0
+
+        &.visible
+          opacity: 1
+          z-index: 1
+
+        &.bg-alt
+          opacity: 0
+          z-index: 1
+
+  // Stage-specific background transitions
+  &.stage-explode
+    .crane-backgrounds .bg-alt
+      opacity: 1
+
+  .crane-svg-container
+    position: absolute
+    width: 100%
+    height: 100%
+    z-index: 2
+    pointer-events: none
+    display: flex
+    justify-content: center
+    align-items: center
+
+    .crane-svg
+      position: relative
+      z-index: 2
+      width: 100%
+      max-width: 800px
+      margin: 0 auto
+      padding-top: 10vh
+
+      svg
+        width: 100%
+        height: auto
+
+      // SVG animation states controlled by stage
+      &.stage-drawing
+        .line
+          stroke: $purple30
+          stroke-width: 1.5
+          stroke-linecap: round
+          stroke-linejoin: round
+          fill: none
+          stroke-dasharray: 1000
+          stroke-dashoffset: 1000
+          animation: craneLineDraw 6s forwards
+          filter: drop-shadow(0 0 4px rgba($purple30, 0.5))
+
+      &.stage-idle
+        .line
+          stroke: $purple30
+          stroke-width: 1.5
+          stroke-linecap: round
+          stroke-linejoin: round
+          fill: none
+          stroke-dasharray: 1000
+          stroke-dashoffset: 0
+          animation: craneIdleGlow 2s infinite alternate
+          filter: drop-shadow(0 0 6px rgba($purple30, 0.6))
+
+      &.stage-explode
+        .line
+          animation: craneExplodeFly 1.2s ease-out forwards
+        .shard
+          animation: craneExplodeFly 1.2s ease-out forwards
+
+      &.stage-complete
+        opacity: 0
+
+  .crane-ui-overlay
+    z-index: 3
+    position: absolute
+    top: 60vh
+    left: 50%
+    transform: translateX(-50%)
+    text-align: center
+    animation: craneUIFadeIn 1.2s ease-in
+    pointer-events: auto
+
+    .crane-interface-card
+      background-color: rgba($purple90, 0.85)
+      border: 2px solid rgba($purple50, 0.6)
+      border-radius: 12px
+      padding: 2rem
+      margin: 0 auto
+      max-width: 500px
+      backdrop-filter: blur(12px)
+      -webkit-backdrop-filter: blur(12px)
+      box-shadow: 0 8px 32px rgba($primary, 0.2)
+      transition: all 0.3s ease
+
+      &:hover
+        background-color: rgba($purple90, 0.98)
+        border-color: rgba($purple50, 0.8)
+        transform: translateY(-2px)
+        box-shadow: 0 12px 40px rgba($primary, 0.3)
+
+    .crane-timer
+      display: flex
+      flex-direction: column
+      align-items: center
+      gap: 0.8rem
+      margin-bottom: 1.5rem
+      color: $purple50
+      font-size: 1.1rem
+      font-weight: 500
+
+      .countdown-display, .elapsed-display
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: 0.5rem
+
+      .countdown-display
+        font-size: 1.3rem
+        font-weight: 600
+        color: $purple30
+        text-shadow: 0 0 8px rgba($purple30, 0.4)
+
+        .countdown-icon
+          font-size: 1.4rem
+
+      .elapsed-display
+        font-size: 1rem
+        opacity: 0.8
+
+        .timer-icon
+          font-size: 1.1rem
+
+    .crane-input-group
+      display: flex
+      flex-direction: column
+      gap: 1rem
+      align-items: center
+
+    .crane-password
+      background: rgba($purple80, 0.7)
+      border: 1px solid $mindgarden-purple
+      color: $purple10
+      padding: 0.5rem 1rem
+      font-size: 1.1rem
+      border-radius: 8px
+      outline: none
+      margin: 1rem
+      text-align: center
+      transition: all 0.3s ease
+
+      &:focus
+        border-color: $purple50
+        box-shadow: 0 0 0 2px rgba($purple50, 0.3)
+
+      &.crane-error
+        border-color: $error-color
+        background: rgba($error-color, 0.2)
+        animation: craneShake 0.5s ease-in-out
+
+      &::placeholder
+        color: rgba($purple10, 0.7)
+
+    .crane-submit
+      background: $mindgarden-purple
+      color: $purple10
+      padding: 0.5rem 1.2rem
+      border: none
+      border-radius: 8px
+      font-size: 1rem
+      cursor: pointer
+      transition: all 0.3s ease
+      display: inline-flex
+      align-items: center
+      gap: 0.5rem
+
+      &:hover:not(:disabled)
+        background: lighten($mindgarden-purple, 10%)
+        transform: translateY(-1px)
+
+      &:disabled
+        opacity: 0.7
+        cursor: not-allowed
+        
+        span
+          animation: craneButtonSpin 1s linear infinite
+
+      .crane-error-message
+        color: $error-color
+        margin-top: 1rem
+        font-size: 0.9rem
+        display: flex
+        align-items: center
+        justify-content: center
+        gap: 0.5rem
+        animation: craneFadeIn 0.3s ease-in
+
+      .crane-hint
+        color: rgba($purple10, 0.6)
+        margin-top: 0.8rem
+        font-size: 0.8rem
+        display: flex
+        align-items: center
+        justify-content: center
+        gap: 0.4rem
+        opacity: 0.8
+        animation: craneFadeIn 0.5s ease-in 0.5s both
+
+  .crane-success-overlay
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    z-index: 4
+    text-align: center
+
+    .success-message
+      background: linear-gradient(135deg, $purple30, $purple50)
+      color: $purple10
+      padding: 2rem 3rem
+      border-radius: 16px
+      font-size: 1.5rem
+      font-weight: 600
+      box-shadow: 0 8px 32px rgba($purple30, 0.4)
+      animation: cranePulseGlow 2s infinite alternate
+      text-align: center
+
+      .success-actions
+        margin-top: 1.5rem
+
+        .continue-button
+          background: linear-gradient(135deg, $purple50, $purple30)
+          color: $purple10
+          padding: 0.8rem 2rem
+          border: none
+          border-radius: 12px
+          font-size: 1.1rem
+          font-weight: 600
+          cursor: pointer
+          transition: all 0.3s ease
+          box-shadow: 0 4px 16px rgba($purple30, 0.3)
+
+          &:hover
+            transform: translateY(-2px)
+            box-shadow: 0 6px 20px rgba($purple30, 0.4)
+
+          &:focus
+            outline: 2px solid $purple30
+            outline-offset: 2px
+
+  // Smoke canvas styling
+  .crane-smoke-canvas
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 1
+    pointer-events: none
+
+  // Shockwave explosion effect
+  .shockwave
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 10px
+    height: 10px
+    border-radius: 50%
+    background: radial-gradient(circle, rgba($purple30, 0.8) 0%, rgba($purple30, 0.4) 40%, transparent 70%)
+    opacity: 0
+    z-index: 4
+    transform: translate(-50%, -50%) scale(0)
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out
+
+    &.active
+      transform: translate(-50%, -50%) scale(20)
+      opacity: 0.15
+
+// Accessibility helper classes
+.visually-hidden
+  position: absolute !important
+  width: 1px !important
+  height: 1px !important
+  padding: 0 !important
+  margin: -1px !important
+  overflow: hidden !important
+  clip: rect(0, 0, 0, 0) !important
+  white-space: nowrap !important
+  border: 0 !important
+
+// Crane Animation Keyframes
+@keyframes craneLineDraw
+  to
+    stroke-dashoffset: 0
+
+@keyframes craneIdleGlow
+  0%
+    filter: drop-shadow(0 0 4px rgba($purple30, 0.4))
+    stroke-width: 1.5
+  50%
+    filter: drop-shadow(0 0 12px rgba($purple30, 0.8))
+    stroke-width: 2.0
+  100%
+    filter: drop-shadow(0 0 4px rgba($purple30, 0.4))
+    stroke-width: 1.5
+
+@keyframes craneExplodeFly
+  0%
+    transform: scale(1) translate(0, 0) rotate(0deg)
+    opacity: 1
+  100%
+    transform: scale(1.2) translate(30px, -30px) rotate(90deg)
+    opacity: 0
+
+@keyframes craneShake
+  0%, 100%
+    transform: translateX(0)
+  25%
+    transform: translateX(-5px)
+  75%
+    transform: translateX(5px)
+
+@keyframes craneFadeIn
+  from
+    opacity: 0
+    transform: translateY(10px)
+  to
+    opacity: 1
+    transform: translateY(0)
+
+@keyframes craneButtonSpin
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(360deg)
+
+@keyframes cranePulseGlow
+  from
+    box-shadow: 0 8px 32px rgba($purple30, 0.4)
+  to
+    box-shadow: 0 8px 32px rgba($purple30, 0.8), 0 0 60px rgba($purple30, 0.3)
+
+@keyframes craneUIFadeIn
+  from
+    opacity: 0
+    transform: translateX(-50%) translateY(20px)
+  to
+    opacity: 1
+    transform: translateX(-50%) translateY(0)
+
+// Responsive adjustments for crane gate
+@media (max-width: 768px)
+  .crane-gate-container
+    .crane-ui-overlay
+      top: 65vh
+      width: 90%
+      left: 50%
+      transform: translateX(-50%)
+
+      .crane-interface-card
+        padding: 1.5rem
+
+    .crane-svg-container
+      .crane-svg
+        max-width: 90vw
+        padding-top: 5vh
+
+// Global background transition class
+.cathedral-bg-transition
+  transition: background-color 1.5s ease-out !important
+
+// Enhanced title for success state
+.enhanced-title
+  background: linear-gradient(45deg, $purple30, $purple50, $purple30)
+  background-size: 200% 200%
+  background-clip: text
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  animation: titleShimmer 3s ease-in-out infinite
+
+@keyframes titleShimmer
+  0%, 100%
+    background-position: 0% 50%
+  50%
+    background-position: 100% 50%

@@ -74,6 +74,7 @@ const Footer = () => {
                       Alden Transmissions
                     </Link>
                   </li>
+                  <li><Link to="/crane/" className="navbar-item">Crane Gate</Link></li>
                   <li><Link to="/blog" className="navbar-item">Research Blog</Link></li>
                   <li>
                     <a className="navbar-item" href="https://podcast.mindgardenai.com" target="_blank" rel="noopener noreferrer">
