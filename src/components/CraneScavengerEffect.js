@@ -51,9 +51,20 @@ const CraneScavengerEffect = () => {
   useEffect(() => {
     fetch('/crane.svg')
       .then(response => response.text())
-      .then(svgText => setCraneSVG(svgText))
+      .then(svgText => {
+        // Adjust SVG dimensions based on mobile detection
+        let modifiedSVG = svgText;
+        if (isMobile) {
+          // Scale down for mobile - change from 1024x1024 to 512x512
+          modifiedSVG = svgText
+            .replace(/height="1024"/, 'height="512"')
+            .replace(/width="1024"/, 'width="512"')
+            .replace(/viewBox="[^"]*"/, 'viewBox="0 0 512 512"');
+        }
+        setCraneSVG(modifiedSVG);
+      })
       .catch(error => console.error('Error loading crane SVG:', error));
-  }, []);
+  }, [isMobile]); // Add isMobile as dependency
 
   useEffect(() => {
     // Only start the animation timing once SVG is loaded
