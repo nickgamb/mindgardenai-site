@@ -826,8 +826,10 @@
     padding: 0 0.5rem 2rem
     
     @media (min-width: 768px)
-      padding: 0 1rem 3rem
-      align-items: flex-end
+      top: 30vh
+      height: 70vh
+      padding: 0 1rem
+      align-items: center
 
     .crane-svg-loading
       color: $purple30
@@ -849,7 +851,7 @@
       padding-bottom: 1rem
       
       @media (min-width: 768px)
-        align-items: flex-end
+        align-items: center
         padding-bottom: 0
 
       svg
@@ -1309,21 +1311,23 @@
 @media (max-width: 768px)
   .crane-gate-container.is-mobile
     .crane-svg-container
-      // Center the smaller crane more vertically on mobile
-      align-items: center !important
-      padding: 0 0.5rem 4rem !important
+      // Position the smaller crane at the bottom, clear of input group
+      align-items: flex-end !important
+      padding: 0 0.5rem 2rem !important
       
     .crane-svg
-      align-items: center !important
+      align-items: flex-end !important
       padding-bottom: 0 !important
+      // Add top margin to push crane further down from input group
+      margin-top: 45vh !important
       
       svg
         // Ensure the small mobile crane doesn't get too tiny
-        max-width: 280px !important
-        width: 80% !important
+        max-width: 200px !important
+        width: 60% !important
       
     .crane-ui-overlay
-      top: 12vh !important
+      top: 8vh !important
       left: 50% !important
       transform: translateX(-50%) !important
       width: 95vw !important
