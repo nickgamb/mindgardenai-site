@@ -21,8 +21,8 @@
   stroke-linecap: round;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: draw 6s forwards, pulse 2s infinite ease-in-out, line-breakaway 1.2s ease-in-out forwards;
-  animation-delay: 0s, 6s, 12s;
+  animation: draw 6s forwards, pulse 2s infinite ease-in-out;
+  animation-delay: 0s, 6s;
   transform-box: fill-box;
   transform-origin: center;
 }
@@ -30,7 +30,6 @@
   fill: cyan;
   opacity: 0;
   animation: shard-fly 1.2s ease-out forwards;
-  animation-delay: 12s;
   transform-box: fill-box;
   transform-origin: center;
 }
