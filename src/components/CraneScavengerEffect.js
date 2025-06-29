@@ -169,17 +169,29 @@ const CraneScavengerEffect = () => {
         if (this.y < -50 || this.opacity <= 0) this.reset();
       }
     
-      draw(ctx) {
-        ctx.beginPath();
+      //draw(ctx) {
+        //ctx.beginPath();
         //let gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
         //gradient.addColorStop(0, `rgba(240, 250, 255, ${this.opacity})`);
         //gradient.addColorStop(1, `rgba(220, 230, 255, 0)`);
         //ctx.fillStyle = gradient;
         //ctx.fillStyle = `rgba(200, 200, 200, ${this.opacity})`;
-        ctx.fillStyle = `rgba(220, 230, 255, ${this.opacity})`;  // Soft bluish-white
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
+        //ctx.fillStyle = `rgba(220, 230, 255, ${this.opacity})`;  // Soft bluish-white
+        //ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        //ctx.fill();
+      //}
+    //}
+
+    draw(ctx) {
+      const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+      gradient.addColorStop(0, `rgba(120, 255, 255, ${this.opacity * 0.9})`); // Bright inner core
+      gradient.addColorStop(0.4, `rgba(100, 200, 255, ${this.opacity * 0.4})`);
+      gradient.addColorStop(1, `rgba(80, 150, 255, 0)`); // Fades out to transparent
+    
+      ctx.beginPath();
+      ctx.fillStyle = gradient;
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
     }
   
     // Mobile optimization - fewer particles on smaller screens
