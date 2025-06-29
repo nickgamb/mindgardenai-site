@@ -755,32 +755,35 @@
     color: $warning-dark
 
 // === CRANE GATE SCAVENGER HUNT STYLES ===
-
+// Mobile-first approach following site patterns
 .crane-gate-wrapper
-  position: relative
   width: 100%
-  height: 100vh
+  min-height: 100vh
   overflow: hidden
+  position: relative
+  box-sizing: border-box
 
 .crane-gate-container
   position: relative
   width: 100%
-  height: 100vh
+  min-height: 100vh
+  overflow: hidden
+  background-color: $purple100
   display: flex
   flex-direction: column
-  justify-content: center
-  align-items: center
-  overflow: hidden
-  background: transparent
-  transition: all 1s ease
+  box-sizing: border-box
+  padding: 0.5rem
+  
+  @media (min-width: 768px)
+    padding: 1rem
 
-.crane-backgrounds
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  z-index: 0
+  .crane-backgrounds
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 0
 
   .crane-bg
     position: absolute
@@ -789,429 +792,485 @@
     width: 100%
     height: 100%
     object-fit: cover
-    opacity: 0
-    transition: opacity 1.5s ease
+    object-position: center
+    transition: opacity 1.2s ease
+    z-index: 0
 
-    &.visible
-      opacity: 1
-    
     &.hidden
       opacity: 0
 
-  .bg-alt
-    opacity: 0
-    
     &.visible
       opacity: 1
+      z-index: 1
 
-.crane-svg-container
-  position: relative
-  z-index: 2
-  width: 100%
-  height: 100%
-  display: flex
-  justify-content: center
-  align-items: center
-  padding: 1rem
+    &.bg-alt
+      opacity: 0
+      z-index: 1
 
-  @media (max-width: 768px)
+  // Stage-specific background transitions
+  &.stage-explode
+    .crane-backgrounds .bg-alt
+      opacity: 1
+
+  .crane-svg-container
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 2
+    pointer-events: none
+    display: flex
+    justify-content: center
     align-items: flex-end
-    padding-bottom: 3rem
+    padding: 0 0.5rem 2rem
+    
+    @media (min-width: 768px)
+      top: 30vh
+      left: 50%
+      transform: translateX(-25%)
+      width: 100%
+      height: 70vh
+      padding: 0 1rem
+      align-items: flex-end
+      justify-content: center
 
-.crane-svg-loading
-  color: $purple50
-  font-size: 1.2rem
-  text-align: center
-  padding: 2rem
-  opacity: 0.8
+    .crane-svg-loading
+      color: $purple30
+      font-size: 1rem
+      opacity: 0.7
+      text-align: center
+      
+      @media (min-width: 768px)
+        font-size: 1.2rem
 
+    .crane-svg
+      position: relative
+      z-index: 2
+      width: 100%
+      height: 100%
+      display: flex
+      justify-content: center
+      align-items: flex-end
+      padding-bottom: 1rem
+      
+      @media (min-width: 768px)
+        align-items: center
+        padding-bottom: 0
+
+      svg
+        width: 100%
+        height: auto
+        max-width: 100%
+        max-height: 100%
+        display: block
+
+      // SVG animation states controlled by stage
+      &.stage-drawing
+        .line
+          stroke: $purple30
+          stroke-width: 1.5
+          stroke-linecap: round
+          stroke-linejoin: round
+          fill: none
+          stroke-dasharray: 1000
+          stroke-dashoffset: 1000
+          animation: craneLineDraw 6s forwards
+          filter: drop-shadow(0 0 4px rgba($purple30, 0.5))
+
+      &.stage-idle
+        .line
+          stroke: $purple30
+          stroke-width: 1.5
+          stroke-linecap: round
+          stroke-linejoin: round
+          fill: none
+          stroke-dasharray: 1000
+          stroke-dashoffset: 0
+          animation: craneIdleGlow 2s infinite alternate
+          filter: drop-shadow(0 0 6px rgba($purple30, 0.6))
+
+      &.stage-explode
+        .line
+          animation: craneExplodeFly 1.2s ease-out forwards
+        .shard
+          animation: craneExplodeFly 1.2s ease-out forwards
+
+      &.stage-complete
+        opacity: 0
+
+// Force crane animation stages to apply globally - ensures mobile compatibility
+.crane-svg.stage-drawing .line
+  stroke: $purple30
+  stroke-width: 1.5
+  stroke-linecap: round
+  stroke-linejoin: round
+  fill: none
+  stroke-dasharray: 1000
+  stroke-dashoffset: 1000
+  animation: craneLineDraw 6s forwards
+  filter: drop-shadow(0 0 4px rgba($purple30, 0.5))
+
+.crane-svg.stage-idle .line
+  stroke: $purple30
+  stroke-width: 1.5
+  stroke-linecap: round
+  stroke-linejoin: round
+  fill: none
+  stroke-dasharray: 1000
+  stroke-dashoffset: 0
+  animation: craneIdleGlow 2s infinite alternate
+  filter: drop-shadow(0 0 6px rgba($purple30, 0.6))
+
+.crane-svg.stage-explode .line,
+.crane-svg.stage-explode .shard
+  animation: craneExplodeFly 1.2s ease-out forwards
+
+// Performance optimizations for mobile animations
 .crane-svg
-  position: relative
-  z-index: 2
-  width: 100%
-  height: auto
-  max-width: 800px
-  max-height: 80vh
-  display: flex
-  justify-content: center
-  align-items: center
-  
-  // Performance optimizations for mobile animations
   transform: translateZ(0)
   backface-visibility: hidden
   will-change: transform
 
-  @media (max-width: 768px)
-    max-width: 400px
-    max-height: 60vh
-
-  svg
+  .crane-ui-overlay
+    z-index: 3
+    position: absolute
+    top: 15vh
+    left: 50%
+    transform: translateX(-50%)
+    text-align: center
+    animation: craneUIFadeIn 1.2s ease-in
+    pointer-events: auto
     width: 100%
-    height: auto
-    max-width: 100%
-    max-height: 100%
-    display: block
-
-  // Only handle visibility states - let SVG handle its own animations
-  &.stage-drawing
-    // SVG handles its own drawing animation, just ensure visibility
-    opacity: 1
-    
-  &.stage-idle  
-    // SVG handles its own pulsing animation, just ensure visibility
-    opacity: 1
-    
-  &.stage-explode
-    // SVG handles its own explosion animation, just ensure visibility
-    opacity: 1
-    
-  &.stage-complete
-    opacity: 0
-    transition: opacity 0.5s ease
-
-.crane-ui-overlay
-  z-index: 3
-  position: absolute
-  top: 15vh
-  left: 50%
-  transform: translateX(-50%)
-  text-align: center
-  animation: craneUIFadeIn 1.2s ease-in
-  pointer-events: auto
-  width: 100%
-  max-width: 95vw
-  padding: 0 0.5rem
-  box-sizing: border-box
-
-  @media (min-width: 768px)
-    top: 10vh
-    max-width: 700px
-    padding: 0 1.5rem
-
-  .crane-interface-card
-    background-color: rgba($purple90, 0.9)
-    border: 1px solid rgba($purple50, 0.3)
-    border-radius: 12px
-    padding: 1.2rem 1rem
-    margin: 0 auto
-    backdrop-filter: blur(8px)
-    -webkit-backdrop-filter: blur(8px)
-    box-shadow: 0 4px 12px rgba($primary, 0.15)
-    transition: all 0.3s ease
-    width: 100%
-    max-width: 100%
+    max-width: 95vw
+    padding: 0 0.5rem
     box-sizing: border-box
 
     @media (min-width: 768px)
-      background-color: rgba($purple90, 0.15)
-      border: 2px solid rgba($purple50, 0.6)
-      padding: 2.5rem 2rem
-      border-radius: 16px
-      max-width: 600px
-      backdrop-filter: blur(24px)
-      -webkit-backdrop-filter: blur(24px)
-      box-shadow: 0 8px 32px rgba($primary, 0.2), 0 0 0 1px rgba($purple30, 0.1)
+      top: 10vh
+      max-width: 700px
+      padding: 0 1.5rem
 
-    &:hover
-      @media (min-width: 768px)
-        background-color: rgba($purple90, 0.98)
-        border-color: rgba($purple50, 0.8)
-        transform: translateY(-2px)
-        box-shadow: 0 12px 40px rgba($primary, 0.3)
-
-  .crane-timer
-    display: flex
-    flex-direction: column
-    align-items: center
-    gap: 0.6rem
-    margin-bottom: 1rem
-    color: $purple50
-    font-size: 0.9rem
-    font-weight: 500
-
-    @media (min-width: 768px)
-      gap: 1.2rem
-      margin-bottom: 2rem
-      font-size: 1.2rem
-
-    .countdown-display, .elapsed-display
-      display: flex
-      justify-content: center
-      align-items: center
-      gap: 0.4rem
-      
-      @media (min-width: 768px)
-        gap: 0.8rem
-
-    .countdown-display
-      font-size: 1.1rem
-      font-weight: 700
-      color: $purple30
-      text-shadow: 0 0 6px rgba($purple30, 0.5)
-      letter-spacing: 0.01em
-
-      @media (min-width: 768px)
-        font-size: 1.6rem
-        text-shadow: 0 0 8px rgba($purple30, 0.6)
-        letter-spacing: 0.02em
-
-      .countdown-icon
-        font-size: 1.1rem
-
-        @media (min-width: 768px)
-          font-size: 1.8rem
-
-    .elapsed-display
-      font-size: 0.8rem
-      opacity: 0.8
-      font-weight: 400
-
-      @media (min-width: 768px)
-        font-size: 1.1rem
-        opacity: 0.9
-        font-weight: 500
-
-      .timer-icon
-        font-size: 0.9rem
-
-        @media (min-width: 768px)
-          font-size: 1.3rem
-
-  .crane-input-group
-    display: flex
-    flex-direction: column
-    align-items: center
-    gap: 0.8rem
-    width: 100%
-
-    @media (min-width: 768px)  
-      gap: 1.2rem
-
-    .crane-password
-      width: 100%
-      max-width: 400px
-      padding: 0.8rem 1rem
-      border: 2px solid rgba($purple50, 0.4)
-      border-radius: 8px
-      background-color: rgba($purple90, 0.8)
-      color: $purple10
-      font-size: 1rem
-      font-weight: 500
-      text-align: center
-      outline: none
+    .crane-interface-card
+      background-color: rgba($purple90, 0.9)
+      border: 1px solid rgba($purple50, 0.3)
+      border-radius: 12px
+      padding: 1.2rem 1rem
+      margin: 0 auto
+      backdrop-filter: blur(8px)
+      -webkit-backdrop-filter: blur(8px)
+      box-shadow: 0 4px 12px rgba($primary, 0.15)
       transition: all 0.3s ease
+      width: 100%
+      max-width: 100%
       box-sizing: border-box
-      min-height: 44px
 
       @media (min-width: 768px)
-        padding: 1rem 1.5rem
-        border-radius: 12px
-        font-size: 1.1rem
         background-color: rgba($purple90, 0.15)
         border: 2px solid rgba($purple50, 0.6)
-        backdrop-filter: blur(12px)
-        -webkit-backdrop-filter: blur(12px)
-        min-height: auto
+        padding: 2.5rem 2rem
+        border-radius: 16px
+        max-width: 600px
+        backdrop-filter: blur(24px)
+        -webkit-backdrop-filter: blur(24px)
+        box-shadow: 0 8px 32px rgba($primary, 0.2), 0 0 0 1px rgba($purple30, 0.1)
 
-      &::placeholder
-        color: rgba($purple50, 0.7)
+      &:hover
+        @media (min-width: 768px)
+          background-color: rgba($purple90, 0.98)
+          border-color: rgba($purple50, 0.8)
+          transform: translateY(-2px)
+          box-shadow: 0 12px 40px rgba($primary, 0.3)
+
+    .crane-timer
+      display: flex
+      flex-direction: column
+      align-items: center
+      gap: 0.6rem
+      margin-bottom: 1rem
+      color: $purple50
+      font-size: 0.9rem
+      font-weight: 500
+
+      @media (min-width: 768px)
+        gap: 1.2rem
+        margin-bottom: 2rem
+        font-size: 1.2rem
+
+      .countdown-display, .elapsed-display
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: 0.4rem
+        
+        @media (min-width: 768px)
+          gap: 0.8rem
+
+      .countdown-display
+        font-size: 1.1rem
+        font-weight: 700
+        color: $purple30
+        text-shadow: 0 0 6px rgba($purple30, 0.5)
+        letter-spacing: 0.01em
+
+        @media (min-width: 768px)
+          font-size: 1.6rem
+          text-shadow: 0 0 8px rgba($purple30, 0.6)
+          letter-spacing: 0.02em
+
+        .countdown-icon
+          font-size: 1.1rem
+
+          @media (min-width: 768px)
+            font-size: 1.8rem
+
+      .elapsed-display
+        font-size: 0.8rem
+        opacity: 0.8
         font-weight: 400
 
-      &:focus
-        border-color: $purple30
-        box-shadow: 0 0 0 2px rgba($purple30, 0.2)
-        background-color: rgba($purple90, 0.95)
-
         @media (min-width: 768px)
-          background-color: rgba($purple90, 0.25)
-          box-shadow: 0 0 0 3px rgba($purple30, 0.3), 0 4px 12px rgba($purple30, 0.2)
+          font-size: 1.1rem
+          opacity: 0.9
+          font-weight: 500
+
+        .timer-icon
+          font-size: 0.9rem
+
+          @media (min-width: 768px)
+            font-size: 1.3rem
+
+    .crane-input-group
+      display: flex
+      flex-direction: column
+      gap: 0.8rem
+      align-items: center
+      width: 100%
+
+      @media (min-width: 768px)
+        gap: 1.5rem
+
+    .crane-password
+      background: rgba($purple80, 0.6)
+      border: 1px solid rgba($mindgarden-purple, 0.5)
+      color: $purple10
+      padding: 0.75rem 1rem
+      font-size: 16px  // Prevents zoom on iOS
+      border-radius: 8px
+      outline: none
+      margin: 0
+      text-align: center
+      transition: all 0.3s ease
+      width: 100%
+      max-width: 100%
+      font-weight: 500
+      letter-spacing: 0.01em
+      backdrop-filter: blur(4px)
+      -webkit-backdrop-filter: blur(4px)
+      text-shadow: 0 1px 2px rgba($purple100, 0.6)
+
+      @media (min-width: 768px)
+        background: rgba($purple80, 0.15)
+        border: 2px solid rgba($mindgarden-purple, 0.8)
+        font-size: 1.3rem
+        padding: 1rem 1.5rem
+        border-radius: 12px
+        max-width: 450px
+        font-weight: 600
+        backdrop-filter: blur(12px)
+        -webkit-backdrop-filter: blur(12px)
+        text-shadow: 0 1px 2px rgba($purple100, 0.8)
+
+      &:focus
+        background: rgba($purple80, 0.8)
+        border-color: $purple30
+        box-shadow: 0 0 0 2px rgba($purple30, 0.4)
+        
+        @media (min-width: 768px)
+          background: rgba($purple80, 0.25)
+          box-shadow: 0 0 0 3px rgba($purple30, 0.3)
+          backdrop-filter: blur(16px)
+          -webkit-backdrop-filter: blur(16px)
 
       &.crane-error
-        border-color: #ff6b6b
-        background-color: rgba(#ff6b6b, 0.1)
+        border-color: $error-color
+        background: rgba($error-color, 0.3)
         animation: craneShake 0.5s ease-in-out
-
+        
         @media (min-width: 768px)
-          background-color: rgba(#ff6b6b, 0.05)
+          background: rgba($error-color, 0.2)
+
+      &::placeholder
+        color: rgba($purple10, 0.7)
 
     .crane-submit
-      display: flex
-      align-items: center
-      justify-content: center
-      gap: 0.5rem
-      padding: 0.8rem 1.5rem
-      background: linear-gradient(135deg, $purple50, $purple30)
+      background: $mindgarden-purple
       color: $purple10
+      padding: 0.75rem 1.5rem
       border: none
       border-radius: 8px
       font-size: 1rem
       font-weight: 600
       cursor: pointer
       transition: all 0.3s ease
-      min-height: 44px
-      box-shadow: 0 4px 12px rgba($purple30, 0.3)
+      display: inline-flex
+      align-items: center
+      justify-content: center
+      gap: 0.5rem
+      letter-spacing: 0.01em
+      box-shadow: 0 2px 8px rgba($mindgarden-purple, 0.25)
+      width: 100%
+      min-height: 44px  // Ensure proper touch target size
 
       @media (min-width: 768px)
-        padding: 0.8rem 2rem
+        padding: 1rem 2rem
+        font-size: 1.2rem
         border-radius: 12px
-        font-size: 1.1rem
+        gap: 0.8rem
+        box-shadow: 0 4px 16px rgba($mindgarden-purple, 0.3)
+        width: auto
         min-height: auto
 
       &:hover:not(:disabled)
         @media (min-width: 768px)
+          background: lighten($mindgarden-purple, 10%)
           transform: translateY(-2px)
-          box-shadow: 0 6px 16px rgba($purple30, 0.4)
+          box-shadow: 0 6px 20px rgba($mindgarden-purple, 0.4)
 
       &:disabled
-        opacity: 0.6
+        opacity: 0.7
         cursor: not-allowed
-        transform: none
-        box-shadow: 0 2px 8px rgba($purple30, 0.2)
-
-      &:disabled:hover
-        transform: none
-
-      &.loading
-        .crane-submit-icon
+        
+        span
           animation: craneButtonSpin 1s linear infinite
 
-    .crane-error-message
-      color: #ff6b6b
-      font-size: 0.9rem
-      font-weight: 500
-      text-align: center
-      margin-top: 0.5rem
-      padding: 0.5rem
-      animation: craneFadeIn 0.3s ease-in
-
-      @media (min-width: 768px)
-        font-size: 1rem
+      .crane-error-message
+        color: $error-color
         margin-top: 0.8rem
-
-    .crane-hint
-      color: rgba($purple50, 0.8)
-      font-size: 0.8rem
-      font-weight: 400
-      text-align: center
-      margin-top: 0.5rem
-      display: flex
-      align-items: center
-      justify-content: center
-      gap: 0.3rem
-      animation: craneFadeIn 0.5s ease-in 0.5s both
-
-      @media (min-width: 768px)
-        font-size: 0.9rem
-        margin-top: 0.8rem
-        gap: 0.5rem
-
-.crane-success-overlay
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  background-color: rgba($purple90, 0.95)
-  backdrop-filter: blur(20px)
-  -webkit-backdrop-filter: blur(20px)
-  z-index: 10
-  display: flex
-  justify-content: center
-  align-items: center
-  text-align: center
-  padding: 2rem
-
-  .success-message
-    color: $purple10
-    max-width: 600px
-    animation: cranePulseGlow 2s infinite alternate
-
-    h2
-      font-size: 2rem
-      font-weight: 700
-      margin-bottom: 1rem
-      background: linear-gradient(45deg, $purple30, $purple50)
-      background-clip: text
-      -webkit-background-clip: text
-      -webkit-text-fill-color: transparent
-
-      @media (min-width: 768px)
-        font-size: 2.5rem
-        margin-bottom: 1.5rem
-
-    p
-      font-size: 1.1rem
-      line-height: 1.6
-      margin-bottom: 1.5rem
-      opacity: 0.9
-
-      @media (min-width: 768px)
-        font-size: 1.3rem
-        margin-bottom: 2rem
-
-    .success-actions
-      margin-top: 1.2rem
-
-      @media (min-width: 768px)
-        margin-top: 1.5rem
-
-      .continue-button
-        background: linear-gradient(135deg, $purple50, $purple30)
-        color: $purple10
-        padding: 0.75rem 1.5rem
-        border: none
-        border-radius: 8px
-        font-size: 1rem
-        font-weight: 600
-        cursor: pointer
-        transition: all 0.3s ease
-        box-shadow: 0 4px 16px rgba($purple30, 0.3)
-        min-height: 44px
-        width: 100%
+        font-size: 0.85rem
+        display: flex
+        align-items: center
+        justify-content: center
+        gap: 0.4rem
+        animation: craneFadeIn 0.3s ease-in
+        text-align: center
 
         @media (min-width: 768px)
-          padding: 0.8rem 2rem
-          border-radius: 12px
-          font-size: 1.1rem
-          width: auto
-          min-height: auto
+          margin-top: 1rem
+          font-size: 0.9rem
+          gap: 0.5rem
 
-        &:hover
+      .crane-hint
+        color: rgba($purple10, 0.8)
+        margin-top: 0.6rem
+        font-size: 0.85rem
+        font-weight: 400
+        display: flex
+        align-items: center
+        justify-content: center
+        gap: 0.4rem
+        opacity: 0.8
+        animation: craneFadeIn 0.5s ease-in 0.5s both
+        text-align: center
+
+        @media (min-width: 768px)
+          margin-top: 1rem
+          font-size: 1rem
+          font-weight: 500
+          gap: 0.6rem
+          opacity: 0.9
+
+  .crane-success-overlay
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    z-index: 4
+    text-align: center
+    width: 95%
+    max-width: 500px
+
+    .success-message
+      background: linear-gradient(135deg, $purple30, $purple50)
+      color: $purple10
+      padding: 1.5rem 1.2rem
+      border-radius: 12px
+      font-size: 1.1rem
+      font-weight: 600
+      box-shadow: 0 4px 20px rgba($purple30, 0.4)
+      animation: cranePulseGlow 2s infinite alternate
+      text-align: center
+      width: 100%
+
+      @media (min-width: 768px)
+        padding: 2rem 3rem
+        border-radius: 16px
+        font-size: 1.5rem
+        box-shadow: 0 8px 32px rgba($purple30, 0.4)
+
+      .success-actions
+        margin-top: 1.2rem
+
+        @media (min-width: 768px)
+          margin-top: 1.5rem
+
+        .continue-button
+          background: linear-gradient(135deg, $purple50, $purple30)
+          color: $purple10
+          padding: 0.75rem 1.5rem
+          border: none
+          border-radius: 8px
+          font-size: 1rem
+          font-weight: 600
+          cursor: pointer
+          transition: all 0.3s ease
+          box-shadow: 0 4px 16px rgba($purple30, 0.3)
+          min-height: 44px
+          width: 100%
+
           @media (min-width: 768px)
-            transform: translateY(-2px)
-            box-shadow: 0 6px 20px rgba($purple30, 0.4)
+            padding: 0.8rem 2rem
+            border-radius: 12px
+            font-size: 1.1rem
+            width: auto
+            min-height: auto
 
-        &:focus
-          outline: 2px solid $purple30
-          outline-offset: 2px
+          &:hover
+            @media (min-width: 768px)
+              transform: translateY(-2px)
+              box-shadow: 0 6px 20px rgba($purple30, 0.4)
 
-// Smoke canvas styling
-.crane-smoke-canvas
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  z-index: 1
-  pointer-events: none
+          &:focus
+            outline: 2px solid $purple30
+            outline-offset: 2px
 
-// Shockwave explosion effect
-.shockwave
-  position: absolute
-  top: 50%
-  left: 50%
-  width: 10px
-  height: 10px
-  border-radius: 50%
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.8) 0%, rgba(0, 255, 255, 0.4) 40%, transparent 70%)
-  opacity: 0
-  z-index: 4
-  transform: translate(-50%, -50%) scale(0)
-  transition: transform 0.6s ease-out, opacity 0.6s ease-out
+  // Smoke canvas styling
+  .crane-smoke-canvas
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 1
+    pointer-events: none
 
-  &.active
-    transform: translate(-50%, -50%) scale(20)
-    opacity: 0.15
+  // Shockwave explosion effect
+  .shockwave
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 10px
+    height: 10px
+    border-radius: 50%
+    background: radial-gradient(circle, rgba($purple30, 0.8) 0%, rgba($purple30, 0.4) 40%, transparent 70%)
+    opacity: 0
+    z-index: 4
+    transform: translate(-50%, -50%) scale(0)
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out
+
+    &.active
+      transform: translate(-50%, -50%) scale(20)
+      opacity: 0.15
 
 // Accessibility helper classes
 .visually-hidden
@@ -1225,7 +1284,30 @@
   white-space: nowrap !important
   border: 0 !important
 
-// UI Animation Keyframes (NOT crane SVG animations)
+// Crane Animation Keyframes
+@keyframes craneLineDraw
+  to
+    stroke-dashoffset: 0
+
+@keyframes craneIdleGlow
+  0%
+    filter: drop-shadow(0 0 4px rgba($purple30, 0.4))
+    stroke-width: 1.5
+  50%
+    filter: drop-shadow(0 0 12px rgba($purple30, 0.8))
+    stroke-width: 2.0
+  100%
+    filter: drop-shadow(0 0 4px rgba($purple30, 0.4))
+    stroke-width: 1.5
+
+@keyframes craneExplodeFly
+  0%
+    transform: scale(1) translate(0, 0) rotate(0deg)
+    opacity: 1
+  100%
+    transform: scale(1.2) translate(30px, -30px) rotate(90deg)
+    opacity: 0
+
 @keyframes craneShake
   0%, 100%
     transform: translateX(0)
@@ -1262,59 +1344,50 @@
     opacity: 1
     transform: translateX(-50%) translateY(0)
 
-// Mobile-specific layout adjustments
+// Mobile-specific layout for crane gate - only apply on actual mobile screens
 @media (max-width: 768px)
   .crane-gate-container.is-mobile
     .crane-svg-container
-      align-items: flex-end
-      padding-bottom: 2rem
+      // Position the smaller crane at the bottom, clear of input group
+      align-items: flex-end !important
+      padding: 0 0.5rem 2rem !important
       
     .crane-svg
-      margin-top: 40vh
-      max-width: 350px
+      align-items: flex-end !important
+      padding-bottom: 0 !important
+      // Add top margin to push crane further down from input group
+      margin-top: 45vh !important
+      
+      svg
+        max-width: 400px !important
+        //width:50% !important
+        // Allow flexible sizing on mobile
+        //max-width: none
+        //width: 100%
+        height: auto
+        
+      &.stage-explode .line
+        animation: craneExplodeFly 1.2s ease-out forwards !important
+        
+      &.stage-explode .shard
+        animation: craneExplodeFly 1.2s ease-out forwards !important
       
     .crane-ui-overlay
-      top: 8vh
-      width: 95vw
-      max-width: 95vw
-      padding: 0 1rem
+      top: 8vh !important
+      left: 50% !important
+      transform: translateX(-50%) !important
+      width: 95vw !important
+      max-width: 95vw !important
+      padding: 0 1rem !important
       
     .crane-interface-card
-      background-color: rgba($purple90, 0.15)
-      border: 2px solid rgba($purple50, 0.6)
-      backdrop-filter: blur(20px)
-      -webkit-backdrop-filter: blur(20px)
-      width: 100%
-      max-width: 100%
-      padding: 1.2rem
-      
-    .crane-input-group
-      gap: 1rem
-      padding: 0.2rem
-      
-      .crane-password
-        width: 100%
-        max-width: none
-        padding: 1rem 1.2rem
-        font-size: 16px  // Prevents zoom on iOS
-        min-height: 48px  // Better touch target
-        border-radius: 10px
-        
-      .crane-submit
-        width: 100%
-        max-width: none
-        padding: 1rem 1.5rem
-        min-height: 48px  // Better touch target
-        font-size: 1rem
-        border-radius: 10px
-        
-      .crane-hint
-        font-size: 0.85rem
-        margin-top: 0.8rem
-        
-      .crane-error-message
-        font-size: 0.85rem
-        margin-top: 0.8rem
+      background-color: rgba($purple90, 0.15) !important
+      border: 2px solid rgba($purple50, 0.6) !important
+      backdrop-filter: blur(20px) !important
+      -webkit-backdrop-filter: blur(20px) !important
+      width: 100% !important
+      max-width: 100% !important
+      padding: 1rem !important
 
 // Global background transition class
 .cathedral-bg-transition
