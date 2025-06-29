@@ -182,16 +182,17 @@ const CraneScavengerEffect = () => {
       //}
     //}
 
-    draw(ctx) {
-      const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
-      gradient.addColorStop(0, `rgba(120, 255, 255, ${this.opacity * 0.9})`); // Bright inner core
-      gradient.addColorStop(0.4, `rgba(100, 200, 255, ${this.opacity * 0.4})`);
-      gradient.addColorStop(1, `rgba(80, 150, 255, 0)`); // Fades out to transparent
-    
-      ctx.beginPath();
-      ctx.fillStyle = gradient;
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
+      draw(ctx) {
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+        gradient.addColorStop(0, `rgba(120, 255, 255, ${this.opacity * 0.9})`); // Bright inner core
+        gradient.addColorStop(0.4, `rgba(100, 200, 255, ${this.opacity * 0.4})`);
+        gradient.addColorStop(1, `rgba(80, 150, 255, 0)`); // Fades out to transparent
+      
+        ctx.beginPath();
+        ctx.fillStyle = gradient;
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
     }
   
     // Mobile optimization - fewer particles on smaller screens
