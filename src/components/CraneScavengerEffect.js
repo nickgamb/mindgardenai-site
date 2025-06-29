@@ -171,10 +171,6 @@ const CraneScavengerEffect = () => {
     
       //draw(ctx) {
         //ctx.beginPath();
-        //let gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
-        //gradient.addColorStop(0, `rgba(240, 250, 255, ${this.opacity})`);
-        //gradient.addColorStop(1, `rgba(220, 230, 255, 0)`);
-        //ctx.fillStyle = gradient;
         //ctx.fillStyle = `rgba(200, 200, 200, ${this.opacity})`;
         //ctx.fillStyle = `rgba(220, 230, 255, ${this.opacity})`;  // Soft bluish-white
         //ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -183,14 +179,18 @@ const CraneScavengerEffect = () => {
     //}
 
       draw(ctx) {
-        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
-        gradient.addColorStop(0, `rgba(120, 255, 255, ${this.opacity * 0.9})`); // Bright inner core
-        gradient.addColorStop(0.4, `rgba(100, 200, 255, ${this.opacity * 0.4})`);
-        gradient.addColorStop(1, `rgba(80, 150, 255, 0)`); // Fades out to transparent
+        // Create a more visible radial gradient with better contrast
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 2);
+        
+        // Use brighter, more visible colors with higher opacity
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 1.2})`); // Bright white center
+        gradient.addColorStop(0.3, `rgba(180, 220, 255, ${this.opacity * 0.8})`); // Light blue
+        gradient.addColorStop(0.7, `rgba(120, 180, 255, ${this.opacity * 0.4})`); // Medium blue
+        gradient.addColorStop(1, `rgba(80, 140, 255, 0)`); // Fade to transparent
       
         ctx.beginPath();
         ctx.fillStyle = gradient;
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.size * 1.5, 0, Math.PI * 2);
         ctx.fill();
       }
     }
