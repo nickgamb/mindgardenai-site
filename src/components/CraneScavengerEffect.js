@@ -153,8 +153,8 @@ const CraneScavengerEffect = () => {
         // Varied size range for more natural fog
         this.size = Math.random() * 6 + 3;
     
-        // Subtle opacity for atmospheric fog
-        this.opacity = Math.random() * 0.12 + 0.02;
+        // Enhanced opacity for brighter, more glowing fog
+        this.opacity = Math.random() * 0.25 + 0.08;
     
         // Slow upward drift
         this.speedY = Math.random() * -0.3 - 0.1;
@@ -173,12 +173,12 @@ const CraneScavengerEffect = () => {
         // Create bright cyan/teal gradient matching the wireframe crane's glow
         const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 2.5);
         
-        // Ethereal cyan fog matching the crane
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 1.2})`); // Bright white core
-        gradient.addColorStop(0.2, `rgba(150, 255, 255, ${this.opacity * 0.8})`); // Light cyan
-        gradient.addColorStop(0.5, `rgba(0, 255, 255, ${this.opacity * 0.5})`); // Bright cyan
-        gradient.addColorStop(0.8, `rgba(0, 200, 200, ${this.opacity * 0.3})`); // Deep teal
-        gradient.addColorStop(1, `rgba(0, 150, 150, 0)`); // Fade to transparent teal
+        // Ethereal cyan fog matching the crane - enhanced for more glow
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 1.8})`); // Bright white core
+        gradient.addColorStop(0.2, `rgba(150, 255, 255, ${this.opacity * 1.2})`); // Light cyan
+        gradient.addColorStop(0.5, `rgba(0, 255, 255, ${this.opacity * 0.8})`); // Bright cyan
+        gradient.addColorStop(0.8, `rgba(0, 200, 200, ${this.opacity * 0.5})`); // Deep teal
+        gradient.addColorStop(1, `rgba(0, 150, 150, ${this.opacity * 0.2})`); // Fade to transparent teal
       
         ctx.beginPath();
         ctx.fillStyle = gradient;
@@ -205,8 +205,8 @@ const CraneScavengerEffect = () => {
         this.opacity = Math.random() * 0.8 + 0.3;
         this.maxOpacity = this.opacity;
     
-        // Upward movement with variation
-        this.speedY = Math.random() * -2 - 0.5;
+        // Upward movement with variation - increased for higher rising
+        this.speedY = Math.random() * -3.5 - 1.0;
         this.speedX = Math.random() * 0.6 - 0.3;
         
         // Gravity and fade effects
