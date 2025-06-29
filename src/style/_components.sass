@@ -865,13 +865,36 @@
         max-height: 100%
         display: block
 
-      // Let SVG handle its own animations - just provide basic styling
-      .line
-        stroke: $purple30
-        filter: drop-shadow(0 0 4px rgba($purple30, 0.5))
-        
-      .shard
-        fill: $purple30
+      // SVG animation states controlled by stage
+      &.stage-drawing
+        .line
+          stroke: $purple30
+          stroke-width: 1.5
+          stroke-linecap: round
+          stroke-linejoin: round
+          fill: none
+          stroke-dasharray: 1000
+          stroke-dashoffset: 1000
+          animation: craneLineDraw 6s forwards
+          filter: drop-shadow(0 0 4px rgba($purple30, 0.5))
+
+      &.stage-idle
+        .line
+          stroke: $purple30
+          stroke-width: 1.5
+          stroke-linecap: round
+          stroke-linejoin: round
+          fill: none
+          stroke-dasharray: 1000
+          stroke-dashoffset: 0
+          animation: craneIdleGlow 2s infinite alternate
+          filter: drop-shadow(0 0 6px rgba($purple30, 0.6))
+
+      &.stage-explode
+        .line
+          animation: craneExplodeFly 1.2s ease-out forwards
+        .shard
+          animation: craneExplodeFly 1.2s ease-out forwards
 
       &.stage-complete
         opacity: 0
@@ -1309,14 +1332,6 @@
         //max-width: none
         //width: 100%
         height: auto
-        
-      // Let SVG handle animations on mobile too - just basic styling
-      .line
-        stroke: $purple30 !important
-        filter: drop-shadow(0 0 4px rgba($purple30, 0.5)) !important
-        
-      .shard
-        fill: $purple30 !important
       
     .crane-ui-overlay
       top: 8vh !important
