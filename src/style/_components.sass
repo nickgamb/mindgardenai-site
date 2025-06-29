@@ -899,39 +899,6 @@
       &.stage-complete
         opacity: 0
 
-// Force crane animation stages to apply globally - ensures mobile compatibility
-.crane-svg.stage-drawing .line
-  stroke: $purple30
-  stroke-width: 1.5
-  stroke-linecap: round
-  stroke-linejoin: round
-  fill: none
-  stroke-dasharray: 1000
-  stroke-dashoffset: 1000
-  animation: craneLineDraw 6s forwards
-  filter: drop-shadow(0 0 4px rgba($purple30, 0.5))
-
-.crane-svg.stage-idle .line
-  stroke: $purple30
-  stroke-width: 1.5
-  stroke-linecap: round
-  stroke-linejoin: round
-  fill: none
-  stroke-dasharray: 1000
-  stroke-dashoffset: 0
-  animation: craneIdleGlow 2s infinite alternate
-  filter: drop-shadow(0 0 6px rgba($purple30, 0.6))
-
-.crane-svg.stage-explode .line,
-.crane-svg.stage-explode .shard
-  animation: craneExplodeFly 1.2s ease-out forwards
-
-// Performance optimizations for mobile animations
-.crane-svg
-  transform: translateZ(0)
-  backface-visibility: hidden
-  will-change: transform
-
   .crane-ui-overlay
     z-index: 3
     position: absolute
@@ -1365,6 +1332,29 @@
         //max-width: none
         //width: 100%
         height: auto
+        
+      // Ensure animations still work on mobile - preserve all animation states
+      &.stage-drawing .line
+        stroke: $purple30 !important
+        stroke-width: 1.5 !important
+        stroke-linecap: round !important
+        stroke-linejoin: round !important
+        fill: none !important
+        stroke-dasharray: 1000 !important
+        stroke-dashoffset: 1000 !important
+        animation: craneLineDraw 6s forwards !important
+        filter: drop-shadow(0 0 4px rgba($purple30, 0.5)) !important
+        
+      &.stage-idle .line
+        stroke: $purple30 !important
+        stroke-width: 1.5 !important
+        stroke-linecap: round !important
+        stroke-linejoin: round !important
+        fill: none !important
+        stroke-dasharray: 1000 !important
+        stroke-dashoffset: 0 !important
+        animation: craneIdleGlow 2s infinite alternate !important
+        filter: drop-shadow(0 0 6px rgba($purple30, 0.6)) !important
         
       &.stage-explode .line
         animation: craneExplodeFly 1.2s ease-out forwards !important

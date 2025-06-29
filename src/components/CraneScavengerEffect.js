@@ -153,8 +153,8 @@ const CraneScavengerEffect = () => {
         // Varied size range for more natural fog
         this.size = Math.random() * 6 + 3;
     
-        // Much higher opacity for visible atmospheric glow like the crane
-        this.opacity = Math.random() * 0.25 + 0.1; // Doubled the opacity range
+        // Subtle opacity for atmospheric fog
+        this.opacity = Math.random() * 0.12 + 0.02;
     
         // Slow upward drift
         this.speedY = Math.random() * -0.3 - 0.1;
@@ -170,19 +170,19 @@ const CraneScavengerEffect = () => {
       }
 
       draw(ctx) {
-        // Create ultra-bright cyan glow matching the crane's intensity
-        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 3);
+        // Create bright cyan/teal gradient matching the wireframe crane's glow
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 2.5);
         
-        // Much brighter ethereal cyan fog with intense glow like the crane
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 2.5})`); // Ultra-bright white core
-        gradient.addColorStop(0.15, `rgba(200, 255, 255, ${this.opacity * 1.8})`); // Intense light cyan
-        gradient.addColorStop(0.4, `rgba(0, 255, 255, ${this.opacity * 1.2})`); // Bright cyan (crane level)
-        gradient.addColorStop(0.7, `rgba(0, 220, 220, ${this.opacity * 0.8})`); // Glowing teal
-        gradient.addColorStop(1, `rgba(0, 180, 180, 0)`); // Extended glow fade
+        // Ethereal cyan fog matching the crane
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 1.2})`); // Bright white core
+        gradient.addColorStop(0.2, `rgba(150, 255, 255, ${this.opacity * 0.8})`); // Light cyan
+        gradient.addColorStop(0.5, `rgba(0, 255, 255, ${this.opacity * 0.5})`); // Bright cyan
+        gradient.addColorStop(0.8, `rgba(0, 200, 200, ${this.opacity * 0.3})`); // Deep teal
+        gradient.addColorStop(1, `rgba(0, 150, 150, 0)`); // Fade to transparent teal
       
         ctx.beginPath();
         ctx.fillStyle = gradient;
-        ctx.arc(this.x, this.y, this.size * 2.2, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.size * 1.8, 0, Math.PI * 2);
         ctx.fill();
       }
     }
@@ -205,13 +205,13 @@ const CraneScavengerEffect = () => {
         this.opacity = Math.random() * 0.8 + 0.3;
         this.maxOpacity = this.opacity;
     
-        // Much stronger upward movement for higher rise
-        this.speedY = Math.random() * -4 - 1.5; // Doubled the upward speed
-        this.speedX = Math.random() * 0.8 - 0.4;
+        // Upward movement with variation
+        this.speedY = Math.random() * -2 - 0.5;
+        this.speedX = Math.random() * 0.6 - 0.3;
         
-        // Reduced gravity and longer life for higher travel
-        this.gravity = 0.015; // Reduced gravity so they slow down less
-        this.life = Math.random() * 120 + 60; // Much longer lifespan (doubled)
+        // Gravity and fade effects
+        this.gravity = 0.02;
+        this.life = Math.random() * 60 + 30; // Lifespan in frames
         this.maxLife = this.life;
         
         // Flicker effect
@@ -293,34 +293,29 @@ const CraneScavengerEffect = () => {
   }, []);
 
   const triggerExplosion = () => {
-    console.log('Triggering explosion animation...');
     setStage('explode');
     
-    // Create the SVG trigger element that the crane.svg animations are waiting for
+    // Trigger the SVG explosion animation programmatically
     if (svgRef.current) {
       const svgElement = svgRef.current.querySelector('svg');
       if (svgElement) {
-        // Create the trigger element that the explosion animations reference
+        // Add a trigger element to start the explosion animation
         const trigger = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
         trigger.setAttribute('id', 'craneBreakaway');
         trigger.setAttribute('attributeName', 'opacity');
         trigger.setAttribute('from', '1');
-        trigger.setAttribute('to', '1');
-        trigger.setAttribute('dur', '0.1s');
+        trigger.setAttribute('to', '0');
+        trigger.setAttribute('dur', '1.2s');
         trigger.setAttribute('begin', '0s');
-        trigger.setAttribute('fill', 'freeze');
         svgElement.appendChild(trigger);
-        
-        console.log('SVG explosion trigger created and started');
       }
     }
     
-    // Wait for the explosion animation to complete (1.2s as defined in the SVG)
+    // After explosion animation completes, show the new background
     setTimeout(() => {
-      console.log('Explosion animation complete, transitioning to success state...');
       setExplosionComplete(true);
       setStage('complete');
-    }, 1400); // 1.2s explosion + 200ms buffer
+    }, 1200); // Match the SVG explosion duration
   };
 
   const handlePasswordSubmit = async () => {
@@ -362,12 +357,12 @@ const CraneScavengerEffect = () => {
       <div className="crane-backgrounds">
         <img 
           src="/img/crane_background1.PNG" 
-          className={`crane-bg ${stage === 'explode' || stage === 'complete' ? 'hidden' : 'visible'}`} 
+          className={`crane-bg visible`} 
           alt="Background" 
         />
         <img 
           src="/img/crane_background2.png" 
-          className={`crane-bg ${stage === 'explode' || stage === 'complete' ? 'bg-alt visible' : 'bg-alt'}`} 
+          className={`crane-bg bg-alt`} 
           alt="Reveal Background" 
         />
       </div>
