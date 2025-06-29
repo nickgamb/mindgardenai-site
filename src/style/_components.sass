@@ -879,15 +879,15 @@
   .crane-ui-overlay
     z-index: 3
     position: absolute
-    top: 15vh
+    top: 8vh
     left: 50%
     transform: translateX(-50%)
     text-align: center
     animation: craneUIFadeIn 1.2s ease-in
     pointer-events: auto
-    width: 100%
+    width: 95vw
     max-width: 95vw
-    padding: 0 0.5rem
+    padding: 0 1rem
     box-sizing: border-box
 
     @media (min-width: 768px)
@@ -1292,42 +1292,37 @@
 @media (max-width: 768px)
   .crane-gate-container.is-mobile
     .crane-svg-container
-      // Position the smaller crane at the bottom, clear of input group
-      align-items: flex-end !important
-      padding: 0 0.5rem 2rem !important
-      top: 0 !important
-      height: 100vh !important
+      // Center the crane properly on mobile
+      align-items: center !important
+      justify-content: center !important
+      padding: 0 1rem !important
+      top: 25vh !important
+      height: 55vh !important
+      left: 0 !important
+      transform: none !important
       
     .crane-svg
-      align-items: flex-end !important
-      padding-bottom: 0 !important
-      // Position crane in visible area on mobile
-      margin-top: 10vh !important
-      max-height: 60vh !important
+      align-items: center !important
+      justify-content: center !important
+      padding: 0 !important
+      margin: 0 !important
+      width: 100% !important
+      height: 100% !important
       
       svg
-        max-width: 400px !important
-        //width:50% !important
-        // Allow flexible sizing on mobile
-        //max-width: none
-        //width: 100%
-        height: auto
+        max-width: 90vw !important
+        max-height: 50vh !important
+        width: auto !important
+        height: auto !important
         
-      // Let SVG handle animations on mobile too - just basic styling
-      .line
-        stroke: $purple30 !important
-        filter: drop-shadow(0 0 4px rgba($purple30, 0.5)) !important
-        
-      .shard
-        fill: $purple30 !important
-      
-    .crane-ui-overlay
-      top: 8vh !important
-      left: 50% !important
-      transform: translateX(-50%) !important
-      width: 95vw !important
-      max-width: 95vw !important
-      padding: 0 1rem !important
+              // Enhanced styling for mobile - match desktop glow intensity
+        .line
+          stroke: $purple30 !important
+          filter: drop-shadow(0 0 8px rgba($purple30, 0.8)) !important
+          
+        .shard
+          fill: $purple30 !important
+          filter: drop-shadow(0 0 6px rgba($purple30, 0.6)) !important
       
     .crane-interface-card
       background-color: rgba($purple90, 0.15) !important
