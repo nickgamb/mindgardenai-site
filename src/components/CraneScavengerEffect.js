@@ -49,13 +49,16 @@ const CraneScavengerEffect = () => {
 
   // Load SVG content
   useEffect(() => {
-    fetch('/crane.svg')
+    // Use different SVG file for mobile
+    const svgPath = isMobile ? '/crane_mobile.svg' : '/crane.svg';
+    
+    fetch(svgPath)
       .then(response => response.text())
       .then(svgText => {
         setCraneSVG(svgText);
       })
       .catch(error => console.error('Error loading crane SVG:', error));
-  }, []);
+  }, [isMobile]); // Add isMobile as dependency
 
   useEffect(() => {
     // Only start the animation timing once SVG is loaded
@@ -137,7 +140,7 @@ const CraneScavengerEffect = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Particle constructor
+    // Smoke/Fog Particle constructor
     class SmokeParticle {
       constructor() {
         this.reset();
@@ -147,17 +150,17 @@ const CraneScavengerEffect = () => {
         this.x = Math.random() * canvas.width;
         this.y = canvas.height + Math.random() * 50;
     
-        // Smaller size range (e.g., 4px to 8px)
-        this.size = Math.random() * 4 + 4;
+        // Varied size range for more natural fog
+        this.size = Math.random() * 6 + 3;
     
-        // Slightly lower opacity for more subtle smoke
-        this.opacity = Math.random() * 0.15 + 0.03;
+        // Subtle opacity for atmospheric fog
+        this.opacity = Math.random() * 0.12 + 0.02;
     
-        // Keep it drifting upward slowly
-        this.speedY = Math.random() * -0.4 - 0.1;
+        // Slow upward drift
+        this.speedY = Math.random() * -0.3 - 0.1;
     
-        // Slight horizontal wobble
-        this.speedX = Math.random() * 0.2 - 0.1;
+        // Gentle horizontal movement
+        this.speedX = Math.random() * 0.3 - 0.15;
       }
     
       update() {
@@ -165,48 +168,119 @@ const CraneScavengerEffect = () => {
         this.y += this.speedY;
         if (this.y < -50 || this.opacity <= 0) this.reset();
       }
-    
-      //draw(ctx) {
-        //ctx.beginPath();
-        //ctx.fillStyle = `rgba(200, 200, 200, ${this.opacity})`;
-        //ctx.fillStyle = `rgba(220, 230, 255, ${this.opacity})`;  // Soft bluish-white
-        //ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        //ctx.fill();
-      //}
-    //}
 
       draw(ctx) {
         // Create bright cyan/teal gradient matching the wireframe crane's glow
-        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 2.2);
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 2.5);
         
-        // Use cyan/teal colors matching the geometric wireframe crane
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 1.3})`); // Bright white core
-        gradient.addColorStop(0.2, `rgba(150, 255, 255, ${this.opacity * 1.0})`); // Light cyan
-        gradient.addColorStop(0.5, `rgba(0, 255, 255, ${this.opacity * 0.7})`); // Bright cyan (matches crane wireframe)
-        gradient.addColorStop(0.8, `rgba(0, 200, 200, ${this.opacity * 0.4})`); // Deep teal
+        // Ethereal cyan fog matching the crane
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 1.2})`); // Bright white core
+        gradient.addColorStop(0.2, `rgba(150, 255, 255, ${this.opacity * 0.8})`); // Light cyan
+        gradient.addColorStop(0.5, `rgba(0, 255, 255, ${this.opacity * 0.5})`); // Bright cyan
+        gradient.addColorStop(0.8, `rgba(0, 200, 200, ${this.opacity * 0.3})`); // Deep teal
         gradient.addColorStop(1, `rgba(0, 150, 150, 0)`); // Fade to transparent teal
       
         ctx.beginPath();
         ctx.fillStyle = gradient;
-        ctx.arc(this.x, this.y, this.size * 1.6, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.size * 1.8, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    // Fire Ember/Spark constructor
+    class FireSpark {
+      constructor() {
+        this.reset();
+      }
+    
+      reset() {
+        // Start from bottom edge with some spread
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height + Math.random() * 20;
+    
+        // Small sparks
+        this.size = Math.random() * 3 + 1;
+    
+        // Bright but variable opacity
+        this.opacity = Math.random() * 0.8 + 0.3;
+        this.maxOpacity = this.opacity;
+    
+        // Upward movement with variation
+        this.speedY = Math.random() * -2 - 0.5;
+        this.speedX = Math.random() * 0.6 - 0.3;
+        
+        // Gravity and fade effects
+        this.gravity = 0.02;
+        this.life = Math.random() * 60 + 30; // Lifespan in frames
+        this.maxLife = this.life;
+        
+        // Flicker effect
+        this.flicker = Math.random() * 0.3 + 0.1;
+        this.flickerSpeed = Math.random() * 0.1 + 0.05;
+      }
+    
+      update() {
+        // Apply gravity (embers slow down as they rise)
+        this.speedY += this.gravity;
+        
+        // Move
+        this.x += this.speedX;
+        this.y += this.speedY;
+        
+        // Age and fade
+        this.life--;
+        this.opacity = (this.life / this.maxLife) * this.maxOpacity;
+        
+        // Add flickering
+        this.opacity *= (1 + Math.sin(Date.now() * this.flickerSpeed) * this.flicker);
+        
+        // Reset when dead or off screen
+        if (this.life <= 0 || this.y < -50 || this.opacity <= 0) {
+          this.reset();
+        }
+      }
+
+      draw(ctx) {
+        // Create fire-like gradient - orange/red/yellow
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 3);
+        
+        // Fire colors - bright center fading to orange/red
+        gradient.addColorStop(0, `rgba(255, 255, 200, ${this.opacity})`); // Bright yellow-white center
+        gradient.addColorStop(0.3, `rgba(255, 180, 0, ${this.opacity * 0.8})`); // Bright orange
+        gradient.addColorStop(0.6, `rgba(255, 100, 0, ${this.opacity * 0.6})`); // Deep orange
+        gradient.addColorStop(0.9, `rgba(200, 50, 0, ${this.opacity * 0.3})`); // Red edge
+        gradient.addColorStop(1, `rgba(100, 0, 0, 0)`); // Fade to transparent red
+      
+        ctx.beginPath();
+        ctx.fillStyle = gradient;
+        ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
         ctx.fill();
       }
     }
   
     // Mobile optimization - fewer particles on smaller screens
-    const particleCount = window.innerWidth < 500 ? 40 : 60;
+    const smokeCount = window.innerWidth < 500 ? 25 : 40;
+    const sparkCount = window.innerWidth < 500 ? 15 : 25;
     
-    // Populate particles
-    for (let i = 0; i < particleCount; i++) {
+    // Populate fog/smoke particles
+    for (let i = 0; i < smokeCount; i++) {
       particles.push(new SmokeParticle());
+    }
+    
+    // Populate fire sparks/embers
+    for (let i = 0; i < sparkCount; i++) {
+      particles.push(new FireSpark());
     }
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw all particles
       particles.forEach(p => {
         p.update();
         p.draw(ctx);
       });
+      
       animationFrame = requestAnimationFrame(animate);
     };
 
