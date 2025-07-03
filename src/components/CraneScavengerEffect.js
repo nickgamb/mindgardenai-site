@@ -433,13 +433,9 @@ const CraneScavengerEffect = () => {
     // After explosion animation completes, show the new background
     // Give extra time for the explosion to be visible and complete
     setTimeout(() => {
-      setStage('complete');
-    }, 3000); // 3 seconds to let the full 1.2s breakaway animation play completely
-    
-    // Show success overlay after background transition completes
-    setTimeout(() => {
       setExplosionComplete(true);
-    }, 5500); // 5.5 seconds total to let background transition complete
+      setStage('complete');
+    }, 2500); // Extended to 2.5 seconds to let animation complete fully
   };
 
   const handlePasswordSubmit = async () => {
