@@ -329,22 +329,28 @@ const CraneScavengerEffect = () => {
         const lines = svgElement.querySelectorAll('.line');
         const shards = svgElement.querySelectorAll('.shard');
         
-        lines.forEach(line => {
-          line.style.animation = 'line-breakaway 1.2s ease-in-out forwards';
-        });
-        
-        shards.forEach(shard => {
-          shard.style.animation = 'shard-fly 1.2s ease-out forwards';
-          shard.style.opacity = '1';
-        });
+        // Add a small delay to ensure the explosion is visible
+        setTimeout(() => {
+          lines.forEach(line => {
+            line.style.animation = 'line-breakaway 1.2s ease-in-out forwards';
+            // Ensure the line is visible during explosion
+            line.style.opacity = '1';
+          });
+          
+          shards.forEach(shard => {
+            shard.style.animation = 'shard-fly 1.2s ease-out forwards';
+            shard.style.opacity = '1';
+          });
+        }, 100); // Small delay to ensure animations trigger
       }
     }
     
     // After explosion animation completes, show the new background
+    // Give extra time for the explosion to be visible
     setTimeout(() => {
       setExplosionComplete(true);
       setStage('complete');
-    }, 1200); // Match the animation duration
+    }, 2000); // Extended to 2 seconds to ensure explosion is visible
   };
 
   const handlePasswordSubmit = async () => {
