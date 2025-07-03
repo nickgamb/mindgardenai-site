@@ -382,9 +382,7 @@ const CraneScavengerEffect = () => {
     // Trigger the SVG explosion animation programmatically
     if (svgRef.current) {
       const svgElement = svgRef.current.querySelector('svg');
-      console.log('SVG element found:', svgElement);
       if (svgElement) {
-        console.log('SVG content:', svgElement.innerHTML.substring(0, 500) + '...');
         // Method 1: Create a proper trigger element that all animateTransform elements can reference
         let trigger = svgElement.querySelector('#craneBreakaway');
         if (!trigger) {
@@ -398,20 +396,12 @@ const CraneScavengerEffect = () => {
           trigger.setAttribute('begin', '0s');
           trigger.setAttribute('fill', 'freeze');
           svgElement.appendChild(trigger);
-          console.log('Created trigger element with ID:', trigger.id);
-        } else {
-          console.log('Found existing trigger element with ID:', trigger.id);
         }
         
         // Force the trigger to start - this should activate all animateTransform elements
-        console.log('Starting trigger animation...');
-        console.log('Trigger element before beginElement:', trigger);
         trigger.beginElement();
-        console.log('Trigger animation started');
-        console.log('Trigger element after beginElement:', trigger);
         
         // Let the SVG's internal animation run without CSS overrides
-        console.log('Triggering SVG internal explosion animation');
         
         // Override the CSS animation delay to start immediately
         const lines = svgElement.querySelectorAll('.line');
@@ -420,44 +410,32 @@ const CraneScavengerEffect = () => {
         lines.forEach((line, index) => {
           // Disable the CSS animation entirely to let animateTransform work
           line.style.animation = 'none';
-          console.log(`Disabled CSS animation for line ${index + 1}`);
         });
         
         shards.forEach((shard, index) => {
           // Disable the CSS animation entirely to let animateTransform work
           shard.style.animation = 'none';
-          console.log(`Disabled CSS animation for shard ${index + 1}`);
         });
         
         // The trigger element should already exist and be started above
         // Just ensure all animateTransform elements are triggered
         const animatedElements = svgElement.querySelectorAll('animateTransform[begin*="craneBreakaway"]');
-        console.log('Found animated elements:', animatedElements.length);
         
         // Also check for all animateTransform elements regardless of begin attribute
         const allAnimateElements = svgElement.querySelectorAll('animateTransform');
-        console.log(`Found ${allAnimateElements.length} total animateTransform elements`);
         
         allAnimateElements.forEach((animate, index) => {
-          console.log(`AnimateTransform ${index + 1}:`, {
-            id: animate.id,
-            attributeName: animate.getAttribute('attributeName'),
-            begin: animate.getAttribute('begin'),
-            dur: animate.getAttribute('dur'),
-            from: animate.getAttribute('from'),
-            to: animate.getAttribute('to')
-          });
           animate.beginElement();
         });
       }
     }
     
     // After explosion animation completes, show the new background
-    // Give extra time for the explosion to be visible
+    // Give extra time for the explosion to be visible and complete
     setTimeout(() => {
       setExplosionComplete(true);
       setStage('complete');
-    }, 1300); // Changed to 1.3 seconds to match animation duration
+    }, 2500); // Extended to 2.5 seconds to let animation complete fully
   };
 
   const handlePasswordSubmit = async () => {
