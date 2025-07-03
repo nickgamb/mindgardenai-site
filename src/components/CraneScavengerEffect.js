@@ -424,7 +424,16 @@ const CraneScavengerEffect = () => {
         // Also check for all animateTransform elements regardless of begin attribute
         const allAnimateElements = svgElement.querySelectorAll('animateTransform');
         
-        allAnimateElements.forEach((animate, index) => {
+        console.log(`Found ${allAnimateElements.length} total animateTransform elements`);
+        console.log(`Found ${animatedElements.length} elements with craneBreakaway.begin`);
+        
+        // Force start all animateTransform elements that reference craneBreakaway
+        animatedElements.forEach((animate, index) => {
+          console.log(`Starting animateTransform ${index + 1}:`, {
+            type: animate.getAttribute('type'),
+            begin: animate.getAttribute('begin'),
+            dur: animate.getAttribute('dur')
+          });
           animate.beginElement();
         });
       }
