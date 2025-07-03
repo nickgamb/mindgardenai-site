@@ -271,17 +271,72 @@ const CraneScavengerEffect = () => {
     for (let i = 0; i < sparkCount; i++) {
       particles.push(new FireSpark());
     }
+    
+    // Make particles accessible globally for explosion effect
+    window.craneParticles = particles;
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       // Draw all particles
-      particles.forEach(p => {
-        p.update();
-        p.draw(ctx);
+      particles.forEach((p, index) => {
+        if (p.type === 'explosion') {
+          // Handle explosion particles
+          p.x += p.vx;
+          p.y += p.vy;
+          p.life -= p.decay;
+          p.opacity = p.life;
+          
+          // Remove dead explosion particles
+          if (p.life <= 0) {
+            particles.splice(index, 1);
+            return;
+          }
+          
+          // Draw explosion particle with bright cyan glow
+          const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 3);
+          gradient.addColorStop(0, `rgba(255, 255, 255, ${p.opacity * 0.8})`);
+          gradient.addColorStop(0.3, `rgba(0, 255, 255, ${p.opacity * 0.6})`);
+          gradient.addColorStop(0.7, `rgba(0, 200, 200, ${p.opacity * 0.3})`);
+          gradient.addColorStop(1, `rgba(0, 150, 150, 0)`);
+          
+          ctx.beginPath();
+          ctx.fillStyle = gradient;
+          ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          // Handle regular particles
+          p.update();
+          p.draw(ctx);
+        }
       });
       
       animationFrame = requestAnimationFrame(animate);
+    };
+
+    // Enhanced explosion effect for particles
+    const triggerParticleExplosion = () => {
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      
+      // Create explosion particles
+      for (let i = 0; i < 20; i++) {
+        const angle = (Math.PI * 2 * i) / 20;
+        const speed = Math.random() * 8 + 4;
+        const particle = {
+          x: centerX,
+          y: centerY,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          life: 1,
+          decay: 0.02,
+          size: Math.random() * 4 + 2,
+          opacity: 1,
+          type: 'explosion'
+        };
+        
+        particles.push(particle);
+      }
     };
 
     animate();
@@ -294,6 +349,35 @@ const CraneScavengerEffect = () => {
 
   const triggerExplosion = () => {
     setStage('explode');
+    
+    // Trigger dramatic particle explosion effect
+    if (canvasRef.current) {
+      const canvas = canvasRef.current;
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      
+      // Create explosion particles
+      for (let i = 0; i < 30; i++) {
+        const angle = (Math.PI * 2 * i) / 30;
+        const speed = Math.random() * 10 + 5;
+        const particle = {
+          x: centerX,
+          y: centerY,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          life: 1,
+          decay: 0.015,
+          size: Math.random() * 6 + 3,
+          opacity: 1,
+          type: 'explosion'
+        };
+        
+        // Add to existing particles array
+        if (window.craneParticles) {
+          window.craneParticles.push(particle);
+        }
+      }
+    }
     
     // Trigger the SVG explosion animation programmatically
     if (svgRef.current) {
@@ -350,7 +434,7 @@ const CraneScavengerEffect = () => {
     setTimeout(() => {
       setExplosionComplete(true);
       setStage('complete');
-    }, 2000); // Extended to 2 seconds to ensure explosion is visible
+    }, 3500); // Extended to 3.5 seconds to ensure explosion is fully visible
   };
 
   const handlePasswordSubmit = async () => {
@@ -415,7 +499,8 @@ const CraneScavengerEffect = () => {
           zIndex: 1,
           pointerEvents: 'none',
           opacity: stage === 'explode' ? 1 : 0.4,
-          transition: 'opacity 1s ease'
+          transition: 'opacity 2s ease',
+          filter: stage === 'explode' ? 'blur(1px)' : 'none'
         }}
       />
 
