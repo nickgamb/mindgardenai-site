@@ -893,13 +893,13 @@
 
       &.stage-explode
         .line
-          animation: line-breakaway 1.2s ease-in-out forwards
+          // Let SVG's internal animateTransform handle the animation
           stroke: cyan
           stroke-width: 3
           opacity: 1
           filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.8))
         .shard
-          animation: shard-fly 1.2s ease-out forwards
+          // Let SVG's internal animateTransform handle the animation
           fill: cyan
           opacity: 1
           filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.9))
@@ -1284,31 +1284,7 @@
     transform: scale(1.2) translate(30px, -30px) rotate(90deg)
     opacity: 0
 
-@keyframes shard-fly
-  0%
-    opacity: 1
-    transform: translate(0px, 0px) scale(1) rotate(0deg)
-    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 1))
-  20%
-    opacity: 1
-    transform: translate(calc(var(--tx) * 0.2), calc(var(--ty) * 0.2)) scale(1.05) rotate(calc(var(--rot) * 0.2))
-    filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.9))
-  40%
-    opacity: 0.8
-    transform: translate(calc(var(--tx) * 0.4), calc(var(--ty) * 0.4)) scale(1.1) rotate(calc(var(--rot) * 0.4))
-    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.7))
-  60%
-    opacity: 0.6
-    transform: translate(calc(var(--tx) * 0.6), calc(var(--ty) * 0.6)) scale(1.15) rotate(calc(var(--rot) * 0.6))
-    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.5))
-  80%
-    opacity: 0.3
-    transform: translate(calc(var(--tx) * 0.8), calc(var(--ty) * 0.8)) scale(1.25) rotate(calc(var(--rot) * 0.8))
-    filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.3))
-  100%
-    opacity: 0
-    transform: translate(var(--tx), var(--ty)) scale(1.4) rotate(var(--rot))
-    filter: drop-shadow(0 0 2px rgba(0, 255, 255, 0.1))
+// Removed shard-fly keyframes - letting SVG handle animations
 
 @keyframes craneShake
   0%, 100%
@@ -1382,10 +1358,10 @@
         filter: drop-shadow(0 0 6px rgba($purple30, 0.6))
         
       &.stage-explode .line
-        animation: line-breakaway 1.2s ease-in-out forwards
+        // Let SVG's internal animateTransform handle the animation
         
       &.stage-explode .shard
-        animation: shard-fly 1.2s ease-out forwards
+        // Let SVG's internal animateTransform handle the animation
       
     .crane-ui-overlay
       top: 8vh !important

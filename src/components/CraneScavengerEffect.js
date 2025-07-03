@@ -398,9 +398,9 @@ const CraneScavengerEffect = () => {
           trigger.setAttribute('begin', '0s');
           trigger.setAttribute('fill', 'freeze');
           svgElement.appendChild(trigger);
-          console.log('Created trigger element');
+          console.log('Created trigger element with ID:', trigger.id);
         } else {
-          console.log('Found existing trigger element');
+          console.log('Found existing trigger element with ID:', trigger.id);
         }
         
         // Force the trigger to start - this should activate all animateTransform elements
