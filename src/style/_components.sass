@@ -1284,36 +1284,6 @@
     transform: scale(1.2) translate(30px, -30px) rotate(90deg)
     opacity: 0
 
-@keyframes line-breakaway
-  0%
-    opacity: 1
-    transform: translate(0px, 0px) rotate(0deg) scale(1)
-    filter: drop-shadow(0 0 12px rgba(0, 255, 255, 1))
-  15%
-    opacity: 1
-    transform: translate(calc(var(--tx) * 0.15), calc(var(--ty) * 0.15)) rotate(calc(var(--rot) * 0.15)) scale(1.02)
-    filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.9))
-  30%
-    opacity: 0.95
-    transform: translate(calc(var(--tx) * 0.3), calc(var(--ty) * 0.3)) rotate(calc(var(--rot) * 0.3)) scale(1.05)
-    filter: drop-shadow(0 0 14px rgba(0, 255, 255, 0.8))
-  50%
-    opacity: 0.8
-    transform: translate(calc(var(--tx) * 0.5), calc(var(--ty) * 0.5)) rotate(calc(var(--rot) * 0.5)) scale(1.1)
-    filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.7))
-  70%
-    opacity: 0.5
-    transform: translate(calc(var(--tx) * 0.7), calc(var(--ty) * 0.7)) rotate(calc(var(--rot) * 0.7)) scale(1.2)
-    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5))
-  85%
-    opacity: 0.2
-    transform: translate(calc(var(--tx) * 0.85), calc(var(--ty) * 0.85)) rotate(calc(var(--rot) * 0.85)) scale(1.25)
-    filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.3))
-  100%
-    opacity: 0
-    transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(1.3)
-    filter: drop-shadow(0 0 2px rgba(0, 255, 255, 0.1))
-
 @keyframes shard-fly
   0%
     opacity: 1

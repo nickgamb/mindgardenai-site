@@ -401,51 +401,27 @@ const CraneScavengerEffect = () => {
         // Force the trigger to start - this should activate all animateTransform elements
         trigger.beginElement();
         
-        // Method 2: Directly trigger all animateTransform elements
-        const animatedElements = svgElement.querySelectorAll('animateTransform[begin*="craneBreakaway"]');
-        animatedElements.forEach(el => {
-          if (el.beginElement) {
-            el.beginElement();
-          }
-        });
+        // Let the SVG's internal animation run without CSS overrides
+        console.log('Triggering SVG internal explosion animation');
         
-        // Method 3: Apply CSS animations directly as fallback
+        // Override the CSS animation delay to start immediately
         const lines = svgElement.querySelectorAll('.line');
         const shards = svgElement.querySelectorAll('.shard');
         
-        console.log('Found lines:', lines.length, 'shards:', shards.length);
-        
-        // Apply animations immediately to override SVG's internal timing
         lines.forEach((line, index) => {
-          try {
-            console.log('Applying explosion animation to line', index);
-            // Use individual style properties instead of cssText to avoid React issues
-            line.style.setProperty('animation', 'line-breakaway 1.2s ease-out forwards', 'important');
-            line.style.setProperty('animation-delay', '0s', 'important');
-            line.style.setProperty('opacity', '1', 'important');
-            line.style.setProperty('stroke', 'cyan', 'important');
-            line.style.setProperty('stroke-width', '3px', 'important');
-            line.style.setProperty('stroke-opacity', '1', 'important');
-            line.style.setProperty('visibility', 'visible', 'important');
-          } catch (error) {
-            console.warn('Error applying animation to line', index, error);
-          }
+          // Reset the animation delay to start immediately
+          line.style.animationDelay = '0s, 6s, 0s'; // Start explosion immediately
         });
         
         shards.forEach((shard, index) => {
-          try {
-            console.log('Applying explosion animation to shard', index);
-            // Use individual style properties instead of cssText to avoid React issues
-            shard.style.setProperty('animation', 'shard-fly 1.2s ease-out forwards', 'important');
-            shard.style.setProperty('animation-delay', '0s', 'important');
-            shard.style.setProperty('opacity', '1', 'important');
-            shard.style.setProperty('fill', 'cyan', 'important');
-            shard.style.setProperty('fill-opacity', '1', 'important');
-            shard.style.setProperty('visibility', 'visible', 'important');
-          } catch (error) {
-            console.warn('Error applying animation to shard', index, error);
-          }
+          // Reset the animation delay to start immediately
+          shard.style.animationDelay = '0s'; // Start explosion immediately
         });
+        
+        // The trigger element should already exist and be started above
+        // Just ensure all animateTransform elements are triggered
+        const animatedElements = svgElement.querySelectorAll('animateTransform[begin*="craneBreakaway"]');
+        console.log('Found animated elements:', animatedElements.length);
       }
     }
     
