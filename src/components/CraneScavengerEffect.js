@@ -418,30 +418,29 @@ const CraneScavengerEffect = () => {
         // Apply animations immediately to override SVG's internal timing
         lines.forEach((line, index) => {
           console.log('Applying explosion animation to line', index);
-          // Reset any existing animations and apply our explosion animation
-          line.style.animation = 'none';
-          line.style.animationDelay = '0s';
-          // Force a reflow to ensure the reset takes effect
-          line.offsetHeight;
-          // Apply our explosion animation
-          line.style.animation = 'line-breakaway 1.2s ease-in-out forwards';
-          // Ensure the line is visible during explosion
-          line.style.opacity = '1';
-          line.style.stroke = 'cyan';
-          line.style.strokeWidth = '2.5';
+          // Completely override SVG's internal styles
+          line.style.cssText = `
+            animation: line-breakaway 2.5s ease-out forwards !important;
+            animation-delay: 0s !important;
+            opacity: 1 !important;
+            stroke: cyan !important;
+            stroke-width: 3px !important;
+            stroke-opacity: 1 !important;
+            visibility: visible !important;
+          `;
         });
         
         shards.forEach((shard, index) => {
           console.log('Applying explosion animation to shard', index);
-          // Reset any existing animations and apply our explosion animation
-          shard.style.animation = 'none';
-          shard.style.animationDelay = '0s';
-          // Force a reflow to ensure the reset takes effect
-          shard.offsetHeight;
-          // Apply our explosion animation
-          shard.style.animation = 'shard-fly 1.2s ease-out forwards';
-          shard.style.opacity = '1';
-          shard.style.fill = 'cyan';
+          // Completely override SVG's internal styles
+          shard.style.cssText = `
+            animation: shard-fly 2.5s ease-out forwards !important;
+            animation-delay: 0s !important;
+            opacity: 1 !important;
+            fill: cyan !important;
+            fill-opacity: 1 !important;
+            visibility: visible !important;
+          `;
         });
       }
     }
