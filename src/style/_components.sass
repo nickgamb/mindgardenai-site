@@ -1333,26 +1333,16 @@
         //width: 100%
         height: auto
         
-      // Enhanced animations for mobile - combine SVG internal + SASS animations like desktop
+      // Enhanced animations for mobile - add SASS animations to SVG internal animations
       &.stage-drawing .line
-        stroke: $purple30 !important
-        stroke-width: 1.5 !important
-        stroke-linecap: round !important
-        stroke-linejoin: round !important
-        fill: none !important
-        stroke-dasharray: 1000 !important
-        stroke-dashoffset: 1000 !important
+        // Let SVG handle stroke color and basic animation
+        // Add SASS animation for enhanced drawing effect
         animation: craneLineDraw 6s forwards !important
         filter: drop-shadow(0 0 4px rgba($purple30, 0.5)) !important
         
       &.stage-idle .line
-        stroke: $purple30 !important
-        stroke-width: 1.5 !important
-        stroke-linecap: round !important
-        stroke-linejoin: round !important
-        fill: none !important
-        stroke-dasharray: 1000 !important
-        stroke-dashoffset: 0 !important
+        // Let SVG handle stroke color and basic pulse
+        // Add SASS animation for enhanced glow effect
         animation: craneIdleGlow 2s infinite alternate !important
         filter: drop-shadow(0 0 6px rgba($purple30, 0.6)) !important
         
