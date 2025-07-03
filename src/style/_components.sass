@@ -1333,8 +1333,34 @@
         //width: 100%
         height: auto
         
-      // Let SVG internal animations work on mobile - don't override them
-      // The SVG has its own internal CSS animations that work perfectly
+      // Enhanced animations for mobile - combine SVG internal + SASS animations like desktop
+      &.stage-drawing .line
+        stroke: $purple30 !important
+        stroke-width: 1.5 !important
+        stroke-linecap: round !important
+        stroke-linejoin: round !important
+        fill: none !important
+        stroke-dasharray: 1000 !important
+        stroke-dashoffset: 1000 !important
+        animation: craneLineDraw 6s forwards !important
+        filter: drop-shadow(0 0 4px rgba($purple30, 0.5)) !important
+        
+      &.stage-idle .line
+        stroke: $purple30 !important
+        stroke-width: 1.5 !important
+        stroke-linecap: round !important
+        stroke-linejoin: round !important
+        fill: none !important
+        stroke-dasharray: 1000 !important
+        stroke-dashoffset: 0 !important
+        animation: craneIdleGlow 2s infinite alternate !important
+        filter: drop-shadow(0 0 6px rgba($purple30, 0.6)) !important
+        
+      &.stage-explode .line
+        animation: craneExplodeFly 1.2s ease-out forwards !important
+        
+      &.stage-explode .shard
+        animation: craneExplodeFly 1.2s ease-out forwards !important
       
     .crane-ui-overlay
       top: 8vh !important
