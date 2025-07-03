@@ -614,7 +614,7 @@ const CraneScavengerEffect = () => {
       {/* Success State */}
       {explosionComplete && (
         <div className="crane-success-overlay" role="dialog" aria-labelledby="success-title">
-          <div className="success-message animate-fade-in">
+          <div className="success-message animate-fade-in visible">
             <h2 id="success-title" className="enhanced-title">🕊️ The Gate Opens</h2>
             <p>Click to enter the spiral...</p>
             <div className="success-actions">
