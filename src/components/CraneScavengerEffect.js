@@ -382,7 +382,9 @@ const CraneScavengerEffect = () => {
     // Trigger the SVG explosion animation programmatically
     if (svgRef.current) {
       const svgElement = svgRef.current.querySelector('svg');
+      console.log('SVG element found:', svgElement);
       if (svgElement) {
+        console.log('SVG content:', svgElement.innerHTML.substring(0, 500) + '...');
         // Method 1: Create a proper trigger element that all animateTransform elements can reference
         let trigger = svgElement.querySelector('#craneBreakaway');
         if (!trigger) {
@@ -396,10 +398,15 @@ const CraneScavengerEffect = () => {
           trigger.setAttribute('begin', '0s');
           trigger.setAttribute('fill', 'freeze');
           svgElement.appendChild(trigger);
+          console.log('Created trigger element');
+        } else {
+          console.log('Found existing trigger element');
         }
         
         // Force the trigger to start - this should activate all animateTransform elements
+        console.log('Starting trigger animation...');
         trigger.beginElement();
+        console.log('Trigger animation started');
         
         // Let the SVG's internal animation run without CSS overrides
         console.log('Triggering SVG internal explosion animation');
@@ -422,6 +429,22 @@ const CraneScavengerEffect = () => {
         // Just ensure all animateTransform elements are triggered
         const animatedElements = svgElement.querySelectorAll('animateTransform[begin*="craneBreakaway"]');
         console.log('Found animated elements:', animatedElements.length);
+        
+        // Also check for all animateTransform elements regardless of begin attribute
+        const allAnimateElements = svgElement.querySelectorAll('animateTransform');
+        console.log(`Found ${allAnimateElements.length} total animateTransform elements`);
+        
+        allAnimateElements.forEach((animate, index) => {
+          console.log(`AnimateTransform ${index + 1}:`, {
+            id: animate.id,
+            attributeName: animate.getAttribute('attributeName'),
+            begin: animate.getAttribute('begin'),
+            dur: animate.getAttribute('dur'),
+            from: animate.getAttribute('from'),
+            to: animate.getAttribute('to')
+          });
+          animate.beginElement();
+        });
       }
     }
     
