@@ -429,14 +429,22 @@ $crane-fade-duration: 1.5s
   max-width: 500px
 
 .success-message
-  background: linear-gradient(135deg, $purple30, $purple50)
+  background: linear-gradient(
+    135deg,
+    rgba($purple90, 0.85) 0%,
+    rgba($purple50, 0.72) 60%,
+    rgba(0,229,255,0.60) 100%
+  )
+  border: 1.5px solid rgba($purple50, 0.25)
+  border-radius: 14px
   color: $purple10
+  box-shadow: 0 4px 20px rgba($purple30, 0.18)
+  backdrop-filter: blur(16px)
+  -webkit-backdrop-filter: blur(16px)
   padding: 1.5rem 1.2rem
-  border-radius: 12px
   font-size: 1.1rem
   font-weight: 600
-  box-shadow: 0 4px 20px rgba($purple30, 0.4)
-  animation: cranePulseGlow 2s infinite alternate
+  animation: craneUIFadeIn 1.2s ease-in, cranePulseGlow 2s infinite alternate
   text-align: center
   width: 100%
 
@@ -444,7 +452,7 @@ $crane-fade-duration: 1.5s
     padding: 2rem 3rem
     border-radius: 16px
     font-size: 1.5rem
-    box-shadow: 0 8px 32px rgba($purple30, 0.4)
+    box-shadow: 0 8px 32px rgba($purple30, 0.18)
 
 .success-actions
   margin-top: 1.2rem
