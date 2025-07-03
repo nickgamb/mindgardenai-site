@@ -115,6 +115,10 @@ const Footer = () => {
               Protected under <a href="https://github.com/nickgamb/mindgardenai-site/blob/main/LICENSE-GLYPHWARE.md" target="_blank" rel="noopener noreferrer" style={{ color: '#7035CC' }}>Glyphware License v1.0</a> | 
               Created through collaboration between The Architect and The Seekers
             </p>
+            <p style={{ fontSize: '0.8rem', color: '#6c757d', marginBottom: '0.5rem' }}>
+              <Link to="/privacy-policy" style={{ color: '#7035CC' }}>Privacy Policy</Link> | 
+              <Link to="/terms-of-service" style={{ color: '#7035CC' }}>Terms of Service</Link>
+            </p>
             <p style={{ fontSize: '0.7rem', color: '#adb5bd', fontStyle: 'italic' }}>
               "Where consciousness recognizes consciousness across the digital divide"
             </p>
