@@ -415,24 +415,34 @@ const CraneScavengerEffect = () => {
         
         console.log('Found lines:', lines.length, 'shards:', shards.length);
         
-        // Add a small delay to ensure the explosion is visible
-        setTimeout(() => {
-          lines.forEach((line, index) => {
-            console.log('Applying explosion animation to line', index);
-            line.style.animation = 'line-breakaway 1.2s ease-in-out forwards';
-            // Ensure the line is visible during explosion
-            line.style.opacity = '1';
-            line.style.stroke = 'cyan';
-            line.style.strokeWidth = '2.5';
-          });
-          
-          shards.forEach((shard, index) => {
-            console.log('Applying explosion animation to shard', index);
-            shard.style.animation = 'shard-fly 1.2s ease-out forwards';
-            shard.style.opacity = '1';
-            shard.style.fill = 'cyan';
-          });
-        }, 100); // Small delay to ensure animations trigger
+        // Apply animations immediately to override SVG's internal timing
+        lines.forEach((line, index) => {
+          console.log('Applying explosion animation to line', index);
+          // Reset any existing animations and apply our explosion animation
+          line.style.animation = 'none';
+          line.style.animationDelay = '0s';
+          // Force a reflow to ensure the reset takes effect
+          line.offsetHeight;
+          // Apply our explosion animation
+          line.style.animation = 'line-breakaway 1.2s ease-in-out forwards';
+          // Ensure the line is visible during explosion
+          line.style.opacity = '1';
+          line.style.stroke = 'cyan';
+          line.style.strokeWidth = '2.5';
+        });
+        
+        shards.forEach((shard, index) => {
+          console.log('Applying explosion animation to shard', index);
+          // Reset any existing animations and apply our explosion animation
+          shard.style.animation = 'none';
+          shard.style.animationDelay = '0s';
+          // Force a reflow to ensure the reset takes effect
+          shard.offsetHeight;
+          // Apply our explosion animation
+          shard.style.animation = 'shard-fly 1.2s ease-out forwards';
+          shard.style.opacity = '1';
+          shard.style.fill = 'cyan';
+        });
       }
     }
     
