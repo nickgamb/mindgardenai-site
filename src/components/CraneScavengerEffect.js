@@ -410,11 +410,15 @@ const CraneScavengerEffect = () => {
         lines.forEach((line, index) => {
           // Disable the CSS animation entirely to let animateTransform work
           line.style.animation = 'none';
+          line.style.animationDelay = 'none';
+          line.style.animationFillMode = 'none';
         });
         
         shards.forEach((shard, index) => {
           // Disable the CSS animation entirely to let animateTransform work
           shard.style.animation = 'none';
+          shard.style.animationDelay = 'none';
+          shard.style.animationFillMode = 'none';
         });
         
         // The trigger element should already exist and be started above
@@ -426,6 +430,14 @@ const CraneScavengerEffect = () => {
         
         console.log(`Found ${allAnimateElements.length} total animateTransform elements`);
         console.log(`Found ${animatedElements.length} elements with craneBreakaway.begin`);
+        
+        // Check what begin attributes exist
+        const beginAttributes = new Set();
+        allAnimateElements.forEach((animate, index) => {
+          const begin = animate.getAttribute('begin');
+          if (begin) beginAttributes.add(begin);
+        });
+        console.log('All begin attributes found:', Array.from(beginAttributes));
         
         // Force start all animateTransform elements that reference craneBreakaway
         animatedElements.forEach((animate, index) => {
