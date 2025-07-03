@@ -257,7 +257,7 @@ const CraneScavengerEffect = () => {
         ctx.fill();
       }
     }
-  
+   
     // Mobile optimization - fewer particles on smaller screens
     const smokeCount = window.innerWidth < 500 ? 25 : 40;
     const sparkCount = window.innerWidth < 500 ? 15 : 25;
@@ -340,7 +340,7 @@ const CraneScavengerEffect = () => {
     };
 
     animate();
-
+    
     return () => {
       cancelAnimationFrame(animationFrame);
       window.removeEventListener('resize', resizeCanvas);
@@ -409,24 +409,15 @@ const CraneScavengerEffect = () => {
         // Also check for all animateTransform elements regardless of begin attribute
         const allAnimateElements = svgElement.querySelectorAll('animateTransform');
         
-        console.log(`Found ${allAnimateElements.length} total animateTransform elements`);
-        console.log(`Found ${animatedElements.length} elements with craneBreakaway.begin`);
-        
         // Check what begin attributes exist
         const beginAttributes = new Set();
         allAnimateElements.forEach((animate, index) => {
           const begin = animate.getAttribute('begin');
           if (begin) beginAttributes.add(begin);
         });
-        console.log('All begin attributes found:', Array.from(beginAttributes));
         
         // Force start all animateTransform elements that reference craneBreakaway
         animatedElements.forEach((animate, index) => {
-          console.log(`Starting animateTransform ${index + 1}:`, {
-            type: animate.getAttribute('type'),
-            begin: animate.getAttribute('begin'),
-            dur: animate.getAttribute('dur')
-          });
           animate.beginElement();
         });
       }
@@ -492,7 +483,7 @@ const CraneScavengerEffect = () => {
           alt="Reveal Background" 
         />
       </div>
-
+     
       {/* Smoke Canvas */}
       <canvas
         ref={canvasRef}
@@ -510,7 +501,7 @@ const CraneScavengerEffect = () => {
           filter: stage === 'explode' ? 'blur(1px)' : 'none'
         }}
       />
-
+     
       {/* Shockwave Effect */}
       <div className={`shockwave ${stage === 'explode' ? 'active' : ''}`} />
 
@@ -528,7 +519,7 @@ const CraneScavengerEffect = () => {
           </div>
         )}
       </div>
-
+     
       {/* UI Overlay */}
       {showInput && stage !== 'explode' && !explosionComplete && (
         <div className="crane-ui-overlay">
@@ -572,7 +563,7 @@ const CraneScavengerEffect = () => {
                 <span>{isSubmitting ? '🔄' : '🔓'}</span>
                 {isSubmitting ? 'Unlocking...' : 'Unlock'}
               </button>
-              
+               
               {!isSubmitting && (
                 <div className="crane-hint">
                   <span>💡</span>
@@ -595,7 +586,7 @@ const CraneScavengerEffect = () => {
           </div>
         </div>
       )}
-
+     
       {/* Success State */}
       {explosionComplete && (
         <div className="crane-success-overlay" role="dialog" aria-labelledby="success-title">
