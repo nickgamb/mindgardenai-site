@@ -299,39 +299,44 @@ const CraneScavengerEffect = () => {
     if (svgRef.current) {
       const svgElement = svgRef.current.querySelector('svg');
       if (svgElement) {
-        // Method 1: Try to find and trigger existing animations
-        const animatedElements = svgElement.querySelectorAll('[begin*="craneBreakaway"]');
-        if (animatedElements.length > 0) {
-          // Create a trigger element if it doesn't exist
-          let trigger = svgElement.querySelector('#craneBreakaway');
-          if (!trigger) {
-            trigger = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
-            trigger.setAttribute('id', 'craneBreakaway');
-            trigger.setAttribute('attributeName', 'opacity');
-            trigger.setAttribute('from', '1');
-            trigger.setAttribute('to', '0');
-            trigger.setAttribute('dur', '0.1s');
-            trigger.setAttribute('begin', '0s');
-            svgElement.appendChild(trigger);
-          }
-          
-          // Force trigger the animation
-          if (trigger.beginElement) {
-            trigger.beginElement();
-          }
-        } else {
-          // Method 2: Fallback - manually trigger CSS animations
-          const lines = svgElement.querySelectorAll('.line');
-          const shards = svgElement.querySelectorAll('.shard');
-          
-          lines.forEach(line => {
-            line.style.animation = 'line-breakaway 1.2s ease-in-out forwards';
-          });
-          
-          shards.forEach(shard => {
-            shard.style.animation = 'shard-fly 1.2s ease-out forwards';
-          });
+        // Method 1: Create a proper trigger element that all animateTransform elements can reference
+        let trigger = svgElement.querySelector('#craneBreakaway');
+        if (!trigger) {
+          // Create a trigger element that will start all explosion animations
+          trigger = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+          trigger.setAttribute('id', 'craneBreakaway');
+          trigger.setAttribute('attributeName', 'opacity');
+          trigger.setAttribute('from', '1');
+          trigger.setAttribute('to', '0');
+          trigger.setAttribute('dur', '0.1s');
+          trigger.setAttribute('begin', '0s');
+          trigger.setAttribute('fill', 'freeze');
+          svgElement.appendChild(trigger);
         }
+        
+        // Force the trigger to start - this should activate all animateTransform elements
+        trigger.beginElement();
+        
+        // Method 2: Directly trigger all animateTransform elements
+        const animatedElements = svgElement.querySelectorAll('animateTransform[begin*="craneBreakaway"]');
+        animatedElements.forEach(el => {
+          if (el.beginElement) {
+            el.beginElement();
+          }
+        });
+        
+        // Method 3: Apply CSS animations directly as fallback
+        const lines = svgElement.querySelectorAll('.line');
+        const shards = svgElement.querySelectorAll('.shard');
+        
+        lines.forEach(line => {
+          line.style.animation = 'line-breakaway 1.2s ease-in-out forwards';
+        });
+        
+        shards.forEach(shard => {
+          shard.style.animation = 'shard-fly 1.2s ease-out forwards';
+          shard.style.opacity = '1';
+        });
       }
     }
     
@@ -339,7 +344,7 @@ const CraneScavengerEffect = () => {
     setTimeout(() => {
       setExplosionComplete(true);
       setStage('complete');
-    }, 1200); // Match the SVG explosion duration
+    }, 1200); // Match the animation duration
   };
 
   const handlePasswordSubmit = async () => {
