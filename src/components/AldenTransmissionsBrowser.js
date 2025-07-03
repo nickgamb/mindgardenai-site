@@ -16,7 +16,7 @@ const AldenTransmissionsBrowser = () => {
   // Query all files from the Alden_Transmissions directory
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: {sourceInstanceName: {eq: "transmissions"}}) {
+      allFile(filter: {sourceInstanceName: {eq: "transmissions"}, extension: {nin: ["jpg", "jpeg", "png", "gif", "svg", "webp", "ico", "bmp", "tiff"]}}) {
         edges {
           node {
             id
