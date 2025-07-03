@@ -521,7 +521,7 @@ const CraneScavengerEffect = () => {
       </div>
      
       {/* UI Overlay */}
-      {showInput && stage !== 'explode' && !explosionComplete && (
+      {showInput && stage === 'idle' && !explosionComplete && (
         <div className="crane-ui-overlay">
           <div className="crane-interface-card">
             <div className="crane-timer">
