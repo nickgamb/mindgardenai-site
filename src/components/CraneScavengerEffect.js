@@ -28,8 +28,8 @@ const CraneScavengerEffect = () => {
   const passwordInputRef = useRef(null);
   const correctPassword = process.env.GATSBY_PATTERN_SALT;
 
-  // Set target date for countdown - July 30, 2025 at noon
-  const targetDate = useRef(new Date('2025-07-30T12:00:00')); // Use ref to prevent re-creation
+  // Set target date for countdown - Oct 31, 2025 at noon
+  const targetDate = useRef(new Date('2025-10-31T12:00:00')); // Use ref to prevent re-creation
 
   // Hydration safety - only run client-side code after mounting
   useEffect(() => {
@@ -405,8 +405,10 @@ const CraneScavengerEffect = () => {
         
         // Force the trigger to start - this should activate all animateTransform elements
         console.log('Starting trigger animation...');
+        console.log('Trigger element before beginElement:', trigger);
         trigger.beginElement();
         console.log('Trigger animation started');
+        console.log('Trigger element after beginElement:', trigger);
         
         // Let the SVG's internal animation run without CSS overrides
         console.log('Triggering SVG internal explosion animation');
@@ -416,13 +418,15 @@ const CraneScavengerEffect = () => {
         const shards = svgElement.querySelectorAll('.shard');
         
         lines.forEach((line, index) => {
-          // Reset the animation delay to start immediately
-          line.style.animationDelay = '0s, 6s, 0s'; // Start explosion immediately
+          // Disable the CSS animation entirely to let animateTransform work
+          line.style.animation = 'none';
+          console.log(`Disabled CSS animation for line ${index + 1}`);
         });
         
         shards.forEach((shard, index) => {
-          // Reset the animation delay to start immediately
-          shard.style.animationDelay = '0s'; // Start explosion immediately
+          // Disable the CSS animation entirely to let animateTransform work
+          shard.style.animation = 'none';
+          console.log(`Disabled CSS animation for shard ${index + 1}`);
         });
         
         // The trigger element should already exist and be started above
