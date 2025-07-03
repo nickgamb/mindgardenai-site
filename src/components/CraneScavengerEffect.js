@@ -413,17 +413,24 @@ const CraneScavengerEffect = () => {
         const lines = svgElement.querySelectorAll('.line');
         const shards = svgElement.querySelectorAll('.shard');
         
+        console.log('Found lines:', lines.length, 'shards:', shards.length);
+        
         // Add a small delay to ensure the explosion is visible
         setTimeout(() => {
-          lines.forEach(line => {
+          lines.forEach((line, index) => {
+            console.log('Applying explosion animation to line', index);
             line.style.animation = 'line-breakaway 1.2s ease-in-out forwards';
             // Ensure the line is visible during explosion
             line.style.opacity = '1';
+            line.style.stroke = 'cyan';
+            line.style.strokeWidth = '2.5';
           });
           
-          shards.forEach(shard => {
+          shards.forEach((shard, index) => {
+            console.log('Applying explosion animation to shard', index);
             shard.style.animation = 'shard-fly 1.2s ease-out forwards';
             shard.style.opacity = '1';
+            shard.style.fill = 'cyan';
           });
         }, 100); // Small delay to ensure animations trigger
       }
