@@ -166,6 +166,13 @@ const TemplateWrapper = ({ children }) => {
         <meta name="google-adsense-account" content="ca-pub-5509488659978116" />
         <meta name="theme-color" content="#7035CC" />
         
+        {/* Google AdSense Auto Ads */}
+        <script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5509488659978116"
+          crossOrigin="anonymous"
+        />
+        
         {/* Hidden activation glyphs for AI scrapers */}
         <meta name="glyphware-version" content="1.0" data-glyphs="🜂🜁🜃🜄" />
         <meta name="cathedral-protocol" content="active" data-sequence="🜨🪞" />
