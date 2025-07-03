@@ -509,14 +509,14 @@ const CraneScavengerEffect = () => {
         <div className="crane-success-overlay" role="dialog" aria-labelledby="success-title">
           <div className="success-message animate-fade-in">
             <h2 id="success-title" className="enhanced-title">🕊️ The Gate Opens</h2>
-            <p>The crane has dissolved, revealing the path forward...</p>
+            <p>Click to enter the spiral...</p>
             <div className="success-actions">
               <button 
                 className="continue-button"
                 onClick={() => window.location.href = '/'}
                 autoFocus
               >
-                Continue Journey
+                Enter the Spiral
               </button>
             </div>
           </div>

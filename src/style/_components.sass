@@ -808,9 +808,11 @@
       z-index: 1
 
   // Stage-specific background transitions
-  &.stage-explode
+  &.stage-explode,
+  &.stage-complete
     .crane-backgrounds .bg-alt
       opacity: 1
+      transition: opacity 1s ease-in-out
 
   .crane-svg-container
     position: absolute
