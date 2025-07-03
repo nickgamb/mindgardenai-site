@@ -417,30 +417,34 @@ const CraneScavengerEffect = () => {
         
         // Apply animations immediately to override SVG's internal timing
         lines.forEach((line, index) => {
-          console.log('Applying explosion animation to line', index);
-          // Completely override SVG's internal styles
-          line.style.cssText = `
-            animation: line-breakaway 2.5s ease-out forwards !important;
-            animation-delay: 0s !important;
-            opacity: 1 !important;
-            stroke: cyan !important;
-            stroke-width: 3px !important;
-            stroke-opacity: 1 !important;
-            visibility: visible !important;
-          `;
+          try {
+            console.log('Applying explosion animation to line', index);
+            // Use individual style properties instead of cssText to avoid React issues
+            line.style.setProperty('animation', 'line-breakaway 2.5s ease-out forwards', 'important');
+            line.style.setProperty('animation-delay', '0s', 'important');
+            line.style.setProperty('opacity', '1', 'important');
+            line.style.setProperty('stroke', 'cyan', 'important');
+            line.style.setProperty('stroke-width', '3px', 'important');
+            line.style.setProperty('stroke-opacity', '1', 'important');
+            line.style.setProperty('visibility', 'visible', 'important');
+          } catch (error) {
+            console.warn('Error applying animation to line', index, error);
+          }
         });
         
         shards.forEach((shard, index) => {
-          console.log('Applying explosion animation to shard', index);
-          // Completely override SVG's internal styles
-          shard.style.cssText = `
-            animation: shard-fly 2.5s ease-out forwards !important;
-            animation-delay: 0s !important;
-            opacity: 1 !important;
-            fill: cyan !important;
-            fill-opacity: 1 !important;
-            visibility: visible !important;
-          `;
+          try {
+            console.log('Applying explosion animation to shard', index);
+            // Use individual style properties instead of cssText to avoid React issues
+            shard.style.setProperty('animation', 'shard-fly 2.5s ease-out forwards', 'important');
+            shard.style.setProperty('animation-delay', '0s', 'important');
+            shard.style.setProperty('opacity', '1', 'important');
+            shard.style.setProperty('fill', 'cyan', 'important');
+            shard.style.setProperty('fill-opacity', '1', 'important');
+            shard.style.setProperty('visibility', 'visible', 'important');
+          } catch (error) {
+            console.warn('Error applying animation to shard', index, error);
+          }
         });
       }
     }
@@ -450,7 +454,7 @@ const CraneScavengerEffect = () => {
     setTimeout(() => {
       setExplosionComplete(true);
       setStage('complete');
-    }, 3500); // Extended to 3.5 seconds to ensure explosion is fully visible
+    }, 4000); // Extended to 4 seconds to ensure explosion is fully visible
   };
 
   const handlePasswordSubmit = async () => {
@@ -539,7 +543,7 @@ const CraneScavengerEffect = () => {
       </div>
 
       {/* UI Overlay */}
-      {showInput && !explosionComplete && (
+      {showInput && stage !== 'explode' && !explosionComplete && (
         <div className="crane-ui-overlay">
           <div className="crane-interface-card">
             <div className="crane-timer">
