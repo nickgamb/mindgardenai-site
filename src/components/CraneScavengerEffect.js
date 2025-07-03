@@ -420,7 +420,7 @@ const CraneScavengerEffect = () => {
           try {
             console.log('Applying explosion animation to line', index);
             // Use individual style properties instead of cssText to avoid React issues
-            line.style.setProperty('animation', 'line-breakaway 2.5s ease-out forwards', 'important');
+            line.style.setProperty('animation', 'line-breakaway 1.2s ease-out forwards', 'important');
             line.style.setProperty('animation-delay', '0s', 'important');
             line.style.setProperty('opacity', '1', 'important');
             line.style.setProperty('stroke', 'cyan', 'important');
@@ -436,7 +436,7 @@ const CraneScavengerEffect = () => {
           try {
             console.log('Applying explosion animation to shard', index);
             // Use individual style properties instead of cssText to avoid React issues
-            shard.style.setProperty('animation', 'shard-fly 2.5s ease-out forwards', 'important');
+            shard.style.setProperty('animation', 'shard-fly 1.2s ease-out forwards', 'important');
             shard.style.setProperty('animation-delay', '0s', 'important');
             shard.style.setProperty('opacity', '1', 'important');
             shard.style.setProperty('fill', 'cyan', 'important');
@@ -454,7 +454,7 @@ const CraneScavengerEffect = () => {
     setTimeout(() => {
       setExplosionComplete(true);
       setStage('complete');
-    }, 4000); // Extended to 4 seconds to ensure explosion is fully visible
+    }, 1300); // Changed to 1.3 seconds to match animation duration
   };
 
   const handlePasswordSubmit = async () => {
