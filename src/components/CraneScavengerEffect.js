@@ -400,26 +400,7 @@ const CraneScavengerEffect = () => {
         
         // Force the trigger to start - this should activate all animateTransform elements
         trigger.beginElement();
-        
-        // Let the SVG's internal animation run without CSS overrides
-        
-        // Override the CSS animation delay to start immediately
-        const lines = svgElement.querySelectorAll('.line');
-        const shards = svgElement.querySelectorAll('.shard');
-        
-        lines.forEach((line, index) => {
-          // Disable the CSS animation entirely to let animateTransform work
-          line.style.animation = 'none';
-          line.style.animationDelay = 'none';
-          line.style.animationFillMode = 'none';
-        });
-        
-        shards.forEach((shard, index) => {
-          // Disable the CSS animation entirely to let animateTransform work
-          shard.style.animation = 'none';
-          shard.style.animationDelay = 'none';
-          shard.style.animationFillMode = 'none';
-        });
+      
         
         // The trigger element should already exist and be started above
         // Just ensure all animateTransform elements are triggered
@@ -454,9 +435,13 @@ const CraneScavengerEffect = () => {
     // After explosion animation completes, show the new background
     // Give extra time for the explosion to be visible and complete
     setTimeout(() => {
-      setExplosionComplete(true);
       setStage('complete');
-    }, 2500); // Extended to 2.5 seconds to let animation complete fully
+    }, 3000); // 3 seconds to let the full 1.2s breakaway animation play completely
+    
+    // Show success overlay after background transition completes
+    setTimeout(() => {
+      setExplosionComplete(true);
+    }, 5500); // 5.5 seconds total to let background transition complete
   };
 
   const handlePasswordSubmit = async () => {
