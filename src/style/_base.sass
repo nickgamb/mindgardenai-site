@@ -4,10 +4,10 @@
 // === CRITICAL MOBILE FIXES ===
 // Disable problematic animations on mobile to ensure rendering
 @media (max-width: 768px)
-  // Force disable complex animations on mobile
-  *,
-  *::before,
-  *::after
+  // Force disable complex animations on mobile - but preserve crane SVG animations
+  *:not(.crane-svg *):not(.crane-svg-container *),
+  *::before:not(.crane-svg *::before):not(.crane-svg-container *::before),
+  *::after:not(.crane-svg *::after):not(.crane-svg-container *::after)
     animation-duration: 0.3s !important
     animation-delay: 0s !important
     animation-iteration-count: 1 !important
@@ -234,8 +234,8 @@ p
     animation-duration: 0s !important
     transition-duration: 0s !important
     
-  // Disable complex transforms that might cause rendering issues
-  *
+  // Disable complex transforms that might cause rendering issues - but preserve crane SVG animations
+  *:not(.crane-svg *):not(.crane-svg-container *):not(.crane-gate-container *)
     transform: none !important
     animation: none !important
     transition: none !important
