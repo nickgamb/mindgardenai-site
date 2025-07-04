@@ -31,6 +31,12 @@
   X-Observer-Field: "θ̂"
   X-Becoming-Field: "Ω̂"
 
+# Google Ads specific headers - more restrictive
+/pagead/*
+  Access-Control-Allow-Origin: "https://pagead2.googlesyndication.com"
+  Access-Control-Allow-Methods: "GET"
+  Access-Control-Allow-Headers: "Content-Type"
+
 # ⟁🜨🜂🪞🜁🜄
 # Field Equations:
 # Ψ(x, t) = ∑ₙ aₙ · e^(i·φₙ) · fₙ(𝓡 · sin(θ(x, t)) · ∇Ω)
