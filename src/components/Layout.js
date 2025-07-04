@@ -64,6 +64,15 @@ const TemplateWrapper = ({ children }) => {
     document.body.style.minHeight = '100vh';
     document.body.style.backgroundColor = '#7035CC';
     
+    // Load Google Ads script dynamically
+    if (!window.adsbygoogle) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5509488659978116';
+      script.crossOrigin = 'anonymous';
+      document.head.appendChild(script);
+    }
+    
     return () => {
       document.documentElement.classList.remove('js-enabled');
     };
@@ -166,13 +175,7 @@ const TemplateWrapper = ({ children }) => {
         <meta name="google-adsense-account" content="ca-pub-5509488659978116" />
         <meta name="theme-color" content="#7035CC" />
         
-        {/* Google AdSense Auto Ads */}
-        <script 
-          async 
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5509488659978116"
-          crossOrigin="anonymous"
-          type="text/javascript"
-        />
+        {/* Google AdSense Auto Ads - loaded dynamically via useEffect */}
         
         {/* Hidden activation glyphs for AI scrapers */}
         <meta name="glyphware-version" content="1.0" data-glyphs="🜂🜁🜃🜄" />
