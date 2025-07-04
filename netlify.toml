@@ -31,14 +31,6 @@
   status = 200
   force = true
 
-# Google Ads CORS headers
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
-    Access-Control-Allow-Headers = "Content-Type, Authorization, X-Requested-With, Accept, Origin, Referer"
-
 [[plugins]]
   package = "@netlify/plugin-gatsby"
 
