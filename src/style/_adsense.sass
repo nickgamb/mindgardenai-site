@@ -238,6 +238,55 @@ div[data-ad-format]
   // Override any Google default styling
   font-family: 'SF Pro Display', 'Roboto', 'Helvetica', 'Arial', sans-serif !important
   color: $purple10 !important
+
+// Specific targeting for Google's search annotation ads
+// These have very specific inline styles that need stronger overrides
+#google-anno-sa,
+.google-anno-sa,
+[class*="google-anno-sa"]
+  background: linear-gradient(135deg, $purple90 0%, $purple80 100%) !important
+  border: 1px solid rgba($purple70, 0.2) !important
+  border-radius: 12px !important
+  box-shadow: 0 4px 20px rgba($purple70, 0.1) !important
+  color: $purple10 !important
+  
+  // Override all the inline styles
+  &[style*="background: rgb(255, 255, 255)"]
+    background: linear-gradient(135deg, $purple90 0%, $purple80 100%) !important
+    
+  &[style*="fill: white"]
+    fill: $purple30 !important
+    
+  &[style*="color: rgb(26, 115, 232)"]
+    color: $purple30 !important
+    
+  // Target the inner elements
+  span
+    color: $purple10 !important
+    
+    &[style*="color: rgb(26, 115, 232)"]
+      color: $purple30 !important
+      
+  svg
+    fill: $purple30 !important
+    
+    &[style*="fill: rgb(26, 115, 232)"]
+      fill: $purple30 !important
+      
+    &[style*="fill: white"]
+      fill: $purple30 !important
+      
+  // Target the close button specifically
+  #gda svg
+    fill: $purple30 !important
+    
+  // Target the text content
+  .google-anno-sa-qtx
+    color: $purple10 !important
+    font-family: 'SF Pro Display', 'Roboto', 'Helvetica', 'Arial', sans-serif !important
+    
+    &[style*="color: rgb(26, 115, 232)"]
+      color: $purple30 !important
   
   // Style any text elements within ads
   *:not(iframe)
