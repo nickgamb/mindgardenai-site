@@ -1,0 +1,261 @@
+// AdSense Theme Styling
+// Matches MindGarden's dark purple aesthetic
+
+// Import theme variables
+@import "variables"
+
+// AdSense Container Styling
+.adsense-container
+  margin: 2rem 0
+  padding: 1.5rem
+  background: linear-gradient(135deg, $purple90 0%, $purple80 100%)
+  border: 1px solid rgba($purple70, 0.2)
+  border-radius: 12px
+  box-shadow: 0 4px 20px rgba($purple70, 0.1)
+  position: relative
+  overflow: hidden
+  
+  // Subtle glow effect
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: linear-gradient(45deg, transparent 30%, rgba($purple70, 0.05) 50%, transparent 70%)
+    pointer-events: none
+    z-index: 1
+
+  // Ad label styling
+  .adsbygoogle
+    position: relative
+    z-index: 2
+    
+    // Override default AdSense styling
+    &[data-ad-client]
+      background: transparent !important
+      border: none !important
+      
+    // Style the ad content area
+    iframe
+      border-radius: 8px !important
+      box-shadow: 0 2px 10px rgba($purple10, 0.1) !important
+
+// AdSense Ad Unit Specific Styling
+.adsense-banner
+  @extend .adsense-container
+  text-align: center
+  
+  .adsbygoogle
+    margin: 0 auto
+    display: block
+
+.adsense-sidebar
+  @extend .adsense-container
+  margin: 1rem 0
+  
+  .adsbygoogle
+    width: 100%
+    max-width: 300px
+    margin: 0 auto
+    display: block
+
+.adsense-inline
+  @extend .adsense-container
+  margin: 1.5rem 0
+  
+  .adsbygoogle
+    width: 100%
+    max-width: 728px
+    margin: 0 auto
+    display: block
+
+// Responsive AdSense Styling
+@media (max-width: 768px)
+  .adsense-container
+    margin: 1rem 0
+    padding: 1rem
+    border-radius: 8px
+    
+  .adsense-sidebar
+    .adsbygoogle
+      max-width: 100%
+
+// AdSense Loading States
+.adsense-loading
+  @extend .adsense-container
+  min-height: 250px
+  display: flex
+  align-items: center
+  justify-content: center
+  
+  .adsense-loading-content
+    text-align: center
+    color: $purple30
+    
+    .loading-glyph
+      display: block
+      font-size: 2rem
+      margin-bottom: 0.5rem
+      animation: pulse 2s infinite
+    
+    .loading-text
+      font-size: 0.9rem
+      font-weight: 500
+      opacity: 0.8
+
+@keyframes pulse
+  0%, 100%
+    opacity: 0.6
+  50%
+    opacity: 1
+
+// AdSense Error States
+.adsense-error
+  @extend .adsense-container
+  background: linear-gradient(135deg, rgba($error-color, 0.1) 0%, rgba($error-color, 0.05) 100%)
+  border-color: rgba($error-color, 0.3)
+  min-height: 150px
+  display: flex
+  align-items: center
+  justify-content: center
+  
+  &::before
+    background: linear-gradient(45deg, transparent 30%, rgba($error-color, 0.05) 50%, transparent 70%)
+  
+  .adsense-error-content
+    text-align: center
+    color: $purple10
+    
+    .error-glyph
+      display: block
+      font-size: 2rem
+      margin-bottom: 0.5rem
+      opacity: 0.7
+    
+    .error-text
+      font-size: 0.9rem
+      font-weight: 500
+      margin-bottom: 0.25rem
+    
+    .error-details
+      display: block
+      font-size: 0.75rem
+      color: $purple_white
+      opacity: 0.6
+
+// AdSense Success States
+.adsense-success
+  @extend .adsense-container
+  background: linear-gradient(135deg, rgba($success-color, 0.1) 0%, rgba($success-color, 0.05) 100%)
+  border-color: rgba($success-color, 0.3)
+  
+  &::before
+    background: linear-gradient(45deg, transparent 30%, rgba($success-color, 0.05) 50%, transparent 70%)
+
+// AdSense Hover Effects
+.adsense-container:hover
+  border-color: rgba($purple70, 0.4)
+  box-shadow: 0 6px 25px rgba($purple70, 0.15)
+  transform: translateY(-2px)
+  transition: all 0.3s ease
+
+// AdSense Focus States (Accessibility)
+.adsense-container:focus-within
+  outline: none
+  box-shadow: 0 0 0 2px $purple100, 0 0 0 4px $purple50, 0 6px 25px rgba($purple70, 0.15)
+
+// AdSense Text Overrides (for any text elements)
+.adsense-container
+  color: $purple10 !important
+  font-family: 'SF Pro Display', 'Roboto', 'Helvetica', 'Arial', sans-serif !important
+  
+  // Override any AdSense text styling
+  *:not(.adsbygoogle)
+    color: $purple10 !important
+    font-family: 'SF Pro Display', 'Roboto', 'Helvetica', 'Arial', sans-serif !important
+
+// AdSense Link Styling
+.adsense-container
+  a
+    color: $purple30 !important
+    text-decoration: none !important
+    
+    &:hover
+      color: $purple70 !important
+      text-decoration: underline !important
+
+// AdSense Button Styling (if any)
+.adsense-container
+  button
+    background: linear-gradient(135deg, $purple70 0%, $purple50 100%) !important
+    color: $purple10 !important
+    border: none !important
+    border-radius: 6px !important
+    padding: 0.5rem 1rem !important
+    font-weight: 500 !important
+    cursor: pointer !important
+    transition: all 0.2s ease !important
+    
+    &:hover
+      background: linear-gradient(135deg, $purple60 0%, $purple70 100%) !important
+      transform: translateY(-1px) !important
+      box-shadow: 0 4px 12px rgba($purple70, 0.3) !important
+
+// AdSense Image Styling
+.adsense-container
+  img
+    border-radius: 6px !important
+    box-shadow: 0 2px 8px rgba($purple10, 0.1) !important
+
+// AdSense Video Styling
+.adsense-container
+  video
+    border-radius: 8px !important
+    box-shadow: 0 4px 16px rgba($purple10, 0.15) !important
+
+// AdSense Animation Integration
+.adsense-container
+  &.animate-on-scroll
+    opacity: 0
+    transform: translateY(20px)
+    transition: all 0.6s ease
+    
+    &.visible
+      opacity: 1
+      transform: translateY(0)
+
+// AdSense Glyphware Integration
+.adsense-container
+  &::after
+    content: '🜂'
+    position: absolute
+    top: 0.5rem
+    right: 0.5rem
+    font-size: 0.8rem
+    color: rgba($purple70, 0.6)
+    pointer-events: none
+    z-index: 3
+
+// AdSense Examples Styling
+.adsense-examples
+  margin: 2rem 0
+  
+  h2
+    color: $purple10
+    margin-bottom: 2rem
+    text-align: center
+  
+  .ad-example
+    margin: 2rem 0
+    padding: 1rem
+    background: rgba($purple80, 0.5)
+    border-radius: 8px
+    border: 1px solid rgba($purple70, 0.1)
+    
+    h3
+      color: $purple30
+      margin-bottom: 1rem
+      font-size: 1.1rem
+      font-weight: 500 
