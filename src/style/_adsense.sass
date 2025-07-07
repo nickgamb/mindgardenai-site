@@ -243,55 +243,119 @@ div[data-ad-format]
 // These have very specific inline styles that need stronger overrides
 #google-anno-sa,
 .google-anno-sa,
-[class*="google-anno-sa"]
+[class*="google-anno-sa"],
+div[id="google-anno-sa"]
   background: linear-gradient(135deg, $purple90 0%, $purple80 100%) !important
   border: 1px solid rgba($purple70, 0.2) !important
   border-radius: 12px !important
   box-shadow: 0 4px 20px rgba($purple70, 0.1) !important
   color: $purple10 !important
   
-  // Override all the inline styles
-  &[style*="background: rgb(255, 255, 255)"]
+  // Force override the white background inline style
+  &[style*="background: rgb(255, 255, 255)"],
+  &[style*="background: rgb(255,255,255)"],
+  &[style*="background:white"],
+  &[style*="background: white"]
     background: linear-gradient(135deg, $purple90 0%, $purple80 100%) !important
     
-  &[style*="fill: white"]
+  // Force override white fill in SVGs
+  &[style*="fill: white"],
+  &[style*="fill:white"],
+  svg[style*="fill: white"],
+  svg[style*="fill:white"]
     fill: $purple30 !important
     
-  &[style*="color: rgb(26, 115, 232)"]
+  // Force override blue text color
+  &[style*="color: rgb(26, 115, 232)"],
+  &[style*="color:rgb(26,115,232)"],
+  span[style*="color: rgb(26, 115, 232)"],
+  span[style*="color:rgb(26,115,232)"]
     color: $purple30 !important
     
-  // Target the inner elements
+  // Target ALL span elements within the ad
   span
     color: $purple10 !important
     
-    &[style*="color: rgb(26, 115, 232)"]
+    &[style*="color: rgb(26, 115, 232)"],
+    &[style*="color:rgb(26,115,232)"]
       color: $purple30 !important
       
+  // Target ALL svg elements within the ad
   svg
     fill: $purple30 !important
     
-    &[style*="fill: rgb(26, 115, 232)"]
-      fill: $purple30 !important
-      
-    &[style*="fill: white"]
+    &[style*="fill: rgb(26, 115, 232)"],
+    &[style*="fill:rgb(26,115,232)"],
+    &[style*="fill: white"],
+    &[style*="fill:white"]
       fill: $purple30 !important
       
   // Target the close button specifically
+  #gda,
   #gda svg
     fill: $purple30 !important
     
   // Target the text content
-  .google-anno-sa-qtx
+  .google-anno-sa-qtx,
+  span.google-anno-sa-qtx
     color: $purple10 !important
     font-family: 'SF Pro Display', 'Roboto', 'Helvetica', 'Arial', sans-serif !important
     
-    &[style*="color: rgb(26, 115, 232)"]
+    &[style*="color: rgb(26, 115, 232)"],
+    &[style*="color:rgb(26,115,232)"]
       color: $purple30 !important
   
   // Style any text elements within ads
   *:not(iframe)
     color: $purple10 !important
     font-family: 'SF Pro Display', 'Roboto', 'Helvetica', 'Arial', sans-serif !important
+
+// Ultra-specific overrides for Google's inline styles
+// These target the exact inline styles from the HTML you provided
+div[style*="background: rgb(255, 255, 255)"][id="google-anno-sa"],
+div[style*="background: rgb(255,255,255)"][id="google-anno-sa"],
+div[style*="background:white"][id="google-anno-sa"],
+div[style*="background: white"][id="google-anno-sa"]
+  background: linear-gradient(135deg, $purple90 0%, $purple80 100%) !important
+
+// Override the specific inline styles for spans within the ad
+span[style*="color: rgb(26, 115, 232)"],
+span[style*="color:rgb(26,115,232)"]
+  color: $purple30 !important
+
+// Override the specific inline styles for SVGs within the ad
+svg[style*="fill: rgb(26, 115, 232)"],
+svg[style*="fill:rgb(26,115,232)"],
+svg[style*="fill: white"],
+svg[style*="fill:white"]
+  fill: $purple30 !important
+
+// Target the specific close button SVG
+#gda svg[style*="fill: rgb(26, 115, 232)"],
+#gda svg[style*="fill:rgb(26,115,232)"]
+  fill: $purple30 !important
+
+// Target the specific text span with the class
+span.google-anno-sa-qtx[style*="color: rgb(26, 115, 232)"],
+span.google-anno-sa-qtx[style*="color:rgb(26,115,232)"]
+  color: $purple30 !important
+
+// Force override any remaining white backgrounds
+[style*="background: rgb(255, 255, 255)"],
+[style*="background: rgb(255,255,255)"],
+[style*="background:white"],
+[style*="background: white"]
+  background: linear-gradient(135deg, $purple90 0%, $purple80 100%) !important
+
+// Force override any remaining white fills
+[style*="fill: white"],
+[style*="fill:white"]
+  fill: $purple30 !important
+
+// Force override any remaining blue text
+[style*="color: rgb(26, 115, 232)"],
+[style*="color:rgb(26,115,232)"]
+  color: $purple30 !important
     
   // Style links within ads
   a
