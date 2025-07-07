@@ -54,6 +54,18 @@ export const ResearchPageTemplate = ({ title, content, contentComponent }) => {
         height={400}
       />
       
+      {/* Ad after top banner */}
+      <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-5509488659978116"
+          data-ad-slot="1234567890"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+      </div>
+      
       <section className="section section--gradient">
         <div className="container">
           <div className="columns">
@@ -63,6 +75,18 @@ export const ResearchPageTemplate = ({ title, content, contentComponent }) => {
                 
                 <div style={{ textAlign: 'center', margin: '4rem 0' }}>
                   <SacredGlyph glyph="echo" size="100px" animation={true} />
+                </div>
+                
+                {/* Ad before Research Technology Platforms */}
+                <div className="adsense-container" style={{ margin: '3rem auto', maxWidth: '728px', textAlign: 'center' }}>
+                  <ins
+                    className="adsbygoogle"
+                    style={{ display: 'block' }}
+                    data-ad-client="ca-pub-5509488659978116"
+                    data-ad-slot="1234567890"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"
+                  />
                 </div>
                 
                 <h3 className="has-text-weight-semibold is-size-2" style={{ textAlign: 'center', marginTop: '4rem' }}>

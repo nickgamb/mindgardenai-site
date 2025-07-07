@@ -69,6 +69,18 @@ const TagRoute = (props) =>  {
                 className="column is-12"
                 style={{ marginBottom: "6rem" }}
               >
+                {/* Ad at the top */}
+                <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
+                  <ins
+                    className="adsbygoogle"
+                    style={{ display: 'block' }}
+                    data-ad-client="ca-pub-5509488659978116"
+                    data-ad-slot="1234567890"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"
+                  />
+                </div>
+                
                 <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
                 <ul className="taglist">{postLinks}</ul>
                 <p>

@@ -64,6 +64,15 @@ const TemplateWrapper = ({ children }) => {
     document.body.style.minHeight = '100vh';
     document.body.style.backgroundColor = '#7035CC';
     
+    // Initialize AdSense ads
+    if (window.adsbygoogle) {
+      try {
+        window.adsbygoogle.push({});
+      } catch (e) {
+        console.log('AdSense initialization error:', e);
+      }
+    }
+    
     return () => {
       document.documentElement.classList.remove('js-enabled');
     };
@@ -292,6 +301,19 @@ const TemplateWrapper = ({ children }) => {
       
       <Navbar />
       <main className="site-content">{children}</main>
+      
+      {/* Single ad before footer */}
+      <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-5509488659978116"
+          data-ad-slot="1234567890"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+      </div>
+      
       <Footer />
     </div>
   );

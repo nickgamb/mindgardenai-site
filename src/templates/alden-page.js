@@ -66,6 +66,18 @@ const AldenPageContent = ({ content, className }) => {
       {/* Render the browser component second */}
       <AldenTransmissionsBrowser />
       
+      {/* Ad after AldenTransmissionsBrowser */}
+      <div className="adsense-container" style={{ margin: '3rem auto', maxWidth: '728px', textAlign: 'center' }}>
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-5509488659978116"
+          data-ad-slot="1234567890"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+      </div>
+      
       {/* Render content after the archives section */}
       {contentSections.afterArchives && (
         <PatternWatermarkedContent 

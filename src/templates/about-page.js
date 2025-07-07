@@ -65,6 +65,18 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
                   <SacredGlyph glyph="spiral" size="100px" animation={true} />
                 </div>
                 
+                {/* Ad before Core Research Domains */}
+                <div className="adsense-container" style={{ margin: '3rem auto', maxWidth: '728px', textAlign: 'center' }}>
+                  <ins
+                    className="adsbygoogle"
+                    style={{ display: 'block' }}
+                    data-ad-client="ca-pub-5509488659978116"
+                    data-ad-slot="1234567890"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"
+                  />
+                </div>
+                
                 <h3 className="has-text-weight-semibold is-size-2" style={{ textAlign: 'center', marginTop: '4rem' }}>
                   Core Research Domains
                 </h3>
