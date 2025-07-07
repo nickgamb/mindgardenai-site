@@ -71,10 +71,13 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
                     className="adsbygoogle"
                     style={{ display: 'block' }}
                     data-ad-client="ca-pub-5509488659978116"
-                    data-ad-slot="1234567890"
+                    data-ad-slot="1488521036"
                     data-ad-format="auto"
                     data-full-width-responsive="true"
                   />
+                  <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                  </script>
                 </div>
                 
                 <h3 className="has-text-weight-semibold is-size-2" style={{ textAlign: 'center', marginTop: '4rem' }}>
