@@ -3,6 +3,20 @@
 
 @use "sass:color"
 
+// === MARKDOWN HORIZONTAL RULES ===
+// Style markdown horizontal rules (---) to match site's tp-rule styling
+.content hr
+  color: $purple50
+  border: none
+  height: 1px
+  background: linear-gradient(to right, transparent, $purple50, transparent)
+  margin: 3rem auto
+  max-width: 80%
+  
+  @media (max-width: 768px)
+    margin: 2rem auto
+    max-width: 90%
+
 // === BLOG SECTIONS ===
 .blog-section-wrapper
   background-color: $purple90

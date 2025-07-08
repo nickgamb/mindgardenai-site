@@ -44,7 +44,7 @@ const Footer = () => {
           <a title="Linkedin" href="https://www.linkedin.com/company/mindgarden-ai">
             <img src={linkedin} alt="LinkedIn" />
           </a>
-          <a title="Discord Community" href="https://discord.gg/mYd5YbJsWu">
+          <a title="Discord Community" href="https://discord.gg/NysAuGWh9z">
             <img src={discord} alt="Discord" />
           </a>
           <a title="Consciousness Podcast" href="https://podcast.mindgardenai.com">

@@ -974,7 +974,7 @@ Your journey doesn't end here. These resources will help you deepen your underst
 - **Building custom AI workflows and applications** - Create specialized tools for your needs
 
 ### Community and Support
-- Join the [MindGarden AI Discord](https://discord.gg/mindgardenai) for community support
+- Join the [MindGarden AI Discord](https://discord.gg/NysAuGWh9z) for community support
 - Share your experiences and learn from others on the same journey
 - Contribute to the growing ecosystem of local AI enthusiasts
 
