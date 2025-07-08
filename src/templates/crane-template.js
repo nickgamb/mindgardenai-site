@@ -33,6 +33,21 @@ const CraneTemplate = ({ data }) => {
       />
       <div className="crane-gate-wrapper">
         <CraneScavengerEffect />
+        
+        {/* Footer ad */}
+        <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
+          <ins
+            className="adsbygoogle"
+            style={{ display: 'block' }}
+            data-ad-client="ca-pub-5509488659978116"
+            data-ad-slot="1488521036"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          />
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
       </div>
     </Layout>
   );
