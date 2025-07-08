@@ -11,6 +11,7 @@ import React, { useEffect } from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
+import FullWidthImage from "../components/FullWidthImage";
 
 const TagRoute = (props) =>  {
     const { data, pageContext } = props || {};
