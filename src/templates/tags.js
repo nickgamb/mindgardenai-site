@@ -19,6 +19,7 @@ const TagRoute = (props) =>  {
     const { tag } = pageContext || {};
     const { title } = data?.site?.siteMetadata || { title: "MindGarden" };
     const { totalCount } = data?.allMarkdownRemark || { totalCount: 0 };
+    const bannerImage = "/img/MindGarden_Banner.png";
 
     useEffect(() => {
       const initializeAds = () => {
