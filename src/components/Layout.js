@@ -295,7 +295,7 @@ const TemplateWrapper = ({ children }) => {
       <Navbar />
       <main className="site-content">{children}</main>
       
-      {/* Single ad before footer */}
+      {/* Ad before footerr */}
       <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
         <ins
           className="adsbygoogle"
@@ -305,11 +305,9 @@ const TemplateWrapper = ({ children }) => {
           data-ad-format="auto"
           data-full-width-responsive="true"
         />
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          `
-        }} />
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
       </div>
       
       <Footer />

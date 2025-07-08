@@ -106,6 +106,21 @@ export const AldenPageTemplate = ({ title, content, contentComponent }) => {
         height={400}
       />
       
+      {/* Ad after top banner */}
+      <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-5509488659978116"
+          data-ad-slot="1488521036"
+          data-ad-format="banner"
+          data-full-width-responsive="true"
+        />
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      
       <section className="section">
         <div className="container content">
           <div className="columns">
