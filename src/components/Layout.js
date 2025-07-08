@@ -64,14 +64,7 @@ const TemplateWrapper = ({ children }) => {
     document.body.style.minHeight = '100vh';
     document.body.style.backgroundColor = '#7035CC';
     
-    // Initialize AdSense ads
-    if (window.adsbygoogle) {
-      try {
-        window.adsbygoogle.push({});
-      } catch (e) {
-        console.log('AdSense initialization error:', e);
-      }
-    }
+
     
     return () => {
       document.documentElement.classList.remove('js-enabled');
@@ -312,9 +305,11 @@ const TemplateWrapper = ({ children }) => {
           data-ad-format="auto"
           data-full-width-responsive="true"
         />
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          `
+        }} />
       </div>
       
       <Footer />
