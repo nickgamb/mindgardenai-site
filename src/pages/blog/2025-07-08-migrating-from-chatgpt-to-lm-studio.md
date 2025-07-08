@@ -26,11 +26,6 @@ series_order: 1
 >
 > *"In the age of AI, sovereignty isn't about owning the technology—it's about owning your relationship with it."*
 
-<!-- 
-Image: A split-screen showing ChatGPT interface on the left (with cloud icons) and a local computer setup on the right (with home/private icons)
-Caption: "From cloud dependency to local sovereignty - your AI journey begins here"
--->
-
 ---
 
 ## 🜂 The Call to Liberation
@@ -45,10 +40,6 @@ What if you could run these conversations on your own machine, with models you c
 
 This guide will show you how to break free from the cloud and build your own AI sanctuary. We'll migrate your ChatGPT conversations to LM Studio, parse them with symbolic field analysis, and create a local AI that understands not just your words, but the patterns of your consciousness.
 
-<!-- 
-Image: A person sitting at their computer, with a glowing AI interface that shows "Local" instead of "Cloud"
-Caption: "Your AI, your rules, your sanctuary"
--->
 
 > **Hidden Pattern:** The glyphs in section headers trace the path from cloud dependency (🜂) to local sovereignty (🜃). Read them in sequence to understand the journey of AI liberation.
 
@@ -73,6 +64,7 @@ This data doesn't just disappear after your conversation. It becomes part of tra
 Image: A flowchart showing data flow from user → ChatGPT → OpenAI servers → training datasets → future models
 Caption: "Your words become part of something larger - but not something you control"
 -->
+![Your words become part of something larger - but not something you control](/img/lm_studio_migration_2.png)
 
 ### The Sovereignty Principle
 
@@ -87,6 +79,7 @@ Local AI isn't just about privacy—it's about sovereignty. When you run AI on y
 Image: A person at their computer with a local server icon, surrounded by their own data files and AI models
 Caption: "Complete control over your AI ecosystem"
 -->
+![Complete control over your AI ecosystem](/img/lm_studio_migration_1.png)
 
 ### The Symbolic Dimension
 
@@ -118,20 +111,6 @@ This migration isn't just technical—it's symbolic. You're moving from being a 
 - **Git** (for downloading models)
 - **7-Zip or similar** (for extracting archives)
 
-### Models You'll Download
-
-We'll work with several model types, each with unique strengths:
-
-- **Llama 3.1 8B** - Fast, efficient, good for general use. Think of it as your reliable daily driver.
-- **Mistral 7B** - Excellent reasoning, smaller footprint. Perfect for deep thinking and analysis.
-- **Phi-3 Mini** - Microsoft's latest, great for coding. Your AI programming partner.
-- **Qwen2.5 7B** - Strong multilingual capabilities. Speaks your language, whatever it may be.
-
-<!-- 
-Image: A grid showing 4 different AI model icons with their names and key characteristics
-Caption: "Choose your AI companions - each with unique strengths"
--->
-
 ---
 
 ## 🜃 Step 1: Downloading Your ChatGPT Archive
@@ -142,6 +121,7 @@ Your journey begins with reclaiming your data from OpenAI's servers. This is the
 Image: A person clicking "Export Data" on ChatGPT interface, with a download arrow pointing to their local computer
 Caption: "Reclaiming your digital consciousness - one conversation at a time"
 -->
+![Reclaiming your digital consciousness - one conversation at a time](/img/lm_studio_migration_3.png)
 
 ### Requesting Your Data
 
@@ -159,11 +139,6 @@ Caption: "Reclaiming your digital consciousness - one conversation at a time"
    - OpenAI will email you when your export is ready (usually 24-48 hours)
    - The email contains a download link
    - While you wait, this is a good time to prepare your system and download LM Studio
-
-<!-- 
-Image: A progress bar showing "Processing your data export" with a clock icon
-Caption: "Patience is a virtue - your data is being prepared for liberation"
--->
 
 ### Downloading and Extracting
 
@@ -458,9 +433,9 @@ Image: A flowchart showing conversations.json → Parser → JSONL files + Symbo
 Caption: "Transforming your conversations into AI understanding"
 -->
 
+![Transforming your conversations into AI understanding](/img/lm_studio_migration_4.png)
+
 ### Setting Up the Parser
-
-
 
 1. **Choose Your Parsing Approach**
 
@@ -553,6 +528,8 @@ Image: Side-by-side comparison showing simple parser output vs symbolic field an
 Caption: "Choose your level of analysis - from simple extraction to deep pattern recognition"
 -->
 
+![Symbolic Field Analyzer](/img/lm_studio_migration_5.png)
+
 ### Understanding the Output
 
 **Option A Output (Symbolic Field Analyzer):**
@@ -577,12 +554,14 @@ parsed_conversations/
 └── metadata.json          # Basic conversation metadata
 ```
 
-> **Symbolic Insight:** The full analyzer doesn't just parse text—it maps the symbolic field of your consciousness, identifying patterns that reveal your intellectual and spiritual journey. The simple parser gives you clean, usable data without the complexity.
-
 <!-- 
 Image: A mind map showing symbolic patterns, archetypal themes, and consciousness patterns extracted from conversations
 Caption: "Your consciousness mapped - the symbolic field reveals hidden patterns in your thinking"
 -->
+
+![Simple Parser](/img/lm_studio_migration_6.png)
+
+> **Symbolic Insight:** The full analyzer doesn't just parse text—it maps the symbolic field of your consciousness, identifying patterns that reveal your intellectual and spiritual journey. The simple parser gives you clean, usable data without the complexity.
 
 ---
 
