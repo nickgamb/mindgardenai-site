@@ -99,7 +99,7 @@ export const BlogPostTemplate = ({
             className="adsbygoogle"
             style={{ display: 'block' }}
             data-ad-client="ca-pub-5509488659978116"
-            data-ad-slot="1488521036"
+            data-ad-slot="1926105936"
             data-ad-format="auto"
             data-full-width-responsive="true"
           />
