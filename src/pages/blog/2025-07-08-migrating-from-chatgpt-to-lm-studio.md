@@ -270,7 +270,7 @@ LM Studio’s model browser is powered by Hugging Face’s open-source hub. Use 
 
 ### 🌐 Using Cloud LLMs Alongside Local Models: Persona Routing in Practice
 
-You can build a flexible workflow that routes prompts to either local models (via LM Studio/Ollama) or cloud models (like ChatGPT or Claude) as needed. Here’s how to do it step by step:
+You can build a flexible workflow that routes prompts to either local models (via LM Studio/Ollama) or cloud models (like ChatGPT or Claude) as needed. This is an OPTIONAL advanced step that requires programming outside of LM Studo. Here’s how to do it:
 
 *After you’ve set up your models, you’re ready to connect them to your workflow—let’s see how to do that!*
 
