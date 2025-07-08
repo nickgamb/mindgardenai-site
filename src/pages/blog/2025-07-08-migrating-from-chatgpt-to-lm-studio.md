@@ -235,8 +235,6 @@ LM Studio makes it easy to browse and download a wide variety of open-source mod
 | **TinyLlama 1.1B Chat**            | 1.1B, Chat        | Ultra-lightweight, very low resource   | [Download](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0) |
 | **Mistral Next 8x22B**             | 176B (8x22B MoE)  | SOTA, requires high-end hardware       | [Download](https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1) |
 
-> You can add or remove models as you see fit, and update the links to point to the LM Studio model browser or Hugging Face.
-
 ---
 
 **🤝 LM Studio & Hugging Face: The Open AI Alliance**
@@ -246,7 +244,7 @@ LM Studio’s model browser is powered by Hugging Face’s open-source hub. Use 
 - **LM Studio browser:** Fast, one-click local setup, automatic quantization.
 - **Hugging Face site:** Explore trending models, read reviews, try models in the browser, and follow community updates.
 
-> LM Studio’s team encourages using Hugging Face and LM Studio together for the best experience.
+> **Workflow Tip:** LM Studio’s team encourages using Hugging Face and LM Studio together for the best experience.
 
 ---
 
