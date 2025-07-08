@@ -74,7 +74,6 @@ export const IndexPageTemplate = ({
   return (
     <div className="content">
       <FullWidthImage img={heroImage} title={title} subheading={callToAction.description} />
-      
       <section className="section section--gradient">
         <div className="container">
           <div style={{ padding: '1rem' }}>
@@ -87,9 +86,7 @@ export const IndexPageTemplate = ({
                     <br />
                     <p className="subtitle">{mainpitch.description}</p>
                   </div>
-
                   <br />
-                  
                   <div className="columns">
                     <div className="column is-12">
                       <h3 className="has-text-weight-semibold is-size-2">
@@ -99,12 +96,9 @@ export const IndexPageTemplate = ({
                       <p className="section-description">{subheading}</p>
                     </div>
                   </div>
-                  
                   <div className="feature-section-wrapper">
                     <Features gridItems={features} />
                   </div>
-                  
-                  
                   <div className="columns">
                     <div className="column is-12 has-text-centered">
                       <Link className="btn" to={callToAction.buttonLink}>
@@ -112,19 +106,17 @@ export const IndexPageTemplate = ({
                       </Link>
                     </div>
                   </div>
-                  
-                {/* Ad before Latest stories */}
-                <div className="adsense-container" style={{ margin: '3rem auto', maxWidth: '728px', textAlign: 'center' }}>
-                  <ins
-                    className="adsbygoogle"
-                    style={{ display: 'block' }}
-                    data-ad-client="ca-pub-5509488659978116"
-                    data-ad-slot="5720244238"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"
-                  />
-                </div>
-                  
+                  {/* Ad before Latest stories */}
+                  <div className="adsense-container" style={{ margin: '3rem auto', maxWidth: '728px', textAlign: 'center' }}>
+                    <ins
+                      className="adsbygoogle"
+                      style={{ display: 'block' }}
+                      data-ad-client="ca-pub-5509488659978116"
+                      data-ad-slot="5720244238"
+                      data-ad-format="auto"
+                      data-full-width-responsive="true"
+                    />
+                  </div>
                   <div className="column is-12">
                     <h3 className="has-text-weight-semibold is-size-2">
                       Latest stories
@@ -142,20 +134,19 @@ export const IndexPageTemplate = ({
               </div>
             </div>
           </div>
+          {/* Footer ad */}
+          <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
+            <ins
+              className="adsbygoogle"
+              style={{ display: 'block' }}
+              data-ad-client="ca-pub-5509488659978116"
+              data-ad-slot="1926105936"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            />
+          </div>
         </div>
       </section>
-      
-      {/* Footer ad */}
-      <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
-        <ins
-          className="adsbygoogle"
-          style={{ display: 'block' }}
-          data-ad-client="ca-pub-5509488659978116"
-          data-ad-slot="1926105936"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
-      </div>
     </div>
   );
 };
