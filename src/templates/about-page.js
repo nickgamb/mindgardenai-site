@@ -23,12 +23,26 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
 
   // Initialize AdSense ads
   useEffect(() => {
-    if (window.adsbygoogle) {
-      try {
-        window.adsbygoogle.push({});
-      } catch (e) {
-        console.log('AdSense initialization error:', e);
+    const initializeAds = () => {
+      if (window.adsbygoogle) {
+        try {
+          console.log('Initializing AdSense ads...');
+          window.adsbygoogle.push({});
+          console.log('AdSense ads initialized successfully');
+        } catch (e) {
+          console.log('AdSense initialization error:', e);
+        }
+      } else {
+        console.log('AdSense script not loaded yet, retrying...');
+        setTimeout(initializeAds, 1000);
       }
+    };
+
+    // Wait for AdSense script to load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeAds);
+    } else {
+      initializeAds();
     }
   }, []);
 

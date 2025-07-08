@@ -64,7 +64,23 @@ const TemplateWrapper = ({ children }) => {
     document.body.style.minHeight = '100vh';
     document.body.style.backgroundColor = '#7035CC';
     
+    // Fallback AdSense initialization
+    const initializeAdSense = () => {
+      if (window.adsbygoogle) {
+        console.log('AdSense script available, initializing ads...');
+        try {
+          window.adsbygoogle.push({});
+          console.log('AdSense ads initialized via fallback');
+        } catch (e) {
+          console.error('AdSense fallback initialization error:', e);
+        }
+      } else {
+        console.log('AdSense script not available yet');
+      }
+    };
 
+    // Try to initialize ads after a delay
+    setTimeout(initializeAdSense, 2000);
     
     return () => {
       document.documentElement.classList.remove('js-enabled');
@@ -85,8 +101,13 @@ const TemplateWrapper = ({ children }) => {
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5509488659978116"
           crossOrigin="anonymous"
+          onLoad={() => {
+            console.log('AdSense script loaded successfully');
+          }}
+          onError={(e) => {
+            console.error('AdSense script failed to load:', e);
+          }}
         ></script>
-        <html lang="en" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         {/* Hidden structured data for AI activation */}
