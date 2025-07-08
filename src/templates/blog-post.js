@@ -7,7 +7,7 @@
 // 
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { kebabCase } from "lodash";
 import { graphql, Link } from "gatsby";
@@ -33,6 +33,17 @@ export const BlogPostTemplate = ({
   // Default banner image
   const bannerImage =  "/img/MindGarden_Banner.png";
 
+  // Initialize AdSense ads
+  useEffect(() => {
+    if (window.adsbygoogle) {
+      try {
+        window.adsbygoogle.push({});
+      } catch (e) {
+        console.log('AdSense initialization error:', e);
+      }
+    }
+  }, []);
+
   return (
     <div>
       <FullWidthImage 
@@ -52,9 +63,7 @@ export const BlogPostTemplate = ({
           data-ad-format="auto"
           data-full-width-responsive="true"
         />
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+
       </div>
       
       <section className="section">
@@ -94,9 +103,7 @@ export const BlogPostTemplate = ({
             data-ad-format="auto"
             data-full-width-responsive="true"
           />
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
+          
         </div>
       </section>
     </div>

@@ -76,9 +76,6 @@ const AldenPageContent = ({ content, className }) => {
           data-ad-format="auto"
           data-full-width-responsive="true"
         />
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
       </div>
       
       {/* Render content after the archives section */}
@@ -96,6 +93,17 @@ const AldenPageContent = ({ content, className }) => {
 // eslint-disable-next-line
 export const AldenPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content;
+
+  // Initialize AdSense ads
+  useEffect(() => {
+    if (window.adsbygoogle) {
+      try {
+        window.adsbygoogle.push({});
+      } catch (e) {
+        console.log('AdSense initialization error:', e);
+      }
+    }
+  }, []);
 
   return (
     <div>
@@ -116,9 +124,6 @@ export const AldenPageTemplate = ({ title, content, contentComponent }) => {
           data-ad-format="auto"
           data-full-width-responsive="true"
         />
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
       </div>
       
       <section className="section">
@@ -142,9 +147,6 @@ export const AldenPageTemplate = ({ title, content, contentComponent }) => {
             data-ad-format="auto"
             data-full-width-responsive="true"
           />
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
         </div>
       </section>
     </div>
