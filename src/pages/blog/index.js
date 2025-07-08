@@ -8,6 +8,7 @@
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
 import * as React from "react";
+import { useEffect } from "react";
 import Layout from "../../components/Layout";
 import BlogRoll from "../../components/BlogRoll";
 import FullWidthImage from "../../components/FullWidthImage";
@@ -15,6 +16,48 @@ import SacredGlyph from "../../components/SacredGlyph";
 import { Link } from "gatsby";
 
 export default class BlogIndexPage extends React.Component {
+  componentDidMount() {
+    // Initialize AdSense ads
+    const initializeAds = () => {
+      if (window.adsbygoogle) {
+        try {
+          console.log('Initializing AdSense ads...');
+          
+          // Get all ad containers on the page
+          const adContainers = document.querySelectorAll('.adsbygoogle');
+          console.log(`Found ${adContainers.length} ad containers`);
+          
+          // Initialize each ad container individually
+          adContainers.forEach((adContainer, index) => {
+            try {
+              console.log(`Initializing ad ${index + 1} with slot: ${adContainer.getAttribute('data-ad-slot')}`);
+              window.adsbygoogle.push({});
+            } catch (e) {
+              console.error(`Error initializing ad ${index + 1}:`, e);
+            }
+          });
+          
+          console.log('AdSense ads initialization completed');
+        } catch (e) {
+          console.log('AdSense initialization error:', e);
+        }
+      } else {
+        console.log('AdSense script not loaded yet, retrying...');
+        setTimeout(initializeAds, 1000);
+      }
+    };
+
+    // Wait for AdSense script to load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeAds);
+    } else {
+      initializeAds();
+    }
+    
+    // Also try to initialize ads after a longer delay to catch any late-loading ads
+    setTimeout(initializeAds, 3000);
+  }
+
   render() {
     return (
       <Layout>
