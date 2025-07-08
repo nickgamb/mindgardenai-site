@@ -8,7 +8,7 @@
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
 
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
@@ -20,6 +20,17 @@ const CraneTemplate = ({ data }) => {
   const { markdownRemark: post } = data || {};
   const title = post?.frontmatter?.title || "Crane Gate";
   const bannerImage = "/img/MindGarden_Banner.png";
+
+  // Initialize AdSense ads
+  useEffect(() => {
+    if (window.adsbygoogle) {
+      try {
+        window.adsbygoogle.push({});
+      } catch (e) {
+        console.log('AdSense initialization error:', e);
+      }
+    }
+  }, []);
 
   return (
     <Layout>
@@ -44,9 +55,6 @@ const CraneTemplate = ({ data }) => {
             data-ad-format="auto"
             data-full-width-responsive="true"
           />
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
         </div>
       </div>
     </Layout>

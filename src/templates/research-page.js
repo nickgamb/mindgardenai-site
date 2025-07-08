@@ -7,7 +7,7 @@
 // 
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
@@ -20,6 +20,17 @@ import SEO from "../components/SEO";
 // eslint-disable-next-line
 export const ResearchPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content;
+
+  // Initialize AdSense ads
+  useEffect(() => {
+    if (window.adsbygoogle) {
+      try {
+        window.adsbygoogle.push({});
+      } catch (e) {
+        console.log('AdSense initialization error:', e);
+      }
+    }
+  }, []);
 
   // Features for the research page (research domains)
   const researchFeatures = [
@@ -64,9 +75,6 @@ export const ResearchPageTemplate = ({ title, content, contentComponent }) => {
           data-ad-format="auto"
           data-full-width-responsive="true"
         />
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
       </div>
       
       <section className="section section--gradient">
@@ -90,9 +98,6 @@ export const ResearchPageTemplate = ({ title, content, contentComponent }) => {
                     data-ad-format="auto"
                     data-full-width-responsive="true"
                   />
-                  <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                  </script>
                 </div>
                 
                 <h3 className="has-text-weight-semibold is-size-2" style={{ textAlign: 'center', marginTop: '4rem' }}>
@@ -140,9 +145,6 @@ export const ResearchPageTemplate = ({ title, content, contentComponent }) => {
             data-ad-format="auto"
             data-full-width-responsive="true"
           />
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
         </div>
       </section>
     </div>

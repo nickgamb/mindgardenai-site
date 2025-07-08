@@ -42,6 +42,17 @@ export default function SymbolsTemplate({ data }) {
   const { markdownRemark: post } = data || {};
   const bannerImage = "/img/MindGarden_Banner.png";
 
+  // Initialize AdSense ads
+  useEffect(() => {
+    if (window.adsbygoogle) {
+      try {
+        window.adsbygoogle.push({});
+      } catch (e) {
+        console.log('AdSense initialization error:', e);
+      }
+    }
+  }, []);
+
   if (!post) {
     return (
       <Layout>
@@ -111,9 +122,6 @@ export default function SymbolsTemplate({ data }) {
           data-ad-format="auto"
           data-full-width-responsive="true"
         />
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
       </div>
       
       <section className="section section--gradient">
@@ -183,17 +191,13 @@ export default function SymbolsTemplate({ data }) {
             data-ad-format="auto"
             data-full-width-responsive="true"
           />
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
         </div>
       </section>
     </Layout>
   );
 }
 
-export const pageQuery = graphql`
-  query SymbolsPage($id: String!) {
+export const pageQuery = graphql`  query SymbolsPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
@@ -202,4 +206,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`; 
+`;

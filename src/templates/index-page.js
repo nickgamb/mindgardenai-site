@@ -7,7 +7,7 @@
 // 
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
@@ -28,6 +28,17 @@ export const IndexPageTemplate = ({
   callToAction,
 }) => {
   const heroImage = getImage(image) || image;
+
+  // Initialize AdSense ads
+  useEffect(() => {
+    if (window.adsbygoogle) {
+      try {
+        window.adsbygoogle.push({});
+      } catch (e) {
+        console.log('AdSense initialization error:', e);
+      }
+    }
+  }, []);
 
   return (
     <div className="content">
@@ -81,9 +92,6 @@ export const IndexPageTemplate = ({
                       data-ad-format="auto"
                       data-full-width-responsive="true"
                     />
-                    <script>
-                      (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
                   </div>
                   
                   <div className="column is-12">

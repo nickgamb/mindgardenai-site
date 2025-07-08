@@ -7,7 +7,7 @@
 // 
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
-import * as React from "react";
+import React, { useEffect } from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
@@ -18,6 +18,16 @@ const TagRoute = (props) =>  {
     const { tag } = pageContext || {};
     const { title } = data?.site?.siteMetadata || { title: "MindGarden" };
     const { totalCount } = data?.allMarkdownRemark || { totalCount: 0 };
+
+    useEffect(() => {
+      if (window.adsbygoogle) {
+        try {
+          window.adsbygoogle.push({});
+        } catch (e) {
+          console.log('AdSense initialization error:', e);
+        }
+      }
+    }, []);
 
     if (!tag || !data) {
       return (
@@ -79,9 +89,6 @@ const TagRoute = (props) =>  {
                     data-ad-format="auto"
                     data-full-width-responsive="true"
                   />
-                  <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                  </script>
                 </div>
                 
                 <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
@@ -103,9 +110,6 @@ const TagRoute = (props) =>  {
               data-ad-format="auto"
               data-full-width-responsive="true"
             />
-            <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
           </div>
         </section>
       </Layout>
