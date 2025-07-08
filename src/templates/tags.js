@@ -80,7 +80,7 @@ const TagRoute = (props) =>  {
                 style={{ marginBottom: "6rem" }}
               >
                 {/* Ad at the top */}
-                <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
+                <div className="adsense-container post-banner-ad" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
                   <ins
                     className="adsbygoogle"
                     style={{ display: 'block' }}

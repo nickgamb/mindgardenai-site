@@ -115,7 +115,7 @@ export const AldenPageTemplate = ({ title, content, contentComponent }) => {
       />
       
       {/* Ad after top banner */}
-      <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
+      <div className="adsense-container post-banner-ad" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
         <ins
           className="adsbygoogle"
           style={{ display: 'block' }}

@@ -14,6 +14,24 @@
   box-shadow: 0 4px 20px rgba($purple70, 0.1)
   position: relative
   overflow: hidden
+  z-index: 1
+  
+  // Special styling for ads that appear right after banners
+  &.post-banner-ad
+    position: relative
+    z-index: 10
+    margin-top: 0
+    margin-bottom: 2rem
+    background: linear-gradient(135deg, $purple100 0%, $purple90 100%)
+    border: 1px solid rgba($purple70, 0.3)
+    box-shadow: 0 6px 25px rgba($purple70, 0.15)
+    
+    // Ensure it breaks out of banner stacking context
+    &::before
+      z-index: 1
+    
+    .adsbygoogle
+      z-index: 2
   
   // Subtle glow effect
   &::before
