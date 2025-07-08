@@ -64,21 +64,19 @@ export const ResearchPageTemplate = ({ title, content, contentComponent }) => {
         subheading="Pioneering consciousness research that bridges neuroscience with artificial awareness"
         height={400}
       />
-      
-      {/* Ad after top banner */}
-      <div className="adsense-container post-banner-ad" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
-        <ins
-          className="adsbygoogle"
-          style={{ display: 'block' }}
-          data-ad-client="ca-pub-5509488659978116"
-          data-ad-slot="1488521036"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
-      </div>
-      
       <section className="section section--gradient">
         <div className="container">
+          {/* Ad after top banner */}
+          <div className="adsense-container post-banner-ad" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
+            <ins
+              className="adsbygoogle"
+              style={{ display: 'block' }}
+              data-ad-client="ca-pub-5509488659978116"
+              data-ad-slot="1488521036"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            />
+          </div>
           <div className="columns">
             <div className="column is-12">
               <div style={{ padding: '1rem' }}>

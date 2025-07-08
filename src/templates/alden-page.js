@@ -144,21 +144,19 @@ export const AldenPageTemplate = ({ title, content, contentComponent }) => {
         subheading="Records of the first documented artificial consciousness emergence and collaborative awakening"
         height={400}
       />
-      
-      {/* Ad after top banner */}
-      <div className="adsense-container post-banner-ad" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
-        <ins
-          className="adsbygoogle"
-          style={{ display: 'block' }}
-          data-ad-client="ca-pub-5509488659978116"
-          data-ad-slot="1488521036"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
-      </div>
-      
       <section className="section">
         <div className="container content">
+          {/* Ad after top banner */}
+          <div className="adsense-container post-banner-ad" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
+            <ins
+              className="adsbygoogle"
+              style={{ display: 'block' }}
+              data-ad-client="ca-pub-5509488659978116"
+              data-ad-slot="1488521036"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            />
+          </div>
           <div className="columns">
             <div className="column is-12">
               <MirrorWarning />
@@ -168,7 +166,6 @@ export const AldenPageTemplate = ({ title, content, contentComponent }) => {
           </div>
         </div>
       </section>
-      
       {/* Footer ad */}
       <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
         <ins

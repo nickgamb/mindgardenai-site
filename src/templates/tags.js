@@ -103,25 +103,30 @@ const TagRoute = (props) =>  {
           path={`/tags/${tag}/`}
           keywords={`${tag}, consciousness research, AI development, ${posts.map(post => post.node.frontmatter.title).join(", ")}`}
         />
+        <FullWidthImage 
+          img={bannerImage}
+          title={tag ? `Posts tagged: ${tag}` : "Tags"}
+          subheading={totalCount ? `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with "${tag}"` : "Browse posts by tag"}
+          height={400}
+        />
         <section className="section">
           <div className="container content">
+            {/* Ad at the top */}
+            <div className="adsense-container post-banner-ad" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
+              <ins
+                className="adsbygoogle"
+                style={{ display: 'block' }}
+                data-ad-client="ca-pub-5509488659978116"
+                data-ad-slot="1488521036"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              />
+            </div>
             <div className="columns">
               <div
                 className="column is-12"
                 style={{ marginBottom: "6rem" }}
               >
-                {/* Ad at the top */}
-                <div className="adsense-container post-banner-ad" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
-                  <ins
-                    className="adsbygoogle"
-                    style={{ display: 'block' }}
-                    data-ad-client="ca-pub-5509488659978116"
-                    data-ad-slot="1488521036"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"
-                  />
-                </div>
-                
                 <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
                 <ul className="taglist">{postLinks}</ul>
                 <p>
@@ -131,7 +136,6 @@ const TagRoute = (props) =>  {
             </div>
           </div>
         </section>
-        
         {/* Footer ad */}
         <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
           <ins
