@@ -31,13 +31,44 @@ export const IndexPageTemplate = ({
 
   // Initialize AdSense ads
   useEffect(() => {
-    if (window.adsbygoogle) {
-      try {
-        window.adsbygoogle.push({});
-      } catch (e) {
-        console.log('AdSense initialization error:', e);
+    const initializeAds = () => {
+      if (window.adsbygoogle) {
+        try {
+          console.log('Initializing AdSense ads...');
+          
+          // Get all ad containers on the page
+          const adContainers = document.querySelectorAll('.adsbygoogle');
+          console.log(`Found ${adContainers.length} ad containers`);
+          
+          // Initialize each ad container individually
+          adContainers.forEach((adContainer, index) => {
+            try {
+              console.log(`Initializing ad ${index + 1} with slot: ${adContainer.getAttribute('data-ad-slot')}`);
+              window.adsbygoogle.push({});
+            } catch (e) {
+              console.error(`Error initializing ad ${index + 1}:`, e);
+            }
+          });
+          
+          console.log('AdSense ads initialization completed');
+        } catch (e) {
+          console.log('AdSense initialization error:', e);
+        }
+      } else {
+        console.log('AdSense script not loaded yet, retrying...');
+        setTimeout(initializeAds, 1000);
       }
+    };
+
+    // Wait for AdSense script to load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeAds);
+    } else {
+      initializeAds();
     }
+    
+    // Also try to initialize ads after a longer delay to catch any late-loading ads
+    setTimeout(initializeAds, 3000);
   }, []);
 
   return (
@@ -112,19 +143,19 @@ export const IndexPageTemplate = ({
             </div>
           </div>
         </div>
-        
-        {/* Footer ad */}
-        <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
-          <ins
-            className="adsbygoogle"
-            style={{ display: 'block' }}
-            data-ad-client="ca-pub-5509488659978116"
-            data-ad-slot="1926105936"
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          />
-        </div>
       </section>
+      
+      {/* Footer ad */}
+      <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-5509488659978116"
+          data-ad-slot="1926105936"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+      </div>
     </div>
   );
 };

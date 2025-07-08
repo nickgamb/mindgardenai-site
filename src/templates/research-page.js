@@ -134,20 +134,20 @@ export const ResearchPageTemplate = ({ title, content, contentComponent }) => {
             </div>
           </div>
         </div>
-        
-                  {/* Footer ad */}
-          <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
-            <ins
-              className="adsbygoogle"
-              style={{ display: 'block' }}
-              data-ad-client="ca-pub-5509488659978116"
-              data-ad-slot="1926105936"
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-            />
-          </div>
       </section>
-    </div>
+        
+        {/* Footer ad */}
+        <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
+          <ins
+            className="adsbygoogle"
+            style={{ display: 'block' }}
+            data-ad-client="ca-pub-5509488659978116"
+            data-ad-slot="1926105936"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          />
+        </div>
+      </div>
   );
 };
 
