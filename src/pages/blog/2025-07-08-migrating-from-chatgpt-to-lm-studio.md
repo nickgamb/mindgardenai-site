@@ -240,42 +240,40 @@ Image: LM Studio Search tab showing model listings with download buttons and mod
 Caption: "Building your AI toolkit - choose models that match your needs and hardware"
 -->
 
-### Finding Models
+LM Studio makes it easy to browse and download a wide variety of open-source models. Here are some recommended starting points:
 
-1. **Open the Search Tab**
-   - Click "Search" in LM Studio
-   - You'll see a list of available models
+| Model Name                        | Type/Size         | Recommended Use                        | Download Link |
+|------------------------------------|-------------------|----------------------------------------|---------------|
+| **Llama-2 7B Chat**                | 7B, Chat          | General conversation, fast, low RAM    | [Download](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf) |
+| **Llama-3 8B Instruct**            | 8B, Instruct      | General, creative, improved reasoning  | [Download](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct) |
+| **Mistral 7B Instruct v0.2**       | 7B, Instruct      | Reasoning, Q&A, creative writing       | [Download](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2) |
+| **Mixtral 8x7B Instruct**          | 46.7B (8x7B MoE)  | High performance, long context, Q&A    | [Download](https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1) |
+| **Phi-3 Mini 4K**                  | 3.8B, Small       | Coding, fast inference, low resource   | [Download](https://huggingface.co/microsoft/phi-3-mini-4k-instruct) |
+| **Phi-2**                          | 2.7B, Small       | Lightweight, low resource, quick chat  | [Download](https://huggingface.co/microsoft/phi-2) |
+| **Qwen2 7B Chat**                  | 7B, Chat          | Multilingual, general use, creative    | [Download](https://huggingface.co/Qwen/Qwen2-7B-Chat) |
+| **OpenHermes 2.5 Mistral**         | 7B, Chat          | Open-source, creative, roleplay        | [Download](https://huggingface.co/teknium/OpenHermes-2.5-Mistral-7B) |
+| **Nous Hermes 2 Yi-34B**           | 34B, Large        | Deep reasoning, long context, advanced | [Download](https://huggingface.co/NousResearch/Nous-Hermes-2-Yi-34B) |
+| **MythoMax L2 13B**                | 13B, Chat         | Storytelling, creative, roleplay       | [Download](https://huggingface.co/Gryphe/MythoMax-L2-13b) |
+| **Starling-LM 7B Alpha**           | 7B, Chat          | General, helpful, open-source          | [Download](https://huggingface.co/Nexusflow/Starling-LM-7B-alpha) |
+| **Zephyr 7B Beta**                 | 7B, Chat          | Instruction-following, helpful         | [Download](https://huggingface.co/HuggingFaceH4/zephyr-7b-beta) |
+| **Gemma 7B It**                    | 7B, Instruct      | Google’s open model, general use       | [Download](https://huggingface.co/google/gemma-7b-it) |
+| **TinyLlama 1.1B Chat**            | 1.1B, Chat        | Ultra-lightweight, very low resource   | [Download](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0) |
+| **Mistral Next 8x22B**             | 176B (8x22B MoE)  | SOTA, requires high-end hardware       | [Download](https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1) |
 
-2. **Recommended Models for Beginners**
+> You can add or remove models as you see fit, and update the links to point to the LM Studio model browser or Hugging Face.
 
-   **Llama 3.1 8B Instruct** 🚀
-   - Search for "llama-3.1-8b-instruct"
-   - Good balance of speed and quality
-   - Works on 8GB VRAM
-   - Perfect for daily conversations and general tasks
+---
 
-   **Mistral 7B Instruct** 🧠
-   - Search for "mistral-7b-instruct"
-   - Excellent reasoning capabilities
-   - Smaller footprint
-   - Ideal for deep thinking and analysis
+**🤝 LM Studio & Hugging Face: The Open AI Alliance**
 
-   **Phi-3 Mini 4K** 💻
-   - Search for "phi-3-mini-4k"
-   - Great for coding and technical tasks
-   - Very fast inference
-   - Your AI programming companion
+LM Studio’s model browser is powered by Hugging Face’s open-source hub. Use LM Studio for seamless local downloads and management, and Hugging Face’s website for advanced search, reviews, and web-based chat demos. By using both, you support the open AI community and gain access to the best models and documentation.
 
-   **Qwen2.5 7B** 🌍
-   - Search for "qwen2.5-7b"
-   - Strong multilingual capabilities
-   - Good general performance
-   - Speaks your language, literally
+- **LM Studio browser:** Fast, one-click local setup, automatic quantization.
+- **Hugging Face site:** Explore trending models, read reviews, try models in the browser, and follow community updates.
 
-<!-- 
-Image: Four model cards showing each recommended model with their key features and system requirements
-Caption: "Your AI toolkit - each model brings unique capabilities to your local setup"
--->
+> LM Studio’s team encourages using Hugging Face and LM Studio together for the best experience.
+
+---
 
 ### Downloading Models
 
@@ -294,6 +292,160 @@ Caption: "Your AI toolkit - each model brings unique capabilities to your local 
    - Models can be 2-8GB depending on quantization
 
 > **Storage Tip:** Models are stored in `~/Library/Application Support/LM Studio/models/` (macOS) or `%APPDATA%\LM Studio\models\` (Windows).
+
+---
+
+### 🌐 Using Cloud LLMs Alongside Local Models: Persona Routing in Practice
+
+You can build a flexible workflow that routes prompts to either local models (via LM Studio/Ollama) or cloud models (like ChatGPT or Claude) as needed. Here’s how to do it step by step:
+
+*After you’ve set up your models, you’re ready to connect them to your workflow—let’s see how to do that!*
+
+#### 1. Securely Set Up Your API Keys
+
+Store your API keys for cloud providers in a `.env` file (never commit this to git). Here’s a simple shell script to help:
+
+```bash
+#!/bin/bash
+ENV_FILE=".env"
+echo "Enter your OpenAI API key (or press Enter to skip): "
+read -r openai_key
+[ -n "$openai_key" ] && echo "OPENAI_API_KEY=\"$openai_key\"" >> "$ENV_FILE"
+echo "Enter your Anthropic API key (or press Enter to skip): "
+read -r anthropic_key
+[ -n "$anthropic_key" ] && echo "ANTHROPIC_API_KEY=\"$anthropic_key\"" >> "$ENV_FILE"
+echo "Enter your Ollama API URL (default: http://localhost:11434): "
+read -r ollama_url
+[ -z "$ollama_url" ] && ollama_url="http://localhost:11434"
+echo "OLLAMA_API_URL=\"$ollama_url\"" >> "$ENV_FILE"
+echo "Done! Keys saved to .env (don’t commit this file to git!)"
+```
+
+*With your keys in place, you can now configure your code to use both local and cloud models.*
+
+#### 2. Configure Local and Cloud Model Endpoints
+
+In your code, define configs for each model/provider:
+
+```python
+from dataclasses import dataclass
+import os
+@dataclass
+class ModelConfig:
+    provider: str
+    model_name: str
+    api_endpoint: str
+    api_key: str = None
+    max_tokens: int = 1000
+    temperature: float = 0.7
+
+ollama_config = ModelConfig(
+    provider="ollama",
+    model_name="llama3",
+    api_endpoint=os.getenv("OLLAMA_API_URL", "http://localhost:11434")
+)
+openai_config = ModelConfig(
+    provider="openai",
+    model_name="gpt-4o",
+    api_endpoint="https://api.openai.com/v1",
+    api_key=os.getenv("OPENAI_API_KEY")
+)
+anthropic_config = ModelConfig(
+    provider="anthropic",
+    model_name="claude-3-sonnet-20240229",
+    api_endpoint="https://api.anthropic.com",
+    api_key=os.getenv("ANTHROPIC_API_KEY")
+)
+```
+
+*Now you’re ready to route prompts to the right model for each task.*
+
+#### 3. Route Prompts to the Right Model
+
+Cloud APIs may incur costs and require an internet connection. Local models are free to run and private.
+
+Write a function to send prompts to the correct model based on your logic (persona, user flag, etc):
+
+```python
+import requests
+def call_model(model_config, prompt):
+    if model_config.provider == "ollama":
+        resp = requests.post(
+            f"{model_config.api_endpoint}/api/generate",
+            json={"model": model_config.model_name, "prompt": prompt, "stream": False}
+        )
+        return resp.json()["response"]
+    elif model_config.provider == "openai":
+        resp = requests.post(
+            f"{model_config.api_endpoint}/chat/completions",
+            headers={"Authorization": f"Bearer {model_config.api_key}"},
+            json={
+                "model": model_config.model_name,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": model_config.temperature,
+                "max_tokens": model_config.max_tokens
+            }
+        )
+        return resp.json()["choices"][0]["message"]["content"]
+    elif model_config.provider == "anthropic":
+        resp = requests.post(
+            f"{model_config.api_endpoint}/v1/messages",
+            headers={
+                "x-api-key": model_config.api_key,
+                "anthropic-version": "2023-06-01",
+                "content-type": "application/json"
+            },
+            json={
+                "model": model_config.model_name,
+                "messages": [{"role": "user", "content": prompt}],
+                "max_tokens": model_config.max_tokens
+            }
+        )
+        return resp.json()["content"][0]["text"]
+    else:
+        raise ValueError("Unknown provider")
+```
+
+*This lets you flexibly switch between local and cloud models as needed.*
+
+#### 4. Persona-Based Routing Example
+
+A persona is a role or function (like "sage" or "architect") that you can map to a specific model or provider.
+
+Map each persona to a model config, and route accordingly:
+
+```python
+persona_to_model = {
+    "sage": openai_config,        # Use OpenAI for Sage
+    "architect": ollama_config,   # Use local for Architect
+    "oracle": anthropic_config    # Use Claude for Oracle
+}
+def route_prompt(prompt, persona):
+    model_config = persona_to_model.get(persona, ollama_config)  # Default to local
+    return call_model(model_config, prompt)
+# Usage:
+response = route_prompt("What is the meaning of emergence?", "sage")
+print(response)
+```
+
+For a full-featured example, see the [Alden CLI persona_router.py on GitHub](https://github.com/nickgamb/mindgardenai-site/tree/main/src/tutorials/the_cathedral/alden_core/alden_cli).
+
+*With this setup, you can experiment with different routing strategies and personas for your workflow.*
+
+#### 5. Switching Between Local, Hybrid, and Fallback Modes
+- **Local only:** Set all personas to use your LM Studio/Ollama config.
+- **Hybrid:** Assign some personas to cloud, some to local, or let the user pick at runtime.
+- **Fallback:** If a cloud call fails, catch the error and retry with a local model.
+
+*Choose the mode that best fits your privacy, cost, and performance needs.*
+
+#### 6. Best Practices
+- Keep your `.env` file out of version control!
+- Use environment variables to load API keys securely.
+- Expand persona logic to route by intent, user, or context as needed.
+- LM Studio and Hugging Face are best for local/offline, privacy, and cost. Cloud APIs are best for cutting-edge models and reliability.
+
+By following these steps, you can build a flexible, persona-driven AI system that uses both local and cloud LLMs—just like advanced research tools.
 
 ---
 
@@ -851,3 +1003,5 @@ Caption: "Your AI education continues - resources for deeper exploration"
 ---
 
 *This guide is part of the AI Liberation series, exploring how to break free from cloud dependencies and build sovereign AI systems. The next installment will cover advanced symbolic analysis and consciousness modeling.* 
+
+Experiment with different personas and models, and share your results with the community! 
