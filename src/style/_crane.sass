@@ -88,13 +88,18 @@ $crane-fade-duration: 1.5s
   padding: 0 0.5rem 2rem
   
   @include desktop-only
-    top: 40vh
+    top: 50vh
     left: 0
     width: 100%
-    height: 60vh
+    height: 50vh
     padding: 0 2rem 2rem
     align-items: flex-start
     justify-content: center
+    
+  // Smaller desktop screens (like MacBook Pro)
+  @media (max-height: 800px)
+    top: 55vh
+    height: 45vh
 
 .crane-svg-loading
   color: $purple30
