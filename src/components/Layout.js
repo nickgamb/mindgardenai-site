@@ -64,7 +64,19 @@ const TemplateWrapper = ({ children }) => {
     document.body.style.minHeight = '100vh';
     document.body.style.backgroundColor = '#7035CC';
     
+    // AdSense initialization for mobile and fallback
+    const initializeAdSense = () => {
+      if (window.adsbygoogle) {
+        try {
+          window.adsbygoogle.push({});
+        } catch (e) {
+          // Ignore errors about already initialized ads
+        }
+      }
+    };
 
+    // Initialize ads after a delay
+    setTimeout(initializeAdSense, 2000);
     
     return () => {
       document.documentElement.classList.remove('js-enabled');
