@@ -49,16 +49,13 @@ const CraneScavengerEffect = () => {
 
   // Load SVG content
   useEffect(() => {
-    // Use different SVG file for mobile
-    const svgPath = isMobile ? '/crane_mobile.svg' : '/crane.svg';
-    
-    fetch(svgPath)
+    fetch('/crane.svg')
       .then(response => response.text())
       .then(svgText => {
         setCraneSVG(svgText);
       })
       .catch(error => console.error('Error loading crane SVG:', error));
-  }, [isMobile]); // Add isMobile as dependency
+  }, []);
 
   useEffect(() => {
     // Only start the animation timing once SVG is loaded
