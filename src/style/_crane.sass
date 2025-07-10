@@ -220,11 +220,11 @@ $crane-fade-duration: 1.5s
     
   // Wide and short screens - position UI on the left side
   @media (min-width: 1000px) and (max-height: 800px)
-    top: 20vh
-    left: 10%
+    top: 10vh
+    left: 5%
     transform: none
-    max-width: 50%
-    padding: 0 2rem
+    max-width: 45%
+    padding: 0 1rem
 
   // Success state - center vertically and use higher z-index
   &:has(.enhanced-title)
@@ -239,9 +239,9 @@ $crane-fade-duration: 1.5s
     // Wide and short screens - center in the left panel
     @media (min-width: 1000px) and (max-height: 800px)
       top: 50%
-      left: 10%
+      left: 5%
       transform: translateY(-50%)
-      max-width: 50%
+      max-width: 45%
 
 // ===== INTERFACE CARD =====
 .crane-interface-card
@@ -262,6 +262,11 @@ $crane-fade-duration: 1.5s
     border-radius: 16px
     max-width: 600px
     box-shadow: 0 8px 32px rgba($primary, 0.2), 0 0 0 1px rgba($purple30, 0.1)
+    
+  // Compact styling for short screens
+  @media (min-width: 1000px) and (max-height: 800px)
+    padding: 1.5rem 1.5rem
+    max-width: 100%
 
   &:hover
     @include desktop-only
@@ -285,6 +290,12 @@ $crane-fade-duration: 1.5s
     gap: 1.2rem
     margin-bottom: 2rem
     font-size: 1.2rem
+    
+  // Compact timer for short screens
+  @media (min-width: 1000px) and (max-height: 800px)
+    gap: 0.8rem
+    margin-bottom: 1rem
+    font-size: 1rem
 
 .crane-timer .countdown-display,
 .crane-timer .elapsed-display
@@ -307,6 +318,10 @@ $crane-fade-duration: 1.5s
     font-size: 1.6rem
     text-shadow: 0 0 8px rgba($purple30, 0.6)
     letter-spacing: 0.02em
+    
+  // Compact countdown for short screens
+  @media (min-width: 1000px) and (max-height: 800px)
+    font-size: 1.3rem
 
   .countdown-icon
     font-size: 1.1rem
