@@ -73,7 +73,7 @@ const CraneTemplate = ({ data }) => {
         image={bannerImage}
         type="WebPage"
       />
-      <div className="crane-full-viewport">
+      <div className="crane-gate-container">
         <CraneScavengerEffect />
         {/* Footer ad */}
         <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
