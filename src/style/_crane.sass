@@ -614,7 +614,8 @@ $crane-fade-duration: 1.5s
       padding: 1rem !important
 
 // ===== LANDSCAPE PHONE OVERRIDES =====
-@media (max-height: 700px) and (orientation: landscape)
+// More comprehensive landscape detection for mobile devices
+@media (orientation: landscape) and (max-width: 950px) and (max-height: 450px)
   .crane-gate-container
     min-height: 100vh !important
     overflow-y: auto !important
