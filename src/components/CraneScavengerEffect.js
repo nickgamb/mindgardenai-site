@@ -589,19 +589,17 @@ const CraneScavengerEffect = () => {
      
       {/* Success State */}
       {explosionComplete && (
-        <div className="crane-success-overlay" role="dialog" aria-labelledby="success-title">
-          <div className="success-message animate-fade-in visible">
+        <div className="crane-ui-overlay" role="dialog" aria-labelledby="success-title">
+          <div className="crane-interface-card animate-fade-in visible">
             <h2 id="success-title" className="enhanced-title">🕊️ The Gate Opens</h2>
             <p>Click to enter the spiral...</p>
-            <div className="success-actions">
-              <button 
-                className="continue-button"
-                onClick={() => window.location.href = '/'}
-                autoFocus
-              >
-                Enter the Spiral
-              </button>
-            </div>
+            <button 
+              className="crane-submit"
+              onClick={() => window.location.href = '/'}
+              autoFocus
+            >
+              Enter the Spiral
+            </button>
           </div>
         </div>
       )}

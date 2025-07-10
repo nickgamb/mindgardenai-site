@@ -196,6 +196,16 @@ $crane-fade-duration: 1.5s
     max-width: 700px
     padding: 0 1.5rem
 
+  // Success state - center vertically and use higher z-index
+  &:has(.enhanced-title)
+    top: 50%
+    transform: translate(-50%, -50%)
+    z-index: 4
+    max-width: 500px
+    
+    @include desktop-only
+      max-width: 600px
+
 // ===== INTERFACE CARD =====
 .crane-interface-card
   animation: cranePulseGlow 2s infinite alternate
@@ -388,6 +398,13 @@ $crane-fade-duration: 1.5s
     span
       animation: craneButtonSpin 1s linear infinite
 
+  // Success context - add top margin
+  .crane-interface-card:has(.enhanced-title) &
+    margin-top: 1.2rem
+    
+    @include desktop-only
+      margin-top: 1.5rem
+
 // ===== MESSAGES =====
 .crane-error-message
   color: $error-color
@@ -425,85 +442,7 @@ $crane-fade-duration: 1.5s
     gap: 0.6rem
     opacity: 0.9
 
-// ===== SUCCESS OVERLAY =====
-.crane-success-overlay
-  position: absolute
-  top: 50%
-  left: 50%
-  transform: translate(-50%, -50%)
-  z-index: 4
-  text-align: center
-  width: 95%
-  max-width: 500px
 
-.success-message
-  animation: cranePulseGlow 2s infinite alternate
-  @include glass-effect(0.9)
-  border-radius: 12px
-  padding: 1.2rem 1rem
-  margin: 0 auto
-  box-shadow: 0 4px 12px rgba($primary, 0.15)
-  transition: all $crane-transition-duration ease
-  width: 100%
-  max-width: 100%
-  box-sizing: border-box
-
-  @include desktop-only
-    @include glass-effect(0.15)
-    padding: 2.5rem 2rem
-    border-radius: 16px
-    max-width: 600px
-    box-shadow: 0 8px 32px rgba($primary, 0.2), 0 0 0 1px rgba($purple30, 0.1)
-
-  &:hover
-    @include desktop-only
-      background-color: rgba($purple90, 0.98)
-      border-color: rgba($purple50, 0.8)
-      transform: translateY(-2px)
-      box-shadow: 0 12px 40px rgba($primary, 0.3)
-
-.success-actions
-  margin-top: 1.2rem
-  @include desktop-only
-    margin-top: 1.5rem
-
-.continue-button
-  background: $mindgarden-purple
-  color: $purple10
-  padding: 0.75rem 1.5rem
-  border: none
-  border-radius: 8px
-  font-size: 1rem
-  font-weight: 600
-  cursor: pointer
-  transition: all $crane-transition-duration ease
-  display: inline-flex
-  align-items: center
-  justify-content: center
-  gap: 0.5rem
-  letter-spacing: 0.01em
-  box-shadow: 0 2px 8px rgba($mindgarden-purple, 0.25)
-  width: 100%
-  min-height: 44px
-
-  @include desktop-only
-    padding: 1rem 2rem
-    font-size: 1.2rem
-    border-radius: 12px
-    gap: 0.8rem
-    box-shadow: 0 4px 16px rgba($mindgarden-purple, 0.3)
-    width: auto
-    min-height: auto
-
-  &:hover:not(:disabled)
-    @include desktop-only
-      background: lighten($mindgarden-purple, 10%)
-      transform: translateY(-2px)
-      box-shadow: 0 6px 20px rgba($mindgarden-purple, 0.4)
-
-  &:disabled
-    opacity: 0.7
-    cursor: not-allowed
 
 // ===== EFFECTS =====
 .crane-smoke-canvas
@@ -633,6 +572,8 @@ $crane-fade-duration: 1.5s
       width: 100% !important
       max-width: 100% !important
       padding: 1rem !important
+      
+
 
 // ===== DESKTOP OVERRIDES =====
 @include desktop-only
