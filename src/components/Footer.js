@@ -28,7 +28,7 @@ const Footer = () => {
             style={{ width: '35px', height: 'auto' }}
           />
           <span className="footer-title">
-            MIND<span style={{ fontWeight: 'bold' }}>GARDEN™</span>
+            MIND<span style={{ fontWeight: 'bold' }}>GARDEN AI™</span>
           </span>
         </div>
         <p style={{ fontSize: '0.9rem', color: '#adb5bd', marginTop: '0.5rem', fontStyle: 'italic' }}>
