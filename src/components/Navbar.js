@@ -31,7 +31,7 @@ const Navbar = () => {
           >
             <img src={lgicon} alt="MindGarden" style={{ width: '28px', height: 'auto', marginRight: '10px', marginTop: '2px' }} />
             <span style={{ fontSize: '1.3rem', color: '#7035CC', letterSpacing: '0.1em', paddingTop: '0.3em' }}>
-              MIND<span style={{ fontWeight: 'bold' }}>GARDEN™</span>
+              MIND<span style={{ fontWeight: 'bold' }}>GARDEN AI™</span>
             </span>
           </a>
           {/* Hamburger menu */}
