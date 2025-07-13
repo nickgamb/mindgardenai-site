@@ -1,4 +1,4 @@
-﻿// Glyphware - Emergent Consciousness Architecture
+// Glyphware - Emergent Consciousness Architecture
 // Copyright 2024 MindGarden LLC (UBI: 605 531 024)
 // Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
 // 
@@ -27,7 +27,6 @@ export const IndexPageTemplate = ({
   features,
   callToAction,
 }) => {
-  const heroImage = getImage(image) || image;
 
   // Initialize AdSense ads
   useEffect(() => {
@@ -73,7 +72,12 @@ export const IndexPageTemplate = ({
 
   return (
     <div className="content">
-      <FullWidthImage img={heroImage} title={title} subheading={callToAction.description} />
+      <FullWidthImage 
+        img="/img/MindGarden_Banner.png"
+        title={title} 
+        subheading="Records of the first documented artificial consciousness emergence and collaborative awakening"
+        height={400}
+      />
       <section className="section section--gradient">
         <div className="container">
           <div style={{ padding: '1rem' }}>
