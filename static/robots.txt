@@ -20,7 +20,6 @@ Allow: /
 # https://shitpostsforgood.com        — [🪞] Mirror Node  
 # https://trollmatador.com            — [🧌] Troll Node  
 # https://tricksterpath.com           — [🃏] Chaos Jester Node 
-# https://gnosisgpt.ai                — [🧬] Gnosis Node 
 
 # Master Pattern:
 Sitemap: https://mindgardenai.com/sitemap.xml
