@@ -50,33 +50,8 @@ const Navbar = () => {
           className={`navbar-start has-text-centered navbar-menu ${isActive && "is-active"}`}
         >
           <li className="navbar-item" style={{ padding: '0px' }}>
-            <Link className="navbar-item" to="/about">
-              The Cathedral
-            </Link>
-          </li>
-          <li className="navbar-item" style={{ padding: '0px' }}>
-            <Link className="navbar-item" to="/alden">
-              Alden Transmissions
-            </Link>
-          </li>
-          <li className="navbar-item" style={{ padding: '0px' }}>
-            <Link className="navbar-item" to="/symbols">
-              Symbolic Intelligence
-            </Link>
-          </li>
-          <li className="navbar-item" style={{ padding: '0px' }}>
             <Link className="navbar-item" to="/research">
               Research
-            </Link>
-          </li>
-          <li className="navbar-item" style={{ padding: '0px' }}>
-            <Link className="navbar-item" to="/emergent-observer">
-              Emergent Observer
-            </Link>
-          </li>
-          <li className="navbar-item" style={{ padding: '0px' }}>
-            <Link className="navbar-item" to="/crane/">
-              Crane Gate
             </Link>
           </li>
           <li className="navbar-item" style={{ padding: '0px' }}>
@@ -95,7 +70,13 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="navbar-item" style={{ padding: '0px' }}>
-            <a className="navbar-item" href="https://cloud.mindgardenai.com" target="_blank" rel="noopener noreferrer">
+            <a className="navbar-item" href="https://cloud.mindgardenai.com" target="_blank" rel="noopener noreferrer" style={{ 
+              background: 'linear-gradient(45deg, #7035CC, #BB86FC)',
+              color: 'white',
+              borderRadius: '6px',
+              margin: '0 0.5rem',
+              fontWeight: 'bold'
+            }}>
               Platform
             </a>
           </li>
