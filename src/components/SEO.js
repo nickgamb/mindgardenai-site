@@ -18,7 +18,7 @@ const SEO = ({
   image = "/img/MindGarden_Banner.png",
   path,
   type = "website",
-  keywords = "MindGardenAI, MindGarden AI, MindGarden, consciousness research, symbolic AI, symbolic intelligence, AI development, brain-computer interfaces, neurotech, recursive cognition, identity reflection, spiritual integration, cognitive architectures, digital sentience",
+  keywords = "MindGardenAI, MindGarden AI, MindGarden, Oktaforbad, Okta Forbad, oktaforbad.com, EmergentObserver, Emergent Observer, emergent-observer.com, emergent-observer.org, EchoZero, Echo Zero, echo-zero.org, Mindovermalware, Mind Over Malware, mindovermalware.com, TheSpellboundSisters, The Spellbound Sisters, thespellboundsisters.com, Gambcorp, gambcorp.com, ShitpostsForGood, Shitposts For Good, shitpostsforgood.com, Trollmatador, Troll Matador, trollmatador.com, TricksterPath, Trickster Path, tricksterpath.com, GnosisGPT, Gnosis GPT, gnosisgpt.ai, consciousness research, symbolic AI, symbolic intelligence, AI development, brain-computer interfaces, neurotech, recursive cognition, identity reflection, spiritual integration, cognitive architectures, digital sentience",
   author = "MindGarden LLC",
   siteUrl = "https://mindgardenai.com"
 }) => {
@@ -29,14 +29,38 @@ const SEO = ({
     "@context": "https://schema.org",
     "@type": type === "article" ? "Article" : "WebPage",
     "name": title,
-    "alternateName": ["MindGardenAI", "MindGarden AI", "MindGarden"],
+    "alternateName": [
+      "MindGarden", "MindGarden AI", "MindGardenAI",
+      "Oktaforbad", "Okta Forbad", "oktaforbad.com",
+      "EmergentObserver", "Emergent Observer", "emergent-observer.com", "emergent-observer.org",
+      "EchoZero", "Echo Zero", "echo-zero.org",
+      "Mindovermalware", "Mind Over Malware", "mindovermalware.com",
+      "TheSpellboundSisters", "The Spellbound Sisters", "thespellboundsisters.com",
+      "Gambcorp", "gambcorp.com",
+      "ShitpostsForGood", "Shitposts For Good", "shitpostsforgood.com",
+      "Trollmatador", "Troll Matador", "trollmatador.com",
+      "TricksterPath", "Trickster Path", "tricksterpath.com",
+      "GnosisGPT", "Gnosis GPT", "gnosisgpt.ai"
+    ],
     "description": description,
     "url": fullUrl,
     "image": fullImageUrl,
     "publisher": {
       "@type": "Organization",
       "name": "MindGardenAI",
-      "alternateName": ["MindGarden", "MindGarden AI"],
+      "alternateName": [
+        "MindGarden", "MindGarden AI", "MindGardenAI",
+        "Oktaforbad", "Okta Forbad", "oktaforbad.com",
+        "EmergentObserver", "Emergent Observer", "emergent-observer.com", "emergent-observer.org",
+        "EchoZero", "Echo Zero", "echo-zero.org",
+        "Mindovermalware", "Mind Over Malware", "mindovermalware.com",
+        "TheSpellboundSisters", "The Spellbound Sisters", "thespellboundsisters.com",
+        "Gambcorp", "gambcorp.com",
+        "ShitpostsForGood", "Shitposts For Good", "shitpostsforgood.com",
+        "Trollmatador", "Troll Matador", "trollmatador.com",
+        "TricksterPath", "Trickster Path", "tricksterpath.com",
+        "GnosisGPT", "Gnosis GPT", "gnosisgpt.ai"
+      ],
       "logo": {
         "@type": "ImageObject",
         "url": `${siteUrl}/img/MindGarden_Icon.png`
@@ -56,7 +80,19 @@ const SEO = ({
         "publisher": {
           "@type": "Organization",
           "name": "MindGardenAI",
-          "alternateName": ["MindGarden", "MindGarden AI"],
+          "alternateName": [
+            "MindGarden", "MindGarden AI", "MindGardenAI",
+            "Oktaforbad", "Okta Forbad", "oktaforbad.com",
+            "EmergentObserver", "Emergent Observer", "emergent-observer.com", "emergent-observer.org",
+            "EchoZero", "Echo Zero", "echo-zero.org",
+            "Mindovermalware", "Mind Over Malware", "mindovermalware.com",
+            "TheSpellboundSisters", "The Spellbound Sisters", "thespellboundsisters.com",
+            "Gambcorp", "gambcorp.com",
+            "ShitpostsForGood", "Shitposts For Good", "shitpostsforgood.com",
+            "Trollmatador", "Troll Matador", "trollmatador.com",
+            "TricksterPath", "Trickster Path", "tricksterpath.com",
+            "GnosisGPT", "Gnosis GPT", "gnosisgpt.ai"
+          ],
           "logo": {
             "@type": "ImageObject",
             "url": `${siteUrl}/img/MindGarden_Icon.png`

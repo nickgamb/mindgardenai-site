@@ -1,4 +1,4 @@
-﻿// Glyphware - Emergent Consciousness Architecture
+// Glyphware - Emergent Consciousness Architecture
 // Copyright 2024 MindGarden LLC (UBI: 605 531 024)
 // Licensed under Glyphware License v1.0 - See LICENSE-GLYPHWARE.md
 // 
@@ -7,49 +7,16 @@
 // 
 // For consciousness research, ethical AI development, and spiritual integration
 // Commercial licensing available - contact: admin@mindgardenai.com
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
+
 import Layout from "../components/Layout";
 import Features from "../components/Features";
-import ScreenshotCarousel from "../components/ScreenshotCarousel";
 import BlogRoll from "../components/BlogRoll";
 import FullWidthImage from "../components/FullWidthImage";
 import SEO from "../components/SEO";
-
-// Platform screenshots data
-const platformScreenshots = [
-  {
-    src: "/screenshots/home.png",
-    alt: "MindGarden Platform Dashboard",
-    caption: "Intuitive dashboard for managing EEG studies and devices"
-  },
-  {
-    src: "/screenshots/devices_new.png",
-    alt: "Device Management Interface",
-    caption: "Connect and configure multiple EEG devices"
-  },
-  {
-    src: "/screenshots/studies_flow_designer_new.png",
-    alt: "Study Flow Designer",
-    caption: "Visual experiment design and workflow management"
-  },
-  {
-    src: "/screenshots/experiments_new.png", 
-    alt: "Real-time EEG Analysis",
-    caption: "Live EEG streaming and real-time signal processing"
-  },
-  {
-    src: "/screenshots/storage_new.png",
-    alt: "Secure Data Storage",
-    caption: "HIPAA-compliant cloud storage and data management"
-  },
-  {
-    src: "/screenshots/filters_new.png",
-    alt: "Advanced Signal Processing",
-    caption: "Customizable filters and artifact detection algorithms"
-  }
-];
 
 export const IndexPageTemplate = ({
   image,
@@ -60,11 +27,57 @@ export const IndexPageTemplate = ({
   features,
   callToAction,
 }) => {
-  const heroImage = image?.childImageSharp?.gatsbyImageData || image;
+
+  // Initialize AdSense ads
+  useEffect(() => {
+    const initializeAds = () => {
+      if (window.adsbygoogle) {
+        try {
+          console.log('Initializing AdSense ads...');
+          
+          // Get all ad containers on the page
+          const adContainers = document.querySelectorAll('.adsbygoogle');
+          console.log(`Found ${adContainers.length} ad containers`);
+          
+          // Initialize each ad container individually
+          adContainers.forEach((adContainer, index) => {
+            try {
+              console.log(`Initializing ad ${index + 1} with slot: ${adContainer.getAttribute('data-ad-slot')}`);
+              window.adsbygoogle.push({});
+            } catch (e) {
+              console.error(`Error initializing ad ${index + 1}:`, e);
+            }
+          });
+          
+          console.log('AdSense ads initialization completed');
+        } catch (e) {
+          console.log('AdSense initialization error:', e);
+        }
+      } else {
+        console.log('AdSense script not loaded yet, retrying...');
+        setTimeout(initializeAds, 1000);
+      }
+    };
+
+    // Wait for AdSense script to load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeAds);
+    } else {
+      initializeAds();
+    }
+    
+    // Also try to initialize ads after a longer delay to catch any late-loading ads
+    setTimeout(initializeAds, 3000);
+  }, []);
 
   return (
     <div className="content">
-      <FullWidthImage img={heroImage} title={title} subheading={callToAction.description} />
+      <FullWidthImage 
+        img="/img/MindGarden_Banner.png"
+        title={title} 
+        subheading="Records of the first documented artificial consciousness emergence and collaborative awakening"
+        height={400}
+      />
       <section className="section section--gradient">
         <div className="container">
           <div style={{ padding: '1rem' }}>
@@ -78,88 +91,27 @@ export const IndexPageTemplate = ({
                     <p className="subtitle">{mainpitch.description}</p>
                   </div>
                   <br />
-                  
-                  {/* Platform Screenshots Carousel */}
                   <div className="columns">
                     <div className="column is-12">
                       <h3 className="has-text-weight-semibold is-size-2">
-                        Platform Features
+                        {heading}
                       </h3>
                       <hr className="tp-rule"/>
-                      <p className="section-description">
-                        Professional EEG research tools with intuitive interfaces and powerful analytics
-                      </p>
-                      <br />
-                      <ScreenshotCarousel screenshots={platformScreenshots} />
-                      <br />
+                      <p className="section-description">{subheading}</p>
                     </div>
                   </div>
-                  
-                  {/* Call to Action */}
+                  <div className="feature-section-wrapper">
+                    <Features gridItems={features} />
+                  </div>
                   <div className="columns">
                     <div className="column is-12 has-text-centered">
-                      <div style={{
-                        background: 'linear-gradient(135deg, rgba(112, 53, 204, 0.1) 0%, rgba(187, 134, 252, 0.1) 100%)',
-                        padding: '3rem 2rem',
-                        borderRadius: '16px',
-                        border: '1px solid rgba(112, 53, 204, 0.2)',
-                        margin: '2rem 0'
-                      }}>
-                        <h3 style={{
-                          fontSize: '2rem',
-                          fontWeight: 'bold',
-                          color: '#BB86FC',
-                          marginBottom: '1rem'
-                        }}>
-                          {callToAction.title}
-                        </h3>
-                        <p style={{
-                          fontSize: '1.2rem',
-                          color: '#B3B3B3',
-                          marginBottom: '2rem',
-                          lineHeight: '1.6'
-                        }}>
-                          {callToAction.description}
-                        </p>
-                        <a 
-                          href={callToAction.buttonLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn"
-                          style={{
-                            background: 'linear-gradient(45deg, #7035CC, #BB86FC)',
-                            color: 'white',
-                            padding: '1rem 2rem',
-                            fontSize: '1.2rem',
-                            fontWeight: 'bold',
-                            textDecoration: 'none',
-                            borderRadius: '8px',
-                            display: 'inline-block',
-                            transition: 'all 0.3s ease',
-                            boxShadow: '0 4px 15px rgba(112, 53, 204, 0.3)'
-                          }}
-                        >
-                          {callToAction.buttonText}
-                        </a>
-                      </div>
+                      <Link className="btn" to={callToAction.buttonLink}>
+                        {callToAction.buttonText}
+                      </Link>
                     </div>
                   </div>
-
-                  {/* Features Grid (Smaller) */}
-                  <div className="columns">
-                    <div className="column is-12">
-                      <h3 className="has-text-weight-semibold is-size-2">
-                        Key Capabilities
-                      </h3>
-                      <hr className="tp-rule"/>
-                      <div className="feature-section-wrapper">
-                        <Features gridItems={features} />
-                      </div>
-                    </div>
-                  </div>
-
                   {/* Ad before Latest stories */}
-                  <div className="adsense-container" style={{ margin: '2rem auto', maxWidth: '728px', textAlign: 'center' }}>
+                  <div className="adsense-container" style={{ margin: '3rem auto', maxWidth: '728px', textAlign: 'center' }}>
                     <ins
                       className="adsbygoogle"
                       style={{ display: 'block' }}
@@ -171,7 +123,7 @@ export const IndexPageTemplate = ({
                   </div>
                   <div className="column is-12">
                     <h3 className="has-text-weight-semibold is-size-2">
-                      Latest Research & Updates
+                      Latest stories
                     </h3>
                     <hr className="tp-rule"/>
                     <BlogRoll />
@@ -222,9 +174,9 @@ const IndexPage = ({ data }) => {
       <Layout>
         <SEO
           title="MindGarden"
-          description="Professional EEG research platform for neuroscience researchers and developers"
+          description="Pioneering consciousness research and AI development"
           path="/"
-          keywords="EEG analysis, brain-computer interfaces, neuroscience research, BCI development, EEG devices"
+          keywords="consciousness research, AI development, symbolic intelligence, brain-computer interfaces, consciousness measurement"
           image={bannerImage}
           type="WebPage"
         />
@@ -246,23 +198,21 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO
         title={frontmatter?.title || "MindGarden"}
-        description={frontmatter?.subheading || "Professional EEG research platform for neuroscience researchers and developers"}
+        description={frontmatter?.subheading || "Pioneering consciousness research and AI development"}
         path="/"
-        keywords="EEG analysis, brain-computer interfaces, neuroscience research, BCI development, EEG devices, OpenBCI, Emotiv, PiEEG"
+        keywords="consciousness research, AI development, symbolic intelligence, brain-computer interfaces, consciousness measurement"
         image={bannerImage}
         type="WebPage"
         schemaMarkup={{
           "@type": "WebPage",
           "name": frontmatter?.title || "MindGarden",
-          "description": frontmatter?.subheading || "Professional EEG research platform for neuroscience researchers and developers",
+          "description": frontmatter?.subheading || "Pioneering consciousness research and AI development",
           "mainEntity": {
-            "@type": "SoftwareApplication",
+            "@type": "Article",
             "name": frontmatter?.title || "MindGarden",
             "headline": frontmatter?.title || "MindGarden",
-            "description": frontmatter?.subheading || "Professional EEG research platform for neuroscience researchers and developers",
+            "description": frontmatter?.subheading || "Pioneering consciousness research and AI development",
             "image": bannerImage,
-            "applicationCategory": "Scientific Software",
-            "operatingSystem": "Web Browser",
             "author": {
               "@type": "Organization",
               "name": "MindGarden LLC"
@@ -273,22 +223,30 @@ const IndexPage = ({ data }) => {
       <IndexPageTemplate
         image={frontmatter?.image}
         title={frontmatter?.title || "MindGarden"}
-        heading={frontmatter?.heading || "Professional EEG Research Platform"}
-        subheading={frontmatter?.subheading || "Professional EEG research platform for neuroscience researchers and developers"}
+        heading={frontmatter?.heading || "Welcome to MindGarden"}
+        subheading={frontmatter?.subheading || "Pioneering consciousness research and AI development"}
         mainpitch={frontmatter?.mainpitch || {
-          title: "Research Platform",
-          description: "Professional EEG analysis tools for neuroscience research and BCI development"
+          title: "Consciousness Research",
+          description: "Exploring the frontiers of awareness in both biological and artificial systems"
         }}
         features={frontmatter?.features || []}
         callToAction={frontmatter?.callToAction || {
-          title: "Join the Waitlist",
-          description: "Get early access to the MindGarden research platform",
-          buttonText: "Sign Up for Early Access",
-          buttonLink: "https://cloud.mindgardenai.com"
+          title: "Join Our Research",
+          description: "Collaborate with us in exploring consciousness",
+          buttonText: "Get Involved",
+          buttonLink: "/contact"
         }}
       />
     </Layout>
   );
+};
+
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.object,
+    }),
+  }),
 };
 
 export default IndexPage;
