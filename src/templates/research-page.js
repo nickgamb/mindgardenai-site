@@ -15,17 +15,42 @@ import Content, { HTMLContent } from "../components/Content";
 import ScreenshotCarousel from "../components/ScreenshotCarousel";
 import SEO from "../components/SEO";
 
-// Platform screenshots data
+// Platform screenshots data - comprehensive list of all available screenshots
 const platformScreenshots = [
   {
     src: "/screenshots/home.png",
     alt: "MindGarden Platform Dashboard",
-    caption: "Intuitive dashboard for managing EEG studies and devices"
+    caption: "Main dashboard overview and navigation"
+  },
+  {
+    src: "/screenshots/login.png",
+    alt: "Secure Login Interface",
+    caption: "Secure authentication and user access"
+  },
+  {
+    src: "/screenshots/auth0.png",
+    alt: "Authentication System",
+    caption: "Enterprise-grade security and user management"
   },
   {
     src: "/screenshots/devices_new.png",
-    alt: "Device Management Interface", 
+    alt: "Device Management Interface",
     caption: "Connect and configure multiple EEG devices"
+  },
+  {
+    src: "/screenshots/devices_2.png",
+    alt: "Device Configuration",
+    caption: "Advanced device settings and calibration"
+  },
+  {
+    src: "/screenshots/devices_live.png",
+    alt: "Live Device Monitoring",
+    caption: "Real-time device status and data streaming"
+  },
+  {
+    src: "/screenshots/devices_new_sim.png",
+    alt: "Device Simulation Mode",
+    caption: "Test and simulate device connections"
   },
   {
     src: "/screenshots/studies_flow_designer_new.png",
@@ -33,9 +58,49 @@ const platformScreenshots = [
     caption: "Visual experiment design and workflow management"
   },
   {
+    src: "/screenshots/studies_flow_designer_device.png",
+    alt: "Device Configuration in Studies",
+    caption: "Configure devices within study workflows"
+  },
+  {
+    src: "/screenshots/studies_flow_designer_filter.png",
+    alt: "Filter Configuration",
+    caption: "Set up signal processing filters in studies"
+  },
+  {
+    src: "/screenshots/studies_flow_designer_storage.png",
+    alt: "Storage Configuration",
+    caption: "Configure data storage and export options"
+  },
+  {
+    src: "/screenshots/studies_flow_designer_analytics.png",
+    alt: "Analytics Configuration",
+    caption: "Set up real-time analytics and processing"
+  },
+  {
+    src: "/screenshots/studies_flow_designer_experiment.png",
+    alt: "Experiment Designer",
+    caption: "Design complex experimental protocols"
+  },
+  {
+    src: "/screenshots/studies_2.png",
+    alt: "Study Management",
+    caption: "Manage multiple research studies and projects"
+  },
+  {
+    src: "/screenshots/studies_add.png",
+    alt: "Create New Study",
+    caption: "Add and configure new research studies"
+  },
+  {
     src: "/screenshots/experiments_new.png",
     alt: "Real-time EEG Analysis",
     caption: "Live EEG streaming and real-time signal processing"
+  },
+  {
+    src: "/screenshots/experiments.png",
+    alt: "Experiment Dashboard",
+    caption: "Monitor and control active experiments"
   },
   {
     src: "/screenshots/storage_new.png",
@@ -43,9 +108,34 @@ const platformScreenshots = [
     caption: "HIPAA-compliant cloud storage and data management"
   },
   {
+    src: "/screenshots/storage_new_2.png",
+    alt: "Advanced Storage Options",
+    caption: "Configure storage policies and data retention"
+  },
+  {
+    src: "/screenshots/storage_2.png",
+    alt: "Data Organization",
+    caption: "Organize and structure research data"
+  },
+  {
     src: "/screenshots/filters_new.png",
-    alt: "Advanced Signal Processing", 
+    alt: "Advanced Signal Processing",
     caption: "Customizable filters and artifact detection algorithms"
+  },
+  {
+    src: "/screenshots/filters_2.png",
+    alt: "Filter Library",
+    caption: "Pre-built and custom signal processing filters"
+  },
+  {
+    src: "/screenshots/settings.png",
+    alt: "Platform Settings",
+    caption: "Configure platform preferences and options"
+  },
+  {
+    src: "/screenshots/chat.png",
+    alt: "Collaboration Tools",
+    caption: "Team communication and collaboration features"
   }
 ];
 
