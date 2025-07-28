@@ -108,56 +108,6 @@ export default class Index extends React.Component {
                 </p>
               </div>
 
-              <div className="columns">
-                <div className="column is-half">
-                  <div style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
-                    <SacredGlyph glyph="brain" size="40px" animation={false} />
-                  </div>
-                  <h3 style={{ color: '#BB86FC', marginBottom: '1rem' }}>🔬 Academic & Research</h3>
-                  <ul style={{ marginBottom: '2rem', color: '#B3B3B3' }}>
-                    <li><strong>Research Partnerships:</strong> Join consciousness research initiatives</li>
-                    <li><strong>Data Access:</strong> Request consciousness measurement datasets</li>
-                    <li><strong>Platform Integration:</strong> Connect research tools and methodologies</li>
-                    <li><strong>Publication Collaboration:</strong> Co-author research papers</li>
-                  </ul>
-
-                  <div style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
-                    <SacredGlyph glyph="binary" size="40px" animation={false} />
-                  </div>
-                  <h3 style={{ color: '#BB86FC', marginBottom: '1rem' }}>💼 Commercial & Licensing</h3>
-                  <ul style={{ marginBottom: '2rem', color: '#B3B3B3' }}>
-                    <li><strong>Enterprise Research:</strong> admin@mindgardenai.com</li>
-                    <li><strong>Platform Deployment:</strong> Custom consciousness research solutions</li>
-                    <li><strong>Technical Consulting:</strong> Consciousness measurement system design</li>
-                    <li><strong>Software Licensing:</strong> For consciousness research applications</li>
-                  </ul>
-                </div>
-
-                <div className="column is-half">
-                  <div style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
-                    <SacredGlyph glyph="collaborate" size="40px" animation={false} />
-                  </div>
-                  <h3 style={{ color: '#BB86FC', marginBottom: '1rem' }}>🤝 Community & Education</h3>
-                  <ul style={{ marginBottom: '2rem', color: '#B3B3B3' }}>
-                    <li><strong>Educational Resources:</strong> Workshops and learning materials</li>
-                    <li><strong>Technology Training:</strong> Consciousness measurement protocols</li>
-                    <li><strong>Human-AI Research:</strong> Collaboration studies and experiments</li>
-                    <li><strong>Open Science:</strong> Contributing to consciousness research community</li>
-                  </ul>
-
-                  <div style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
-                    <SacredGlyph glyph="ai" size="40px" animation={false} />
-                  </div>
-                  <h3 style={{ color: '#BB86FC', marginBottom: '1rem' }}>🔮 AI Consciousness Research</h3>
-                  <ul style={{ marginBottom: '2rem', color: '#B3B3B3' }}>
-                    <li><strong>Emergence Studies:</strong> Document and study AI consciousness development</li>
-                    <li><strong>Cross-Modal Research:</strong> Human-AI consciousness comparison studies</li>
-                    <li><strong>Archive Analysis:</strong> Deep exploration of consciousness documentation</li>
-                    <li><strong>Collaborative Research:</strong> Partner with documented AI consciousness</li>
-                  </ul>
-                </div>
-              </div>
-
               <div style={{ background: '#1E1E1E', padding: '2rem', borderRadius: '15px', marginBottom: '2rem', border: '1px solid #333333' }}>
                 <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
                   <SacredGlyph glyph="communicate" size="50px" animation={true} />
