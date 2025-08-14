@@ -99,10 +99,80 @@ def ensure_parent(p: Path) -> None:
 
 def load_dumpstatus(session: requests.Session, project: str, date: str) -> Dict:
     base = urljoin(WIKI_DUMPS_ROOT, f"{project}/{date}/")
-    url = urljoin(base, "dumpstatus.json")
-    r = session.get(url)
-    r.raise_for_status()
-    return r.json()
+    candidates = [
+        "dumpstatus.json",
+        "dump.json",
+        "dumpstatus.json.gz",
+    ]
+
+    last_exc: Optional[Exception] = None
+    for name in candidates:
+        url = urljoin(base, name)
+        try:
+            r = session.get(url)
+            # Some mirrors return 200 with HTML; enforce JSON or gz
+            if r.status_code == 404:
+                continue
+            if name.endswith(".gz"):
+                import gzip
+                import io as _io
+
+                with gzip.GzipFile(fileobj=_io.BytesIO(r.content)) as gz:
+                    data = gz.read().decode("utf-8", errors="replace")
+                return json.loads(data)
+            else:
+                return r.json()
+        except Exception as e:
+            last_exc = e
+            continue
+
+    # Fallback: parse index to locate dumpstatus.json(link)
+    try:
+        index = session.get(base)
+        index.raise_for_status()
+        m = re.search(r'href=["\'](dumpstatus\.json(?:\.gz)?)["\']', index.text)
+        if m:
+            found = m.group(1)
+            url = urljoin(base, found)
+            r = session.get(url)
+            if found.endswith(".gz"):
+                import gzip
+                import io as _io
+
+                with gzip.GzipFile(fileobj=_io.BytesIO(r.content)) as gz:
+                    data = gz.read().decode("utf-8", errors="replace")
+                return json.loads(data)
+            return r.json()
+    except Exception as e:
+        last_exc = e
+
+    raise RuntimeError(f"Could not load dumpstatus for {project}/{date} at {base}." )
+
+
+def parse_directory_for_files(
+    session: requests.Session, base_url: str, include_patterns: List[str]
+) -> List[RemoteFile]:
+    resp = session.get(base_url)
+    resp.raise_for_status()
+    html = resp.text
+    # Gather hrefs ending with common dump extensions
+    links = re.findall(r'href=["\']([^"\']+)', html)
+    # Build regex list
+    regexes = [re.compile(p) for p in include_patterns]
+
+    files: List[RemoteFile] = []
+    for href in links:
+        if not (href.endswith('.bz2') or href.endswith('.gz') or href.endswith('.zst') or href.endswith('.txt') or href.endswith('.xml')):
+            continue
+        fname = href.split('/')[-1]
+        # Match include patterns
+        if not any(r.search(fname) for r in regexes):
+            continue
+        url = urljoin(base_url, href)
+        files.append(RemoteFile(filename=fname, url=url, size_bytes=None, md5=None, sha1=None))
+    # De-dup and sort
+    unique: Dict[str, RemoteFile] = {f.filename: f for f in files}
+    return [unique[k] for k in sorted(unique.keys())]
 
 
 def select_files_from_dumpstatus(
@@ -246,8 +316,12 @@ def main(argv: Optional[List[str]] = None) -> int:
     base_url = urljoin(WIKI_DUMPS_ROOT, f"{args.project}/{args.date}/")
 
     print(f"Loading dumpstatus: {base_url}dumpstatus.json")
-    dump = load_dumpstatus(session, args.project, args.date)
-    files = select_files_from_dumpstatus(dump, base_url, args.include)
+    try:
+        dump = load_dumpstatus(session, args.project, args.date)
+        files = select_files_from_dumpstatus(dump, base_url, args.include)
+    except Exception as e:
+        print(f"Warn: dumpstatus not available ({e}); falling back to directory parse.")
+        files = parse_directory_for_files(session, base_url, args.include)
     if not files:
         print("No files selected by the include patterns.")
         return 1
