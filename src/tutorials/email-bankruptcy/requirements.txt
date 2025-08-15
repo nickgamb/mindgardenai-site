@@ -1,0 +1,22 @@
+# Email Bankruptcy System Dependencies
+# Install with: pip install -r requirements.txt
+
+# Google Gmail API
+google-api-python-client==2.147.0
+google-auth-httplib2==0.2.0
+google-auth-oauthlib==1.2.1
+google-auth==2.35.0
+
+# Email handling
+email-validator==2.2.0
+
+# General utilities (usually included with Python but listed for completeness)
+# datetime - built-in
+# json - built-in
+# pickle - built-in
+# base64 - built-in
+# typing - built-in
+# os - built-in
+# sys - built-in
+# time - built-in
+# re - built-in
